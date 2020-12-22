@@ -1,0 +1,27 @@
+﻿@page "/TESTS/L22/CounterEP12"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br />
+<br />
+
+<button class="button" @onclick="(()=>
+                                 {
+                                     child.Show();
+                                 })"> Show Child </button>
+<ChildComponentEp12 @ref="child"></ChildComponentEp12>
+
+@code {
+    private ChildComponentEp12 child;
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

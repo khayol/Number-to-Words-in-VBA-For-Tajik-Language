@@ -1,0 +1,51 @@
+@page "/Dir/GenderAdd"
+@inject GenderController objGenderController
+
+<div class="fix-possition">
+<PanelElemens>
+<ControlQuickAccess>
+        <input type="button" class="btn bnt-style-general" @onclick="@CreateGender" value="Save" >
+        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+</ControlQuickAccess>
+</PanelElemens>
+</div> 
+<div class="under-cls">
+<form>
+<div class="row">
+    
+    <div class="col-md-8  field-content">
+
+        <div class="form-group">
+            <label for="Name" class="control-lable">Name</label>
+            <input form="Name" class="form-control" @bind="@objGender.Name" />
+        </div>
+
+            @* <div class="form-group">
+                <label for="CreatedDate" class="control-lable">CreatedDate</label>
+                <input form="AlpCreatedDateha3" class="form-control" @bind="@objGender.CreatedDate" />
+            </div> *@
+        
+    </div>
+    
+</div>
+
+</form>
+</div>
+@code{
+    Gender objGender= new Gender();
+
+     protected override void OnInitialized()
+    {
+        base.OnInitialized();
+          // objGender.IndividualId=int.Parse(AppData.Individual_IdSelect);
+    }
+    protected  void CreateGender(){ 
+
+        objGenderController.Create(objGender);
+        NavManager.NavigateTo("/Dir/GenderViewStd/");
+    }
+    void Cancel(){
+       NavManager.NavigateTo("/Dir/GenderViewStd/");
+    }
+
+}

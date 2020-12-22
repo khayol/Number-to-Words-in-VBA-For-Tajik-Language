@@ -1,0 +1,225 @@
+﻿@page "/Dir/GenderViewStd/{Id}"
+@inject GenderController GenderController
+
+@if (GenderList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <DataGridComp @ref="grid"
+                  DataItems="GenderList"
+                  Columns="columnsDefinition"
+                  SelectedRow="SelectedRowMeth"
+                  UniqIdOfRecord="Id"
+                  ColumnsToExcludeCSV="Id"
+                  PageNameTitle="@trs.GetTranslation("GenderViewStd",@AppData.ActiveUser,"Dir")"
+                  Paging="@(new PagingConfig
+                            {
+                                Enabled = true,
+                                CustomPager = false,
+                                PageSize = @AppData.rowNumMid
+                            })">
+
+        <ControlMenu>
+            <a @onclick="@(args => AddNew("/Dir/GenderAdd"))" value="Add" class="menu-itms">Add</a>
+            <a @onclick="@(args => ViewOrEdit("/Dir/GenderEdit/", selectedRow,"Edit"))" class="menu-itms">Edit</a>
+            <a @onclick="@(args => Delete("/Dir/GenderDelete/", selectedRow))" class="menu-itms">Delete</a>
+        </ControlMenu>
+
+        <ControlQuickAccess>
+            &nbsp &nbsp
+            @*<input style="text-align: center; " />*@
+            <DGridColumnComp  OnSearchTextChanged="OnGenderSearchTextChanged"> </DGridColumnComp>
+            <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="Search"><span class="fa fa-search" aria-hidden="true" id="search-input"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="Clean search box"><span class="fa fa-chevron-left" aria-hidden="true"></span></button>
+            &nbsp &nbsp
+
+            <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.BaseUrlUri))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
+            <button class="btn bnt-style-general" @onclick="@(args => AddNew("/Dir/GenderAdd"))" data-toggle="tooltip" title="Add"><span class="fa fa-plus" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => ViewOrEdit("/Dir/GenderEdit/", selectedRow,"View"))" data-toggle="tooltip" title="View"><span class="fa fa-file" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => ViewOrEdit("/Dir/GenderEdit/", selectedRow,"Edit"))" data-toggle="tooltip" title="Edit"><span class="fa fa-pencil" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => Delete("/Dir/GenderDelete/", selectedRow))" data-toggle="tooltip" title="Delete"><span class="fa fa-trash" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => FilterData())" data-toggle="tooltip" title="Filter"><span class="fa fa-filter" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="Export to Excel"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
+         
+          
+        </ControlQuickAccess>    
+    </DataGridComp>
+}
+
+
+
+    @* ------------------------------------------------------------------------------*@
+    @code  {
+  
+
+    [Parameter]
+    public string Id { get; set; }
+    private List<Gender> GenderList;
+    private List<Gender> filteredGenderList { get; set; }
+    private DataGridComp<Gender> grid;
+        
+    private List<ColumnDefinition> columnsDefinition;
+
+    private string selectedRow { get; set; } = "";
+
+        private int CurrentPage { get; set; } = 1;
+
+    private void OnGenderSearchTextChanged(ChangeEventArgs changeEventArgs)
+    {
+        string searchValue = changeEventArgs.Value.ToString();
+        GenderList = GenderController.GetGenderByFiled(searchValue,int.Parse(Id));
+        GoToFirstPage();
+        GetCurrentPage();         
+    }
+
+
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        selectedRow = pSelectedRow;
+        AppData.GenderIdSlcd= selectedRow;
+        AppData.GenderCode = GenderController.GetGenderCodeById(int.Parse(selectedRow));
+     //   AppData.GenderPageNum = grid.CurrentPage.ToString();
+    }
+
+    protected void FindSelectedRec()
+    {
+        //JSRuntime.InvokeVoidAsync("msgbox","Test");
+        string searchValue = AppData.GenderCode;
+        GenderList = GenderController.GetGenderByFiled(searchValue,int.Parse(Id));
+        GoToFirstPage();
+        GetCurrentPage();
+        
+    }
+
+    protected void CleanSearchBox()
+    {
+        //JSRuntime.InvokeVoidAsync("msgbox","Test");
+        string searchValue = AppData.GenderCode = "";
+        GenderList = GenderController.GetGenderByFiled(searchValue,int.Parse(Id));
+        GoToFirstPage();
+        GetCurrentPage();
+        selectedRow = "";
+        
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Initilize();
+      //  selectedRow = AppData.GenderIdSlcd;
+        AppData.ActivePageName="View-Gender";
+
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+       
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+
+    private void Initilize()
+    {
+        if (columnsDefinition == null)
+        {
+            columnsDefinition = new List<ColumnDefinition>();
+            columnsDefinition.AddRange(
+                new ColumnDefinition[] {
+
+                    new ColumnDefinition { DataField = "Code", Caption="Code"},
+                    new ColumnDefinition { DataField = "Name", Caption="Name" },
+                   
+                    }
+            );
+        }
+
+        GenderList = GenderController.GetGenderById2(int.Parse(Id)).ToList();
+
+    }
+
+    private void GoToFirstPage()
+    {
+     grid.GoToFirstPage();
+     CurrentPage=1;    
+    }
+    
+    private void GetCurrentPage()
+    {
+        CurrentPage= grid.GetCurrentPage();        
+    }
+
+    
+
+    private void ViewOrEditFlag(string pViewOrEdit)
+    {
+        if(pViewOrEdit.ToUpper()=="VIEW")
+        {
+            AppData.readonlyMain1=true;
+            AppData.readonlyMain2=true;
+            AppData.readonlyOther=true;
+        }
+        else if(pViewOrEdit.ToUpper()=="EDIT")
+        {
+            AppData.readonlyMain1=true;
+            AppData.readonlyMain2=true;
+            AppData.readonlyOther=false; 
+        }
+    }
+
+    protected void NavigateTo(string pNavLink)
+    {
+        NavManager.NavigateTo(pNavLink);
+    }
+    protected void AddNew(string pNavLink)
+    {
+        ViewOrEditFlag("EDIT");
+         NavManager.NavigateTo(pNavLink);
+    }
+
+    protected void ViewOrEdit(string pNavLink, string p_selectedRow, string pViewOrEdit)
+    {
+        ViewOrEditFlag(pViewOrEdit);
+
+        if (string.IsNullOrEmpty(p_selectedRow)   || int.Parse(p_selectedRow)==0) //String.IsNullOrEmpty(p_selectedRow)
+        {
+            JSRuntime.InvokeVoidAsync("msgbox",GlobVarStat.rowNotChoosed_msg);
+        }
+        else
+        {
+            NavManager.NavigateTo(pNavLink + p_selectedRow);
+        }
+    }
+
+    protected void Delete(string pNavLink, string p_selectedRow)
+    {
+        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        {
+            JSRuntime.InvokeVoidAsync("msgbox",GlobVarStat.rowNotChoosed_msg);
+        }
+        else
+        {
+            NavManager.NavigateTo(pNavLink + p_selectedRow);
+        }
+
+    }
+
+    protected void ExportToExcel()
+    {
+        // JSRuntime.InvokeVoidAsync("msgbox", "ExportToExcel");
+        GenderController.GenerateExcel(JSRuntime,int.Parse(Id));
+    }
+
+    protected void FilterData()
+    {
+        JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
+        // GenderController.FilterData(JSRuntime);
+    }
+
+    }

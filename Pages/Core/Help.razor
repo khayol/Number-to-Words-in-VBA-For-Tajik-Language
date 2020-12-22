@@ -1,0 +1,42 @@
+@page  "/Core/Help" 
+@inject LanguageController LanguageController     
+@if (LanguageList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{  
+       
+<br><br>
+<span  aria-hidden="true"> @trs.GetTranslation("BrowserLangage",@AppData.ActiveUser,"Adm"): @trs.GetLangNameByAlpha2(@AppData.BrowserIterfaceLang,"NativeName") (@trs.GetTranslation("YouChangeBrowserSett",@AppData.ActiveUser,"Adm"))</span>
+<br><br>
+<span  aria-hidden="true"> @trs.GetTranslation("UserLangage",@AppData.ActiveUser,"Adm"): @trs.GetActiveUserLang(@AppData.ActiveUser) (@trs.GetTranslation("YouChangeUserSett",@AppData.ActiveUser,"Adm"))</span>
+}
+
+ @code {
+
+      private string username = "";
+       public List<Language> LanguageList;
+   
+ // protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
+    {
+     await GetClaimsPrincipalData();
+    }
+
+     private async Task GetClaimsPrincipalData()
+    {
+         LanguageList =  LanguageController.GetLanguage();
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        username = authState?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "";
+        AppData.ActiveUser=username;
+        // For Blazor Web Assembly may be you can use this 
+        //username= hca?.HttpContext?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "" ?? "";
+        AppData.BrowserIterfaceLang= @trs.GetTheBrowserIterfaceLang(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+        AppData.ActiveUserLang=trs.GetActiveUserLang(username);
+    }
+
+    
+
+}
+           

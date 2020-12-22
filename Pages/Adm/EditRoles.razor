@@ -1,0 +1,99 @@
+@page "/Adm/EditRoles/{CurrentID}"
+@inject ApplicationRoleController SrvRole
+
+@* @inject IStringLocalizer<UserRoleEdit> L  *@
+
+@* @attribute [Authorize(Roles = "Admin")] *@
+@* <AuthorizeView Roles="@AppData.GetAccessRights("UserRoleEdit")"> *@
+
+
+
+    <div class="fix-possition">
+        <PanelElemens>
+            <ControlQuickAccess>
+                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="Update">
+                    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+                        <label for="Code" class="control-lable">
+                        &nbsp;&nbsp; &nbsp;&nbsp;  @objRole.Code &nbsp;&nbsp; @objRole.NormalizedName </label>
+            </ControlQuickAccess>
+        </PanelElemens>
+    </div> 
+
+	<div>
+	
+<ul class="myUL">
+  <li><span class="caret">Beverages</span>
+    <ul class=" ul-treev nested">
+      <li>Water</li>
+      <li>Coffee</li>
+      <li><span class="caret">Tea</span>
+        <ul class=" ul-treev nested">
+          <li>Black Tea</li>
+          <li>White Tea</li>
+          <li><span class="caret">Green Tea</span>
+            <ul class=" ul-treev nested">
+              <li>Sencha</li>
+              <li>Gyokuro</li>
+              <li>Matcha</li>
+              <li>Pi Lo Chun</li>
+            </ul>
+          </li>
+        </ul>
+      </li>  
+    </ul>
+  </li>
+</ul>
+   <button class="btn bnt-style-general" @onclick="Test" data-toggle="tooltip" title="Next Page"></button>
+               	
+	</div>
+ @code{
+
+    #region  Declare
+        [Parameter]
+        public string CurrentID { get; set; }
+        private string selectedRow { get; set; } = "";       
+      //  private List<ApplicationRole> ApplicationRole_List; 
+      //  private DataGridComp<ApplicationRole> grid_DiffRoleList;      
+        private ApplicationRole objRole = new ApplicationRole(); 
+    #endregion  Declare
+    
+    #region  BlazorMethods
+       protected override void OnInitialized()
+        {
+            SrvRole.Init_UserRoleEdit();
+            objRole =  SrvRole.GetApplicationRoleById(CurrentID);
+            // VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
+           // ApplicationRole_List=SrvRole.GetApplicationRole().ToList();
+           // DiffRoleList   = ApplicationRole_List.Where(x => !VGetUserRole_List.Any(y => x.Id == y.RoleId)).ToList();
+        } 
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("TreeView22");
+    }
+    #endregion  BlazorMethods
+
+        private void SelectedRowMeth(string pSelectedRow)
+        {
+            selectedRow = pSelectedRow;
+            AppData.UserRoleEditRoleIdSlcd = selectedRow;
+            AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
+        }
+        protected void Test()
+        {
+           JSRuntime.InvokeVoidAsync("TreeView22");
+        }
+        protected void UpdateRoles()
+        {
+          //  SrvUser.UpdateRoles(objUser);
+            NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentID);
+        }
+        void Cancel()
+        {
+            NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
+        }
+    
+    }
+
+
+    

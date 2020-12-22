@@ -1,0 +1,66 @@
+@page "/Dir/GenderEdit/{CurrentID}"
+@inject GenderController objGenderController
+
+ <div class="fix-possition">
+<PanelElemens>
+    <ControlQuickAccess>
+              <input type="button" class="btn bnt-style-general" @onclick="@UpdateGender" value="Update">
+              <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+    </ControlQuickAccess>
+</PanelElemens>
+</div> 
+
+<div class="under-cls">
+<form>
+    <div class="row">
+
+        <div class="col-md-8  field-content">
+
+            <div class="form-group">
+                <label for="Code" class="control-lable">Code</label>
+                <input readonly="@readonlyMain1" form="Code" class="form-control" @bind="@objGender.Code" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-lable">Name</label>
+                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objGender.Name" />
+            </div>
+            
+            @* <div class="form-group">
+                <label for="CreatedDate" class="control-lable">CreatedDate</label>
+                <input readonly="@readonlyMain1"  form="AlpCreatedDateha3" class="form-control" @bind="@objGender.CreatedDate" />
+            </div> *@
+        </div>
+
+    </div>
+
+ </form>
+</div>
+
+@code{
+    [Parameter]
+    public string CurrentID { get; set; }
+    Gender objGender = new Gender();
+
+    private bool readonlyMain1 {get;set;}=false;
+    private bool readonlyMain2 {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;
+
+    protected override void OnInitialized()
+    {
+        objGender = objGenderController.GetGenderById(Convert.ToInt32(CurrentID));
+        
+        readonlyMain1=AppData.readonlyMain1;
+        readonlyMain2=AppData.readonlyMain2;
+        readonlyOther=AppData.readonlyOther;
+    }
+
+    protected void UpdateGender()
+    {
+        objGenderController.UpdateGender(objGender);
+       NavManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+    }
+    void Cancel()
+    {
+      NavManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+    }
+}

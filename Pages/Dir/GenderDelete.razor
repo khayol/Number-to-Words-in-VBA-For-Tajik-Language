@@ -1,0 +1,52 @@
+@page "/Dir/GenderDelete/{CurrentID}"
+@inject GenderController objGenderController
+
+<div class="fix-possition">
+<PanelElemens>
+<ControlQuickAccess>
+    <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteGender" value="Delete">
+    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+</ControlQuickAccess>
+</PanelElemens>
+</div>
+
+<div class="under-cls">
+<h3>Are you sure want to delete this row?</h3>
+
+<div class="row">
+    <div class="col-md-8 field-content">
+
+        <div class="form-group">
+            <label> Code:</label>
+            <label>@objEmp.Code</label>
+        </div>
+
+        <div class="form-group">
+            <label>Name:</label>
+            <label>@objEmp.Name</label>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+@code{
+   [Parameter]
+   public string CurrentID {get;set;}
+    Gender objEmp= new Gender();
+
+    protected override async Task OnInitializedAsync()
+    {
+    objEmp= await Task.Run(()=>objGenderController.GetGenderById(Convert.ToInt32(CurrentID)));        
+    }
+    
+    protected void DeleteGender(){
+
+        objGenderController.DeleteGender(objEmp);
+        NavManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+    }
+    void Cancel(){
+        NavManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+    }
+}

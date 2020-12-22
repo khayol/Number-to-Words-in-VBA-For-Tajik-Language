@@ -1,0 +1,29 @@
+﻿<p class="test-header"> <b>Method Deligate</b>Count On the child componet </p>
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    // It's not deligate, it's EventCallback 
+    /*
+
+    [Parameter]
+    public EventCallback<int> SetCurrentCount { get; set; }
+    */
+
+    private int currentCount = 0;
+    // let test Deligate 
+    [Parameter]
+    public Action<int> SetCount { get; set; }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        SetCount.Invoke(currentCount);
+
+    }
+
+
+
+
+}  

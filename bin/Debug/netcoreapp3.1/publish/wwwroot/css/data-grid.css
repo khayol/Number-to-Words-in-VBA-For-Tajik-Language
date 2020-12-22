@@ -1,0 +1,66 @@
+﻿/*----------------------------------------------*/
+/*Sorting styles*/
+.sort {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.asc {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    margin:5px;
+}
+
+.desc {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin: 8px;
+}
+.no-sort{
+    display:none;
+
+}
+/*----------------------------------------------*/
+.table-style {
+    height: 520px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    table-layout: fixed;
+    background:#F3F3F3;
+}
+.theader-stl { /* The row should be one line in the table*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: lightgray;
+    font-weight: normal;
+    overflow: hidden;
+    /* Фиксация Заголовок ДатаГрид*/
+    /*position: sticky;
+    top: 0;  Don't forget this, required for the stickiness */
+}
+.tdata-stl { /* The row should be one line in the table*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.th-not-move {
+    background: red;
+    position: sticky;
+    top: 0; /* Don't forget this, required for the stickiness */
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+/*------------------------------------*/
+/*For Little Device Size*/
+@media (max-width: 767.98px) {
+
+}
+/*For Bigger Device Size*/
+@media (min-width: 768px) {
+
+}
+

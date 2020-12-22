@@ -1,0 +1,560 @@
+﻿@typeparam TItem
+@using System.Reflection
+@inject GnrSrv GnrSrv 
+
+@if (!string.IsNullOrWhiteSpace(ErrorMessage))
+{
+<div class="notification is-danger">
+    <button class="delete" @onclick="@(() => { this.ErrorMessage = string.Empty; })"></button>
+    @ErrorMessage
+</div> 
+}
+else
+{
+<div class="panel-elements">
+    <div class="row ">
+        <div>
+
+            <div class="form-group ">
+        
+                @if (ControlMenu != null )
+                {
+                    <div class="dropdown main-menu-place">
+                        <button class="btn btn-primary bnt-style-general  bnt-main-menu" ><span class="oi oi-menu" aria-hidden="true"></span></button>
+                        <div class="dropdown-content"> 
+                        @ControlMenu
+                        </div>
+                    </div>
+                }else{
+                @* <a>Inner Control Menu  should Developer</a> *@
+                }
+               
+                 @if (ControlQuickAccess != null )
+                {
+                 if (ControlMenu != null){
+                    @ControlQuickAccess
+                 }else{
+                  <a>&nbsp; &nbsp; &nbsp;</a>  @ControlQuickAccess
+                 }
+                }else{
+                  @* <a>Inner ControlQuickAccess should Developer</a> *@
+                }
+
+               <a>&nbsp; &nbsp; &nbsp;</a>
+                @if (Paging != null && Paging.Enabled)
+                {
+                    @if (Paging.CustomPager)
+                    {
+                        @CustomPager 
+                    }
+                    else
+                    {
+
+                    @* this is a simple design of Pagination *@
+                     @*                     
+                        <span style="font-size: 14px; cursor: pointer" @onclick="GoToPrevPage"><b>&lt; Previous</b></span>
+                        <span style="font-size: 12px; color: gray">&nbsp;&nbsp;Page @CurrentPage of @Paging.MaxPageNumber(DataItems.Count)&nbsp;&nbsp;</span>
+                        <span style="font-size: 14px; cursor: pointer" @onclick="GoToNextPage"><b>Next &gt;</b></span>
+                     *@
+
+
+                    @* New Design of Pagination *@
+
+                    <button class="btn bnt-style-general" @onclick="GoToFirstPage" data-toggle="tooltip" title="@trs.GetTranslation("FirstPage",@AppData.ActiveUser,"General")"><span class="fa fa-fast-backward" aria-hidden="true"></span></button>
+                    <button class="btn bnt-style-general" @onclick="GoToPrevPage" data-toggle="tooltip" title="@trs.GetTranslation("PrevPage",@AppData.ActiveUser,"General")"><span class="fa fa-caret-left" aria-hidden="true"></span></button>
+                    <span>
+                    &nbsp;&nbsp; @trs.GetTranslation("Page",@AppData.ActiveUser,"General")
+                    <input  class="input2" type="number" max="@Paging.MaxPageNumber(DataItems.Count)" min="1" @bind-value="@CurrentPage" id="page-input" />
+                    @trs.GetTranslation("of",@AppData.ActiveUser,"General") @Paging.MaxPageNumber(DataItems.Count) &nbsp;&nbsp;
+                    </span>
+                    <button class="btn bnt-style-general" @onclick="GoToNextPage" data-toggle="tooltip" title="@trs.GetTranslation("NextPage",@AppData.ActiveUser,"General")"><span class="fa fa-caret-right" aria-hidden="true"></span></button>
+                    <button class="btn bnt-style-general" @onclick="GoToLastPage" data-toggle="tooltip" title="@trs.GetTranslation("LastPage",@AppData.ActiveUser,"General")"><span class="fa fa-fast-forward" aria-hidden="true"></span></button>
+                
+                    }
+                }
+                  
+                @if (PageNameTitle != null )
+                {
+                    <a>&nbsp;&nbsp;</a> @trs.GetTranslation("PageName",@AppData.ActiveUser,"General")<a>&#58;&nbsp;</a><input readonly="true" class="page-name" data-toggle="tooltip" title="@PageNameTitle"  @bind="@PageNameTitle"/>
+                }else{
+                        @* @PageName *@
+                }
+                 
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="table-style ">
+<table class="table-bordered">
+            <thead>
+                <tr class="">
+                    @if (Columns == null || Columns.Count <= 0)
+                    {
+                        // Create the header using reflection
+                        // <p><em>Loading...</em></p>
+                    }
+                    else
+                    {
+                        string thisModel= StatCls.GetModelNameFromObject(@DataItems);
+                          // Create the header based on columns definition
+                        foreach (var column in Columns)
+                        {
+                            if (
+                                    StatCls.IsContains(ColumnsToExcludeCSV,column.DataField)==false
+                                //!ColumnsToExcludeCSV.Contains(column.DataField, StringComparison.OrdinalIgnoreCase)
+                               ) //непоказывать колонки(Причеслите их как CSV например "Id,Name")
+                            { 
+                            <th style="@(FontStyleHeader(column))" class="@(AlignmentClass(column)) theader-stl" @onclick="@(()=> SortData(column))" >
+                            @* @column.Caption Without Translation*@
+                            @trs.GetTranslation(@column.Caption,@AppData.ActiveUser?.ToString() ?? "",thisModel)
+                            <span style="float:right" class="@(SortClass(column))"></span>
+                            </th>
+                            }
+                        }
+                    }
+                    </tr>
+            </thead>
+    <tbody>
+        @foreach (var item in DataItems.Skip(Paging.NumOfItemsToSkip(CurrentPage)).Take(Paging.NumOfItemsPerPage(DataItems.Count())))
+        {
+            string IdOfRecord = @item.GetType().GetProperty(this.UniqIdOfRecord).GetValue(item).ToString(); //member.Name
+            string CurrLink = @item.GetType().Name.ToString(); //member.Name
+
+            <tr >
+                @foreach (var column in Columns)
+                {
+                    string IdOfFieldKey="";
+                    if (!string.IsNullOrEmpty(column.SelectedFieldKey)){
+                     IdOfFieldKey= @item.GetType().GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString()  ?? GlobVarStat.nullval; //member.Name
+                    }
+                    var cellValue= FormatItemValue(item, column,IdOfRecord);                                
+               
+                    if (column.Alignment != Alignment.NotSet)
+                    {
+                        if (
+                            StatCls.IsContains(ColumnsToExcludeCSV,column.DataField)==false
+                           // !ColumnsToExcludeCSV.Contains(column.DataField, StringComparison.OrdinalIgnoreCase)
+                           ) //непоказывать Записи(Причеслите их как CSV например "Id,Name")
+                        {
+                        <td style="@(FontStyleHeader(column))" align="@column.Alignment.ToString().ToLower()" class="tdata-stl" @ondblclick="() => DoubleClickOnTheData(item, column,CurrLink,IdOfRecord, column.DataField, IdOfFieldKey,column.LinkAddress,cellValue.ToString())" @onclick="() => ClickOnTheRecord(IdOfRecord)">@cellValue</td>
+                        }
+                    }
+                    else
+                    {
+                        if (
+                            //!ColumnsToExcludeCSV.Contains(column.DataField, StringComparison.OrdinalIgnoreCase)
+                            StatCls.IsContains(ColumnsToExcludeCSV,column.DataField)==false
+                           ) //непоказывать Записи(Причеслите их как CSV например "Id,Name")
+                        {
+                        <td style="@(FontStyleHeader(column))" class="tdata-stl" @ondblclick="() => DoubleClickOnTheData(item, column,CurrLink,IdOfRecord, column.DataField, IdOfFieldKey,column.LinkAddress,cellValue.ToString())" @onclick="() => ClickOnTheRecord(IdOfRecord)">@cellValue</td>
+                        }
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+}
+
+
+@code  { 
+
+
+    
+#region  Declare_Region
+
+
+    [Parameter]
+    public string BaseUrlUri { get; set; }
+    [Parameter]
+    public string ColumnsToExcludeCSV { get; set; }
+
+    [Parameter]
+    public string UniqIdOfRecord { get; set; }
+
+    [Parameter]
+    public string PageNameTitle { get; set; }
+    [Parameter]
+    public int CurrentPage { get; set; } = 1;
+
+    private string ErrorMessage;
+    [Parameter]
+    public RenderFragment ControlMenu { get; set; }
+
+    [Parameter]
+    public RenderFragment ControlQuickAccess { get; set; }
+
+       [Parameter]
+    public PagingConfig Paging { get; set; } = new PagingConfig();
+
+    [Parameter]
+    public RenderFragment CustomPager { get; set; }
+
+    [Parameter]
+    public RenderFragment PageName { get; set; }
+
+    [Parameter]
+    public List<TItem> DataItems { get; set; }
+
+    [Parameter]
+    public List<ColumnDefinition> Columns { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedRow { get; set; } 
+    
+#endregion  Declare_Region
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
+        
+    }
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        ValidateDefinitions();
+    }
+
+    public async Task ClickOnTheRecord(string pIdOfRecord)
+    {
+        await SelectedRow.InvokeAsync(pIdOfRecord);
+         await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
+    }
+
+    public async Task DoubleClickOnTheData(TItem item, ColumnDefinition column, string pCurrLink, string pIdOfRecord,
+                                        string pColName, string pIdOfFieldKey, string pLinkAddress, string pCellValue )
+    {
+        await SelectedRow.InvokeAsync(pIdOfRecord);
+       // await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
+       
+       if (string.IsNullOrEmpty(pLinkAddress)){
+         
+           if(AppData.flg_ChoosedRow==1)
+           {
+             int IdSelected= int.Parse(typeof(TItem).GetProperty("Id").GetValue(item).ToString());
+                /*
+                Console.WriteLine("===================================");
+                
+                Console.WriteLine("-----------EF Fitures ----------");
+                //string x = typeof(TItem).GetProperty("GenderId").GetValue(item).ToString();
+                Console.WriteLine("column.DataField= "+column.DataField);
+                Console.WriteLine("typeof(TItem).ToString()= "+typeof(TItem).ToString());
+                Console.WriteLine("typeof(TItem).GetProperty(column.DataField).ToString()= "+typeof(TItem).GetProperty(column.DataField).ToString());
+                Console.WriteLine("typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString()= "+typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString());
+                Console.WriteLine("typeof(TItem).GetProperty(\"Id\").GetValue(item).ToString()= "+typeof(TItem).GetProperty("Id").GetValue(item).ToString());
+                Console.WriteLine("-----------Method Parameters ----------");
+                Console.WriteLine("pCurrLink= "+pCurrLink);
+                Console.WriteLine("pIdOfRecord= "+pIdOfRecord);
+                Console.WriteLine("pColName= "+pColName);
+                Console.WriteLine("pIdOfFieldKey= "+pIdOfFieldKey);
+                Console.WriteLine("pLinkAddress= "+pLinkAddress);
+                Console.WriteLine("pCellValue= "+pCellValue);
+                Console.WriteLine("-----------AppData------------");
+                Console.WriteLine("AppData.ChoosedEntityName="+AppData.ChoosedEntityName);
+                Console.WriteLine("AppData.ChoosedEntityId= "+AppData.ChoosedEntityId);
+                Console.WriteLine("AppData.ChoosedEntityFK= "+AppData.ChoosedEntityFK);
+                Console.WriteLine("int.Parse(pIdOfRecord)= "+pIdOfRecord);
+                Console.WriteLine("----------ACTION-------------");
+               */
+                 /*
+                // It's working well but we need to show the rusults after every UI updating  
+                GnrSrv.UpdateReleatedData(AppData.ChoosedEntityName,AppData.ChoosedEntityId, 
+                                          AppData.ChoosedEntityFK,int.Parse(pIdOfRecord));
+                */
+
+                 GnrSrv.UpdateReleatedDataMain(AppData.ChoosedEntityId,AppData.ChoosedEntityFK,IdSelected,AppData.ChoosedEntityName);
+             
+             NavManager.NavigateTo(AppData.BaseUrlUri);
+             AppData.UpdatedFK_Id=int.Parse(pIdOfRecord);
+ 
+           }
+       }else
+         {
+          AppData.BaseUrlUri=BaseUrlUri.ToString();
+       //if(pCellValue.ToString()==GlobVarStat.dataArrExist || pCellValue.ToString()==GlobVarStat.dataArrEmpty){
+         if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
+          NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
+        }else{
+
+          NavManager.NavigateTo(pLinkAddress+pIdOfFieldKey);
+        }
+        //Console.WriteLine("\n\r -------------------- \n\r "); 
+       // Console.WriteLine($"Base URL {BaseUrlUri} \n\r pCurrLink {pCurrLink}  \n\r td clicked at index: {pIdOfRecord}!  \n\r cloumName: {pColName}   \n\r  Link: {pLinkAddress} \n\r  pCellValue: {pCellValue.ToString()}  \n\r pIdOfFieldKey: {pIdOfFieldKey}  ");
+         
+       }
+
+        
+    }
+
+    private void ValidateDefinitions()
+    {
+        this.ErrorMessage = string.Empty;
+
+         @* if (DataItems == null || DataItems.Count <= 0)
+        {
+            ErrorMessage = GlobVarStat.dataItmNotProvided_msg;
+            return;
+        }  *@
+
+        @* var itemProperties = typeof(TItem).GetProperties();
+        if ((Columns != null && (itemProperties == null || itemProperties.Count() != Columns.Count)))
+        {
+            ErrorMessage = GlobVarStat.dontMatch_msg;
+            return;
+        } *@
+
+        if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
+        {
+            ErrorMessage = GlobVarStat.sortMult_msg;
+            return;
+        } 
+    }
+
+    private void SortData(ColumnDefinition sortByColumn = null)
+    {
+        if (sortByColumn == null) sortByColumn = Columns.FirstOrDefault(x => x.SortDirection != SortDirection.NotSet);
+        if (sortByColumn == null) return;
+
+        foreach (var column in Columns)
+        {
+            if (column.DataField != sortByColumn.DataField) column.SortDirection = SortDirection.NotSet;
+        }
+
+        switch (sortByColumn.SortDirection)
+        {
+            case SortDirection.NotSet:
+                sortByColumn.SortDirection = SortDirection.Asc;
+                break;
+            case SortDirection.Asc:
+                sortByColumn.SortDirection = SortDirection.Desc;
+                break;
+            case SortDirection.Desc:
+                sortByColumn.SortDirection = SortDirection.Asc;
+                break;
+            default:
+                sortByColumn.SortDirection = SortDirection.Asc;
+                break;
+        }
+
+        if (sortByColumn.SortDirection == SortDirection.Asc)
+        {
+
+            DataItems.Sort((x, y) => (typeof(TItem).GetProperty(sortByColumn.DataField).GetValue(x)?.ToString() ?? GlobVarStat.nullval)
+                .CompareTo(typeof(TItem).GetProperty(sortByColumn.DataField).GetValue(y)?.ToString() ?? GlobVarStat.nullval));
+        }
+        else
+        {
+            DataItems.Sort((x, y) => (typeof(TItem).GetProperty(sortByColumn.DataField).GetValue(y)?.ToString() ?? GlobVarStat.nullval)
+                .CompareTo(typeof(TItem).GetProperty(sortByColumn.DataField).GetValue(x)?.ToString() ?? GlobVarStat.nullval));
+        }
+
+    }
+  
+
+    public void GoToPrevPage()
+    {
+        CurrentPage = Paging.PrevPageNumber(CurrentPage);
+         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+    }
+
+    public void GoToFirstPage()
+    {
+        CurrentPage = 1;
+         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+    }
+    public void GoToLastPage()
+    {
+        CurrentPage = MaxPageNumber;
+         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+    }
+
+    public int GetCurrentPage()
+    {
+        return CurrentPage;     
+           
+    }
+
+    public void GoToNextPage()
+    {
+        CurrentPage = Paging.NextPageNumber(CurrentPage, DataItems.Count);
+         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+    }
+    public void GoToPageN(int n)
+    {
+        CurrentPage = n;
+         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+    }
+    public int  GetGoToPageN(int n)
+    {
+        CurrentPage = n;
+        return CurrentPage;
+    }
+
+    public int MaxPageNumber { get => Paging.MaxPageNumber(DataItems.Count); }
+
+    #region Html_Markup_Cleanup
+
+    private string SortClass(ColumnDefinition column)
+    {
+        if (column.SortDirection != SortDirection.NotSet)
+        {
+            return $"sort {column.SortDirection.ToString().ToLower()}";
+        }
+
+        return "no-sort";
+    }
+
+    private string AlignmentClass(ColumnDefinition column)
+    {
+        string alignmentClass = string.Empty;
+
+        switch (column.Alignment)
+        {
+            case Alignment.Left:
+                alignmentClass = "align-left";
+                break;
+            case Alignment.Center:
+                alignmentClass = "align-center";
+                break;
+            case Alignment.Right:
+                alignmentClass = "align-right";
+                break;
+            case Alignment.NotSet:
+            default:
+                alignmentClass = string.Empty;
+                break;
+        }
+
+        return alignmentClass;
+    }
+
+    private string FontStyleHeader(ColumnDefinition column)
+    {
+        string fontStyle = string.Empty;
+        string linkStyle=GlobVarStat.linkStyle; // dark Blue
+        string staticDataStyle=GlobVarStat.staticDataStyle;
+
+        switch (column.DataType)
+        {
+            
+            case DataType.Collection: 
+            case DataType.List:
+            case DataType.LinkLine: 
+            case DataType.RelatedData: 
+                fontStyle = linkStyle; 
+                break;
+            case DataType.NotSet: 
+                fontStyle =staticDataStyle;
+                break;
+            default:
+                fontStyle =staticDataStyle;
+                break;
+        }
+
+        return fontStyle;
+    }
+
+    private string FormatItemValue(TItem item, ColumnDefinition column, string pIdOfRecord)
+    {
+        #nullable enable
+                string? value = string.Empty;
+        #nullable restore
+        if ((!string.IsNullOrWhiteSpace(column.Format) && column.DataType != DataType.NotSet) || column.DataType == DataType.List || column.DataType == DataType.Collection || column.DataType == DataType.RelatedData)
+        {
+            switch (column.DataType)
+            {
+                case DataType.Date:
+                case DataType.DateTime:
+                      value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
+                    //value = DateTime.Parse(typeof(TItem).GetProperty(column.DataField).GetValue(item).ToString()).ToString(column.Format);
+                    //value=DateTime.Parse(value).ToString("dd-MM-yyyy");
+                    //value=DateTime.ParseExact(value,"dd-MM-yyyy", CultureInfo.CreateSpecificCulture("fr-FR")).ToString();
+                   if (value == GlobVarStat.date_1900 || value == GlobVarStat.date_0001)
+                    {
+                    value = GlobVarStat.nullval; //"nullval";
+                    }
+                    break;
+                case DataType.Boolean:
+                    value = bool.Parse(typeof(TItem).GetProperty(column.DataField).GetValue(item).ToString()).ToString();
+                    break;
+                case DataType.Currency:
+                    value = Math.Round(double.Parse(typeof(TItem).GetProperty(column.DataField).GetValue(item).ToString()), 2).ToString("c");
+                    break;
+                case DataType.RelatedData:
+               
+                @*
+                 Тут нужно дорабативать собственный механизм EF Core и надо избавиться от посторонных функции
+                GnrSrv.GetReleatedData  и GnrSrv.ExistDataORNotFlag
+                *@
+                
+                @* 
+                typeof(TItem).ToString()
+                =Woorj.Data.IndOrg.Individual
+                
+                typeof(TItem).GetProperty(column.DataField).ToString()
+                =Woorj.Data.Dir.Gender Gender
+                
+                typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString()
+                =Woorj.Data.Dir.Gender	
+
+                 *@
+
+                // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
+                //string x = typeof(TItem).GetProperty(column.DataField).GetValue(item).ToString();
+                
+                @* string x = typeof(TItem).GetProperty("GenderId").GetValue(item).ToString();
+                Console.WriteLine("===================================");
+                Console.WriteLine("column.DataField= "+column.DataField);
+                Console.WriteLine("column.SelectedField= "+column.SelectedField);
+                Console.WriteLine("column.SelectedFieldKey= "+column.SelectedFieldKey);
+                Console.WriteLine("x= "+x);
+                 *@
+                 
+                    string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
+                    value= GnrSrv.GetReleatedData(column.DataField, column.SelectedField, SelectedFieldKey);                     
+                    break;
+                case DataType.Collection:
+                case DataType.List:
+                  value= GnrSrv.ExistDataORNotFlag(column.DataField, typeof(TItem).Name+"Id", pIdOfRecord); 
+                   break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
+              
+              if (GnrSrv.IsValidDateTime(value)){
+              value=DateTime.Parse(value).ToString("dd-MM-yyyy");
+              }
+
+            if (value == GlobVarStat.date_1900 || value == GlobVarStat.date_0001)
+            {
+                value = GlobVarStat.nullval; //"nullval";
+            }
+
+            switch (column.DataType)
+            {
+               case DataType.Collection:
+                case DataType.List:
+                    value =GlobVarStat.dataArrEmpty; //"{...}";
+                    break;
+                case DataType.RelatedData:
+                  value =  typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval; //"RelatedData_Null";//
+                    break;    
+                default:
+                    break;
+            }
+
+        }
+
+        return value;
+    }
+
+    #endregion Html_Markup_Cleanup
+}

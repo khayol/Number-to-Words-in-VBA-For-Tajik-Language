@@ -1,0 +1,72 @@
+@page "/IndOrg/ContactEdit/{CurrentID}"
+@inject ContactController objContactController
+
+
+
+ <div class="fix-possition">
+<PanelElemens>
+    <ControlQuickAccess>
+                <input type="button" class="btn bnt-style-general" @onclick="@UpdateContact" value="Update">
+                <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+     </ControlQuickAccess>
+</PanelElemens>
+</div> 
+
+<div class="under-cls">
+<form>
+    <div class="row">
+
+        <div class="col-md-8   field-content">
+
+            <div class="form-group">
+                <label for="Code" class="control-lable">Code</label>
+                <input  readonly="@readonlyMain1" form="Code" class="form-control" @bind="@objContact.Code" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-lable">Name</label>
+                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objContact.Name" />
+            </div>
+
+            <div class="form-group">
+            <label for="Description" class="control-lable">Description</label>
+            <input readonly="@readonlyOther" form="Description" class="form-control" @bind="@objContact.Description" />
+           </div>
+
+        @* <div class="form-group">
+            <label for="IndividualId" class="control-lable">IndividualId</label>
+            <input readonly="@readonlyMain1" form="IndividualId"  class="form-control"  @bind-value="@objContact.IndividualId" /> 
+        </div> *@
+
+        </div>
+
+    </div>
+
+</form>
+    </div>
+@code{
+    [Parameter]
+    public string CurrentID { get; set; }
+    Contact objContact = new Contact();
+
+    private bool readonlyMain1 {get;set;}=false;
+    private bool readonlyMain2 {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;
+
+    protected override void OnInitialized()
+    {
+        objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));
+        readonlyMain1=AppData.readonlyMain1;
+        readonlyMain2=AppData.readonlyMain2;
+        readonlyOther=AppData.readonlyOther;
+   }
+
+    protected void UpdateContact()
+    {
+        objContactController.UpdateContact(objContact);
+        NavManager.NavigateTo("/IndOrg/ContactViewStd/"+AppData.Individual_IdSelect);
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo("/IndOrg/ContactViewStd/"+AppData.Individual_IdSelect);
+    }
+}

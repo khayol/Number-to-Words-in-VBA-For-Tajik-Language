@@ -1,0 +1,102 @@
+
+
+===================================================================================
+
+
+  --- Get All users (Working well)
+GET   https://localhost:5001/api/IndividualAp/GetIndividual
+  -- Get one User (Working well)
+GET    https://localhost:5001/api/IndividualAp/GetIndividual/4
+    --Loading Methods
+GET     https://localhost:5001/api/IndividualAp/GetIndividualDetailsEager/4  -- Eager Method (интенсивный, напряжённый)
+GET     https://localhost:5001/api/IndividualAp/GetIndividualDetailsExp/4    --Explicit Method (явный)
+
+
+===================================================================================
+ -- CREATE(POST)
+    -- Post from Inside C# Code
+POST   https://localhost:5001/api/IndividualAp/PostIndividualDetails
+    -- Post from JSON Request
+POST   https://localhost:5001/api/IndividualAp/CreateIndividual
+
+    {
+        "firstName": "GGG",
+        "secondName": "GG",
+        "lastName": "GG",
+        "taxCode": "0156516091",
+        "passCode": "57647761",
+        "passOrg": "ОВД р-на Шохмансур г. Душанбе",
+        "address": "р Район Шохмансур, ул Титова 36 кв 52"
+    }
+-------------------------------------------------
+ -- Posting Releated Data from JSON Request
+      {
+    "firstName": "Harper2",
+    "secondName": "Brothers2",
+    "lastName": "Jakovich2",
+    "fullName": "Brothers Harper Jakovich2",
+
+    "contact": [
+        {
+            "name": "11111222",
+            "description": "Home Phone"
+        },
+        {
+            "name": "2222222",
+            "description": "Mobile Phone"
+        }
+    ],
+    "genderId": null,
+    "gender": null,
+    "birthPlace_CountryId": null
+}
+
+===================================================================================
+-- Update (PUT)
+
+  PUT  https://localhost:5001/api/IndividualAp/UpdateIndividual/2061
+
+
+
+{
+    "id": 2061,
+    "firstName": "TTTT1111"
+}
+
+ИЛИ 
+
+ {
+    "id": 2061,
+    "code": 1011644,
+    "firstName": "TTTT",
+    "secondName": "GG",
+    "lastName": "GG",
+    "fullName": "GG GGG GG",
+    "firstNameEN": null,
+    "secondNameEN": null,
+    "lastNameEN": null,
+    "fullNameEN": "  ",
+    "birthDay": null,
+    "taxCode": "0156516091",
+    "passSerial": null,
+    "passCode": "57647761",
+    "docDate": null,
+    "docDateEnd": null,
+    "passOrg": "ОВД р-на Шохмансур г. Душанбе",
+    "address": "р Район Шохмансур, ул Титова 36 кв 52",
+    "createdDate": "2020-11-24T10:09:17.55",
+    "contact": [],
+    "genderId": null,
+    "gender": null,
+    "birthPlace_CountryId": null,
+    "birthPlace_Country": null
+}
+
+===================================================================================
+
+
+DELETE https://localhost:5001/api/IndividualAp/DeleteIndividual/2067
+
+
+===================================================================================
+

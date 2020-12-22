@@ -1,0 +1,111 @@
+@page "/Adm/ApplicationUserEdit/{CurrentID}"
+@inject ApplicationUserController objApplicationUserController
+@inject LanguageController LanguageController
+@inject IStringLocalizer<ApplicationUserEdit> L 
+
+@* @attribute [Authorize(Roles = "Admin")] *@
+@* <AuthorizeView Roles="@AppData.GetAccessRights("ApplicationUserEdit")"> *@
+
+ <div class="fix-possition">
+<PanelElemens>
+    <ControlQuickAccess>
+              <input type="button" class="btn bnt-style-general" @onclick="@UpdateApplicationUser" value="Update">
+              <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+    </ControlQuickAccess>
+</PanelElemens>
+</div> 
+
+<div class="under-cls">
+<form>
+    <div class="row">
+
+        <div class="col-md-8  field-content">
+
+            <div class="form-group">
+                <label for="Code" class="control-lable">@L["Code"]</label>
+                <input readonly="@readonlyMain1" form="Code" class="form-control" @bind="@objApplicationUser.Code" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-lable">@L["Name"]</label>
+                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.UserName" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-lable">@L["FirstName"]</label>
+                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.FirstName" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-lable">@L["SecondName"]</label>
+                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.SecondName" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="control-lable">@L["LastName"]</label>
+                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.LastName" />
+            </div>
+
+         
+            <div class="form-group">
+            <label for="Gender" class="control-lable">Language</label> 
+                <select disabled="@readonlyOther" class="form-control selectpicker" @bind="@objApplicationUser.LanguageId">
+                    <option>--select--</option>
+                   
+                    @if (LanguageList == null)
+                    {
+                    <p><em>Loading...</em></p>
+                    }
+                    else
+                    {
+                    @foreach (var item in LanguageList)
+                    {
+                    <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
+                    } 
+                    }
+                  
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="CreatedDate" class="control-lable">@L["CreatedDate"]</label>
+                <input readonly="@readonlyMain1"  form="AlpCreatedDateha3" class="form-control" @bind="@objApplicationUser.CreatedDate" />
+            </div>
+            
+        </div>
+
+    </div>
+
+ </form>
+           
+
+</div>
+@* </AuthorizeView> *@
+@code{
+    
+    [Parameter]
+    public string CurrentID { get; set; }
+    ApplicationUser objApplicationUser = new ApplicationUser();
+    public List<Language> LanguageList;
+    private bool readonlyMain1 {get;set;}=false;
+    private bool readonlyMain2 {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;
+
+ protected override void OnInitialized()
+    //protected override async Task OnInitializedAsync()
+    {
+        //objApplicationUser = await Task.Run(() => objApplicationUserController.GetApplicationUserById(CurrentID));
+        objApplicationUser = objApplicationUserController.GetApplicationUserById(CurrentID);
+        LanguageList =  LanguageController.GetLanguage();
+
+
+        readonlyMain1=AppData.readonlyMain1;
+        readonlyMain2=AppData.readonlyMain2;
+        readonlyOther=AppData.readonlyOther;
+    }
+    protected void UpdateApplicationUser()
+    {
+       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
+       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+    }
+    void Cancel()
+    {
+      NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+    }
+}

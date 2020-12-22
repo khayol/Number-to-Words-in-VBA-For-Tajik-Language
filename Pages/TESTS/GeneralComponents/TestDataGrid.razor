@@ -1,0 +1,143 @@
+﻿@page "/TESTS/GeneralComponents/TestDataGrid"
+@inject EmployeeController EmployeeController
+
+@*<TblComp Items="employeelList"
+         TblCssClass=""
+         SelectedRow="SelectedRowMeth"
+         ColumnsToExcludeCSV="Id">
+</TblComp>*@
+
+@* ------------------------------------------------------------------------------*@
+@* Using without CustomPager *@
+
+
+@*<DataGridComp TItem="Employee"
+              DataItems="employeelList"
+              Columns="columnsDefinition"
+              Paging="@(new PagingConfig
+                                 {
+                                     Enabled = true,
+                                     PageSize = 3
+                       })">
+</DataGridComp>*@
+
+
+@* ------------------------------------------------------------------------------*@
+@* Using CustomPager *@
+
+<DataGridComp @ref="grid"
+                  DataItems="employeelList"
+                  Columns="columnsDefinition"
+                  SelectedRow="SelectedRowMeth"
+                  ColumnsToExcludeCSV="Id"
+                  Paging="@(new PagingConfig
+                            {
+                                Enabled = true,
+                                CustomPager = true,
+                                PageSize = 4
+                            })">
+        <CustomPager>
+            <button class="btn btn-primary bnt-style-general" @onclick="PrevPage"><span class="oi oi-caret-left" aria-hidden="true"></span></button>
+            <span>
+                &nbsp;&nbsp; Page
+                @* <input style="text-align: center;" type="number" max="@grid.MaxPageNumber" min="1" @bind-value="@grid.CurrentPage" /> *@
+                of @grid.MaxPageNumber &nbsp;&nbsp;
+            </span>
+            <button class="btn btn-primary bnt-style-general" @onclick="NextPage"><span class="oi oi-caret-right" aria-hidden="true"></span></button>
+        </CustomPager>
+        <ControlMenu>
+            <a @onclick="@(args => AddNew("/IndOrg/Add"))" value="Add" class="menu-itms">Add</a>
+            <a @onclick="@(args => Edit("/IndOrg/Edit/",selectedRow))" class="menu-itms">Edit</a>
+            <a @onclick="@(args => Delete("/IndOrg/Delete/",selectedRow))" class="menu-itms">Delete</a>
+        </ControlMenu>
+        <ControlQuickAccess>
+            <button class="btn btn-primary bnt-style-general" @onclick="@(args => AddNew("/IndOrg/Add"))" data-toggle="tooltip" title="Add"><span class="oi oi-plus" aria-hidden="true"></span></button>
+            <button class="btn btn-primary bnt-style-general" @onclick="@(args => Edit("/IndOrg/Edit/",selectedRow))" data-toggle="tooltip" title="Edit"><span class="oi oi-pencil" aria-hidden="true"></span></button>
+            <button class="btn btn-primary bnt-style-general" @onclick="@(args => Delete("/IndOrg/Delete/",selectedRow))" data-toggle="tooltip" title="Delete"><span class="oi oi-circle-x" aria-hidden="true"></span></button>
+        </ControlQuickAccess>
+
+    </DataGridComp>
+
+@* ------------------------------------------------------------------------------*@
+@code  {
+
+    private  List<Employee> employeelList;
+    private DataGridComp<Employee> grid;
+    private List<ColumnDefinition> columnsDefinition;
+
+    private string selectedRow { get; set; } = "";
+
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        selectedRow = pSelectedRow;
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Initilize();
+
+    }
+
+    private void Initilize()
+    {
+        if (columnsDefinition == null)
+        {
+            columnsDefinition = new List<ColumnDefinition>();
+            columnsDefinition.AddRange(
+                new ColumnDefinition[] {
+                    new ColumnDefinition { DataField = "Id", Caption="Id"},
+                    new ColumnDefinition { DataField = "Name", Caption="Name"},
+                    new ColumnDefinition { DataField = "Title", Caption="Title" },
+                    new ColumnDefinition { DataField = "Department", Caption="Department"},
+                    new ColumnDefinition { DataField = "EmploymentDate", Caption="Employment Date", Format = "yyyy/MM/dd", DataType = DataType.Date },
+                    new ColumnDefinition { DataField = "Salary", Caption="Annual Salary", DataType = DataType.Currency, Alignment = Alignment.Right, Format="c", SortDirection = SortDirection.Desc },
+                }
+            );
+        }
+
+        employeelList = EmployeeController.GetEmployee().ToList();
+
+    }
+    private void PrevPage()
+    {
+        grid.GoToPrevPage();
+    }
+    private void NextPage()
+    {
+        grid.GoToNextPage();
+    }
+
+    protected void AddNew(string pNavLink)
+    {
+        NavManager.NavigateTo(pNavLink);
+        // Console.WriteLine("The C# Console runned");
+        // JSRuntime.InvokeVoidAsync("console_write", "The JS Console Logging22 "+ selectedRow);
+    }
+
+    protected void Edit(string pNavLink, string p_selectedRow)
+    {
+        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        {
+            JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
+        }
+        else
+        {
+            NavManager.NavigateTo(pNavLink + p_selectedRow);
+        }
+    }
+    protected void Delete(string pNavLink, string p_selectedRow)
+    {
+        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        {
+            JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
+        }
+        else
+        {
+            NavManager.NavigateTo(pNavLink + p_selectedRow);
+        }
+
+    }
+
+
+}

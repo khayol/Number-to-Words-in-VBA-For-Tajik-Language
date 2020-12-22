@@ -1,0 +1,132 @@
+﻿@page  "/IndOrg/IndividualViewStd/{Id}"
+@inject IndividualController Service
+@* @inject IStringLocalizer<IndividualViewStd> LL  *@
+
+@if (list == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<AuthorizeView Roles="@admSer.GetAccessRights("IndividualViewStd")" Context="authContext">
+   <Authorized>
+    <DataGridComp @ref="grid"
+                  DataItems="list"
+                  SelectedRow="SelectedRowMeth"
+                  Columns="@Service.columns"
+                  BaseUrlUri="@AppData.BaseUrlUri"
+                  UniqIdOfRecord="Id"
+                  ColumnsToExcludeCSV="Id, FirstName"
+                  PageNameTitle="@trs.GetTranslation("IndividualViewStd",@AppData.ActiveUser,"Individual")"
+                  Paging="@(new PagingConfig
+                            {
+                                Enabled = true,
+                                CustomPager = false,
+                                PageSize = @AppData.rowNumMid
+                            })">
+
+        <ControlMenu>
+            <a @onclick="@(args => CRUD("C","/IndOrg/IndividualAdd",""))" value="Add" class="menu-itms">@trs.GetTranslation("Add",@AppData.ActiveUser,"General")</a>
+            <a @onclick="@(args => CRUD("R","/IndOrg/IndividualEdit/", @AppData.Individual_IdSelect))" class="menu-itms">@trs.GetTranslation("View",@AppData.ActiveUser,"General")</a>
+            <a @onclick="@(args => CRUD("U","/IndOrg/IndividualEdit/", @AppData.Individual_IdSelect))" class="menu-itms">@trs.GetTranslation("Edit",@AppData.ActiveUser,"General")</a>
+            <a @onclick="@(args => CRUD("D","/IndOrg/IndividualDelete/", @AppData.Individual_IdSelect))" class="menu-itms">@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")</a>
+        </ControlMenu>
+
+        <ControlQuickAccess>
+            &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.BaseUrlUri))" data-toggle="tooltip" title="@trs.GetTranslation("Beck",@AppData.ActiveUser,"General")"><span class="fa fa-backward" aria-hidden="true"></span>  @trs.GetTranslation("Beck",@AppData.ActiveUser,"General")</button>
+            &nbsp &nbsp
+            <DGridColumnComp OnSearchTextChanged="SearchTxt"> </DGridColumnComp>
+            &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="@trs.GetTranslation("ShowMoreRecords",@AppData.ActiveUser,"General")"><span class="fa fa-angle-double-down" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="@trs.GetTranslation("Choose",@AppData.ActiveUser,"General")"><span class="fa fa-hand-pointer-o" aria-hidden="true" id="search-input"></span></button>
+             &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("C","/IndOrg/IndividualAdd",""))" data-toggle="tooltip" title="@trs.GetTranslation("Add",@AppData.ActiveUser,"General")"><span class="fa fa-plus" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("R","/IndOrg/IndividualEdit/", @AppData.Individual_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("View",@AppData.ActiveUser,"General")"><span class="fa fa-file" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("U","/IndOrg/IndividualEdit/", @AppData.Individual_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("Edit",@AppData.ActiveUser,"General")"><span class="fa fa-pencil" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("D","/IndOrg/IndividualDelete/", @AppData.Individual_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")"><span class="fa fa-trash" aria-hidden="true"></span></button>
+            &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => FilterData())" data-toggle="tooltip" title="@trs.GetTranslation("Filter",@AppData.ActiveUser,"General")"><span class="fa fa-filter" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="@trs.GetTranslation("ExportToExcel",@AppData.ActiveUser,"General")"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
+        </ControlQuickAccess>
+    </DataGridComp>
+</Authorized>
+ <NotAuthorized>
+        <p>Not Authorized !</p>
+ </NotAuthorized>
+ </AuthorizeView>
+}
+    @code  {
+ #region     Declare
+    [Parameter]
+    public string Id { get; set; }
+    private DataGridComp<Individual> grid;
+    private List<Individual> list;
+    
+   // [Inject]
+   // private IHttpContextAccessor hca { get; set; } = default!;
+ 
+ #endregion  Declare
+
+ #region    BlazorMethods
+
+
+    protected override void OnInitialized()
+    //protected override async Task OnInitializedAsync()
+    {
+        Service.OnInitialized();
+        AppData.BaseUrlUri=NavManager.Uri.ToString(); 
+        list = Service.GetById(int.Parse(Id)).ToList();  
+       
+    }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+    await base.SetParametersAsync(parameters);
+    // username =  hca.HttpContext.User.Identity.Name;
+    }
+#endregion BlazorMethods
+
+#region    Event
+
+    private void SearchTxt(ChangeEventArgs changeEventArgs)
+    {
+        string searchValue = changeEventArgs.Value.ToString();
+        list = Service.GetSearchByField(searchValue);
+        GoToFirstPage();
+    }
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        AppData.Individual_IdSelect = pSelectedRow;
+    }
+    protected void FindSelectedRec()
+    {
+        GoToFirstPage();
+        list = Service.GetById(int.Parse(AppData.Individual_IdSelect));
+    }
+    protected void CleanSearchBox()
+    {
+        GoToFirstPage();
+        list = Service.GetSearchByField("");
+        AppData.Individual_IdSelect = "0";
+    }
+    private void GoToFirstPage()
+    {
+        grid.GoToFirstPage();
+    }
+    private void CRUD(string pOperType, string pNavLink, string pRecId)
+    {         
+        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
+                  servClass.CRUD(pOperType,pNavLink, pRecId);
+    }
+    protected void ExportToExcel()
+    {
+        Service.GenerateExcel(JSRuntime);
+    }
+    protected void FilterData()
+    {
+        JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
+    }
+ #endregion Event
+
+}

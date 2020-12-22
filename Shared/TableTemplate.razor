@@ -1,0 +1,42 @@
+﻿@typeparam TItem
+
+<div class="table-style">
+    <table class="table   table-bordered " id="rowClick">
+        <thead class="thead-light">
+            <tr>
+                @TableHeader
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Items)
+            {              
+                <tr @onclick="() => TrClickedAtIndex()">
+                    @RowTemplate(item)
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
+@code{
+
+    [Parameter]
+    public RenderFragment TableHeader { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem> RowTemplate { get; set; }
+
+    [Parameter]
+    public IReadOnlyList<TItem> Items { get; set; }
+
+
+    protected int selectedRow { get; set; } = 0;
+
+    public async Task TrClickedAtIndex()
+    {
+        //Console.WriteLine("Test ");
+        //selectedRow = index;
+        await JSRuntime.InvokeVoidAsync("SelectedRowColorChange");
+    }
+
+}

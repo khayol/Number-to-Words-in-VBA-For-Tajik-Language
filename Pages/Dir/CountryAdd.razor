@@ -1,0 +1,73 @@
+@page "/Dir/CountryAdd"
+@inject CountryController objCountryController
+
+<div class="fix-possition">
+<PanelElemens>
+<ControlQuickAccess>
+        <input type="button" class="btn bnt-style-general" @onclick="@CreateCountry" value="Save" >
+        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+</ControlQuickAccess>
+</PanelElemens>
+</div> 
+<div class="under-cls">
+<form>
+<div class="row">
+    
+    <div class="col-md-8  field-content">
+
+        <div class="form-group">
+            <label for="Name" class="control-lable">Name</label>
+            <input form="Name" class="form-control" @bind="@objCountry.Name" />
+        </div>
+
+        <div class="form-group">
+            <label for="FullName" class="control-lable">FullName</label>
+            <input form="FullName" class="form-control" @bind="@objCountry.FullName" />
+        </div>
+
+        <div class="form-group">
+                <label for="English" class="control-lable">English</label>
+                <input form="English" class="form-control" @bind="@objCountry.English" />
+            </div>
+            <div class="form-group">
+                <label for="Alpha2" class="control-lable">Alpha2</label>
+                <input form="Alpha2" class="form-control" @bind="@objCountry.Alpha2" />
+            </div>
+            <div class="form-group">
+                <label for="Alpha3" class="control-lable">Alpha3</label>
+                <input form="Alpha3" class="form-control" @bind="@objCountry.Alpha3" />
+            </div>
+            <div class="form-group">
+                <label for="Iso" class="control-lable">Iso</label>
+                <input form="Iso" class="form-control" @bind="@objCountry.Iso" />
+            </div>
+
+            @* <div class="form-group">
+                <label for="CreatedDate" class="control-lable">CreatedDate</label>
+                <input form="AlpCreatedDateha3" class="form-control" @bind="@objCountry.CreatedDate" />
+            </div> *@
+        
+    </div>
+    
+</div>
+
+</form>
+</div>
+@code{
+    Country objCountry= new Country();
+
+     protected override void OnInitialized()
+    {
+        base.OnInitialized();
+          // objCountry.IndividualId=int.Parse(AppData.Individual_IdSelect);
+    }
+    protected  void CreateCountry(){ 
+
+        objCountryController.Create(objCountry);
+        NavManager.NavigateTo("/Dir/CountryViewStd/");
+    }
+    void Cancel(){
+       NavManager.NavigateTo("/Dir/CountryViewStd/");
+    }
+
+}

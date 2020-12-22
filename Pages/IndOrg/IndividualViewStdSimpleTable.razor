@@ -1,0 +1,77 @@
+@page "/IndOrg/IndividualViewStdSimpleTable"
+@inject IndividualController IndividualController
+
+@if (individualList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <FuncComp>
+        <ControlMenu>
+            <a @onclick="@(args => AddNew("/IndOrg/IndividualAdd"))" value="Add" class="menu-itms">Add</a>
+            <a @onclick="@(args => Edit("/IndOrg/IndividualEdit/",selectedRow))" class="menu-itms">Edit</a>
+            <a @onclick="@(args => Delete("/IndOrg/IndividualDelete/",selectedRow))" class="menu-itms">Delete</a>
+        </ControlMenu>
+        <ControlQuickAccess>
+            <button class="btn bnt-style-general" @onclick="@(args => AddNew("/IndOrg/IndividualAdd"))" data-toggle="tooltip" title="Add"><span class="oi oi-plus" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => Edit("/IndOrg/IndividualEdit/",selectedRow))" data-toggle="tooltip" title="Edit"><span class="oi oi-pencil" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => Delete("/IndOrg/IndividualDelete/",selectedRow))" data-toggle="tooltip" title="Delete"><span class="oi oi-circle-x" aria-hidden="true"></span></button>
+        </ControlQuickAccess>
+    </FuncComp>
+    <TblComp Items="individualList"
+             TblCssClass=""
+             SelectedRow="SelectedRowMeth"
+             ColumnsToExcludeCSV="Id">
+    </TblComp>
+
+}
+@code{
+    List<Individual> individualList;
+
+    private string selectedRow { get; set; } = "";
+
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        selectedRow = pSelectedRow;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        individualList = await Task.Run(() => IndividualController.Get());
+
+    }
+
+    protected void AddNew(string pNavLink)
+    {
+        NavManager.NavigateTo(pNavLink);
+        // Console.WriteLine("The C# Console runned");
+        // JSRuntime.InvokeVoidAsync("console_write", "The JS Console Logging22 "+ selectedRow);
+    }
+
+    protected void Edit(string pNavLink, string p_selectedRow)
+    {
+        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        {
+            JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
+        }
+        else
+        {
+            NavManager.NavigateTo(pNavLink + p_selectedRow);
+        }
+    }
+    protected void Delete(string pNavLink, string p_selectedRow)
+    {
+        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        {
+            JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
+        }
+        else
+        {
+            NavManager.NavigateTo(pNavLink + p_selectedRow);
+        }
+
+    }
+
+}
+

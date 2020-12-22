@@ -1,0 +1,69 @@
+﻿<div >
+     <div class="panel-header" >
+@*         
+            &nbsp;
+            <div style="display: inline" @onclick="@(args => NavManager.NavigateTo("/"))"><span class="fa fa-home" aria-hidden="true"></span></div>
+            &nbsp;
+            <div style="display: inline" @onclick="@(args => NavManager.NavigateTo("/MainMenu"))"><span class="fa fa-list" aria-hidden="true"></span></div>
+            &nbsp;
+            <div style="display: inline" @onclick="@(args => NavManager.NavigateTo("/Core/Help"))"><span class="fa fa-question" aria-hidden="true"></span></div>
+            &nbsp;  
+             *@
+
+        &nbsp;
+        <button class="btn bnt-style-general"  @onclick="@(args => NavManager.NavigateTo("/"))" data-toggle="tooltip" title=""><span class="fa fa-home" aria-hidden="true"></span></button>
+        &nbsp; 
+        <button class="btn bnt-style-general"  @onclick="@(args => NavManager.NavigateTo("/MainMenu"))" data-toggle="tooltip" title=""><span class="fa fa-list" aria-hidden="true"></span></button>
+        &nbsp; 
+        <button class="btn bnt-style-general"  @onclick="@(args => NavManager.NavigateTo("/Core/Help"))" data-toggle="tooltip" title=""><span class="fa fa-question" aria-hidden="true"></span></button>
+        &nbsp;  
+
+        @* <a>@AppData.appName   </a>  *@
+        <a>&nbsp;&nbsp;&nbsp;&nbsp;@AppData.orgName</a> 
+        @* 
+        <select @bind="selectedDesignPath">
+        @foreach (var loc in Designs)
+        {
+        <option value="@loc.DesignPath">@loc.DesignName</option>
+        }
+        </select>
+        @selectedDesignPath
+        *@
+       <a class="navbar-brand" style="right:0; position: absolute;" href=""> <LoginDisplay /> </a> 
+     </div>
+</div>
+ 
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private string username = "";   
+    protected override async Task OnInitializedAsync()
+    {
+     await GetClaimsPrincipalData();
+    }
+    private async Task GetClaimsPrincipalData()
+    {        
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        username = authState?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "";
+           AppData.ActiveUser=username;
+           AppData.ActiveUserLang=trs.GetActiveUserLang(AppData.ActiveUser);
+           AppData.BrowserIterfaceLang= @trs.GetTheBrowserIterfaceLang(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+
+    }
+
+    protected override void OnInitialized()
+    {
+             
+    }
+
+  
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;         
+    }
+    
+
+}

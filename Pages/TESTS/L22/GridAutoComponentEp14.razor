@@ -1,0 +1,94 @@
+﻿@typeparam TItem
+@using System.Reflection
+
+
+
+
+@if (memberInfo != null && memberInfo.Length > 0)
+{
+
+    <table class="@($"table {this.TblCssClass}")">
+        <thead>
+            <tr>
+                @foreach (var member in memberInfo)
+                {
+                    @if (member.MemberType == MemberTypes.Property &&
+                     !ColumnsToExcludeCSV.Contains(member.Name, StringComparison.OrdinalIgnoreCase)) //непоказывать колонки(Причеслите их как CSV например "Id,Name")
+                    {
+                        <th>
+                            @member.Name
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in this.Items)
+            {
+                <tr  >
+                    @foreach (var member in memberInfo)
+                    {
+                        @if (member.MemberType == MemberTypes.Property &&
+                           !ColumnsToExcludeCSV.Contains(member.Name, StringComparison.OrdinalIgnoreCase)) //непоказывать колонки(Причеслите их как CSV например "Id,Name")
+                        {
+                            string IdOfRecord = @item.GetType().GetProperty("Id").GetValue(item).ToString(); //member.Name
+                    <td @onclick="() => ClickOnTheRecord(IdOfRecord)">
+
+                        
+                        @item.GetType().GetProperty(member.Name).GetValue(item)
+                 
+
+
+                    </td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    MemberInfo[] memberInfo;
+
+    public string name1 { get; set; } = "Name";
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        if (Items != null && Items.Count > 0)
+        {
+            Type typeofItem = this.Items[0].GetType();
+            memberInfo = typeofItem.GetMembers();
+        }
+    }
+
+    [Parameter]
+    public List<TItem> Items { get; set; }
+
+    [Parameter]
+    public string ColumnsToExcludeCSV { get; set; }
+
+    [Parameter]
+    public string TblCssClass { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedRow { get; set; }
+
+
+    public async Task ClickOnTheRecord(string pIdOfRecord)
+    {
+       // Console.WriteLine($"tr clicked at index {pIdOfRecord}!");
+        await  SelectedRow.InvokeAsync(pIdOfRecord);
+        await JSRuntime.InvokeVoidAsync("SelectedRowColorChange");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // await JSRuntime.InvokeVoidAsync("ToolTipEnable");
+        await JSRuntime.InvokeVoidAsync("SelectedRowColorChange");
+        // return base.OnAfterRenderAsync(firstRender);
+    }
+
+}

@@ -1,0 +1,489 @@
+    @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+    @import url('font-awesome-4.7.0/css/font-awesome.min.css');
+
+    html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    a, .btn-link {
+    color: #0366d6;
+    }
+
+    .btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    }
+
+    app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .top-row {
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    }
+
+    .main {
+    flex: 1;
+    }
+
+    .main .top-row { 
+    background-color: dimgray; /*#f7f7f7  Red    dimgray*/
+    border-bottom: 2px solid #d6d5d5;
+    justify-content: flex-end;
+    }
+
+    .main .top-row > a, .main .top-row .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+
+    }
+
+    .main .top-row a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    }
+
+    .sidebar { /*Фон навигатор слево*/
+    /*background-image: Red;  linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
+    background-color:gainsboro; /*  #4741FF   rgba(0,0,0,0.4);  cadetblue  mediumseagreen*/
+    /*border: 3px solid black;  Белая рамка*/
+    font-size: 1.1rem;
+    }
+
+    .sidebar .top-row { /*Заголовок контента*/
+    background-color:#B4B4B4; /*#8379F4;  dimgray rgba(0,0,0,0.4)  darkseagreen */
+    width: auto;
+    }
+
+    .sidebar .navbar-brand {
+    font-size: 1.1rem;
+    }
+
+    .sidebar .oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+    }
+
+    .sidebar .nav-item {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+    }
+
+    .sidebar .nav-item:first-of-type {
+    padding-top: 1rem;
+    }
+
+    .sidebar .nav-item:last-of-type {
+    padding-bottom: 1rem;
+    }
+
+    .sidebar .nav-item a { /* Текст меню NavBar*/
+    color:black; /*#d7d7d7*/
+    border-radius: 2px;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+    }
+
+    .sidebar .nav-item a.active {
+    background-color:#8379F4; /*rgba(255,255,255,0.25);   darkseagreen*/
+    color: white;
+    }
+
+    .sidebar .nav-item a:hover {
+    background-color:gray; /* rgba(255,255,255,0.1); cadetblue*/
+    color: white;
+    }
+
+    .content {
+    padding-top: 1.1rem;
+    }
+
+    .navbar-toggler { /* Кнопка меню*/
+    background-color: gray; /*rgba(255, 109, 90, 0.1);  #FF6D5A;*/ 
+    padding: 0.005px !important; 
+
+    }
+
+    .valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+    }
+
+    .invalid {
+    outline: 1px solid red;
+    }
+
+    .validation-message {
+    color: red;
+    }
+
+    #blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    }
+
+    #blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+    }
+
+    .fix-possition {
+    /* Фиксация элементов при вкручывание полосы прокрутки*/
+    /*position: sticky; 
+    top: 0px;  */
+
+    background-color: lightgray; /*   #CCE4F7  lightgray darkseagreen */
+    width: 100%;
+    height: 40px;
+    position: center;
+    padding: 3px;
+    margin: 0;
+    /* Фиксация Панель элементов*/
+    position: sticky;
+    top: 0; /* Don't forget this, required for the stickiness */
+
+    }
+    .under-cls
+    {
+    height: 520px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    table-layout: fixed;
+    background:#F3F3F3;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+
+    }
+    .field-content
+    {
+    margin-left: 10px;
+    }
+
+    .control-clct{
+    width: 80px;
+    height: 35px;
+    color:royalblue;
+    background:#FBFBFB;
+    text-align: center;
+    padding: 8px;
+    border-style: groove;
+    /* border-radius:10%; */
+    padding: 1px 8px;
+    }
+
+    .content-gen
+    {
+    margin-top: 0.5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    }
+
+
+    .bnt-style-general { /*The style of the std. buttons*/
+    color: #fff;
+    background-color:#c4bcee ;/*   #B4B4B4 #808080;  #8379F4;   darkseagreen; */
+    border-color: #8e9299; 
+    position: center;
+    padding: 4.5px;
+    margin: 0;
+
+    }
+    .main-menu-place { /*The style of the std. buttons*/
+    margin-left: 0;
+
+    }
+    .bnt-main-menu { /*The style of the std. buttons*/
+    margin-left: 33px;
+    /* width: 33px;   */
+    }
+
+    /*----------------------------------------------*/
+    /* Dropdown Button */
+    .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 30px;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+    background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+    display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+    }
+
+    .menu-itms {
+    background-color: #f1f1f1;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    }
+
+
+    .page-name {
+    	/* width: 100%; */
+	box-sizing: border-box;
+	border: 1.4px solid #ccc; 
+	border-radius: 4px;
+	border-color: #1861ac; 
+	height: 34px;
+	/* font-size: 16px; */
+	background-color:  #f1f1f1;
+	/* background-image: url('searchicon.png'); */
+	background-position: 10px 10px; 
+	background-repeat: no-repeat;
+	/* padding: 12px 20px 12px 40px; */;
+    }
+	
+	
+	.input1
+	{
+	/* width: 100%; */
+	box-sizing: border-box;
+	border: 1.4px solid #ccc; 
+	border-radius: 4px;
+	border-color: #1861ac; 
+	height: 34px;
+	/* font-size: 16px; */
+	background-color: white;
+	/* background-image: url('searchicon.png'); */
+	background-position: 10px 10px; 
+	background-repeat: no-repeat;
+	/* padding: 12px 20px 12px 40px; */
+	}
+
+	.input2
+	{
+	text-align: center;
+	box-sizing: border-box;
+	border: 1.4px solid #ccc; 
+	border-color: #1861ac; 
+	height: 34px;
+	border-radius: 4px;
+	height: 34px;
+	}
+      /*----------------------------------------------*/
+
+
+    @media (max-width: 767.98px) {
+            .main .top-row:not(.auth) {
+            display: none;
+            }
+
+            .main .top-row.auth {
+            justify-content: space-between;
+            }
+
+            .main .top-row a, .main .top-row .btn-link {
+            margin-left: 0;
+            }
+
+            .panel-elements { /*Panel Elements*/
+            background-color: rgba(238, 239, 241, 0.87); /*   #CCE4F7  lightgray darkseagreen */
+            border-color: #8e9299; 
+            width: 100%;
+            height: 120px;
+            position: center;
+            padding: 3px;
+            margin: 0;
+            /* Фиксация Панель элементов*/
+            position: sticky;
+            top: 0; /* Don't forget this, required for the stickiness */
+            }
+            .panel-header { /*Panel Elements*/
+              background-color:  rgb(218, 219, 221); /*   #CCE4F7  lightgray darkseagreen */
+              width: 100%;
+              height: 40px;
+              position: center;
+              padding: 4.5px;
+              margin: 0;
+              /* Фиксация Панель элементов*/
+              position: sticky;
+              top: 20px; /* Don't forget this, required for the stickiness */
+              }
+
+    }
+
+    @media (min-width: 768px) {
+            .main .top-row:not(.auth) {
+            display: none;
+            }
+
+            .main .top-row.auth {
+            justify-content: space-between;
+            }
+
+            .main .top-row a, .main .top-row .btn-link {
+            margin-left: 0;
+            }
+
+            .panel-elements { /*Panel Elements*/
+            background-color: rgba(238, 239, 241, 0.87); /*   #CCE4F7  lightgray darkseagreen */
+            border-color: #8e9299; 
+            width: 100%;
+            height: 40px;
+            position: center;
+            padding: 3px;
+            margin: 0;
+            /* Фиксация Панель элементов*/
+            position: sticky;
+            top: 0; /* Don't forget this, required for the stickiness */
+            }
+            .panel-header { /*Panel Elements*/
+              background-color:  rgb(218, 219, 221); /*   #CCE4F7  lightgray darkseagreen */
+              width: 100%;
+              height: 40px;
+              position: center;
+              padding: 4.5px;
+              margin: 0;
+              /* Фиксация Панель элементов*/
+              position: sticky;
+              font-size: 1.1rem;
+              top: 0; /* Don't forget this, required for the stickiness */
+              }
+
+               }
+
+            /* -------------------------------------------------- */
+            /* S_Panel for ganting access rights*/
+            /* Style the top navigation bar */
+.nav-pnl-layout {
+        overflow: hidden;
+        background-color:darkgray;
+        
+      }
+      
+      /* Style the nav-pnl-layout links */
+      .nav-pnl-layout a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      
+      /* Create three equal columns that floats next to each other */
+      .column-pnl-layout {
+        float: left;
+        width: 46.33%;
+        height: 480px;
+        padding: 1px;
+        /* border: 1px solid black;  */       
+      
+      }
+    
+      
+      /* Clear floats after the columns */
+      .row-pnl-layout:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+      @media screen and (max-width:600px) {
+        .column-pnl-layout {
+          width: 100%;
+        }
+       /* E_Panel for ganting access rights*/
+       /* -------------------------------------------------- */
+
+
+            
+      /* -------------------------------------------------- */
+      /* S_TreeView*/
+      /*
+      .ul-treev, .myUL {
+        list-style-type: none;
+      }
+      
+      .myUL {
+        margin: 0;
+        padding: 0;
+      }
+      
+      .caret {
+        cursor: pointer;
+         -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none;
+      }
+      
+      .caret::before {
+        content: "\25B6";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      
+      .caret-down::before {
+        -ms-transform: rotate(90deg); 
+        transform: rotate(90deg);  
+      }
+      
+      .nested {
+        display: none;
+      }
+      
+      .active {
+        display: block;
+      }
+*/
+      /* E_TreeView*/
+      /* -------------------------------------------------- */
+
+    }

@@ -1,0 +1,93 @@
+@page "/Adm/ApplicationUserSettings/{CurrentID}"
+@inject ApplicationUserController objApplicationUserController
+@inject LanguageController LanguageController
+@inject IStringLocalizer<ApplicationUserEdit> L 
+
+
+
+<AuthorizeView Roles="@activeRoles">   
+
+@if (LanguageList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{  
+  
+      
+ <div class="fix-possition">
+<PanelElemens>
+    <ControlQuickAccess>
+    <input type="button" class="btn bnt-style-general" @onclick="@UpdateApplicationUser" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+    </ControlQuickAccess>
+</PanelElemens>
+</div> 
+
+
+    @* <p>@trs.GetTranslation("FullName",@AppData.ActiveUser,"Individual")</p> *@
+<div class="under-cls">
+  <form>
+      <div class="row">
+          <div class="col-md-8  field-content">
+          
+              <div class="form-group">
+                <label for="Language"  class="control-lable">@trs.GetTranslation("Language",@AppData.ActiveUser?.ToString() ?? "","")</label>            
+                @* <label for="Language"  class="control-lable">@trs.GetTranslation("Language",@username,"")</label>             *@
+                <select class="form-control selectpicker"  @bind="@objApplicationUser.LanguageId">
+                      @if (LanguageList == null)
+                      {
+                      <p><em>Loading...</em></p>
+                      }
+                      else
+                      {
+                        <option>--@trs.GetTranslation("select",@AppData.ActiveUser?.ToString() ?? "","")--</option>                  
+                    
+                      @foreach (var item in LanguageList)
+                      {
+                      <option value="@item.Id">@item.Name (@item.NativeName) </option> // Blazor needs to know what values it binds to!
+                      } 
+                      }                  
+                  </select>
+              </div>
+              
+          
+              
+          </div>
+      </div>
+  </form>    
+</div>
+
+}
+  </AuthorizeView>          
+
+ 
+
+
+@code{
+    
+    [Parameter]
+    public string CurrentID { get; set; }
+    ApplicationUser objApplicationUser = new ApplicationUser();
+    public List<Language> LanguageList;
+    private string activeRoles; 
+     protected override void OnInitialized()
+    {
+        objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
+        LanguageList =  LanguageController.GetLanguage();
+        activeRoles =admSer.GetAccessRights("IndividualViewStd");
+    }
+
+    protected void UpdateApplicationUser()
+    {
+       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
+       NavManager.NavigateTo(AppData.BaseUrlUri);
+    }
+    void Cancel()
+    {
+         NavManager.NavigateTo(AppData.BaseUrlUri);
+    }
+
+
+
+}

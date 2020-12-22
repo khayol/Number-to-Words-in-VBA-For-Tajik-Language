@@ -1,0 +1,54 @@
+﻿@inject ApplicationUserController userSrv
+<AuthorizeView>
+    <Authorized>
+        <a href="Identity/Account/Manage">@context.User.Identity.Name!</a>
+        @* <a href="/Adm/ApplicationUserSettings/@trs.GetIdByUserName(@context.User.Identity.Name!)"><span class="fa fa-gear" aria-hidden="true"></span></a> *@
+        <div style="display: inline" @onclick="@UserSettings" ><span class="fa fa-gear" aria-hidden="true"></span></div>
+
+
+        @* <form method="post" action="Identity/Account/LogOut">
+                <button type="submit" class="nav-link btn btn-link">Log out</button>
+            </form>
+        <a href="Identity/Account/Manage">USetting</a>
+        *@
+    </Authorized>
+    <NotAuthorized>
+        <a href="Identity/Account/Register">@trs.GetTranslation("Register",@AppData.ActiveUser,"General")</a>
+        <a href="Identity/Account/Login">@trs.GetTranslation("Login",@AppData.ActiveUser,"General")</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+    @code  {
+    private string username = "";
+    protected override async Task OnInitializedAsync()
+    {
+       await GetClaimsPrincipalData();
+      
+    }
+    private async Task GetClaimsPrincipalData()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        username = authState?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "";
+           AppData.ActiveUser=username;
+           AppData.ActiveUserLang=trs.GetActiveUserLang(AppData.ActiveUser);
+           AppData.BrowserIterfaceLang= @trs.GetTheBrowserIterfaceLang(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+   
+        // For Blazor Web Assembly may be you can use this 
+        //username= hca?.HttpContext?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "" ?? "";
+    }
+    protected override void OnInitialized()
+    {
+        
+      
+    }
+
+
+
+     protected void UserSettings()
+    {
+       NavManager.NavigateTo("/Adm/ApplicationUserSettings/"+trs.GetIdByUserName(AppData.ActiveUser));
+
+    }
+
+    }
+

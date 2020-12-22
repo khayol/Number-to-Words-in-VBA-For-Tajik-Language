@@ -1,0 +1,17 @@
+﻿<div class="ml-5">
+    <h3 style="color: @ColorTest ">Component2</h3>
+    <p>
+        Count  : @CurrentValue  (on sub level on tree)
+       <br />
+        Clolr : @ColorTest
+    </p>
+</div>
+@code {
+
+    [CascadingParameter(Name = "CounterTest")]
+    public int CurrentValue { get; set; }
+
+    [CascadingParameter(Name = "Counter2")]
+    public string ColorTest { get; set; }
+
+}

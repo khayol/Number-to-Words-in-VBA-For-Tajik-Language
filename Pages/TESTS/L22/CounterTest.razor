@@ -1,0 +1,26 @@
+﻿@page "/TESTS/L22/CounterTest"
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+<Component1></Component1>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br />
+<br />
+<CascadingValue Name="CounterTest" Value="@currentCount">
+    <CascadingValue Name="Counter2" Value="@ColorTest" IsFixed="true">
+        <Component1></Component1>
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private int currentCount = 0;
+    private string ColorTest = "red";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        ColorTest = "blue";
+    }
+}

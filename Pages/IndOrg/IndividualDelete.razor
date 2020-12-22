@@ -1,0 +1,62 @@
+@page "/IndOrg/IndividualDelete/{CurrentID}"
+@inject IndividualController objIndividualController
+
+
+@inject GnrSrv GnrSrv 
+ <div class="fix-possition">
+<PanelElemens>
+    <ControlQuickAccess>
+           <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteIndividual" value="Delete">
+           <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+           <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
+    </ControlQuickAccess>
+</PanelElemens>
+</div> 
+
+<div class="under-cls">
+
+<div class="row">
+    <div class="col-md-8 field-content">
+        <h3>Are you sure want to delete this row?</h3>
+        <div class="form-group">
+            <label> Code:</label>
+            <label>@objEmp.Code</label>
+        </div>
+
+        <div class="form-group">
+            <label>FirstName:</label>
+            <label>@objEmp.FirstName</label>
+        </div>
+
+        <div class="form-group">
+            <label>LastName:</label>
+            <label>@objEmp.LastName</label>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</div>
+
+@code{
+   [Parameter]
+   public string CurrentID {get;set;}
+    Individual objEmp= new Individual();
+
+    protected override async Task OnInitializedAsync()
+    {
+    objEmp= await Task.Run(()=>objIndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID)));        
+    }
+    
+    protected void DeleteIndividual(){
+
+        objIndividualController.Delete(objEmp);
+        NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+"0");
+    }
+    void Cancel(){
+        NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+"0");
+    }
+}

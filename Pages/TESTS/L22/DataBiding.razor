@@ -1,0 +1,137 @@
+﻿@page "/TESTS/L22/DataBiding"
+
+<h3>DataBiding</h3>
+@*===================================================================*@
+<p class="test-header"> Displaying the Data</p>
+<p>
+    Name: @person.Salesperson
+</p>
+<p>
+    Amount : @person.Amount.ToString("c")
+</p>
+@*===================================================================*@
+<p class="test-header">  Change the value in textChange event on inputBox</p>
+<p>
+    <input type="number"
+           @bind-value="person.Amount" @bind-value:event="oninput"/>  @* 1)  changinh by tab*@  @* 2) changinh by tab inputEvent*@
+    </p>
+
+<br />
+@*===================================================================*@
+<p class="test-header">  checkbox</p>
+<p>
+    <label>
+        <input type="checkbox"
+               @bind-value="person.isActive" />
+        &nbsp;Is Active
+    </label>
+
+    <br />
+    Is Active: @person.isActive
+</p>
+@*===================================================================*@
+<p class="test-header">  RadioButton</p>
+
+<p>
+    <label>
+        <input type="radio" value="l" name="group" checked="@(selectedGroup==1)" @onclick="@(()=>selectedGroup=1)" />1
+    </label>
+    <label>
+        <input type="radio" value="2" name="group" checked="@(selectedGroup==2)" @onclick="@(()=>selectedGroup=2)" />2
+    </label>
+    <br />
+    @selectedGroup
+</p>
+@*===================================================================*@
+<p class="test-header">  Select from DropDownList</p>
+<p>
+    <select @bind="selectedLocationId">
+        <option value="0"></option>/option>
+        @foreach (var loc in person.Locations)
+        {
+
+            <option value="@loc.Id">@loc.City</option>
+        }
+    </select>
+    <br />
+    @selectedLocationId
+</p>
+@*===================================================================*@
+<p class="test-header"> Showing the list</p>
+<p>
+
+    <ul>
+        @foreach (var loc in person.Locations)
+        {
+            <li>@loc.City, @loc.ProvState, @loc.Country</li>
+        }
+    </ul>
+</p>
+@*===================================================================*@
+<p class="test-header"> Table with Editable column</p>
+<p>
+    <table class="table">
+
+        @foreach (var loc in person.Locations)
+        {
+            <tr>
+                <td>@loc.Id</td>
+                <td>
+                    <input type="text"
+                           class="form-control"
+                           @bind-value="@loc.City"
+                           @bind-value:event="oninput" />
+                </td>
+                <td>
+                    <input type="text"
+                           class="form-control"
+                           @bind-value="@loc.ProvState"
+                           @bind-value:event="oninput" />
+                </td>
+                <td>@loc.Country</td>
+
+            </tr>
+        }
+    </table>
+</p>
+@*===================================================================*@
+<br />
+
+@code {
+
+    IndexViewModel person = null;
+    int selectedGroup = 1;
+    int selectedLocationId = 0;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        person = new IndexViewModel
+        {
+            Salesperson = "Alex",
+            Amount = 15000,
+            Locations = new List<Location> {
+                new Location { Id=1, City = "Toronto", ProvState="Ontario", Country="Canada"},
+                new Location { Id = 2, City = "Montreal", ProvState="Quebec", Country="Canada" } }
+        };
+    }
+
+
+    #region "View Model"
+    class IndexViewModel
+    {
+        public string Salesperson { get; set; }
+        public double Amount { get; set; }
+        public bool isActive { get; set; }
+        public List<Location> Locations;
+    }
+    class Location
+    {
+        public int Id { get; set; }
+        public string City { get; set; }
+        public string ProvState { get; set; }
+        public string Country { get; set; }
+    }
+    #endregion
+
+}

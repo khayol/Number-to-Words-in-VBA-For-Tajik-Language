@@ -1,0 +1,29 @@
+﻿@page "/TESTS/L22/CounterEP12_01"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br />
+<br />
+
+<button class="button" @onclick="(()=>
+                                 {
+                                     dialog.Show();
+                                 })"> Show Child </button>
+
+<DialogComponentEp12 @ref="dialog"></DialogComponentEp12>
+
+@code {
+    private DialogComponentEp12 dialog;
+
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

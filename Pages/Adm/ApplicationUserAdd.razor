@@ -1,0 +1,63 @@
+@page "/Adm/ApplicationUserAdd"
+@inject ApplicationUserController objApplicationUserController
+
+<div class="fix-possition">
+<PanelElemens>
+<ControlQuickAccess>
+        <input type="button" class="btn bnt-style-general" @onclick="@CreateApplicationUser" value="Save" >
+        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+</ControlQuickAccess>
+</PanelElemens>
+</div> 
+<div class="under-cls">
+<form>
+<div class="row">
+    
+    <div class="col-md-8  field-content">
+
+
+        <div class="form-group">
+            <label for="Name" class="control-lable">UserName</label>
+            <input form="Name" class="form-control" @bind="@objApplicationUser.UserName" />
+        </div>
+
+        <div class="form-group">
+            <label for="Name" class="control-lable">FirstName</label>
+            <input form="Name" class="form-control" @bind="@objApplicationUser.FirstName" />
+        </div>
+
+        <div class="form-group">
+            <label for="Name" class="control-lable">SecondName</label>
+            <input form="Name" class="form-control" @bind="@objApplicationUser.SecondName" />
+        </div>
+
+        <div class="form-group">
+            <label for="Name" class="control-lable">LastName</label>
+            <input form="Name" class="form-control" @bind="@objApplicationUser.LastName" />
+        </div>
+
+        
+    </div>
+    
+</div>
+
+</form>
+</div>
+@code{
+    ApplicationUser objApplicationUser= new ApplicationUser();
+
+     protected override void OnInitialized()
+    {
+        base.OnInitialized();
+          // objApplicationUser.IndividualId=int.Parse(AppData.Individual_IdSelect);
+    }
+    protected  void CreateApplicationUser(){ 
+
+        objApplicationUserController.Create(objApplicationUser);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
+    }
+    void Cancel(){
+       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
+    }
+
+}

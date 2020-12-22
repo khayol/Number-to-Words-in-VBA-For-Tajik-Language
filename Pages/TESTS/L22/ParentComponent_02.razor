@@ -1,0 +1,21 @@
+﻿@page "/TESTS/L22/CounterCallBeckEvent_02"
+
+<h3>ParentComponent</h3>
+<p class="test-header"><b>Method Deligate</b> Getting current Count from child componet to the Parent </p>
+Current Count: @currentCount
+
+
+
+<CounterCallBeckEvent_02 SetCount="SetCurrCntMeth"></CounterCallBeckEvent_02>
+@code {
+    private int currentCount;
+
+    private void SetCurrCntMeth(int value)
+    {
+        currentCount = value;
+        StateHasChanged();
+
+    }
+
+
+}

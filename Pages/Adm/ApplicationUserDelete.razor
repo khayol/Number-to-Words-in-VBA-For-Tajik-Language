@@ -1,0 +1,56 @@
+@page "/Adm/ApplicationUserDelete/{CurrentID}"
+@inject ApplicationUserController objApplicationUserController
+
+<div class="fix-possition">
+<PanelElemens>
+<ControlQuickAccess>
+    <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteApplicationUser" value="Delete">
+    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+</ControlQuickAccess>
+</PanelElemens>
+</div>
+
+<div class="under-cls">
+<h3>Are you sure want to delete this row?</h3>
+
+<div class="row">
+    <div class="col-md-8 field-content">
+
+        <div class="form-group">
+            <label> Code:</label>
+            <label>@objEmp.Code</label>
+        </div>
+
+        <div class="form-group">
+            <label>UserName:</label>
+            <label>@objEmp.UserName</label>
+        </div>
+        <div class="form-group">
+            <label>FullName:</label>
+            <label>@objEmp.FullName</label>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+@code{
+   [Parameter]
+   public string CurrentID {get;set;}
+    ApplicationUser objEmp= new ApplicationUser();
+
+    protected override async Task OnInitializedAsync()
+    {
+    objEmp= await Task.Run(()=>objApplicationUserController.GetApplicationUserById(CurrentID));        
+    }
+    
+    protected void DeleteApplicationUser(){
+
+        objApplicationUserController.DeleteApplicationUser(objEmp);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+"0");
+    }
+    void Cancel(){
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+"0");
+    }
+}

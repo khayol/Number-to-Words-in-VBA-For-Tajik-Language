@@ -1,0 +1,52 @@
+@page "/Dir/CountryDelete/{CurrentID}"
+@inject CountryController objCountryController
+
+<div class="fix-possition">
+<PanelElemens>
+<ControlQuickAccess>
+    <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteCountry" value="Delete">
+    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+</ControlQuickAccess>
+</PanelElemens>
+</div>
+
+<div class="under-cls">
+<h3>Are you sure want to delete this row?</h3>
+
+<div class="row">
+    <div class="col-md-8 field-content">
+
+        <div class="form-group">
+            <label> Code:</label>
+            <label>@objEmp.Code</label>
+        </div>
+
+        <div class="form-group">
+            <label>Name:</label>
+            <label>@objEmp.Name</label>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+@code{
+   [Parameter]
+   public string CurrentID {get;set;}
+    Country objEmp= new Country();
+
+    protected override async Task OnInitializedAsync()
+    {
+    objEmp= await Task.Run(()=>objCountryController.GetCountryById(Convert.ToInt32(CurrentID)));        
+    }
+    
+    protected void DeleteCountry(){
+
+        objCountryController.DeleteCountry(objEmp);
+        NavManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+    }
+    void Cancel(){
+        NavManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+    }
+}

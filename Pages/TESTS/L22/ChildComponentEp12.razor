@@ -1,0 +1,14 @@
+﻿@if (display) {
+<h3>ChildComponentEp12</h3>
+}
+@code {
+
+    private bool display;
+
+    public void Show()
+    {
+        this.display = true;
+        StateHasChanged();
+    }
+
+}

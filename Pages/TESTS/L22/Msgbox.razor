@@ -1,0 +1,49 @@
+﻿@page "/TESTS/L22/Msgbox"
+<button class="btn btn-primary" @onclick="@ModalShow">Show Dialog!</button>
+@if (showModal)
+{
+    <div class="modal fade show" id="myModal" style="display:block" aria-modal="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">@GetTitle("This is the Title of the Msg")</h4>
+                    <button type="button" class="close" @onclick="@ModalCancel">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>@GetModalContent("This is the Modal Content")</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn" @onclick="@ModalCancel">Cancel</button>
+                    <button type="button" class="btn btn-danger" @onclick=@ModalOk>Delete</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+<hr />
+@code
+{
+    bool showModal = false;
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+
+    public string GetTitle(string titMsg) {
+        return titMsg;
+    } 
+    
+    public string GetModalContent( string contentMsg) {
+        return contentMsg;
+    }
+    void ModalOk()
+    {
+        Console.WriteLine("Modal ok");
+        showModal = false;
+    }
+}
