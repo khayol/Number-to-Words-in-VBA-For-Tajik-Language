@@ -321,7 +321,7 @@ using Woorj.Pages.TESTS.GeneralComponents;
 
             if (string.IsNullOrEmpty(p_selectedRow)   || p_selectedRow=="0") //String.IsNullOrEmpty(p_selectedRow)
             {
-                JSRuntime.InvokeVoidAsync("msgbox",GlobVarStat.rowNotChoosed_msg);
+                JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
             }
             else
             {
@@ -332,7 +332,7 @@ using Woorj.Pages.TESTS.GeneralComponents;
         {
             if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
             {
-                JSRuntime.InvokeVoidAsync("msgbox",GlobVarStat.rowNotChoosed_msg);
+                JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
             }
             else
             {

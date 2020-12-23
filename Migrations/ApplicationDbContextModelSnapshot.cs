@@ -733,6 +733,9 @@ namespace Woorj.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<int?>("StatusId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Alpha2")
@@ -745,6 +748,8 @@ namespace Woorj.Migrations
                         .IsUnique();
 
                     b.HasIndex("Name");
+
+                    b.HasIndex("StatusId");
 
                     b.ToTable("Language");
                 });
@@ -1319,6 +1324,13 @@ namespace Woorj.Migrations
                     b.HasOne("Woorj.Data.Core.TypeCategory", "TypeCategory")
                         .WithMany()
                         .HasForeignKey("TypeCategoryId");
+                });
+
+            modelBuilder.Entity("Woorj.Data.Dir.Language", b =>
+                {
+                    b.HasOne("Woorj.Data.Core.Status", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId");
                 });
 
             modelBuilder.Entity("Woorj.Data.IndOrg.Contact", b =>

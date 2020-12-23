@@ -361,7 +361,7 @@ using System.Reflection;
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
         {
-            ErrorMessage = GlobVarStat.sortMult_msg;
+            ErrorMessage = StatCls.GetTranslation("MultSortNotSupported",@AppData.ActiveUser,"Msg");//GlobVarStat.sortMult_msg;
             return;
         } 
     }

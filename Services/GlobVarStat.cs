@@ -72,12 +72,10 @@ namespace Woorj.Services
          #endregion   DESIGN_SECTION
         //---------------------------------------------------------------------
         #region  MESSAGE_SECTION
-        public static string dontMatch_msg { get; set; }="Column definitions don't match the provided data.";
-        public static string sortMult_msg { get; set; }="Sorting on multiple columns are not supported.";
-        public static string dataItmNotProvided_msg { get; set; }="DataItems is not provided.";
-        public static string rowNotChoosed_msg { get; set; }="Please, choose the record before running the command";
-       
-
+        //public static string dontMatch_msg { get; set; }="Column definitions don't match the provided data.";
+        //public static string sortMult_msg { get; set; }="Sorting on multiple columns are not supported.";
+        //public static string dataItmNotProvided_msg { get; set; }="DataItems is not provided.";
+        //public static string rowNotChoosed_msg { get; set; }="Please, choose the record before running this command";
         #endregion MESSAGE_SECTION
         //---------------------------------------------------------------------
     }

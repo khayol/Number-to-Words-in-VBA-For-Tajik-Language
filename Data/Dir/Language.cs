@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Woorj.Data.Core;
 using Woorj.Data.IndOrg;
 
 namespace Woorj.Data.Dir
@@ -48,6 +49,9 @@ namespace Woorj.Data.Dir
         public DateTime CreatedDate  { get; set; }
 
        //=========================================
-
+       [Display(Name = "Status")]
+        public int? StatusId  { get; set; }
+        [Display(Name = "Status")]
+        public Status Status  { get; set; }
     }
 }

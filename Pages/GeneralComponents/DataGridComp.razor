@@ -296,20 +296,20 @@ else
 
          @* if (DataItems == null || DataItems.Count <= 0)
         {
-            ErrorMessage = GlobVarStat.dataItmNotProvided_msg;
+            ErrorMessage = StatCls.GetTranslation("DataItemsNotProv",@AppData.ActiveUser,"Msg");
             return;
         }  *@
 
         @* var itemProperties = typeof(TItem).GetProperties();
         if ((Columns != null && (itemProperties == null || itemProperties.Count() != Columns.Count)))
         {
-            ErrorMessage = GlobVarStat.dontMatch_msg;
+            ErrorMessage = StatCls.GetTranslation("DoNotMatchClmDef",@AppData.ActiveUser,"Msg");
             return;
         } *@
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
         {
-            ErrorMessage = GlobVarStat.sortMult_msg;
+            ErrorMessage = StatCls.GetTranslation("MultSortNotSupported",@AppData.ActiveUser,"Msg");//GlobVarStat.sortMult_msg;
             return;
         } 
     }

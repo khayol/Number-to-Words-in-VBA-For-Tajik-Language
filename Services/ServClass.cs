@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using Woorj.Services;
@@ -11,6 +12,8 @@ namespace Woorj.Services
     public IJSRuntime JSRuntime { get; set; }   
     public NavigationManager NavManager;
     public AppData _AppData;
+
+       private ICustomTranslator trs { get; set;}  
     public ServClass(NavigationManager navigationManager , AppData appData, IJSRuntime iJSRuntime)
     {
         NavManager=navigationManager;
@@ -23,8 +26,8 @@ namespace Woorj.Services
         //  CRUD => C=CREATE, R=READ,= U=UPDATE, D=DELETE
 
         if (pOperType.ToUpper()!="C" && (string.IsNullOrEmpty(pRecId) || int.Parse(pRecId)==0))       
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",GlobVarStat.rowNotChoosed_msg);
+        {     
+            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
         }
         else if (pOperType.ToUpper()=="C"  && !string.IsNullOrEmpty(pNavLink))
         {
