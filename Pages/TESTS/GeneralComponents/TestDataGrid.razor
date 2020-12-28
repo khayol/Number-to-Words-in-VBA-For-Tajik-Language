@@ -1,17 +1,17 @@
-﻿@page "/TESTS/GeneralComponents/TestDataGrid"
+﻿@page "/TESTS/WrComponents/TestDataGrid"
 @inject EmployeeController EmployeeController
 
-@*<TblComp Items="employeelList"
+@*<WrTbl Items="employeelList"
          TblCssClass=""
          SelectedRow="SelectedRowMeth"
          ColumnsToExcludeCSV="Id">
-</TblComp>*@
+</WrTbl>*@
 
 @* ------------------------------------------------------------------------------*@
 @* Using without CustomPager *@
 
 
-@*<DataGridComp TItem="Employee"
+@*<WrDataGrid TItem="Employee"
               DataItems="employeelList"
               Columns="columnsDefinition"
               Paging="@(new PagingConfig
@@ -19,13 +19,13 @@
                                      Enabled = true,
                                      PageSize = 3
                        })">
-</DataGridComp>*@
+</WrDataGrid>*@
 
 
 @* ------------------------------------------------------------------------------*@
 @* Using CustomPager *@
 
-<DataGridComp @ref="grid"
+<WrDataGrid @ref="grid"
                   DataItems="employeelList"
                   Columns="columnsDefinition"
                   SelectedRow="SelectedRowMeth"
@@ -56,13 +56,13 @@
             <button class="btn btn-primary bnt-style-general" @onclick="@(args => Delete("/IndOrg/Delete/",selectedRow))" data-toggle="tooltip" title="Delete"><span class="oi oi-circle-x" aria-hidden="true"></span></button>
         </ControlQuickAccess>
 
-    </DataGridComp>
+    </WrDataGrid>
 
 @* ------------------------------------------------------------------------------*@
 @code  {
 
     private  List<Employee> employeelList;
-    private DataGridComp<Employee> grid;
+    private WrDataGrid<Employee> grid;
     private List<ColumnDefinition> columnsDefinition;
 
     private string selectedRow { get; set; } = "";

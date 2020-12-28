@@ -11,7 +11,7 @@
 }
 else
 {
-    <DataGridComp @ref="grid"
+    <WrDataGrid @ref="grid"
                   DataItems="RoleList"
                   Columns="@SrvRole.clmDef_RoleStd"
                   SelectedRow="SelectedRowMeth"
@@ -34,7 +34,7 @@ else
         <ControlQuickAccess>
             &nbsp &nbsp
             @*<input style="text-align: center; " />*@
-            <DGridColumnComp  OnSearchTextChanged="Role_SrchTxt"> </DGridColumnComp>
+            <WrSrchDGrid  OnSearchTextChanged="Role_SrchTxt"> </WrSrchDGrid>
             <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="Search"><span class="fa fa-search" aria-hidden="true" id="search-input"></span></button>
             <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="Clean search box"><span class="fa fa-chevron-left" aria-hidden="true"></span></button>
             &nbsp &nbsp
@@ -48,7 +48,7 @@ else
             <button class="btn bnt-style-general" @onclick="@(args => ViewOrEdit("/Adm/EditRoles/", selectedRow,"EditRoles"))" data-toggle="tooltip" title="EditRoles"><span class="fa fa-hand-paper-o" aria-hidden="true"></span></button>
 
          </ControlQuickAccess>      
-    </DataGridComp>
+    </WrDataGrid>
 }
 
 @* </AuthorizeView> *@
@@ -62,7 +62,7 @@ else
     private string selectedRow { get; set; } = "";
     private int CurrentPage { get; set; } = 1;
     private List<ApplicationRole> RoleList;
-    private DataGridComp<ApplicationRole> grid;
+    private WrDataGrid<ApplicationRole> grid;
 
    #endregion  Declare_Region
     

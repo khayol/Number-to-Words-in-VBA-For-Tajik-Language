@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using Woorj.Pages.IndOrg;

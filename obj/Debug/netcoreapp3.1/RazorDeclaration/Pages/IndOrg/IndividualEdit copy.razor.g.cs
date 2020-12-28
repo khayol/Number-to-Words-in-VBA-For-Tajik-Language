@@ -97,99 +97,99 @@ using Blazored.Menu;
 #line hidden
 #nullable disable
 #nullable restore
-#line 25 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj;
+#line 14 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+using Blazored.FluentValidation;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 26 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+using Woorj;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 27 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 29 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.Core;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 30 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.Adm;
+using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 31 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.Dir;
+using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 32 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+using Woorj.Data.Dir;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 33 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 35 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 38 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 39 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 39 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 40 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 49 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.GeneralComponents;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 50 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.L22;
+using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 51 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
+using Woorj.Pages.TESTS.L22;
 
 #line default
 #line hidden
@@ -203,15 +203,19 @@ using Woorj.Pages.TESTS.GeneralComponents;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 135 "e:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit copy.razor"
+#line 32 "e:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit copy.razor"
       
 
-
+    private List<Individual> list; // ###1
+    private WrEditView<Individual> grid;  //###2
+    
     [Parameter]
     public string CurrentID { get; set; }
     Individual objIndividual = new Individual();
     private List<Gender> GenderList;
     private List<Country> CountryList;
+
+    
 
     private bool readonlyMain1 {get;set;}=false;
     private bool readonlyMain2 {get;set;}=false;
@@ -221,18 +225,24 @@ using Woorj.Pages.TESTS.GeneralComponents;
      {
              StateHasChanged();
      }
-        protected override void OnInitialized()
-   // protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
        // objIndividual = await Task.Run(() => IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID)));
         objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
         GenderList =  GenderController.GetGender();
         CountryList =  CountryController.GetCountry();
 
+        list = IndividualController.GetById(int.Parse(CurrentID)).ToList();   // ###3
+
         readonlyMain1=AppData.readonlyMain1;
         readonlyMain2=AppData.readonlyMain2;
         readonlyOther=AppData.readonlyOther;
 
+    }
+     // ###4
+     private void SelectedRowMeth(string pSelectedRow)
+    {
+        AppData.Individual_IdSelect = pSelectedRow;
     }
     public void GoToCollection(string pLinkAddress,string pIdOfRecord)
     {           
@@ -259,13 +269,17 @@ using Woorj.Pages.TESTS.GeneralComponents;
 
     protected void UpdateIndividual()
     {
-
         IndividualController.Update(objIndividual);
         NavManager.NavigateTo(AppData.IndividualLink);
     }
     void Cancel()
     {
         NavManager.NavigateTo(AppData.IndividualLink);
+    }
+
+     void OnInvalidSubmitMsg()
+    {
+       // Console.WriteLine("OnInvalidSubmit");
     }
 
 #line default

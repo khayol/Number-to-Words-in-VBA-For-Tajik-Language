@@ -7,7 +7,7 @@
 }
 else
 {
-    <FuncComp>
+    <WrFunc>
         <ControlMenu>
             <a @onclick="@(args => AddNew("/IndOrg/IndividualAdd"))" value="Add" class="menu-itms">Add</a>
             <a @onclick="@(args => Edit("/IndOrg/IndividualEdit/",selectedRow))" class="menu-itms">Edit</a>
@@ -18,12 +18,12 @@ else
             <button class="btn bnt-style-general" @onclick="@(args => Edit("/IndOrg/IndividualEdit/",selectedRow))" data-toggle="tooltip" title="Edit"><span class="oi oi-pencil" aria-hidden="true"></span></button>
             <button class="btn bnt-style-general" @onclick="@(args => Delete("/IndOrg/IndividualDelete/",selectedRow))" data-toggle="tooltip" title="Delete"><span class="oi oi-circle-x" aria-hidden="true"></span></button>
         </ControlQuickAccess>
-    </FuncComp>
-    <TblComp Items="individualList"
+    </WrFunc>
+    <WrTbl Items="individualList"
              TblCssClass=""
              SelectedRow="SelectedRowMeth"
              ColumnsToExcludeCSV="Id">
-    </TblComp>
+    </WrTbl>
 
 }
 @code{

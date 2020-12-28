@@ -106,21 +106,21 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
 #nullable restore
 #line 14 "E:\NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
+using Woorj.Pages.TESTS.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 15 "E:\NewProjects\01\Woorj\_Imports.razor"
-using Woorj.GeneralComponents;
+using Woorj.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 16 "E:\NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden

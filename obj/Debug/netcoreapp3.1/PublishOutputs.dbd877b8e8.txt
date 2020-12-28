@@ -51,8 +51,6 @@ E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\open-iconi
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\open-iconic\font\fonts\open-iconic.woff
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\open-iconic\ICON-LICENSE
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\open-iconic\README.md
-E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\site-blue.css
-E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\site-gray.css
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\css\site.css
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\favicon.ico
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\wwwroot\jquery\jquery-3.5.1.min.js
@@ -67,10 +65,14 @@ E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Woorj.pdb
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\en\Woorj.resources.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\ru\Woorj.resources.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\AngleSharp.dll
+E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Blazored.FluentValidation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Blazored.Menu.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\EPPlus.dll
+E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\FluentValidation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Authorization.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Components.dll
+E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Components.Forms.dll
+E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Components.Web.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll

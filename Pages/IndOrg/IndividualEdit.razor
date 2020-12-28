@@ -12,127 +12,104 @@
     <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
     <ValidationSummary/>
     
-   <PanelElemens>
-    <ControlQuickAccess>
-            <input type="submit" class="btn bnt-style-general"  value="Update">
-            <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-            @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button> *@
-    </ControlQuickAccess>
-</PanelElemens>
+    <WrPnlElm>
+        <ControlQuickAccess>
+                <input type="submit" class="btn bnt-style-general"  value="Update">
+                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+                @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button> *@
+        </ControlQuickAccess>
+    </WrPnlElm>
 
-<div class="under-cls">
-<div class="row">    
-    <div class="col-md-8  field-content">
-
-  <div class="form-group">
-        <label for="Code" class="control-lable">Code</label>  
-        <input readonly=@readonlyMain1 class="form-control" id="Code" @bind="objIndividual.Code" /> 
-    </div> 
-
-    <div class="form-group">
-        <label for="FirstName" class="control-lable">FirstName</label> 
-        @* <InputText class="form-control" id="FirstName" @bind-Value="objIndividual.FirstName" />  *@
-        <input readonly="@readonlyOther" class="form-control" id="FirstName" @bind="objIndividual.FirstName" /> 
-        @* <div class="col-md-5"><ValidationMessage For="@(() => objIndividual.FirstName)" /> </div>   *@
-    </div>  
-     <div class="form-group">
-        <label for="LastName" class="control-lable">SecondName</label>
-        @* <InputText class="form-control" id="SecondName" @bind-Value="objIndividual.SecondName" /> *@
-        <input readonly="@readonlyOther" class="form-control" id="SecondName" @bind="objIndividual.SecondName" />
-        @* <div class="col-md-5"><ValidationMessage For="@(() => objIndividual.SecondName)" /> </div>   *@
-    </div>  
-
-        <div class="form-group">
-            <label for="LastName" class="control-lable">LastName</label>
-            <input readonly="@readonlyOther" form="LastName" class="form-control" @bind="@objIndividual.LastName" />
-        </div>
-     
-        <div class="form-group">
-            <label for="FirstNameEN" class="control-lable">FirstNameEN</label>
-            <input readonly="@readonlyOther" form="FirstNameEN" class="form-control" @bind="@objIndividual.FirstNameEN" />
-        </div>
-
-        <div class="form-group">
-            <label for="LastNameEN" class="control-lable">LastNameEN</label>
-            <input readonly="@readonlyOther" form="LastNameEN" class="form-control" @bind="@objIndividual.LastNameEN" />
-        </div>
-
-        <div class="form-group">
-            <label for="BirthDay" class="control-lable">BirthDay</label>
-            <input readonly="@readonlyOther" form="BirthDay" class="form-control" @bind="@objIndividual.BirthDay" />
-        </div>
-
-        <div class="form-group">
-            <label for="Address" class="control-lable">Address</label>
-            <input readonly="@readonlyOther" form="Address" class="form-control" @bind="@objIndividual.Address" />
-        </div>
-
-        
-        <div class="form-group">
-            <label  class="control-lable">Contact</label>
-            <label  class="control-clct">@GnrSrv.ExistDataORNotFlag("Contact", "IndividualId", @CurrentID)</label>
-                <input disabled="@readonlyOther" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection("/IndOrg/ContactViewStd/",CurrentID))"  value="Edit">
-        </div
-    
-        <div class="form-group">
-            <label for="PassSerial" class="control-lable">PassSerial</label>
-            <input readonly="@readonlyOther" form="PassSerial" class="form-control" @bind="@objIndividual.PassSerial" />
-        </div>
-
-        <div class="form-group">
-            <label for="PassCode" class="control-lable">PassCode</label>
-            <input readonly="@readonlyOther" form="PassCode" class="form-control" @bind="@objIndividual.PassCode" />
-        </div>
-        
-
-      <div class="form-group">
-            <label for="Gender" class="control-lable">Gender</label> 
-                <select disabled="@readonlyOther" class="form-control selectpicker" @bind="@objIndividual.GenderId">
-                    <option>--select--</option>
-                    @if (GenderList == null)
-                    {
-                     <p><em>Loading...</em></p>
-                    @* <div class="spinner"></div> *@
-                    }
-                    else
-                    {
-                    @foreach (var item in GenderList)
-                    {
-                     <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
-                    }
-                    }
-                </select>
-            </div>
-              
+    <WrFormBody>
+        <FormElements>
             <div class="form-group">
-                <label  class="control-lable">BirthPlace</label>
-                <input disabled="@readonlyOther" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection("/Dir/CountryViewStd/",@objIndividual.BirthPlace_CountryId.ToString(),"Individual",@objIndividual.Id,"BirthPlace_CountryId"))"  value="Edit">
-                <input readonly="true" form="BirthPlace" class="form-control" value="@GnrSrv.GetReleatedData("Country", "Name", @objIndividual.BirthPlace_CountryId.ToString())" />
-             
+                <WrLebel TransEntity="Individual" FieldCaption="Code" ></WrLebel>  
+                <input readonly=@readonlyMain1 class="form-control" id="Code" @bind="objIndividual.Code" /> 
+            </div>  
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="FirstName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstName" ></WrFieldStr>
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="SecondName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondName" ></WrFieldStr>
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="LastName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastName" ></WrFieldStr>
+
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="FirstNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstNameEN" ></WrFieldStr>
+
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="SecondNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondNameEN" ></WrFieldStr>
+
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="LastNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastNameEN" ></WrFieldStr>
+    
+
+            <div class="form-group">
+                <WrLebel TransEntity="Individual" FieldCaption="BirthDay" ></WrLebel>  
+                <input readonly="@readonlyOther" form="BirthDay" class="form-control" @bind="@objIndividual.BirthDay" />
+            </div>
+
+
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="Address"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.Address" ></WrFieldStr>
+
+            
+            <div class="form-group">
+                <WrLebel TransEntity="Individual" FieldCaption="Contact" ></WrLebel>  
+                <label  class="control-clct">@GnrSrv.ExistDataORNotFlag("Contact", "IndividualId", @CurrentID)</label>
+                    <input disabled="@readonlyOther" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection("/IndOrg/ContactViewStd/",CurrentID))"  value="Edit">
             </div
-
-            <div class="form-group">
-                <label for="CreatedDate" class="control-lable">CreatedDate</label>
-                <input  readonly="@readonlyMain1" class="form-control" @bind="@objIndividual.CreatedDate" />
-            </div>
-       
-    </div>
+        
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="PassSerial"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.PassSerial" ></WrFieldStr>
     
-</div>
+            <WrFieldStr ReadonlyThis="readonlyOther" FieldCaption="PassCode"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.PassCode" ></WrFieldStr>
 
-
-</div>
-
-  
-</EditForm>  
-   
+        <div class="form-group">
+                <WrLebel TransEntity="Individual" FieldCaption="Gender" ></WrLebel>
+                    <select disabled="@readonlyOther" class="form-control selectpicker" @bind="@objIndividual.GenderId">
+                        <option>--select--</option>
+                        @if (GenderList == null)
+                        {
+                        <p><em>Loading...</em></p>
+                        @* <div class="spinner"></div> *@
+                        }
+                        else
+                        {
+                        @foreach (var item in GenderList)
+                        {
+                        <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
+                        }
+                        }
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <WrLebel TransEntity="Individual" FieldCaption="BirthPlace" ></WrLebel>
+                    <input disabled="@readonlyOther" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection("/Dir/CountryViewStd/",@objIndividual.BirthPlace_CountryId.ToString(),"Individual",@objIndividual.Id,"BirthPlace_CountryId"))"  value="Edit">
+                    <input readonly="true" form="BirthPlace" class="form-control" value="@GnrSrv.GetReleatedData("Country", "Name", @objIndividual.BirthPlace_CountryId.ToString())" />
+                
+                </div
+    
+                <div class="form-group">
+                    <WrLebel TransEntity="Individual" FieldCaption="CreatedDate" ></WrLebel>
+                    <input  readonly="@readonlyMain1" class="form-control" @bind="@objIndividual.CreatedDate" />
+                </div>
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
 </Authorized>
  <NotAuthorized>
-        <p>Not Authorized !</p>
+       <WrPageNotFound/>
  </NotAuthorized>
 
   </AuthorizeView>
-
 
 
 @code{
@@ -153,7 +130,6 @@
              StateHasChanged();
      }
         protected override void OnInitialized()
-   // protected override async Task OnInitializedAsync()
     {
        // objIndividual = await Task.Run(() => IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID)));
         objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));

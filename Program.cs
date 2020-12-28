@@ -24,7 +24,7 @@ namespace Woorj
                 {
                     webBuilder.UseStartup<Startup>()
                     .UseSetting(WebHostDefaults.DetailedErrorsKey, "true"); // Show the Error on the Brouser Console
-                //.UseEnvironment(EnvironmentName.Development);
+                   //.UseEnvironment(EnvironmentName.Development);
 
                   // For Security reason, after Finishing development please leve just the below here 
                   //webBuilder.UseStartup<Startup>();

@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Woorj/1.0.0": {
         "dependencies": {
+          "Blazored.FluentValidation": "1.3.2",
           "Blazored.Menu": "2.0.5",
           "EPPlus": "5.2.1",
           "Microsoft.AspNetCore.Components": "3.1.7",
@@ -46,9 +47,7 @@
           "Microsoft.AspNetCore.Authentication.OAuth": "3.1.0.0",
           "Microsoft.AspNetCore.Authorization.Policy": "3.1.0.0",
           "Microsoft.AspNetCore.Components.Authorization": "3.1.0.0",
-          "Microsoft.AspNetCore.Components.Forms.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Components.Server": "3.1.0.0",
-          "Microsoft.AspNetCore.Components.Web.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Connections.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.CookiePolicy": "3.1.0.0",
           "Microsoft.AspNetCore.Cors": "3.1.0.0",
@@ -322,10 +321,26 @@
           "lib/netstandard2.0/AngleSharp.dll": {}
         }
       },
+      "Blazored.FluentValidation/1.3.2": {
+        "dependencies": {
+          "FluentValidation": "9.0.0",
+          "Microsoft.AspNetCore.Components": "3.1.7",
+          "Microsoft.AspNetCore.Components.Web": "3.1.5"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.FluentValidation.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.FluentValidation.dll": {}
+        }
+      },
       "Blazored.Menu/2.0.5": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.7",
-          "Microsoft.AspNetCore.Components.Web": "3.0.0"
+          "Microsoft.AspNetCore.Components.Web": "3.1.5"
         },
         "runtime": {
           "lib/netstandard2.0/Blazored.Menu.dll": {
@@ -361,6 +376,17 @@
           "lib/netstandard2.1/EPPlus.dll": {}
         }
       },
+      "FluentValidation/9.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "9.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/3.1.7": {
         "dependencies": {
           "Microsoft.AspNetCore.Metadata": "3.1.7",
@@ -394,17 +420,35 @@
         }
       },
       "Microsoft.AspNetCore.Components.Analyzers/3.1.7": {},
-      "Microsoft.AspNetCore.Components.Forms/3.0.0": {
+      "Microsoft.AspNetCore.Components.Forms/3.1.5": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.7"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {
+            "assemblyVersion": "3.1.5.0",
+            "fileVersion": "3.100.520.27105"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Web/3.0.0": {
+      "Microsoft.AspNetCore.Components.Web/3.1.5": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.7",
-          "Microsoft.AspNetCore.Components.Forms": "3.0.0",
+          "Microsoft.AspNetCore.Components.Forms": "3.1.5",
           "Microsoft.Extensions.DependencyInjection": "3.1.8",
           "Microsoft.JSInterop": "3.1.7"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {
+            "assemblyVersion": "3.1.5.0",
+            "fileVersion": "3.100.520.27105"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.5": {
@@ -2707,21 +2751,9 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Components.Forms.Reference/3.1.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Components.Forms.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.AspNetCore.Components.Server/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Components.Server.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Components.Web.Reference/3.1.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Components.Web.dll": {}
         },
         "compileOnly": true
       },
@@ -4198,6 +4230,13 @@
       "path": "anglesharp/0.13.0",
       "hashPath": "anglesharp.0.13.0.nupkg.sha512"
     },
+    "Blazored.FluentValidation/1.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h4Zt013kVtC9MGovCrJ1iHJGx7Mu1Dx4nh+6qXNtAWxETDtqifCa7WuDBJ+3TLuAB5ocTfxtnrEac6Dx1rrahQ==",
+      "path": "blazored.fluentvalidation/1.3.2",
+      "hashPath": "blazored.fluentvalidation.1.3.2.nupkg.sha512"
+    },
     "Blazored.Menu/2.0.5": {
       "type": "package",
       "serviceable": true,
@@ -4211,6 +4250,13 @@
       "sha512": "sha512-JEglTfHk5pUhZOclqjnrjPtZptiGJYBUKi3FwLqFWVGZvY+JXRvwSPqFl6juFd6GlgpAkDapVE2Btv58HRHTDg==",
       "path": "epplus/5.2.1",
       "hashPath": "epplus.5.2.1.nupkg.sha512"
+    },
+    "FluentValidation/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2SPrOW660J7v56AC2Wd4MqdiXOoEUPf72J2yMx2F3y6Ylw5pvuYrbjI435wimdTCleGgssgsdTwUJHc72dkTMw==",
+      "path": "fluentvalidation/9.0.0",
+      "hashPath": "fluentvalidation.9.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/3.1.7": {
       "type": "package",
@@ -4233,19 +4279,19 @@
       "path": "microsoft.aspnetcore.components.analyzers/3.1.7",
       "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.7.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Forms/3.0.0": {
+    "Microsoft.AspNetCore.Components.Forms/3.1.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oEFexkEnQTIedyfBU2FA16cPrEesBj+sa73Xr9V7xnqu2Tl7alHdCA/u0oJhzYsmY4qpcN2GA15yeAl4fNXOCw==",
-      "path": "microsoft.aspnetcore.components.forms/3.0.0",
-      "hashPath": "microsoft.aspnetcore.components.forms.3.0.0.nupkg.sha512"
+      "sha512": "sha512-TBtncVssmSf6ZwiFerJnIGH3oON/d5RL9BGdMbDIGfZrpkEnMasLHXoruwKBO2xuMXiWpdLHcjIYa84APMYqig==",
+      "path": "microsoft.aspnetcore.components.forms/3.1.5",
+      "hashPath": "microsoft.aspnetcore.components.forms.3.1.5.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Web/3.0.0": {
+    "Microsoft.AspNetCore.Components.Web/3.1.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Efu7Lj0T6MONxkgp/33rbcIErg7x9Uy97/jmOF2AaUJ5cGOuQFKLMvkOL3gR7qEYoodr8XE49Tm8cE/CHJHZhQ==",
-      "path": "microsoft.aspnetcore.components.web/3.0.0",
-      "hashPath": "microsoft.aspnetcore.components.web.3.0.0.nupkg.sha512"
+      "sha512": "sha512-slvOyS5OZa/fSjZ1Ry9WKyYDT8Y8sVELIByGO7YlxLIO9sx1V7FdzQ/uQezEyuIdtg52ze/rYSUfeelurWxMPQ==",
+      "path": "microsoft.aspnetcore.components.web/3.1.5",
+      "hashPath": "microsoft.aspnetcore.components.web.3.1.5.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.5": {
       "type": "package",
@@ -5589,17 +5635,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Components.Forms.Reference/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.AspNetCore.Components.Server/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.AspNetCore.Components.Web.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

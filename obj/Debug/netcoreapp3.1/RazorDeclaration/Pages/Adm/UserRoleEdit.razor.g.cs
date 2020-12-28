@@ -119,7 +119,7 @@ using Woorj.Shared;
 #nullable disable
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
@@ -182,7 +182,7 @@ using Woorj.CtrServerSide.IndOrg;
 #nullable disable
 #nullable restore
 #line 50 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.GeneralComponents;
+using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
@@ -190,13 +190,6 @@ using Woorj.Pages.GeneralComponents;
 #nullable restore
 #line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
 
 #line default
 #line hidden
@@ -220,8 +213,8 @@ using Woorj.Pages.TESTS.GeneralComponents;
         private List<VGetUserRole> VGetUserRole_List;       
         private List<ApplicationRole> ApplicationRole_List; 
         private List<ApplicationRole> DiffRoleList;  
-        private DataGridComp<ApplicationRole> grid_DiffRoleList;      
-        private DataGridComp<VGetUserRole> grid_VGetUserRole; 
+        private WrDataGrid<ApplicationRole> grid_DiffRoleList;      
+        private WrDataGrid<VGetUserRole> grid_VGetUserRole; 
         private ApplicationUser objUser = new ApplicationUser(); 
     #endregion  Declare
     

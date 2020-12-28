@@ -1,26 +1,52 @@
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Production
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish
-warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
-      Failed to determine the https port for redirect.
-warn: Microsoft.AspNetCore.Components.Server.Circuits.RemoteRenderer[100]
-      Unhandled exception rendering component: Object reference not set to an instance of an object.
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 103
-   at Microsoft.AspNetCore.Components.ComponentBase.<.ctor>b__6_0(RenderTreeBuilder builder)
-   at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
-   at Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderInExistingBatch(RenderQueueEntry renderQueueEntry)
-   at Microsoft.AspNetCore.Components.RenderTree.Renderer.ProcessRenderQueue()
-fail: Microsoft.AspNetCore.Components.Server.Circuits.CircuitHost[111]
-      Unhandled exception in circuit 'COxp43MCVmkNGCnCQr5zC_ig-zHa0t1DKrfhqhyS1HM'.
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 103
-   at Microsoft.AspNetCore.Components.ComponentBase.<.ctor>b__6_0(RenderTreeBuilder builder)
-   at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
-   at Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderInExistingBatch(RenderQueueEntry renderQueueEntry)
-   at Microsoft.AspNetCore.Components.RenderTree.Renderer.ProcessRenderQueue()
-info: Microsoft.Hosting.Lifetime[0]
-      Application is shutting down...
+info: Microsoft.Hosting.Lifetime[0]
+
+      Application started. Press Ctrl+C to shut down.
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Hosting environment: Production
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Content root path: E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\publish
+WrDataGridWrDataGrid
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+
+      Failed to determine the https port for redirect.
+
+warn: Microsoft.AspNetCore.Components.Server.Circuits.RemoteRenderer[100]
+
+      Unhandled exception rendering component: Object reference not set to an instance of an object.
+WrDataGridWrDataGrid
+System.NullReferenceException: Object reference not set to an instance of an object.
+
+   at Woorj.Pages.WrComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\DataGridComp.razor:line 103
+
+   at Microsoft.AspNetCore.Components.ComponentBase.<.ctor>b__6_0(RenderTreeBuilder builder)
+
+   at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
+
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderInExistingBatch(RenderQueueEntry renderQueueEntry)
+
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.ProcessRenderQueue()
+
+fail: Microsoft.AspNetCore.Components.Server.Circuits.CircuitHost[111]
+
+      Unhandled exception in circuit 'COxp43MCVmkNGCnCQr5zC_ig-zHa0t1DKrfhqhyS1HM'.
+
+System.NullReferenceException: Object reference not set to an instance of an object.
+
+   at Woorj.Pages.WrComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\DataGridComp.razor:line 103
+
+   at Microsoft.AspNetCore.Components.ComponentBase.<.ctor>b__6_0(RenderTreeBuilder builder)
+
+   at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
+
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.RenderInExistingBatch(RenderQueueEntry renderQueueEntry)
+
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.ProcessRenderQueue()
+
+info: Microsoft.Hosting.Lifetime[0]
+
+      Application is shutting down...
+

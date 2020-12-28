@@ -1,4 +1,5 @@
-﻿using Microsoft.JSInterop;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.JSInterop;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,15 @@ namespace Woorj.CtrServerSide.Dir
         // Get Language by ID
         public Language GetLanguageById(int id){
           Language Language= _db.Language.FirstOrDefault(s=> s.Id==id);
-          return Language;
-        
+          return Language;        
+        }
+        public List<Language> GetLangActive(){
+
+           var Language= _db.Language.Include(s=>s.Status).ThenInclude(t=>t.TypeList)
+                                      .Where(i=>
+                                              i.Status.Code== 1010 && i.Status.TypeList.Code==1014 
+                                            ).ToList();
+          return Language;        
         }
        // Get Language by ID
          public List<Language> GetLanguageById2(int pId){

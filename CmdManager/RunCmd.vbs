@@ -25,7 +25,7 @@
 	thisMinute=LPad(Minute(Now), 2, "0") :thisSecond=LPad(Second(Now), 2, "0")
 	thisTime=thisHour & thisMinute & thisSecond
 	thisDate=thisYear & thisMonth & thisDay
-	addAfterName="-" & thisDate & thisTime
+	addAfterName="-" & thisDate & "-" & thisTime
     '-------------------------------------------------------------------------
 	
 '===============================================================================
@@ -92,10 +92,9 @@
 	'objLog.WriteLine("------------------------------------------------------------------")
 	'------------------------------------
 	serv=strComputerName & slash & servName
-	dbFileNameForBackUp=projectDbName & addAfterName
-	'backUpAdr=prjMainFld & archiveFld & slash & projectName & dbArchFld & slash
-	backUpAdr=prjMainFld & archiveFld & slash & projectName & dbArchFld & slash & thisYear & slash & thisMonth & slash & thisDay & slash 
-	appFileArchFolder=prjMainFld & archiveFld & slash & projectName & filesArchFld & slash & thisYear & slash & thisMonth & slash & thisDay & slash & projectName & addAfterName &"-" & CopyDESCR &  "\" & projectName
+	dbFileNameForBackUp= addAfterName '=projectDbName & addAfterName
+	thisDayFolder=prjMainFld & archiveFld & slash & thisYear & slash & thisMonth & slash & thisDay
+	backUpAdr=thisDayFolder
 	appFolder=prjMainFld & projectName
 	appExeScripsFileArchFolder=prjMainFld & archiveFld & slash & projectName & filesArchFld & slash & projectName & addAfterName & "\" & "ExeScrips"
 '===============================================================================
@@ -175,13 +174,15 @@
 			dbFileNameForRestore=trim(objFSO.GetBaseName(chooseDBFile())) 
 			call RestoreBackup(usr,pass,serv,projectDbName,backUpAdr,dbFileNameForRestore,dbEx)	
 		elseif chooes_opt="7" then                         'BeckUps Application Files
-			     CopyDESCR= InputBox("Please Enter the description for that copy","BeckUps")
+		    
+				CopyDESCR= InputBox("Please Enter the description for that copy","BeckUps")
 				if len(CopyDESCR)>0 then
 				minusAdd="-"
 				else
 				minusAdd=""
 				end if		
-  	           appFileArchFolder=Trim(prjMainFld & archiveFld & slash & projectName & filesArchFld & slash & thisYear & slash & thisMonth & slash & thisDay & slash & projectName & addAfterName & minusAdd & CopyDESCR &  "\" & projectName)				 
+				
+  	           appFileArchFolder=thisDayFolder & slash & projectName & addAfterName & minusAdd & CopyDESCR & slash & projectName				 
 	  		 if IsEmpty(CopyDESCR) then 
 			  'Cancled
 			 else
@@ -198,17 +199,16 @@
 					minusAdd=""
 					end if					 
 
-				 appFileArchFolder=prjMainFld & archiveFld & slash & projectName & filesArchFld & slash & thisYear & slash & thisMonth & slash & thisDay & slash & projectName & addAfterName & minusAdd & CopyDESCR &  "\" & projectName
+				 appFileArchFolder=thisDayFolder & slash & projectName & addAfterName & minusAdd & CopyDESCR &  slash & projectName
 	         if IsEmpty(CopyDESCR) then 
 			  'Cancled
 			 else
-			call CreateFolder_Date_month_Day_Time(backUpAdr)
-			call GetBackUp(usr,pass,serv,projectDbName,backUpAdr,dbFileNameForBackUp,dbEx)
-			'----------------------
 			call CreateFolder_Date_month_Day_Time(appFileArchFolder)
+			call GetBackUp(usr,pass,serv,projectDbName,appFileArchFolder,dbFileNameForBackUp,dbEx)
+			'----------------------
+			'call CreateFolder_Date_month_Day_Time(appFileArchFolder)
 			objFSO.CopyFolder appFolder, appFileArchFolder		
 			objFSO.CopyFolder exeScrips, appExeScripsFileArchFolder
-			'objLog.WriteLine( now  & " The Application Folder " & appFolder & " copied to " & appFileArchFolder & " as application filesBackUp" )  
              end if		
 		elseif chooes_opt="10" then                       'Remove Migration","dotnet ef migrations remove
 				thisCMD=LocArr(10)(2)

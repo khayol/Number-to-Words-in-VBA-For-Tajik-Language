@@ -154,9 +154,9 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
    at Woorj.Services.GnrSrv.GetReleatedData(String pTableName, String pSeletedFiledName, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 78
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 469
+   at Woorj.Pages.WrComponents.WrDataGrid`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 469
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 91
+   at Woorj.Pages.WrComponents.WrDataGrid`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 91
 
    at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
 IndividualControllerIndividualController
@@ -172,9 +172,9 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
    at Woorj.Services.GnrSrv.GetReleatedData(String pTableName, String pSeletedFiledName, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 78
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 469
+   at Woorj.Pages.WrComponents.WrDataGrid`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 469
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 91
+   at Woorj.Pages.WrComponents.WrDataGrid`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 91
 
    at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
 
@@ -250,7 +250,7 @@ Error Number:547,State:0,Class:16
 
    at Woorj.Services.GnrSrv.UpdateReleatedDataMain(Int32 pChoosedEntityId, String pChoosedEntityFK, Int32 pIdSelected, String pChoosedEntityName) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 100
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 220
+   at Woorj.Pages.WrComponents.WrDataGrid`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 220
 
    at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
 
@@ -324,7 +324,7 @@ IndividualControllerIndividualController
 
    at Woorj.Services.GnrSrv.UpdateReleatedDataMain(Int32 pChoosedEntityId, String pChoosedEntityFK, Int32 pIdSelected, String pChoosedEntityName) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 100
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 220
+   at Woorj.Pages.WrComponents.WrDataGrid`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 220
 
    at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
 
@@ -458,9 +458,9 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
    at Woorj.Services.GnrSrv.GetReleatedData(String pTableName, String pSeletedFiledName, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 78
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 469
+   at Woorj.Pages.WrComponents.WrDataGrid`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 469
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 91
+   at Woorj.Pages.WrComponents.WrDataGrid`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 91
 
    at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
 
@@ -476,9 +476,9 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 IndividualControllerIndividualController
    at Woorj.Services.GnrSrv.GetReleatedData(String pTableName, String pSeletedFiledName, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 78
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 469
+   at Woorj.Pages.WrComponents.WrDataGrid`1.FormatItemValue(TItem item, ColumnDefinition column, String pIdOfRecord) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 469
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 91
+   at Woorj.Pages.WrComponents.WrDataGrid`1.BuildRenderTree(RenderTreeBuilder __builder) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 91
 
    at Microsoft.AspNetCore.Components.Rendering.ComponentState.RenderIntoBatch(RenderBatchBuilder batchBuilder, RenderFragment renderFragment)
 
@@ -548,7 +548,7 @@ Error Number:547,State:0,Class:16
 
    at Woorj.Services.GnrSrv.UpdateReleatedDataMain(Int32 pChoosedEntityId, String pChoosedEntityFK, Int32 pIdSelected, String pChoosedEntityName) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 100
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 220
+   at Woorj.Pages.WrComponents.WrDataGrid`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 220
 
    at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
 
@@ -616,7 +616,7 @@ Error Number:547,State:0,Class:16
 
    at Woorj.Services.GnrSrv.UpdateReleatedDataMain(Int32 pChoosedEntityId, String pChoosedEntityFK, Int32 pIdSelected, String pChoosedEntityName) in E:\A_NewProjects\01\Woorj\Services\GnrSrv.cs:line 100
 
-   at Woorj.Pages.GeneralComponents.DataGridComp`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\GeneralComponents\DataGridComp.razor:line 220
+   at Woorj.Pages.WrComponents.WrDataGrid`1.DoubleClickOnTheData(TItem item, ColumnDefinition column, String pCurrLink, String pIdOfRecord, String pColName, String pIdOfFieldKey, String pLinkAddress, String pCellValue) in E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor:line 220
 
    at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
 

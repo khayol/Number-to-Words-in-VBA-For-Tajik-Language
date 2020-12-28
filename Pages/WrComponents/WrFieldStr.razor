@@ -1,0 +1,60 @@
+﻿
+   <div class="form-group"> 
+        <label for="@FieldCaption" class="control-lable">@trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)</label>  
+        <InputText  readonly=@ReadonlyThis class="form-control" id="Code" @bind-Value="@BindingValue"  /> 
+    </div>  
+
+@code  { 
+
+    [Parameter]
+    public bool ReadonlyThis { get; set; }
+    
+    [Parameter]
+    public string FieldCaption { get; set; }
+      
+    [Parameter]
+    public string TransEntity { get; set; }
+    
+    
+    private string _value;
+
+    [Parameter]
+    public string BindingValue
+    {
+        get => _value;
+        set
+        {
+            if (_value == value ) return;
+            _value = value;
+            BindingValueChanged.InvokeAsync(value);
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> BindingValueChanged { get; set; } 
+
+/*
+     protected override void OnInitialized()
+    {
+      Console.WriteLine("BindingValue = "+BindingValue);
+      Console.WriteLine("BindingValue = "+BindingValue);
+    }
+*/
+
+   
+
+
+
+
+    
+  
+
+   
+    
+
+
+  
+ 
+    
+
+}

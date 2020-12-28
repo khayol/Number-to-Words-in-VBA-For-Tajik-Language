@@ -112,7 +112,7 @@ using Woorj.Shared;
 #nullable disable
 #nullable restore
 #line 28 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
@@ -175,7 +175,7 @@ using Woorj.CtrServerSide.IndOrg;
 #nullable disable
 #nullable restore
 #line 49 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.GeneralComponents;
+using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
@@ -189,7 +189,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
 #nullable restore
 #line 51 "e:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
+using Woorj.Pages.TESTS.WrComponents;
 
 #line default
 #line hidden

@@ -1,0 +1,15 @@
+﻿   <label for="@FieldCaption" class="control-lable">@trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)</label>  
+
+
+@code  { 
+
+    
+    [Parameter]
+    public string FieldCaption { get; set; }
+      
+    [Parameter]
+    public string TransEntity { get; set; }
+    
+    
+
+}

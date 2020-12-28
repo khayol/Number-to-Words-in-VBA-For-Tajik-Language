@@ -10,7 +10,7 @@ else
 {
 <AuthorizeView Roles="@admSer.GetAccessRights("IndividualViewStd")" Context="authContext">
    <Authorized>
-    <DataGridComp @ref="grid"
+    <WrDataGrid @ref="grid"
                   DataItems="list"
                   SelectedRow="SelectedRowMeth"
                   Columns="@Service.columns"
@@ -34,9 +34,13 @@ else
 
         <ControlQuickAccess>
             &nbsp &nbsp
+            
+            @*             
             <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.BaseUrlUri))" data-toggle="tooltip" title="@trs.GetTranslation("Beck",@AppData.ActiveUser,"General")"><span class="fa fa-backward" aria-hidden="true"></span>  @trs.GetTranslation("Beck",@AppData.ActiveUser,"General")</button>
             &nbsp &nbsp
-            <DGridColumnComp OnSearchTextChanged="SearchTxt"> </DGridColumnComp>
+            *@
+            
+            <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
             &nbsp &nbsp
             <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="@trs.GetTranslation("ShowMoreRecords",@AppData.ActiveUser,"General")"><span class="fa fa-angle-double-down" aria-hidden="true"></span></button>
             <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="@trs.GetTranslation("Choose",@AppData.ActiveUser,"General")"><span class="fa fa-hand-pointer-o" aria-hidden="true" id="search-input"></span></button>
@@ -49,10 +53,10 @@ else
             <button class="btn bnt-style-general" @onclick="@(args => FilterData())" data-toggle="tooltip" title="@trs.GetTranslation("Filter",@AppData.ActiveUser,"General")"><span class="fa fa-filter" aria-hidden="true"></span></button>
             <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="@trs.GetTranslation("ExportToExcel",@AppData.ActiveUser,"General")"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
         </ControlQuickAccess>
-    </DataGridComp>
+    </WrDataGrid>
 </Authorized>
  <NotAuthorized>
-        <p>Not Authorized !</p>
+   <WrPageNotFound/>
  </NotAuthorized>
  </AuthorizeView>
 }
@@ -60,7 +64,7 @@ else
  #region     Declare
     [Parameter]
     public string Id { get; set; }
-    private DataGridComp<Individual> grid;
+    private WrDataGrid<Individual> grid;
     private List<Individual> list;
     
    // [Inject]
@@ -72,12 +76,10 @@ else
 
 
     protected override void OnInitialized()
-    //protected override async Task OnInitializedAsync()
     {
         Service.OnInitialized();
         AppData.BaseUrlUri=NavManager.Uri.ToString(); 
-        list = Service.GetById(int.Parse(Id)).ToList();  
-       
+        list = Service.GetById(int.Parse(Id)).ToList();         
     }
 
     public override async Task SetParametersAsync(ParameterView parameters)

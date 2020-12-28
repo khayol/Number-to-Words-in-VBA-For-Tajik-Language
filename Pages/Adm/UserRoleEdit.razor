@@ -14,7 +14,7 @@
                 else
                 {
     <div class="fix-possition">
-        <PanelElemens>
+        <WrPnlElm>
             <ControlQuickAccess>
                     <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
                     <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
@@ -22,7 +22,7 @@
                         &nbsp;&nbsp; &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ",@AppData.ActiveUser,"Adm") &#58; &nbsp;@objUser.Code &nbsp;&nbsp; @objUser.UserName &nbsp;&nbsp; @objUser.FirstName &nbsp; @objUser.SecondName
                         </label>
             </ControlQuickAccess>
-        </PanelElemens>
+        </WrPnlElm>
     </div> 
                 }
 
@@ -44,7 +44,7 @@
                         </div>
             
                
-                    <DataGridComp @ref="grid_VGetUserRole"
+                    <WrDataGrid @ref="grid_VGetUserRole"
                                 DataItems="VGetUserRole_List"
                                 Columns="@SrvRole.clmDef_VGetUserRole"  
                                 SelectedRow="SelectedRowMeth"
@@ -57,9 +57,9 @@
                                                 PageSize = @AppData.rowNumMid
                                             })">
                         <ControlQuickAccess>
-                            <DGridColumnComp  OnSearchTextChanged="VGetUserRole_SchTxt"> </DGridColumnComp>
+                            <WrSrchDGrid  OnSearchTextChanged="VGetUserRole_SchTxt"> </WrSrchDGrid>
                         </ControlQuickAccess>
-                    </DataGridComp>
+                    </WrDataGrid>
                     
                 
         </div>
@@ -85,7 +85,7 @@
                 }
                 else
                 {
-                    <DataGridComp @ref="grid_DiffRoleList"
+                    <WrDataGrid @ref="grid_DiffRoleList"
                                 DataItems="DiffRoleList"
                                 Columns="@SrvRole.clmDef_Role"
                                 SelectedRow="SelectedRowMeth"
@@ -98,9 +98,9 @@
                                                 PageSize = @AppData.rowNumMid
                                             })">
                         <ControlQuickAccess>
-                            <DGridColumnComp  OnSearchTextChanged="DiffRoleList_SrchTxt"> </DGridColumnComp>
+                            <WrSrchDGrid  OnSearchTextChanged="DiffRoleList_SrchTxt"> </WrSrchDGrid>
                         </ControlQuickAccess>
-                    </DataGridComp>
+                    </WrDataGrid>
                 }
         </div>
 
@@ -120,8 +120,8 @@
         private List<VGetUserRole> VGetUserRole_List;       
         private List<ApplicationRole> ApplicationRole_List; 
         private List<ApplicationRole> DiffRoleList;  
-        private DataGridComp<ApplicationRole> grid_DiffRoleList;      
-        private DataGridComp<VGetUserRole> grid_VGetUserRole; 
+        private WrDataGrid<ApplicationRole> grid_DiffRoleList;      
+        private WrDataGrid<VGetUserRole> grid_VGetUserRole; 
         private ApplicationUser objUser = new ApplicationUser(); 
     #endregion  Declare
     

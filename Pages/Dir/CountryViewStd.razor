@@ -11,7 +11,7 @@
 }
 else
 { 
-    <DataGridComp @ref="grid"
+    <WrDataGrid @ref="grid"
                   DataItems="CountryList"
                   Columns="columnsDefinition"
                   SelectedRow="SelectedRowMeth"
@@ -34,7 +34,7 @@ else
         <ControlQuickAccess>
             &nbsp &nbsp
             @*<input style="text-align: center; " />*@
-            <DGridColumnComp  OnSearchTextChanged="OnCountrySearchTextChanged" > </DGridColumnComp>
+            <WrSrchDGrid  OnSearchTextChanged="OnCountrySearchTextChanged" > </WrSrchDGrid>
             <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="Search"><span class="fa fa-search" aria-hidden="true" id="search-input"></span></button>
             <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="Clean search box"><span class="fa fa-chevron-left" aria-hidden="true"></span></button>
             &nbsp &nbsp
@@ -48,7 +48,7 @@ else
             <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="Export to Excel"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
          </ControlQuickAccess>
 
-    </DataGridComp>
+    </WrDataGrid>
  } 
 
 </AuthorizeView>
@@ -64,7 +64,7 @@ else
    // Country objEmp = new Country();
     private List<Country> CountryList;
     private List<Country> filteredCountryList { get; set; }
-    private DataGridComp<Country> grid;
+    private WrDataGrid<Country> grid;
         
     private List<ColumnDefinition> columnsDefinition;
 

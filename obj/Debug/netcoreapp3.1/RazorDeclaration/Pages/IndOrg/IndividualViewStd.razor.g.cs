@@ -119,7 +119,7 @@ using Woorj.Shared;
 #nullable disable
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
@@ -182,7 +182,7 @@ using Woorj.CtrServerSide.IndOrg;
 #nullable disable
 #nullable restore
 #line 50 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.GeneralComponents;
+using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
@@ -190,13 +190,6 @@ using Woorj.Pages.GeneralComponents;
 #nullable restore
 #line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
 
 #line default
 #line hidden
@@ -210,12 +203,12 @@ using Woorj.Pages.TESTS.GeneralComponents;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualViewStd.razor"
+#line 63 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualViewStd.razor"
             
  #region     Declare
     [Parameter]
     public string Id { get; set; }
-    private DataGridComp<Individual> grid;
+    private WrDataGrid<Individual> grid;
     private List<Individual> list;
     
    // [Inject]
@@ -227,12 +220,10 @@ using Woorj.Pages.TESTS.GeneralComponents;
 
 
     protected override void OnInitialized()
-    //protected override async Task OnInitializedAsync()
     {
         Service.OnInitialized();
         AppData.BaseUrlUri=NavManager.Uri.ToString(); 
-        list = Service.GetById(int.Parse(Id)).ToList();  
-       
+        list = Service.GetById(int.Parse(Id)).ToList();         
     }
 
     public override async Task SetParametersAsync(ParameterView parameters)

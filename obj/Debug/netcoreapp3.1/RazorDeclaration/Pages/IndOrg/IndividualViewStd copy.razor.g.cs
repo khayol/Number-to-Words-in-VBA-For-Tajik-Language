@@ -106,14 +106,14 @@ using Woorj.Services;
 #nullable disable
 #nullable restore
 #line 14 "e:\NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 15 "e:\NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.GeneralComponents;
+using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
@@ -141,7 +141,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
 #nullable restore
 #line 24 "e:\NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
+using Woorj.Pages.TESTS.WrComponents;
 
 #line default
 #line hidden
@@ -159,7 +159,7 @@ using Woorj.Pages.TESTS.GeneralComponents;
             
     private List<Individual> individualList;
     private List<Individual> filteredIndividualList { get; set; }
-    private DataGridComp<Individual> grid;
+    private WrDataGrid<Individual> grid;
     private List<ColumnDefinition> columnsDefinition;
 
    private string selectedRow { get; set; } = "";

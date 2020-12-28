@@ -1,0 +1,28 @@
+<div class="panel-elements">
+    <div class="row ">
+        <div>
+            <div class="form-group">
+              <div class="dropdown main-menu-place">
+                     <button class="btn btn-primary bnt-style-general  bnt-main-menu" ><span class="oi oi-menu" aria-hidden="true"></span></button>
+                     <div class="dropdown-content">
+                        @if (ControlMenu != null)
+                        {
+                          @ControlMenu
+                        }
+                    </div>
+                </div>
+                @ControlQuickAccess
+                &nbsp    
+           </div>
+        </div>
+    </div>
+</div>
+
+@code{
+
+    [Parameter]
+    public RenderFragment ControlMenu { get; set; }
+
+    [Parameter]
+    public RenderFragment ControlQuickAccess { get; set; }
+}

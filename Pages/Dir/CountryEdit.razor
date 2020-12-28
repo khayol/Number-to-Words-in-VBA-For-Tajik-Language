@@ -7,12 +7,12 @@
 
 <AuthorizeView Roles="@admSer.GetAccessRights("CountryEdit")">
  <div class="fix-possition">
-<PanelElemens>
+<WrPnlElm>
     <ControlQuickAccess>
               <input type="button" class="btn bnt-style-general" @onclick="@UpdateCountry" value="Update">
               <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
     </ControlQuickAccess>
-</PanelElemens>
+</WrPnlElm>
 </div> 
 
 <div class="under-cls">

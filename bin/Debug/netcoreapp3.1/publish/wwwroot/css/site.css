@@ -181,11 +181,12 @@
     .control-clct{
     width: 80px;
     height: 35px;
-    color:royalblue;
-    background:#FBFBFB;
+    /* color:royalblue; */
+    border-radius: 13%;
+    background:#F3F3F3;
     text-align: center;
     padding: 8px;
-    border-style: groove;
+    border-style: ridge;
     /* border-radius:10%; */
     padding: 1px 8px;
     }

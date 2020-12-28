@@ -7,7 +7,7 @@
 }
 else
 {
-    <DataGridComp @ref="grid"
+    <WrDataGrid @ref="grid"
                   DataItems="GenderList"
                   Columns="columnsDefinition"
                   SelectedRow="SelectedRowMeth"
@@ -30,7 +30,7 @@ else
         <ControlQuickAccess>
             &nbsp &nbsp
             @*<input style="text-align: center; " />*@
-            <DGridColumnComp  OnSearchTextChanged="OnGenderSearchTextChanged"> </DGridColumnComp>
+            <WrSrchDGrid  OnSearchTextChanged="OnGenderSearchTextChanged"> </WrSrchDGrid>
             <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="Search"><span class="fa fa-search" aria-hidden="true" id="search-input"></span></button>
             <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="Clean search box"><span class="fa fa-chevron-left" aria-hidden="true"></span></button>
             &nbsp &nbsp
@@ -45,7 +45,7 @@ else
          
           
         </ControlQuickAccess>    
-    </DataGridComp>
+    </WrDataGrid>
 }
 
 
@@ -58,7 +58,7 @@ else
     public string Id { get; set; }
     private List<Gender> GenderList;
     private List<Gender> filteredGenderList { get; set; }
-    private DataGridComp<Gender> grid;
+    private WrDataGrid<Gender> grid;
         
     private List<ColumnDefinition> columnsDefinition;
 

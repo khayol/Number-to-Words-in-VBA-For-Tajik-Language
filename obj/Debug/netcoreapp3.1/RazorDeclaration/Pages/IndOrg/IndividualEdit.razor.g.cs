@@ -119,7 +119,7 @@ using Woorj.Shared;
 #nullable disable
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
@@ -182,7 +182,7 @@ using Woorj.CtrServerSide.IndOrg;
 #nullable disable
 #nullable restore
 #line 50 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.GeneralComponents;
+using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
@@ -190,13 +190,6 @@ using Woorj.Pages.GeneralComponents;
 #nullable restore
 #line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
-using Woorj.Pages.TESTS.GeneralComponents;
 
 #line default
 #line hidden
@@ -210,7 +203,7 @@ using Woorj.Pages.TESTS.GeneralComponents;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 138 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
+#line 115 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
       
 
 
@@ -229,7 +222,6 @@ using Woorj.Pages.TESTS.GeneralComponents;
              StateHasChanged();
      }
         protected override void OnInitialized()
-   // protected override async Task OnInitializedAsync()
     {
        // objIndividual = await Task.Run(() => IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID)));
         objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));

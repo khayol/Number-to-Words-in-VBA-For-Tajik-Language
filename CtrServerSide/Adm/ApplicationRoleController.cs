@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Woorj.Data;
 using Woorj.Data.Adm;
-using Woorj.Data.GeneralComponents;
+using Woorj.Data.WrComponents;
 
 namespace Woorj.CtrServerSide.Adm
 {
