@@ -203,13 +203,14 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 113 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
+#line 116 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
       
 
     [Parameter]
     public string CurrentID { get; set; }
     Individual objIndividual = new Individual();
-   
+    
+    private string  CancelOrBeckTxt { get; set; }
     private List<Country> CountryList;
     
     private List<Gender> GenderList;

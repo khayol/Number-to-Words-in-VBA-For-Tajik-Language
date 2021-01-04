@@ -583,16 +583,10 @@ E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\WoorjCmd.runtimeconfig.json
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Woorj.RazorComponent.output.cache
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\scopedcss\bundle\Woorj.styles.css
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\IndividualEdit2.razor.g.cs
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\IndividualEdit2.razor.g.cs
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\IndividualAdd2.razor.g.cs
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\IndividualAdd2.razor.g.cs
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Blazored.FluentValidation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\FluentValidation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\IndividualEdit3.razor.g.cs
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\IndividualEdit3.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TESTS\GeneralComponents\TestDataGrid.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\TESTS\GeneralComponents\TestDataGrid.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrEditView4.razor.g.cs
@@ -613,5 +607,3 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrCompo
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrFieldArray.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrCombo.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrCombo.razor.g.cs
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\IndividualAdd3.razor.g.cs
-E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\IndividualAdd3.razor.g.cs

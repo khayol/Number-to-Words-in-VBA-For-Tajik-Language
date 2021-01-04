@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualViewStd.razor"
+#line 63 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualViewStd.razor"
         
  #region     Declare
     [Parameter]

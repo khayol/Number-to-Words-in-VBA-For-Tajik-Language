@@ -13,15 +13,18 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-                &nbsp 
+             
                 @if( readonlyOther==false )
                 {
+                    CancelOrBeckTxt="Cancel";
                     <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+                    
                 }else{
-
+                  CancelOrBeckTxt="Back";
                 }
-                &nbsp;
-                    <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+                 &nbsp;
+                    <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,"General")">
+                 &nbsp;
             @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))"
                 data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
             *@
@@ -115,7 +118,8 @@
     [Parameter]
     public string CurrentID { get; set; }
     Individual objIndividual = new Individual();
-   
+    
+    private string  CancelOrBeckTxt { get; set; }
     private List<Country> CountryList;
     
     private List<Gender> GenderList;

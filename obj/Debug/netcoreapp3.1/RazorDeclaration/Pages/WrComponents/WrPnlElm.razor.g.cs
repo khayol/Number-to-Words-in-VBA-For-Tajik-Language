@@ -202,7 +202,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPnlElm.razor"
+#line 25 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPnlElm.razor"
       
 
     [Parameter]
