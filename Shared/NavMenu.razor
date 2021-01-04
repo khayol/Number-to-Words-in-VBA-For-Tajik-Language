@@ -19,7 +19,11 @@
         &nbsp;  
 
         @* <a>@AppData.appName   </a>  *@
-        <a>&nbsp;&nbsp;&nbsp;&nbsp;@AppData.orgName</a> 
+        @* <a>&nbsp;&nbsp;&nbsp;&nbsp;@AppData.orgName</a>  *@
+        @* span *@
+        <div style="display: inline; " id="org-name">
+        @trs.GetTranslation("TOJIKSODIROTBANK",@AppData.ActiveUser,"General")
+        </div>
         @* 
         <select @bind="selectedDesignPath">
         @foreach (var loc in Designs)

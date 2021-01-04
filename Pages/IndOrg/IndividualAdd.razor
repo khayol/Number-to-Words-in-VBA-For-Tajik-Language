@@ -10,8 +10,8 @@
     <ValidationSummary/>
     <WrPnlElm>
     <ControlQuickAccess>
-    <input type="submit" class="btn bnt-style-general"  value="Save" >
-    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")" >
+    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
     @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button> *@
     </ControlQuickAccess>
     </WrPnlElm>

@@ -13,8 +13,15 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-                <input type="submit" class="btn bnt-style-general"  value="Update">
-                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+                &nbsp 
+                @if( readonlyOther==false )
+                {
+                    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+                }else{
+
+                }
+                &nbsp;
+                    <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
             @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))"
                 data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
             *@
