@@ -3,19 +3,11 @@
 @inject GenderController GenderController
 @inject GnrSrv GnrSrv 
 
-@if (GenderList == null)
-{
-    <p><em>Loading...</em></p>
-@* <div class="spinner"></div> *@
-}
-else
-{
-
+<AuthorizeView Roles="@admSer.GetRolesList("IndividualAdd")" Context="authContext">
+<Authorized>
 <EditForm Model="@objIndividual" OnValidSubmit="@CreateIndividual">  
-    <DataAnnotationsValidator />  
+    <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
     <ValidationSummary/>
-    
-    <div class="fix-possition">
     <WrPnlElm>
     <ControlQuickAccess>
     <input type="submit" class="btn bnt-style-general"  value="Save" >
@@ -23,86 +15,65 @@ else
     @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button> *@
     </ControlQuickAccess>
     </WrPnlElm>
-    </div> 
-    
+  <WrFormBody>
+        <FormElements>
 
+            <WrFieldStr  FieldCaption="FirstName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstName"/> 
 
-<div class="under-cls">
-<div class="row">    
-    <div class="col-md-8  field-content">
+            <WrFieldStr FieldCaption="SecondName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondName"/>
 
-    <div class="form-group">
-        <label for="LastName" class="control-lable">FirstName</label> 
-        @* <InputText class="form-control" id="FirstName" @bind-Value="objIndividual.FirstName" />  *@
-        <input class="form-control" id="FirstName" @bind="objIndividual.FirstName" /> 
-        @* <div class="col-md-5"><ValidationMessage For="@(() => objIndividual.FirstName)" /> </div>   *@
-    </div>  
-     <div class="form-group">
-        <label for="LastName" class="control-lable">SecondName</label>
-        @* <InputText  class="form-control" id="SecondName" @bind-Value="objIndividual.SecondName" /> *@
-        <input  class="form-control" id="SecondName" @bind="objIndividual.SecondName" />
-        @* <div class="col-md-5"><ValidationMessage For="@(() => objIndividual.SecondName)" /> </div>   *@
-    </div>  
+            <WrFieldStr  FieldCaption="LastName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastName"/>
 
-        <div class="form-group">
-            <label for="LastName" class="control-lable">LastName</label>
-            <input form="LastName" class="form-control" @bind="@objIndividual.LastName" />
-        </div>
-     
-        <div class="form-group">
-            <label for="FirstNameEN" class="control-lable">FirstNameEN</label>
-            <input form="FirstNameEN" class="form-control" @bind="@objIndividual.FirstNameEN" />
-        </div>
+            <WrFieldStr  FieldCaption="FirstNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstNameEN"/>
 
-        <div class="form-group">
-            <label for="LastNameEN" class="control-lable">LastNameEN</label>
-            <input form="LastNameEN" class="form-control" @bind="@objIndividual.LastNameEN" />
-        </div>
+            <WrFieldStr  FieldCaption="SecondNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondNameEN"/>
 
-        <div class="form-group">
-            <label for="BirthDay" class="control-lable">BirthDay</label>
-            <input form="BirthDay" class="form-control" @bind="@objIndividual.BirthDay" />
-        </div>
+            <WrFieldStr FieldCaption="LastNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastNameEN"/>    
 
-        <div class="form-group">
-            <label for="Address" class="control-lable">Address</label>
-            <input form="Address" class="form-control" @bind="@objIndividual.Address" />
-        </div>
+          <WrFieldDateTime TransEntity="Individual" FieldCaption="BirthDay">
+               <RenderFrg>
+                   <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@objIndividual.BirthDay" @bind-Value:format="dd/MM/yyyy"/>
+               </RenderFrg>
+           </WrFieldDateTime>
+            
+            <WrFieldStr  FieldCaption="Address"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.Address"/>
          
-        <div class="form-group">
-            <label for="PassSerial" class="control-lable">PassSerial</label>
-            <input form="PassSerial" class="form-control" @bind="@objIndividual.PassSerial" />
-        </div>
-
-        <div class="form-group">
-            <label for="PassCode" class="control-lable">PassCode</label>
-            <input form="PassCode" class="form-control" @bind="@objIndividual.PassCode" />
-        </div>
-
-        <select class="form-control selectpicker" @bind="@objIndividual.GenderId">
-            <option>--select--</option>
-            @foreach (var item in GenderList)
-            {
-            <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
-            }
-            </select>
-
-
-        <div class="form-group">
-            <label for="CreatedDate" class="control-lable">CreatedDate</label>
-            <input form="CreatedDate" class="form-control" @bind="@objIndividual.CreatedDate" />
-        </div>
-       
-    </div>
+            <WrFieldStr  FieldCaption="PassSerial"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.PassSerial"/>
     
-</div>
+            <WrFieldStr  FieldCaption="PassCode"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.PassCode"/>
+ 
+            <div class="form-group">
+             <WrLebel TransEntity="Individual" FieldCaption="Gender"/>
+                <select class="form-control selectpicker" @bind="@objIndividual.GenderId">
+                    <option>--select--</option>
+                    @foreach (var item in GenderList)
+                    {
+                    <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
+                    }
+                </select>
+            </div>
+       
+       </FormElements>      
+    </WrFormBody> 
+</EditForm>
+
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+
+  </AuthorizeView>
 
 
-</div>
-   
-  
-</EditForm> 
-}
 @code{
 
     [Parameter]

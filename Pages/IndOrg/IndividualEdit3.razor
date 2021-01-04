@@ -5,7 +5,7 @@
 @inject GnrSrv GnrSrv 
 
 
-<AuthorizeView Roles="@admSer.GetAccessRights("IndividualEdit")" Context="authContext">
+<AuthorizeView Roles="@admSer.GetRolesList("IndividualEdit")" Context="authContext">
   <Authorized>
 
 <EditForm Model="@objIndividual" OnValidSubmit="@UpdateIndividual" OnInvalidSubmit="@OnInvalidSubmitMsg" Context="formContext">  

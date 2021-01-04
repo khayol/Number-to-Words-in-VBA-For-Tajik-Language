@@ -4,13 +4,12 @@
         <a href="Identity/Account/Manage">@context.User.Identity.Name!</a>
         @* <a href="/Adm/ApplicationUserSettings/@trs.GetIdByUserName(@context.User.Identity.Name!)"><span class="fa fa-gear" aria-hidden="true"></span></a> *@
         <div style="display: inline" @onclick="@UserSettings" ><span class="fa fa-gear" aria-hidden="true"></span></div>
-
-
+        
         @* <form method="post" action="Identity/Account/LogOut">
                 <button type="submit" class="nav-link btn btn-link">Log out</button>
             </form>
         <a href="Identity/Account/Manage">USetting</a>
-        *@
+         *@
     </Authorized>
     <NotAuthorized>
         <a href="Identity/Account/Register">@trs.GetTranslation("Register",@AppData.ActiveUser,"General")</a>
@@ -41,8 +40,6 @@
         
       
     }
-
-
 
      protected void UserSettings()
     {

@@ -8,7 +8,7 @@
 }
 else
 {
-<AuthorizeView Roles="@admSer.GetAccessRights("IndividualViewStd")" Context="authContext">
+<AuthorizeView Roles="@admSer.GetRolesList("IndividualViewStd")" Context="authContext">
    <Authorized>
     <WrDataGrid @ref="grid"
                   DataItems="list"
@@ -60,7 +60,8 @@ else
  </NotAuthorized>
  </AuthorizeView>
 }
-    @code  {
+
+@code  {
  #region     Declare
     [Parameter]
     public string Id { get; set; }

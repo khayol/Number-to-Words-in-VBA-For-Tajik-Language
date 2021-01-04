@@ -3,7 +3,7 @@
 
 @* @attribute [Authorize(Roles = "@CountryViewStd_Role")]   *@
 
-<AuthorizeView Roles="@admSer.GetAccessRights("CountryViewStd")">
+<AuthorizeView Roles="@admSer.GetRolesList("CountryViewStd")">
      
 @if (CountryList == null)
 {

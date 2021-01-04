@@ -1,62 +1,75 @@
 @page "/IndOrg/IndividualDelete/{CurrentID}"
-@inject IndividualController objIndividualController
+@inject IndividualController IndividualController
+@inject GenderController GenderController
+@inject CountryController CountryController
 
+<AuthorizeView Roles="@admSer.GetRolesList("IndividualDelete")" Context="authContext">
+  <Authorized>
 
-@inject GnrSrv GnrSrv 
- <div class="fix-possition">
-<WrPnlElm>
-    <ControlQuickAccess>
-           <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteIndividual" value="Delete">
-           <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-           <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
-    </ControlQuickAccess>
-</WrPnlElm>
-</div> 
+<EditForm Model="@objIndividual" OnValidSubmit="@UpdateIndividual" OnInvalidSubmit="@OnInvalidSubmitMsg" Context="formContext">  
+   
+    <WrPnlElm>
+        <ControlQuickAccess>
+                <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")">
+                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+        </ControlQuickAccess>
+    </WrPnlElm>
 
-<div class="under-cls">
+    <WrFormBody>
+        <FormElements>
+            <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
+           
+            <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objIndividual.Code" />
 
-<div class="row">
-    <div class="col-md-8 field-content">
-        <h3>Are you sure want to delete this row?</h3>
-        <div class="form-group">
-            <label> Code:</label>
-            <label>@objEmp.Code</label>
-        </div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="FirstName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstName"/> 
 
-        <div class="form-group">
-            <label>FirstName:</label>
-            <label>@objEmp.FirstName</label>
-        </div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="SecondName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondName"/>
 
-        <div class="form-group">
-            <label>LastName:</label>
-            <label>@objEmp.LastName</label>
-        </div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="LastName"
+            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastName"/>
 
-    </div>
-</div>
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</Authorized>
+<NotAuthorized>
+    <WrPageNotFound/>
+</NotAuthorized>
+</AuthorizeView>
 
-
-
-
-</div>
 
 @code{
-   [Parameter]
-   public string CurrentID {get;set;}
-    Individual objEmp= new Individual();
 
-    protected override async Task OnInitializedAsync()
+    [Parameter]
+    public string CurrentID { get; set; }
+    Individual objIndividual = new Individual();  
+    private bool readonlyMain1 {get;set;}=false;
+
+    private void RefrashPage()
+     {
+             StateHasChanged();
+     }
+    protected override void OnInitialized()
     {
-    objEmp= await Task.Run(()=>objIndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID)));        
+          readonlyMain1=AppData.readonlyMain1;
+        objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
-    
-    protected void DeleteIndividual(){
 
-        objIndividualController.Delete(objEmp);
-        NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+"0");
+    protected void UpdateIndividual()
+    {
+        IndividualController.Delete(objIndividual);
+        NavManager.NavigateTo(AppData.IndividualLink);
     }
-    void Cancel(){
-        NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+"0");
+    void Cancel()
+    {
+        NavManager.NavigateTo(AppData.IndividualLink);
+    }
+
+     void OnInvalidSubmitMsg()
+    {
+       // Console.WriteLine("OnInvalidSubmit");
     }
 }

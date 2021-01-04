@@ -15,8 +15,8 @@ namespace Woorj.Services
 
     public interface IAdmService
     {
-        string GetAccessRights(string pObject);
-        Task<string> GetAccessRightsAsync(string pObject);
+        string GetRolesList(string pObject);
+        Task<string> GetRolesListAsync(string pObject);
     }
     public class AdmService : IAdmService
     {
@@ -26,7 +26,7 @@ namespace Woorj.Services
         {
             _db=db;
         }
-        public  async Task<string> GetAccessRightsAsync(string pObject)
+        public  async Task<string> GetRolesListAsync(string pObject)
         {
             var res="";
      
@@ -74,7 +74,7 @@ namespace Woorj.Services
         }
 
     
-        public  string GetAccessRights(string pObject)
+        public  string GetRolesList(string pObject)
         {
             var res="";
      

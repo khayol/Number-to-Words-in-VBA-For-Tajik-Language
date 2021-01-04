@@ -4,7 +4,7 @@
 @inject IStringLocalizer<ApplicationUserEdit> L 
 
 @* @attribute [Authorize(Roles = "Admin")] *@
-@* <AuthorizeView Roles="@AppData.GetAccessRights("ApplicationUserEdit")"> *@
+@* <AuthorizeView Roles="@AppData.GetRolesList("ApplicationUserEdit")"> *@
 
  <div class="fix-possition">
 <WrPnlElm>

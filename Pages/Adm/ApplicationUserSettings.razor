@@ -75,7 +75,7 @@ else
     {
         objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
         LanguageList =  LanguageController.GetLangActive();
-        activeRoles =admSer.GetAccessRights("IndividualViewStd");
+        activeRoles =admSer.GetRolesList("IndividualViewStd");
     }
 
     protected void UpdateApplicationUser()

@@ -5,7 +5,7 @@
 
 @* @attribute [Authorize(Roles = "Admin")] *@
 
-<AuthorizeView Roles="@admSer.GetAccessRights("CountryEdit")">
+<AuthorizeView Roles="@admSer.GetRolesList("CountryEdit")">
  <div class="fix-possition">
 <WrPnlElm>
     <ControlQuickAccess>

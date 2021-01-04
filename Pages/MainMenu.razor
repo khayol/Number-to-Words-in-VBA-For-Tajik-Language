@@ -26,7 +26,7 @@
                 </NavLink>
             </li>          
              
-            <AuthorizeView Roles="@admSer.GetAccessRights("CountryViewStd")">     
+            <AuthorizeView Roles="@admSer.GetRolesList("CountryViewStd")">     
                 <li class="nav-item px-3">
                     <NavLink class="nav-link" href="Dir/CountryViewStd/0">
                         <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("CountryViewStd",@AppData.ActiveUser,"Dir")   
@@ -34,7 +34,7 @@
                 </li>
             </AuthorizeView>
          
-            <AuthorizeView Roles="@admSer.GetAccessRights("IndividualViewStd")">   
+            <AuthorizeView Roles="@admSer.GetRolesList("IndividualViewStd")">   
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="IndOrg/IndividualViewStd/0">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("IndividualViewStd",@AppData.ActiveUser,"Individual") 

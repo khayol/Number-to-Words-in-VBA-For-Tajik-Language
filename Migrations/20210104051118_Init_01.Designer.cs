@@ -10,8 +10,8 @@ using Woorj.Data;
 namespace Woorj.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201223095825_Init_02")]
-    partial class Init_02
+    [Migration("20210104051118_Init_01")]
+    partial class Init_01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -281,7 +281,8 @@ namespace Woorj.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.HasIndex("Name");
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("AccessRight");
                 });
@@ -1103,7 +1104,6 @@ namespace Woorj.Migrations
                         .HasMaxLength(10);
 
                     b.Property<string>("SecondName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(128)")
                         .HasMaxLength(128);
 

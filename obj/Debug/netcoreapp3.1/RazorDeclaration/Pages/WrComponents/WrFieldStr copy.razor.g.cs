@@ -76,127 +76,120 @@ using Microsoft.JSInterop;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 12 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Toolbelt.Blazor.HeadElement;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 13 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Blazored;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 14 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Blazored.Menu;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 15 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Blazored.FluentValidation;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 26 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 27 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 28 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 29 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 30 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 31 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 32 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 33 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 33 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 34 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 35 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 36 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 39 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 40 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 41 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 42 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 50 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 51 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 51 "e:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 52 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 2 "e:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr copy.razor"
-using System.Reflection;
 
 #line default
 #line hidden
@@ -209,7 +202,7 @@ using System.Reflection;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 10 "e:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr copy.razor"
+#line 7 "e:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr copy.razor"
          
 
     [Parameter]
@@ -217,6 +210,9 @@ using System.Reflection;
     
     [Parameter]
     public string FieldCaption { get; set; }
+      
+    [Parameter]
+    public string TransEntity { get; set; }
     
     
     private string _value;
@@ -236,6 +232,13 @@ using System.Reflection;
     [Parameter]
     public EventCallback<string> BindingValueChanged { get; set; } 
 
+/*
+     protected override void OnInitialized()
+    {
+      Console.WriteLine("BindingValue = "+BindingValue);
+      Console.WriteLine("BindingValue = "+BindingValue);
+    }
+*/
 
    
 
@@ -257,7 +260,6 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GnrSrv GnrSrv { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AppData AppData { get; set; }

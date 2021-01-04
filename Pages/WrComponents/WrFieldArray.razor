@@ -1,0 +1,63 @@
+﻿ <div class="form-group">
+   <label for="@FieldCaption" class="control-lable">@trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)</label>  
+          @if (RenderFrg != null)
+            {
+              @RenderFrg
+            }else
+            {
+               @* <label  class="control-clct">@GnrSrv.ExistDataORNotFlag(@TableName, @ForeinKey, @IdOfRecord)</label>  *@
+               @* <input disabled="@ReadonlyOpt" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection(@SubLink, @IdOfRecord))"  value="Edit"> *@
+        
+            }
+  </div> 
+
+
+  @*  How to Use
+ 
+            
+            *@ 
+
+@code  { 
+
+    
+    [Parameter]
+    public string ReadonlyOpt { get; set; }   
+
+    [Parameter]
+    public string FieldCaption { get; set; }
+      
+    [Parameter]
+    public string TransEntity { get; set; }  
+   
+    [Parameter]
+    public int Val { get; set; }
+
+    [Parameter]
+    public RenderFragment RenderFrg { get; set; }
+
+
+    [Parameter]
+    public string TableName { get; set; }
+
+    [Parameter]
+    public string ForeinKey { get; set; }
+
+    [Parameter]
+    public string IdOfRecord { get; set; }
+
+     [Parameter]
+    public string SubLink { get; set; }
+ 
+/*
+   public void GoToCollection(string pLinkAddress,string pIdOfRecord)
+    {           
+      AppData.BaseUrlUri=NavManager.Uri;//"/IndOrg/IndividualEdit/"+pIdOfRecord;
+      NavManager.NavigateTo(pLinkAddress+"0"); // change "0" to the Contact Id in Individual Table
+      AppData.flg_ChoosedRow=1;
+      AppData.ChoosedRowId=int.Parse(pIdOfRecord);      
+    }
+*/
+    
+    
+
+}

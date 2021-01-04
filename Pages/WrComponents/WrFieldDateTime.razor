@@ -1,0 +1,42 @@
+﻿ <div class="form-group">
+   <label for="@FieldCaption" class="control-lable">@trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)</label>  
+          @if (RenderFrg != null)
+            {
+              @RenderFrg
+            }else
+            {
+              @* We should fix it *@
+               @* <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@Val" @bind-Value:format="dd/MM/yyyy"/> *@
+            <input readonly=@ReadonlyOpt class="form-control" id="Code" @bind="@Val" /> 
+        
+            }
+  </div> 
+
+
+  @*   Useing Example:
+            1)
+         
+            
+            *@ 
+
+@code  { 
+
+    
+    [Parameter]
+    public string ReadonlyOpt { get; set; }   
+
+    [Parameter]
+    public string FieldCaption { get; set; }
+      
+    [Parameter]
+    public string TransEntity { get; set; }  
+   
+    [Parameter]
+    public DateTime Val { get; set; }
+
+    [Parameter]
+    public RenderFragment RenderFrg { get; set; }
+    
+    
+
+}

@@ -144,7 +144,7 @@ namespace Woorj.Data
                     builder.HasSequence<int>("AccessRightCode").StartsAt(1000).IncrementsBy(1);
                     builder.Entity<AccessRight>().Property(t => t.Code)
                     .HasDefaultValueSql("NEXT VALUE FOR AccessRightCode");
-                    builder.Entity<AccessRight>().HasIndex(o => o.Name);
+                     builder.Entity<AccessRight>().HasIndex(o => o.Name).IsUnique();
                 //E_AccessRight
 
                 //S_RoleAccessRight

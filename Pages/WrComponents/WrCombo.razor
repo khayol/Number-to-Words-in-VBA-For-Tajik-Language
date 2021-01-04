@@ -1,0 +1,27 @@
+@typeparam TItem
+@* NOT WIRKING PROPERLY *@
+@if (DataItems == null)
+    {
+    <p><em>Loading...</em></p>
+    @* <div class="spinner"></div> *@
+    }
+    else
+    {
+        @foreach (var item in DataItems)
+        {
+        @* <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to! *@
+           IdSelected= int.Parse(typeof(TItem).GetProperty("Id").GetValue(item).ToString());
+           string Name= typeof(TItem).GetProperty("Name").GetValue(item).ToString();
+           <option value="@IdSelected">@Name</option> 
+        }
+    }
+
+                            
+
+@code  { 
+ [Parameter]
+    public List<TItem> DataItems { get; set; }
+
+        [Parameter] 
+      public  int IdSelected{ get; set; }
+}

@@ -30,14 +30,14 @@ namespace Woorj.Data.IndOrg
 
         
         [Display(Name = "SecondName")]
-        [Required(ErrorMessage = "RequiredFld")]
-        [StringLength(128, ErrorMessage = "StringLength", MinimumLength = 2)]
+        //[Required(ErrorMessage = "RequiredFld")]
+      //  [StringLength(128, ErrorMessage = "StringLength", MinimumLength = 2)]
         public string SecondName  { get; set; }
 
 
 
         [Display(Name = "LastName")]
-        [StringLength(128, ErrorMessage = "StringLength", MinimumLength = 2)]
+       // [StringLength(128, ErrorMessage = "StringLength", MinimumLength = 2)]
         public string LastName  { get; set; }
 
 
@@ -52,7 +52,7 @@ namespace Woorj.Data.IndOrg
 
         [Display(Name = "FirstNameEN")]
        // [Required(ErrorMessage = "RequiredFld")]
-        [StringLength(128, ErrorMessage = "StringLength FirstNameEN", MinimumLength = 2)]
+       // [StringLength(128, ErrorMessage = "StringLength FirstNameEN", MinimumLength = 2)]
         public string FirstNameEN  { get; set; }
 
 
@@ -60,14 +60,14 @@ namespace Woorj.Data.IndOrg
 
         [Display(Name = "SecondNameEN")]
         //  [Required(ErrorMessage = "RequiredFld")]
-        [StringLength(128, ErrorMessage = "StringLength SecondNameEN", MinimumLength = 2)]
+       // [StringLength(128, ErrorMessage = "StringLength SecondNameEN", MinimumLength = 2)]
         public string SecondNameEN  { get; set; }
 
 
 
 
         [Display(Name = "LastNameEN")]
-        [StringLength(128, ErrorMessage = "StringLength LastNameEN", MinimumLength = 2)]
+     //   [StringLength(128, ErrorMessage = "StringLength LastNameEN", MinimumLength = 2)]
         public string LastNameEN  { get; set; }
        
 
@@ -90,21 +90,21 @@ namespace Woorj.Data.IndOrg
 
         [Display(Name = "TaxCode")]
         //[Required(ErrorMessage = "RequiredFld")]
-        [StringLength(256, ErrorMessage = "StringLength TaxCode", MinimumLength = 1)]
+       // [StringLength(256, ErrorMessage = "StringLength TaxCode", MinimumLength = 1)]
         public string TaxCode { get; set; }
 
 
 
         [Display(Name = "PassSerial")]
         //[Required(ErrorMessage = "RequiredFld")]
-        [StringLength(10, ErrorMessage = "StringLength PassSerial", MinimumLength = 1)]
+     //   [StringLength(10, ErrorMessage = "StringLength PassSerial", MinimumLength = 1)]
         public string PassSerial { get; set; }
 
 
 
         [Display(Name = "PassCode")]
         //[Required(ErrorMessage = "RequiredFld")]
-        [StringLength(128, ErrorMessage = "StringLength PassCode", MinimumLength = 2)]
+     //   [StringLength(128, ErrorMessage = "StringLength PassCode", MinimumLength = 2)]
         public string PassCode { get; set; }
 
 
@@ -125,14 +125,14 @@ namespace Woorj.Data.IndOrg
 
         [Display(Name = "PassOrg")]
         //[Required(ErrorMessage = "RequiredFld")]
-        [StringLength(128, ErrorMessage = "StringLength PassOrg", MinimumLength = 2)]
+      //  [StringLength(128, ErrorMessage = "StringLength PassOrg", MinimumLength = 2)]
         public string PassOrg { get; set; }
 
 
 
         [Display(Name = "Address")]
         //[Required(ErrorMessage = "RequiredFld")]
-        [StringLength(256, ErrorMessage = "StringLength Address", MinimumLength = 1)]
+    //    [StringLength(256, ErrorMessage = "StringLength Address", MinimumLength = 1)]
         public string Address  { get; set; }
 
 

@@ -3,7 +3,7 @@
 @inject NavigationManager NavManager
 
 @* @attribute [Authorize(Roles = "@ApplicationRoleViewStd_Role")]   *@
-@* <AuthorizeView Roles="@AppData.GetAccessRights("ApplicationRoleViewStd")"> *@
+@* <AuthorizeView Roles="@AppData.GetRolesList("ApplicationRoleViewStd")"> *@
 
 @if (RoleList == null)
 {

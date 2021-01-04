@@ -1,9 +1,6 @@
 ﻿@typeparam TItem
 @using System.Reflection
 
-
-
-
 @if (memberInfo != null && memberInfo.Length > 0)
 {
     <div class="table-style">
@@ -15,8 +12,7 @@
                         @if (member.MemberType == MemberTypes.Property &&
                              StatCls.IsContains(ColumnsToExcludeCSV,member.Name)==false
                             ) //непоказывать колонки(Причеслите их как CSV например "Id,Name")
-                        {
-                   
+                        {                   
                             <th>
                                 @member.Name
                             </th>
