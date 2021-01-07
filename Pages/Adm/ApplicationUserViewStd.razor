@@ -1,26 +1,22 @@
 ﻿@page "/Adm/ApplicationUserViewStd/{Id}"
-@inject ApplicationUserController ApplicationUserController
+@inject ApplicationUserController MainController
 
-@* @attribute [Authorize(Roles = "@ApplicationUserViewStd_Role")]   *@
-
-@* <AuthorizeView Roles="@AppData.GetRolesList("ApplicationUserViewStd")"> *@
-
-
-
-
-@if (ApplicationUserList == null)
+@if (list == null)
 {
-    <p><em>Loading...</em></p>
+   <WrLoading/>   
 }
 else
 {
+<AuthorizeView Roles="@admSer.GetRolesList("ApplicationUserViewStd")" Context="authContext">
+   <Authorized>
     <WrDataGrid @ref="grid"
-                  DataItems="ApplicationUserList"
-                  Columns="columnsDefinition"
+                  DataItems="list"
                   SelectedRow="SelectedRowMeth"
+                  Columns="@MainController.columns"
+                  BaseUrlUri="@AppData.BaseUrlUri"
                   UniqIdOfRecord="Id"
                   ColumnsToExcludeCSV="Id"
-                  PageNameTitle="@trs.GetTranslation("ApplicationUserViewStd",@AppData.ActiveUser,"Adm")"
+                  PageNameTitle="@trs.GetTranslation("ApplicationUserViewStd",@AppData.ActiveUser,"Dir")"
                   Paging="@(new PagingConfig
                             {
                                 Enabled = true,
@@ -29,213 +25,93 @@ else
                             })">
 
         <ControlMenu>
-            <a @onclick="@(args => AddNew("/Adm/ApplicationUserAdd"))" value="Add" class="menu-itms">Add</a>
-            <a @onclick="@(args => ViewOrEdit("/Adm/ApplicationUserEdit/", selectedRow,"Edit"))" class="menu-itms">Edit</a>
-            <a @onclick="@(args => Delete("/Adm/ApplicationUserDelete/", selectedRow))" class="menu-itms">Delete</a>
+            <a @onclick="@(args => CRUD("C","/Adm/ApplicationUserAdd",""))" value="Add" class="menu-itms">@trs.GetTranslation("Add",@AppData.ActiveUser,"General")</a>
+            <a @onclick="@(args => CRUD("R","/Adm/ApplicationUserEdit/", @AppData.ApplicationUser_IdSelect))" class="menu-itms">@trs.GetTranslation("View",@AppData.ActiveUser,"General")</a>
+            <a @onclick="@(args => CRUD("U","/Adm/ApplicationUserEdit/", @AppData.ApplicationUser_IdSelect))" class="menu-itms">@trs.GetTranslation("Edit",@AppData.ActiveUser,"General")</a>
+            <a @onclick="@(args => CRUD("D","/Adm/ApplicationUserDelete/", @AppData.ApplicationUser_IdSelect))" class="menu-itms">@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")</a>
         </ControlMenu>
 
-        <ControlQuickAccess>
-            &nbsp &nbsp
-            @*<input style="text-align: center; " />*@
-            <WrSrchDGrid OnSearchTextChanged="OnApplicationUserSearchTextChanged" > </WrSrchDGrid>
-            <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="Search"><span class="fa fa-search" aria-hidden="true" id="search-input"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="Clean search box"><span class="fa fa-chevron-left" aria-hidden="true"></span></button>
-            &nbsp &nbsp
-
-            <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.BaseUrlUri))" data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
-            <button class="btn bnt-style-general" @onclick="@(args => AddNew("/Adm/ApplicationUserAdd"))" data-toggle="tooltip" title="Add"><span class="fa fa-plus" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => ViewOrEdit("/Adm/ApplicationUserEdit/", selectedRow,"View"))" data-toggle="tooltip" title="View"><span class="fa fa-file" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => ViewOrEdit("/Adm/ApplicationUserEdit/", selectedRow,"Edit"))" data-toggle="tooltip" title="Edit"><span class="fa fa-pencil" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => Delete("/Adm/ApplicationUserDelete/", selectedRow))" data-toggle="tooltip" title="Delete"><span class="fa fa-trash" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => FilterData())" data-toggle="tooltip" title="Filter"><span class="fa fa-filter" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="Export to Excel"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => ViewOrEdit("/Adm/UserRoleEdit/", selectedRow,"EditRoles"))" data-toggle="tooltip" title="EditUserRoles"><span class="fa fa-hand-paper-o" aria-hidden="true"></span></button>
-
+        <ControlQuickAccess>                  
           
+            <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
+            &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="@trs.GetTranslation("ShowMoreRecords",@AppData.ActiveUser,"General")"><span class="fa fa-angle-double-down" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="@trs.GetTranslation("Choose",@AppData.ActiveUser,"General")"><span class="fa fa-hand-pointer-o" aria-hidden="true" id="search-input"></span></button>
+             &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("C","/Adm/ApplicationUserAdd",""))" data-toggle="tooltip" title="@trs.GetTranslation("Add",@AppData.ActiveUser,"General")"><span class="fa fa-plus" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("R","/Adm/ApplicationUserEdit/", @AppData.ApplicationUser_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("View",@AppData.ActiveUser,"General")"><span class="fa fa-file" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("U","/Adm/ApplicationUserEdit/", @AppData.ApplicationUser_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("Edit",@AppData.ActiveUser,"General")"><span class="fa fa-pencil" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => CRUD("D","/Adm/ApplicationUserDelete/", @AppData.ApplicationUser_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")"><span class="fa fa-trash" aria-hidden="true"></span></button>
+            &nbsp &nbsp
+            <button class="btn bnt-style-general" @onclick="@(args => FilterData())" data-toggle="tooltip" title="@trs.GetTranslation("Filter",@AppData.ActiveUser,"General")"><span class="fa fa-filter" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="@trs.GetTranslation("ExportToExcel",@AppData.ActiveUser,"General")"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
         </ControlQuickAccess>
-       
     </WrDataGrid>
+</Authorized>
+ <NotAuthorized>
+   <WrPageNotFound/>
+ </NotAuthorized>
+ </AuthorizeView>
 }
 
-@* </AuthorizeView> *@
+@code  {
 
-    @* ------------------------------------------------------------------------------*@
-    @code  {
 
-  
-
+ #region     Declare
     [Parameter]
     public string Id { get; set; }
-   // ApplicationUser objEmp = new ApplicationUser();
-    private List<ApplicationUser> ApplicationUserList;
-    private List<ApplicationUser> filteredApplicationUserList { get; set; }
     private WrDataGrid<ApplicationUser> grid;
-        
-    private List<ColumnDefinition> columnsDefinition;
+    private List<ApplicationUser> list;
+    private string searchValue   { get; set; }
+ 
+ #endregion  Declare
 
-    private string selectedRow { get; set; } = "";
+ #region    BlazorMethods
 
-        private int CurrentPage { get; set; } = 1;
-
-    private void OnApplicationUserSearchTextChanged(ChangeEventArgs changeEventArgs)
-    {
-        string searchValue = changeEventArgs.Value.ToString();
-        ApplicationUserList = ApplicationUserController.GetApplicationUserByFiled(searchValue,Id);
-        GoToFirstPage();
-        GetCurrentPage();         
-    }
-
-
-    private void SelectedRowMeth(string pSelectedRow)
-    {
-        
-        selectedRow = pSelectedRow;
-        AppData.ApplicationUserIdSlcd= selectedRow;
-        AppData.ApplicationUserCode = ApplicationUserController.GetApplicationUserCodeById(selectedRow);
-               //   AppData.ApplicationUserPageNum = grid.CurrentPage.ToString();
-    }
-
-    protected void FindSelectedRec()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.ApplicationUserCode;
-        ApplicationUserList = ApplicationUserController.GetApplicationUserByFiled(searchValue,Id);
-        GoToFirstPage();
-        GetCurrentPage();
-        
-    }
-
-    protected void CleanSearchBox()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.ApplicationUserCode = "";
-        ApplicationUserList = ApplicationUserController.GetApplicationUserByFiled(searchValue,Id);
-        GoToFirstPage();
-        GetCurrentPage();
-        selectedRow = "";
-        
-    }
     protected override void OnInitialized()
     {
-        base.OnInitialized();
-        Initilize();
-        //  selectedRow = AppData.ApplicationUserIdSlcd;
-        AppData.ActivePageName="View-ApplicationUser";
+        MainController.Initialized();
+        list = MainController.GetById(Id).ToList();         
     }
 
-    protected override void OnAfterRender(bool firstRender)
+#endregion BlazorMethods
+
+#region    Event
+
+    private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        base.OnAfterRender(firstRender);
+        searchValue = changeEventArgs.Value.ToString();
+        list = MainController.GetSearchByField(searchValue);
+        grid.GoToFirstPage();
     }
-
-    protected override void OnParametersSet()
+    private void SelectedRowMeth(string pSelectedRow)
     {
-        base.OnParametersSet();
+        AppData.ApplicationUser_IdSelect = pSelectedRow;
     }
-
-    private void Initilize()
+    protected void FindSelectedRec()
     {
-        if (columnsDefinition == null)
-        {
-            columnsDefinition = new List<ColumnDefinition>();
-            columnsDefinition.AddRange(
-                new ColumnDefinition[] {
-
-                    new ColumnDefinition { DataField = "Code", Caption="Code" },
-                    new ColumnDefinition { DataField = "UserName", Caption="UserName" },
-                    new ColumnDefinition { DataField = "FullName", Caption="FullName" },
-                    new ColumnDefinition { DataField = "CreatedDate", Caption="CreatedDate" },
-                       
-                    }
-            );
-        }
-
-        ApplicationUserList = ApplicationUserController.GetApplicationUserById2(Id).ToList();
-
+        grid.GoToFirstPage();
+        list = MainController.GetById(AppData.ApplicationUser_IdSelect);
     }
-
-    private void GoToFirstPage()
+    protected void CleanSearchBox()
     {
-     grid.GoToFirstPage();
-     CurrentPage=1;    
+        grid.GoToFirstPage();
+        list = MainController.GetSearchByField("");
+        AppData.ApplicationUser_IdSelect = "0";
     }
-   
-    private void GetCurrentPage()
-    {
-        CurrentPage= grid.GetCurrentPage();        
+     private void CRUD(string pOperType, string pNavLink, string pRecId)
+    {         
+        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
+                  servClass.CRUD(pOperType,pNavLink, pRecId);
     }
-
-    
-
-    private void ViewOrEditFlag(string pViewOrEdit)
-    {
-        if(pViewOrEdit.ToUpper()=="VIEW")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=true;
-        }
-        else if(pViewOrEdit.ToUpper()=="EDIT")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=false; 
-        }
-        else if(pViewOrEdit.ToUpper()=="EditRoles".ToUpper())
-        {
-             AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=true;
-        }
-    }
-
-    protected void NavigateTo(string pNavLink)
-    {
-        NavManager.NavigateTo(pNavLink);
-    }
-    protected void AddNew(string pNavLink)
-    {
-        ViewOrEditFlag("EDIT");
-         NavManager.NavigateTo(pNavLink);
-    }
-
-    protected void ViewOrEdit(string pNavLink, string p_selectedRow, string pViewOrEdit)
-    {
-        ViewOrEditFlag(pViewOrEdit);
-
-        if (string.IsNullOrEmpty(p_selectedRow)   || p_selectedRow=="0") //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-    }
-
-    protected void Delete(string pNavLink, string p_selectedRow)
-    {
-        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-
-    }
-
     protected void ExportToExcel()
     {
-        // JSRuntime.InvokeVoidAsync("msgbox", "ExportToExcel");
-        ApplicationUserController.GenerateExcel(JSRuntime,Id);
+       // MainController.GenerateExcel(JSRuntime);
     }
-
     protected void FilterData()
     {
         JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
-        // ApplicationUserController.FilterData(JSRuntime);
     }
+ #endregion Event
 
-    }
+}

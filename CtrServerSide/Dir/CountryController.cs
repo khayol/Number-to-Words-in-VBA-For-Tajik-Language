@@ -60,6 +60,17 @@ namespace Woorj.CtrServerSide.Dir
         return list;        
         }
 
+        // Get Country by ByFiled
+        public List<Country> GetCountryByFiled(string searchTxt, int pId){
+        var list_Country = _db.Country
+                              .Where(i=>
+                                      (i.Code.ToString().Contains(searchTxt)
+                                      || i.Name.Contains(searchTxt)) && 
+                                      i.Id==pId                                      
+                                  ).ToList();
+        return list_Country;
+       }  
+
        
         public Country GetById_FirstOrDefault(int id){
         Country Country= _db.Country.FirstOrDefault(s=> s.Id==id);
@@ -143,17 +154,7 @@ namespace Woorj.CtrServerSide.Dir
 
         }
 
-         // Add here the Individual Id should be equal the selected one
-        // Get Country by ByFiled
-        public List<Country> GetCountryByFiled(string searchTxt, int pId){
-        var list_Country = _db.Country
-                              .Where(i=>
-                                      (i.Code.ToString().Contains(searchTxt)
-                                      || i.Name.Contains(searchTxt)) && 
-                                      i.Id==pId                                      
-                                  ).ToList();
-        return list_Country;
-       }  
+   
    
 
 

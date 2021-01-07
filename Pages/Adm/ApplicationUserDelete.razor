@@ -1,56 +1,70 @@
 @page "/Adm/ApplicationUserDelete/{CurrentID}"
-@inject ApplicationUserController objApplicationUserController
+@inject ApplicationUserController MainController
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-    <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteApplicationUser" value="Delete">
-    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-</ControlQuickAccess>
-</WrPnlElm>
-</div>
+<AuthorizeView Roles="@admSer.GetRolesList("ApplicationUserDelete")" Context="authContext">
+  <Authorized>
 
-<div class="under-cls">
-<h3>Are you sure want to delete this row?</h3>
+<EditForm Model="@objMain" OnValidSubmit="@Delete" OnInvalidSubmit="@Cancel" Context="formContext">  
+   
+    <WrPnlElm>
+        <ControlQuickAccess>
+                <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")">
+                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+        </ControlQuickAccess>
+    </WrPnlElm>
 
-<div class="row">
-    <div class="col-md-8 field-content">
+    <WrFormBody>
+        <FormElements>
+            <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
+           
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
+            
+             <WrFieldStr  FieldCaption="UserName" ReadonlyThis="readonlyMain1"
+            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
 
-        <div class="form-group">
-            <label> Code:</label>
-            <label>@objEmp.Code</label>
-        </div>
+            <WrFieldStr FieldCaption="FirstName" ReadonlyThis="readonlyMain1"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FirstName"/>
 
-        <div class="form-group">
-            <label>UserName:</label>
-            <label>@objEmp.UserName</label>
-        </div>
-        <div class="form-group">
-            <label>FullName:</label>
-            <label>@objEmp.FullName</label>
-        </div>
+            <WrFieldStr  FieldCaption="SecondName" ReadonlyThis="readonlyMain1"
+            TransEntity="General"  @bind-BindingValue ="@objMain.SecondName"/>
 
-    </div>
-</div>
+            <WrFieldStr  FieldCaption="LastName" ReadonlyThis="readonlyMain1"
+            TransEntity="General"  @bind-BindingValue ="@objMain.LastName"/> 
+       
+         
 
-</div>
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</Authorized>
+<NotAuthorized>
+    <WrPageNotFound/>
+</NotAuthorized>
+</AuthorizeView>
+
 
 @code{
-   [Parameter]
-   public string CurrentID {get;set;}
-    ApplicationUser objEmp= new ApplicationUser();
 
-    protected override async Task OnInitializedAsync()
+    [Parameter]
+    public string CurrentID { get; set; }
+    ApplicationUser objMain = new ApplicationUser();  
+    private bool readonlyMain1 {get;set;}=false;
+
+    protected override void OnInitialized()
     {
-    objEmp= await Task.Run(()=>objApplicationUserController.GetApplicationUserById(CurrentID));        
+          readonlyMain1=AppData.readonlyMain1;
+        objMain = MainController.GetById_FirstOrDefault(CurrentID);
     }
-    
-    protected void DeleteApplicationUser(){
 
-        objApplicationUserController.DeleteApplicationUser(objEmp);
-        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+"0");
+    protected void Delete()
+    {
+        MainController.Delete(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
-    void Cancel(){
-        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+"0");
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
+
 }

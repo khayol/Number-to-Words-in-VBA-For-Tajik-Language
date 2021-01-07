@@ -219,8 +219,8 @@ using Woorj.Pages.TESTS.L22;
        protected override void OnInitialized()
         {
             SrvRole.Init_UserRoleEdit();
-            objRole =  SrvRole.GetApplicationRoleById(CurrentID);
-            // VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
+            objRole =  SrvRole.GetApplicationRoleById(CurrentID); // A 111
+             // VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
            // ApplicationRole_List=SrvRole.GetApplicationRole().ToList();
            // DiffRoleList   = ApplicationRole_List.Where(x => !VGetUserRole_List.Any(y => x.Id == y.RoleId)).ToList();
         } 

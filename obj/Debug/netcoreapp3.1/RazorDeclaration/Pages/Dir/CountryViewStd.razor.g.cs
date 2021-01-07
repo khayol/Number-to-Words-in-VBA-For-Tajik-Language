@@ -221,7 +221,6 @@ using Woorj.Pages.TESTS.L22;
     protected override void OnInitialized()
     {
         MainController.Initialized();
-        AppData.BaseUrlUri=NavManager.Uri.ToString(); 
         list = MainController.GetById(int.Parse(Id)).ToList();         
     }
 

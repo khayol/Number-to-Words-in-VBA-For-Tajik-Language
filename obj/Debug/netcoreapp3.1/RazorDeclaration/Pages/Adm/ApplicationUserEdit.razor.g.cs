@@ -203,45 +203,39 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 80 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUserEdit.razor"
+#line 58 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUserEdit.razor"
       
-    
+
     [Parameter]
     public string CurrentID { get; set; }
-    ApplicationUser objApplicationUser = new ApplicationUser();
-    public List<Language> LanguageList;
+    ApplicationUser objMain = new ApplicationUser();    
+    private string  CancelOrBeckTxt { get; set; } 
     private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyMain2 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
 
- protected override void OnInitialized()
-    //protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        //objApplicationUser = await Task.Run(() => objApplicationUserController.GetApplicationUserById(CurrentID));
-        objApplicationUser = objApplicationUserController.GetApplicationUserById(CurrentID);
-        LanguageList =  LanguageController.GetLanguage();
-
-
+        objMain = MainController.GetById_FirstOrDefault(CurrentID);
         readonlyMain1=AppData.readonlyMain1;
-        readonlyMain2=AppData.readonlyMain2;
         readonlyOther=AppData.readonlyOther;
     }
-    protected void UpdateApplicationUser()
+
+    protected void Update()
     {
-       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
     void Cancel()
     {
-      NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
+
+  
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IStringLocalizer<ApplicationUserEdit> L { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private LanguageController LanguageController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController objApplicationUserController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

@@ -203,30 +203,35 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleDelete.razor"
+#line 42 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleDelete.razor"
       
-   [Parameter]
-   public string CurrentID {get;set;}
-    ApplicationRole objEmp= new ApplicationRole();
 
-    protected override async Task OnInitializedAsync()
+    [Parameter]
+    public string CurrentID { get; set; }
+    ApplicationRole objMain = new ApplicationRole();  
+    private bool readonlyMain1 {get;set;}=false;
+
+    protected override void OnInitialized()
     {
-    objEmp= await Task.Run(()=>objApplicationRoleController.GetApplicationRoleById(CurrentID));        
+          readonlyMain1=AppData.readonlyMain1;
+        objMain = MainController.GetById_FirstOrDefault(CurrentID);
     }
-    
-    protected void DeleteApplicationRole(){
 
-        objApplicationRoleController.DeleteApplicationRole(objEmp);
-        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+"0");
+    protected void Delete()
+    {
+        MainController.Delete(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
     }
-    void Cancel(){
-        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+"0");
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
     }
+
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController objApplicationRoleController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

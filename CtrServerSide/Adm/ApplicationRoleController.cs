@@ -28,11 +28,11 @@ namespace Woorj.CtrServerSide.Adm
             clmDef_RoleStd = new List<ColumnDefinition>();
             clmDef_RoleStd.AddRange(
                 new ColumnDefinition[] {
-                    new ColumnDefinition { DataField = "Code", Caption="Code" },
-                    new ColumnDefinition { DataField = "Name", Caption="Name" },
-                    new ColumnDefinition { DataField = "NormalizedName", Caption="NormalizedName" },
-                    new ColumnDefinition { DataField = "Description", Caption="Description" },
-                    new ColumnDefinition { DataField = "CreatedDate", Caption="CreatedDate" },                       
+                    new ColumnDefinition { DataField = "Code", MinWidth="70", MaxWidth="70"  },
+                    new ColumnDefinition { DataField = "Name", MinWidth="70", MaxWidth="70" },
+                    new ColumnDefinition { DataField = "NormalizedName", MinWidth="300", MaxWidth="300" },
+                    new ColumnDefinition { DataField = "Description", MinWidth="300", MaxWidth="300"  },
+                    new ColumnDefinition { DataField = "CreatedDate", MinWidth="180", MaxWidth="180"  },                       
                     }
             );
         }
@@ -66,19 +66,39 @@ namespace Woorj.CtrServerSide.Adm
         }
       }
 
-      // Get all ApplicationRole
+   
         public List<ApplicationRole> GetApplicationRole(){
           var list_ApplicationRole=_db.ApplicationRole.ToList();
           return list_ApplicationRole;
         }
 
-        // Get ApplicationRole by ID
+
+       // ****Should Delete this
         public ApplicationRole GetApplicationRoleById(string id){
           ApplicationRole ApplicationRole= _db.ApplicationRole.FirstOrDefault(s=> s.Id==id);
           return ApplicationRole;
         
         }
-       // Get ApplicationRole by ID
+
+         public ApplicationRole GetById_FirstOrDefault(string id){
+        ApplicationRole ApplicationRole= _db.ApplicationRole.FirstOrDefault(s=> s.Id==id);
+        return ApplicationRole;
+        }
+            
+
+        public List<ApplicationRole> GetById(string pId){
+
+        List<ApplicationRole> list;
+
+        if (pId=="0" || string.IsNullOrEmpty(pId)){
+          list=_db.ApplicationRole.ToList();
+        }else
+        {                
+          list=_db.ApplicationRole.Where(s=>s.Id==pId).ToList();
+        }
+        return list;        
+        }
+
          public List<ApplicationRole> GetApplicationRoleById2(string pId){
              List<ApplicationRole> list_ApplicationRole;
 
@@ -91,30 +111,30 @@ namespace Woorj.CtrServerSide.Adm
 
           return list_ApplicationRole;
         }
+        
         public string GetApplicationRoleCodeById(string id){
           string code= _db.ApplicationRole.FirstOrDefault(s=> s.Id==id).Code.ToString();
           return code;
         }
 
         // Insert ApplicationRole
-        public string Create(ApplicationRole obj_ApplicationRole){
-              _db.ApplicationRole.Add(obj_ApplicationRole);
+        public string Create(ApplicationRole pObj){
+              _db.ApplicationRole.Add(pObj);
               _db.SaveChanges();
               return "Save Successfully";
 
         }
 
         // Edit ApplicationRole
-        public string UpdateApplicationRole(ApplicationRole obj_ApplicationRole){
-              _db.ApplicationRole.Update(obj_ApplicationRole);
+        public string Update(ApplicationRole pObj){
+              _db.ApplicationRole.Update(pObj);
               _db.SaveChanges();
               return "Edited Successfully";
 
         }
 
-          // Delete ApplicationRole
-        public string DeleteApplicationRole(ApplicationRole obj_ApplicationRole){
-              _db.Remove(obj_ApplicationRole); // _db.ApplicationRole.Remove(obj_ApplicationRole); 
+        public string Delete(ApplicationRole pObj){
+              _db.Remove(pObj); // _db.ApplicationRole.Remove(pObj); 
               _db.SaveChanges();
               return "Delete Successfully";
 
@@ -171,7 +191,7 @@ namespace Woorj.CtrServerSide.Adm
                                   ).ToList();
         return list_ApplicationRole;
        }
-
+        // *** For Deleting  
         public List<ApplicationRole> GetApplicationRoleByFiled(string searchTxt){
         var list_ApplicationRole = _db.ApplicationRole
                               .Where(i=>
@@ -184,6 +204,16 @@ namespace Woorj.CtrServerSide.Adm
         return list_ApplicationRole;
        }
 
+
+    public List<ApplicationRole> GetSearchByField(string searchTxt){
+        var list = _db.ApplicationRole.Where(i=>
+                                       i.Code.ToString().Contains(searchTxt)
+                                      || i.Name.Contains(searchTxt) 
+                                      || i.NormalizedName.Contains(searchTxt)
+                                      || i.Description.Contains(searchTxt)
+                                     ).ToList();
+        return list;
+       }
      
 
         public List<VGetUserRole> GetVGetUserRoleByFiled(string searchTxt, string pUid){

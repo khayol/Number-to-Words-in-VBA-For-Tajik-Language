@@ -203,191 +203,72 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUserViewStd.razor"
-            
+#line 57 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUserViewStd.razor"
+        
 
-  
 
+ #region     Declare
     [Parameter]
     public string Id { get; set; }
-   // ApplicationUser objEmp = new ApplicationUser();
-    private List<ApplicationUser> ApplicationUserList;
-    private List<ApplicationUser> filteredApplicationUserList { get; set; }
     private WrDataGrid<ApplicationUser> grid;
-        
-    private List<ColumnDefinition> columnsDefinition;
+    private List<ApplicationUser> list;
+    private string searchValue   { get; set; }
+ 
+ #endregion  Declare
 
-    private string selectedRow { get; set; } = "";
+ #region    BlazorMethods
 
-        private int CurrentPage { get; set; } = 1;
-
-    private void OnApplicationUserSearchTextChanged(ChangeEventArgs changeEventArgs)
-    {
-        string searchValue = changeEventArgs.Value.ToString();
-        ApplicationUserList = ApplicationUserController.GetApplicationUserByFiled(searchValue,Id);
-        GoToFirstPage();
-        GetCurrentPage();         
-    }
-
-
-    private void SelectedRowMeth(string pSelectedRow)
-    {
-        
-        selectedRow = pSelectedRow;
-        AppData.ApplicationUserIdSlcd= selectedRow;
-        AppData.ApplicationUserCode = ApplicationUserController.GetApplicationUserCodeById(selectedRow);
-               //   AppData.ApplicationUserPageNum = grid.CurrentPage.ToString();
-    }
-
-    protected void FindSelectedRec()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.ApplicationUserCode;
-        ApplicationUserList = ApplicationUserController.GetApplicationUserByFiled(searchValue,Id);
-        GoToFirstPage();
-        GetCurrentPage();
-        
-    }
-
-    protected void CleanSearchBox()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.ApplicationUserCode = "";
-        ApplicationUserList = ApplicationUserController.GetApplicationUserByFiled(searchValue,Id);
-        GoToFirstPage();
-        GetCurrentPage();
-        selectedRow = "";
-        
-    }
     protected override void OnInitialized()
     {
-        base.OnInitialized();
-        Initilize();
-        //  selectedRow = AppData.ApplicationUserIdSlcd;
-        AppData.ActivePageName="View-ApplicationUser";
+        MainController.Initialized();
+        list = MainController.GetById(Id).ToList();         
     }
 
-    protected override void OnAfterRender(bool firstRender)
+#endregion BlazorMethods
+
+#region    Event
+
+    private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        base.OnAfterRender(firstRender);
+        searchValue = changeEventArgs.Value.ToString();
+        list = MainController.GetSearchByField(searchValue);
+        grid.GoToFirstPage();
     }
-
-    protected override void OnParametersSet()
+    private void SelectedRowMeth(string pSelectedRow)
     {
-        base.OnParametersSet();
+        AppData.ApplicationUser_IdSelect = pSelectedRow;
     }
-
-    private void Initilize()
+    protected void FindSelectedRec()
     {
-        if (columnsDefinition == null)
-        {
-            columnsDefinition = new List<ColumnDefinition>();
-            columnsDefinition.AddRange(
-                new ColumnDefinition[] {
-
-                    new ColumnDefinition { DataField = "Code", Caption="Code" },
-                    new ColumnDefinition { DataField = "UserName", Caption="UserName" },
-                    new ColumnDefinition { DataField = "FullName", Caption="FullName" },
-                    new ColumnDefinition { DataField = "CreatedDate", Caption="CreatedDate" },
-                       
-                    }
-            );
-        }
-
-        ApplicationUserList = ApplicationUserController.GetApplicationUserById2(Id).ToList();
-
+        grid.GoToFirstPage();
+        list = MainController.GetById(AppData.ApplicationUser_IdSelect);
     }
-
-    private void GoToFirstPage()
+    protected void CleanSearchBox()
     {
-     grid.GoToFirstPage();
-     CurrentPage=1;    
+        grid.GoToFirstPage();
+        list = MainController.GetSearchByField("");
+        AppData.ApplicationUser_IdSelect = "0";
     }
-   
-    private void GetCurrentPage()
-    {
-        CurrentPage= grid.GetCurrentPage();        
+     private void CRUD(string pOperType, string pNavLink, string pRecId)
+    {         
+        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
+                  servClass.CRUD(pOperType,pNavLink, pRecId);
     }
-
-    
-
-    private void ViewOrEditFlag(string pViewOrEdit)
-    {
-        if(pViewOrEdit.ToUpper()=="VIEW")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=true;
-        }
-        else if(pViewOrEdit.ToUpper()=="EDIT")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=false; 
-        }
-        else if(pViewOrEdit.ToUpper()=="EditRoles".ToUpper())
-        {
-             AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=true;
-        }
-    }
-
-    protected void NavigateTo(string pNavLink)
-    {
-        NavManager.NavigateTo(pNavLink);
-    }
-    protected void AddNew(string pNavLink)
-    {
-        ViewOrEditFlag("EDIT");
-         NavManager.NavigateTo(pNavLink);
-    }
-
-    protected void ViewOrEdit(string pNavLink, string p_selectedRow, string pViewOrEdit)
-    {
-        ViewOrEditFlag(pViewOrEdit);
-
-        if (string.IsNullOrEmpty(p_selectedRow)   || p_selectedRow=="0") //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-    }
-
-    protected void Delete(string pNavLink, string p_selectedRow)
-    {
-        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-
-    }
-
     protected void ExportToExcel()
     {
-        // JSRuntime.InvokeVoidAsync("msgbox", "ExportToExcel");
-        ApplicationUserController.GenerateExcel(JSRuntime,Id);
+       // MainController.GenerateExcel(JSRuntime);
     }
-
     protected void FilterData()
     {
         JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
-        // ApplicationUserController.FilterData(JSRuntime);
     }
+ #endregion Event
 
-    
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController ApplicationUserController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

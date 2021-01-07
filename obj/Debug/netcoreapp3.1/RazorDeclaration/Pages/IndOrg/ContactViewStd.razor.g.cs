@@ -220,9 +220,9 @@ using Woorj.Pages.TESTS.L22;
 
     protected override void OnInitialized()
     {
-        Service.Initialized();
+        MainController.Initialized();
         AppData.ActivePageName="View-Contact"; 
-        ContactList = Service.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
+        ContactList = MainController.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
     }
 
 #endregion BlazorMethods
@@ -247,7 +247,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController Service { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

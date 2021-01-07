@@ -1,111 +1,85 @@
 @page "/Adm/ApplicationUserEdit/{CurrentID}"
-@inject ApplicationUserController objApplicationUserController
-@inject LanguageController LanguageController
-@inject IStringLocalizer<ApplicationUserEdit> L 
+@inject ApplicationUserController MainController
 
-@* @attribute [Authorize(Roles = "Admin")] *@
-@* <AuthorizeView Roles="@AppData.GetRolesList("ApplicationUserEdit")"> *@
 
- <div class="fix-possition">
-<WrPnlElm>
-    <ControlQuickAccess>
-              <input type="button" class="btn bnt-style-general" @onclick="@UpdateApplicationUser" value="Update">
-              <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-    </ControlQuickAccess>
-</WrPnlElm>
-</div> 
+<AuthorizeView Roles="@admSer.GetRolesList("ApplicationUserEdit")" Context="authContext">
+  <Authorized>
 
-<div class="under-cls">
-<form>
-    <div class="row">
-
-        <div class="col-md-8  field-content">
-
-            <div class="form-group">
-                <label for="Code" class="control-lable">@L["Code"]</label>
-                <input readonly="@readonlyMain1" form="Code" class="form-control" @bind="@objApplicationUser.Code" />
-            </div>
-            <div class="form-group">
-                <label for="Name" class="control-lable">@L["Name"]</label>
-                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.UserName" />
-            </div>
-            <div class="form-group">
-                <label for="Name" class="control-lable">@L["FirstName"]</label>
-                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.FirstName" />
-            </div>
-            <div class="form-group">
-                <label for="Name" class="control-lable">@L["SecondName"]</label>
-                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.SecondName" />
-            </div>
-            <div class="form-group">
-                <label for="Name" class="control-lable">@L["LastName"]</label>
-                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objApplicationUser.LastName" />
-            </div>
-
-         
-            <div class="form-group">
-            <label for="Gender" class="control-lable">Language</label> 
-                <select disabled="@readonlyOther" class="form-control selectpicker" @bind="@objApplicationUser.LanguageId">
-                    <option>--select--</option>
-                   
-                    @if (LanguageList == null)
-                    {
-                    <p><em>Loading...</em></p>
-                    }
-                    else
-                    {
-                    @foreach (var item in LanguageList)
-                    {
-                    <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
-                    } 
-                    }
-                  
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="CreatedDate" class="control-lable">@L["CreatedDate"]</label>
-                <input readonly="@readonlyMain1"  form="AlpCreatedDateha3" class="form-control" @bind="@objApplicationUser.CreatedDate" />
-            </div>
-            
-        </div>
-
-    </div>
-
- </form>
-           
-
-</div>
-@* </AuthorizeView> *@
-@code{
+<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
     
+    <WrPnlElm>
+        <ControlQuickAccess>
+             
+                @if( readonlyOther==false )
+                {
+                    CancelOrBeckTxt="Cancel";
+                    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+                    
+                }else{
+                  CancelOrBeckTxt="Back";
+                }
+                 &nbsp;
+                    <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,"General")">
+                 &nbsp;
+
+        </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
+
+            <WrFieldStr  FieldCaption="UserName" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
+
+            <WrFieldStr FieldCaption="FirstName" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FirstName"/>
+
+            <WrFieldStr  FieldCaption="SecondName" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.SecondName"/>
+
+            <WrFieldStr  FieldCaption="LastName" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.LastName"/>
+
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+
+  </AuthorizeView>
+
+
+@code{
+
     [Parameter]
     public string CurrentID { get; set; }
-    ApplicationUser objApplicationUser = new ApplicationUser();
-    public List<Language> LanguageList;
+    ApplicationUser objMain = new ApplicationUser();    
+    private string  CancelOrBeckTxt { get; set; } 
     private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyMain2 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
 
- protected override void OnInitialized()
-    //protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        //objApplicationUser = await Task.Run(() => objApplicationUserController.GetApplicationUserById(CurrentID));
-        objApplicationUser = objApplicationUserController.GetApplicationUserById(CurrentID);
-        LanguageList =  LanguageController.GetLanguage();
-
-
+        objMain = MainController.GetById_FirstOrDefault(CurrentID);
         readonlyMain1=AppData.readonlyMain1;
-        readonlyMain2=AppData.readonlyMain2;
         readonlyOther=AppData.readonlyOther;
     }
-    protected void UpdateApplicationUser()
+
+    protected void Update()
     {
-       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
     void Cancel()
     {
-      NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
+
+  
 }

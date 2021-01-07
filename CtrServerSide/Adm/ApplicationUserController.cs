@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Woorj.Data;
 using Woorj.Data.Adm;
+using Woorj.Data.WrComponents;
+
 
 namespace Woorj.CtrServerSide.Adm
 {
@@ -12,18 +14,38 @@ namespace Woorj.CtrServerSide.Adm
     {
         private readonly ApplicationDbContext _db;
   
+        public List<ColumnDefinition> columns;
+
         public ApplicationUserController(ApplicationDbContext db)
         {
             _db=db;
         }
+
+        public void Initialized()
+        {
+        if (columns == null)
+        {
+        columns = new List<ColumnDefinition>();
+        columns.AddRange(
+            new ColumnDefinition[] {
+
+              new ColumnDefinition { DataField = "Code" },
+              new ColumnDefinition { DataField = "UserName"},
+              new ColumnDefinition { DataField = "FullName"},
+              new ColumnDefinition { DataField = "CreatedDate"},
+
+                }
+        );
+        }
+        }
         
-        // Get all ApplicationUser
+        
         public List<ApplicationUser> GetApplicationUser(){
           var list_ApplicationUser=_db.ApplicationUser.ToList();
           return list_ApplicationUser;
         }
 
-        // Get ApplicationUser by ID
+        
         public ApplicationUser GetApplicationUserById(string id){
           ApplicationUser ApplicationUser= _db.ApplicationUser.FirstOrDefault(s=> s.Id==id);
            
@@ -31,7 +53,25 @@ namespace Woorj.CtrServerSide.Adm
           return ApplicationUser;
         
         }
-       // Get ApplicationUser by ID
+       
+          public List<ApplicationUser> GetById(string pId){
+        List<ApplicationUser> list;
+
+        if (pId=="0" || string.IsNullOrEmpty(pId)){
+          list=_db.ApplicationUser.ToList();
+        }else
+        {                
+          list=_db.ApplicationUser.Where(s=>s.Id==pId).ToList();
+        }
+        return list;        
+        }
+
+
+            public ApplicationUser GetById_FirstOrDefault(string id){
+        ApplicationUser ApplicationUser= _db.ApplicationUser.FirstOrDefault(s=> s.Id==id);
+        return ApplicationUser;
+        }
+
          public List<ApplicationUser> GetApplicationUserById2(string pId){
              List<ApplicationUser> list_ApplicationUser;
 
@@ -64,31 +104,39 @@ namespace Woorj.CtrServerSide.Adm
           return code;
         }
 
-        // Insert ApplicationUser
-        public string Create(ApplicationUser obj_ApplicationUser){
-              _db.ApplicationUser.Add(obj_ApplicationUser);
+      
+        public string Create(ApplicationUser pObj){
+              _db.ApplicationUser.Add(pObj);
               _db.SaveChanges();
               return "Save Successfully";
 
         }
 
-        // Edit ApplicationUser
-        public string UpdateApplicationUser(ApplicationUser obj_ApplicationUser){
-              _db.ApplicationUser.Update(obj_ApplicationUser);
+   
+        public string UpdateApplicationUser(ApplicationUser pObj){
+              _db.ApplicationUser.Update(pObj);
               _db.SaveChanges();
               return "Edited Successfully";
 
         }
 
-          // Delete ApplicationUser
-        public string DeleteApplicationUser(ApplicationUser obj_ApplicationUser){
-              _db.Remove(obj_ApplicationUser); // _db.ApplicationUser.Remove(obj_ApplicationUser); 
+
+             public string Update(ApplicationUser pObj){
+              _db.ApplicationUser.Update(pObj);
+              _db.SaveChanges();
+              return "Edited Successfully";
+
+        }
+
+   
+        public string Delete(ApplicationUser pObj){
+              _db.Remove(pObj); // _db.ApplicationUser.Remove(pObj); 
               _db.SaveChanges();
               return "Delete Successfully";
 
         }
 
-                // Generate Excel
+        
         public void GenerateExcel(IJSRuntime JSRuntime,string pId)
         {
             byte[] fileContetnts;
@@ -138,6 +186,19 @@ namespace Woorj.CtrServerSide.Adm
                                       i.Id==pId                                      
                                   ).ToList();
         return list_ApplicationUser;
+       }
+
+          public List<ApplicationUser> GetSearchByField(string searchTxt){
+        var list = _db.ApplicationUser.Where(i=>
+                                       i.Code.ToString().Contains(searchTxt)
+                                      || i.UserName.Contains(searchTxt) 
+                                      || i.NormalizedUserName.Contains(searchTxt)
+                                      || i.Email.Contains(searchTxt)
+                                      || i.FirstName.Contains(searchTxt)
+                                      || i.SecondName.Contains(searchTxt)
+                                      || i.LastName.Contains(searchTxt)                              
+                                  ).ToList();
+        return list;
        }
 
 

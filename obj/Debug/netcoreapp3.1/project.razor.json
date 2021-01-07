@@ -78,7 +78,7 @@
         }
       },
       {
-        "HashCode": -1856927971,
+        "HashCode": 1529895026,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Adm.ApplicationRoleAdd",
         "AssemblyName": "Woorj",
@@ -88,13 +88,23 @@
             "TagName": "ApplicationRoleAdd"
           }
         ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.Adm.ApplicationRoleAdd"
         }
       },
       {
-        "HashCode": -1359527248,
+        "HashCode": 1549278506,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Adm.ApplicationRoleAdd",
         "AssemblyName": "Woorj",
@@ -102,6 +112,16 @@
         "TagMatchingRules": [
           {
             "TagName": "Woorj.Pages.Adm.ApplicationRoleAdd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
           }
         ],
         "Metadata": {
@@ -270,7 +290,7 @@
         }
       },
       {
-        "HashCode": -1455161020,
+        "HashCode": -1806809131,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Adm.ApplicationUserAdd",
         "AssemblyName": "Woorj",
@@ -280,13 +300,23 @@
             "TagName": "ApplicationUserAdd"
           }
         ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.Adm.ApplicationUserAdd"
         }
       },
       {
-        "HashCode": 536933698,
+        "HashCode": -1266757993,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Adm.ApplicationUserAdd",
         "AssemblyName": "Woorj",
@@ -294,6 +324,16 @@
         "TagMatchingRules": [
           {
             "TagName": "Woorj.Pages.Adm.ApplicationUserAdd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
           }
         ],
         "Metadata": {

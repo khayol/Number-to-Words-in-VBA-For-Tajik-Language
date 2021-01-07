@@ -1,5 +1,5 @@
 ﻿@page "/IndOrg/ContactViewStd/{IndividualId}"
-@inject ContactController Service
+@inject ContactController MainController
 
 @if (ContactList == null)
 {
@@ -11,7 +11,7 @@ else
    <Authorized>
     <WrDataGrid @ref="grid"
                   DataItems="ContactList"
-                  Columns="@Service.columns"
+                  Columns="@MainController.columns"
                   SelectedRow="SelectedRowMeth"
                   UniqIdOfRecord="Id"
                   ColumnsToExcludeCSV="Id,IndividualId"
@@ -53,9 +53,9 @@ else
 
     protected override void OnInitialized()
     {
-        Service.Initialized();
+        MainController.Initialized();
         AppData.ActivePageName="View-Contact"; 
-        ContactList = Service.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
+        ContactList = MainController.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
     }
 
 #endregion BlazorMethods

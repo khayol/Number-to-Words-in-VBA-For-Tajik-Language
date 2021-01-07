@@ -1,54 +1,52 @@
 @page "/Adm/ApplicationRoleAdd"
-@inject ApplicationRoleController objApplicationRoleController
+@inject ApplicationRoleController MainController
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-        <input type="button" class="btn bnt-style-general" @onclick="@CreateApplicationRole" value="Save" >
-        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-</ControlQuickAccess>
-</WrPnlElm>
-</div> 
-<div class="under-cls">
-<form>
-<div class="row">
-    
-    <div class="col-md-8  field-content">
+<AuthorizeView Roles="@admSer.GetRolesList("ApplicationRoleAdd")" Context="authContext">
+<Authorized>
+<EditForm Model="@objMain" OnValidSubmit="@Create">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    <WrPnlElm>
+    <ControlQuickAccess>
+    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")" >
+    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+    </ControlQuickAccess>
+    </WrPnlElm>
+  <WrFormBody>
+        <FormElements>
+
+            <WrFieldStr  FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+
+            <WrFieldStr FieldCaption="Description"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+       
+       </FormElements>      
+    </WrFormBody> 
+</EditForm>
+
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+</AuthorizeView>
 
 
-        <div class="form-group">
-            <label for="Name" class="control-lable">Name</label>
-            <input form="Name" class="form-control" @bind="@objApplicationRole.Name" />
-        </div>
-
-        <div class="form-group">
-            <label for="Name" class="control-lable">Description</label>
-            <input form="Name" class="form-control" @bind="@objApplicationRole.Description" />
-        </div>
-
-   
-        
-    </div>
-    
-</div>
-
-</form>
-</div>
 @code{
-    ApplicationRole objApplicationRole= new ApplicationRole();
 
-     protected override void OnInitialized()
-    {
-        base.OnInitialized();
-          // objApplicationRole.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
-    protected  void CreateApplicationRole(){ 
+    [Parameter]
+    public string CurrentID { get; set; }
 
-        objApplicationRoleController.Create(objApplicationRole);
+    ApplicationRole objMain= new ApplicationRole();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
         NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
-    }
+     }
+
     void Cancel(){
-       NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
     }
 
 }

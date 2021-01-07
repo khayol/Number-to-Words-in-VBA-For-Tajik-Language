@@ -203,45 +203,39 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleEdit.razor"
+#line 55 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleEdit.razor"
       
-
 
     [Parameter]
     public string CurrentID { get; set; }
-    ApplicationRole objApplicationRole = new ApplicationRole();
-
+    ApplicationRole objMain = new ApplicationRole();    
+    private string  CancelOrBeckTxt { get; set; } 
     private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyMain2 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
 
-
- protected override void OnInitialized()
-    //protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        //objApplicationRole = await Task.Run(() => objApplicationRoleController.GetApplicationRoleById(CurrentID));
-        objApplicationRole = objApplicationRoleController.GetApplicationRoleById(CurrentID);
-        
+        objMain = MainController.GetById_FirstOrDefault(CurrentID);
         readonlyMain1=AppData.readonlyMain1;
-        readonlyMain2=AppData.readonlyMain2;
         readonlyOther=AppData.readonlyOther;
     }
 
-    protected void UpdateApplicationRole()
+    protected void Update()
     {
-        objApplicationRoleController.UpdateApplicationRole(objApplicationRole);
-       NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentID);
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
     }
     void Cancel()
     {
-      NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
     }
+
+  
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IStringLocalizer<ApplicationRoleEdit> L { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController objApplicationRoleController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

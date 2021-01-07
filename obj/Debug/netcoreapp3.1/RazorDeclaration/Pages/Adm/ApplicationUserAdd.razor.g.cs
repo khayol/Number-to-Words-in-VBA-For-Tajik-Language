@@ -203,29 +203,29 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 46 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUserAdd.razor"
+#line 41 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUserAdd.razor"
       
-    ApplicationUser objApplicationUser= new ApplicationUser();
 
-     protected override void OnInitialized()
-    {
-        base.OnInitialized();
-          // objApplicationUser.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
-    protected  void CreateApplicationUser(){ 
+    [Parameter]
+    public string CurrentID { get; set; }
 
-        objApplicationUserController.Create(objApplicationUser);
+    ApplicationUser objMain= new ApplicationUser();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
         NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
-    }
+     }
+
     void Cancel(){
-       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController objApplicationUserController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

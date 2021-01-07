@@ -308,7 +308,7 @@ using System.Reflection;
                 Console.WriteLine("AppData.ChoosedEntityFK= "+AppData.ChoosedEntityFK);
                 Console.WriteLine("int.Parse(pIdOfRecord)= "+pIdOfRecord);
                 Console.WriteLine("----------ACTION-------------");
-               */
+              */
                  /*
                 // It's working well but we need to show the rusults after every UI updating  
                 GnrSrv.UpdateReleatedData(AppData.ChoosedEntityName,AppData.ChoosedEntityId, 

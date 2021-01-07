@@ -203,156 +203,75 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleViewStd.razor"
-            
+#line 59 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleViewStd.razor"
+        
 
-   #region     Declare_Region
+
+ #region     Declare
     [Parameter]
     public string Id { get; set; }
-    private string selectedRow { get; set; } = "";
-    private int CurrentPage { get; set; } = 1;
-    private List<ApplicationRole> RoleList;
     private WrDataGrid<ApplicationRole> grid;
+    private List<ApplicationRole> list;
+    private string searchValue   { get; set; }
+ 
+ #endregion  Declare
 
-   #endregion  Declare_Region
-    
-    #region    LifeСycle_Region
+ #region    BlazorMethods
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            SrvRole.Init_RoleViewStd();
-            
-            RoleList = SrvRole.GetApplicationRoleById2(Id).ToList();
-            //  selectedRow = AppData.ApplicationRoleIdSlcd;
-            AppData.ActivePageName="View-ApplicationRole";
-        }
-        protected override void OnAfterRender(bool firstRender)
-        {
-          base.OnAfterRender(firstRender);
-        }
+    protected override void OnInitialized()
+    {
+        MainController.Init_RoleViewStd();
+        list = MainController.GetById(Id).ToList();         
+    }
 
-        protected override void OnParametersSet()
-        {
-          base.OnParametersSet();
-        }
-    #endregion LifeСycle_Region_Region
+#endregion BlazorMethods
 
-    #region    Event_Region
+#region    Event
 
-        private void Role_SrchTxt(ChangeEventArgs changeEventArgs)
-        {
-            string searchValue = changeEventArgs.Value.ToString();
-            RoleList = SrvRole.GetApplicationRoleByFiled(searchValue);
-            GoToFirstPage();
-            GetCurrentPage();         
-        }
-        private void SelectedRowMeth(string pSelectedRow)
-        {
-            
-            selectedRow = pSelectedRow;
-            AppData.ApplicationRoleIdSlcd= selectedRow;
-            AppData.ApplicationRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
-                //   AppData.ApplicationRolePageNum = grid.CurrentPage.ToString();
-        }
-        protected void FindSelectedRec()
-        {
-            //JSRuntime.InvokeVoidAsync("msgbox","Test");
-            string searchValue = AppData.ApplicationRoleCode;
-            RoleList = SrvRole.GetApplicationRoleByFiled(searchValue,Id);
-            GoToFirstPage();
-            GetCurrentPage();        
-        }
-        protected void CleanSearchBox()
-        {
-            //JSRuntime.InvokeVoidAsync("msgbox","Test");
-            string searchValue = AppData.ApplicationRoleCode = "";
-            RoleList = SrvRole.GetApplicationRoleByFiled(searchValue,Id);
-            GoToFirstPage();
-            GetCurrentPage();
-            selectedRow = "";        
-        }
-    
-    
-       
-        private void GoToFirstPage()
-        {
+    private void SearchTxt(ChangeEventArgs changeEventArgs)
+    {
+        searchValue = changeEventArgs.Value.ToString();
+        list = MainController.GetSearchByField(searchValue);
         grid.GoToFirstPage();
-        CurrentPage=1;    
-        }  
-        private void GetCurrentPage()
-        {
-            CurrentPage= grid.GetCurrentPage();        
-        }  
-        private void ViewOrEditFlag(string pViewOrEdit)
-        {
-            if(pViewOrEdit.ToUpper()=="VIEW")
-            {
-                AppData.readonlyMain1=true;
-                AppData.readonlyMain2=true;
-                AppData.readonlyOther=true;
-            }
-            else if(pViewOrEdit.ToUpper()=="EDIT")
-            {
-                AppData.readonlyMain1=true;
-                AppData.readonlyMain2=true;
-                AppData.readonlyOther=false; 
-            }
-        }
-        protected void NavigateTo(string pNavLink)
-        {
-            NavManager.NavigateTo(pNavLink);
-        }
-        protected void AddNew(string pNavLink)
-        {
-            ViewOrEditFlag("EDIT");
-            NavManager.NavigateTo(pNavLink);
-        }
-        protected void ViewOrEdit(string pNavLink, string p_selectedRow, string pViewOrEdit)
-        {
-            ViewOrEditFlag(pViewOrEdit);
+    }
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        AppData.ApplicationRole_IdSelect = pSelectedRow;
+    }
+    protected void FindSelectedRec()
+    {
+        grid.GoToFirstPage();
+        list = MainController.GetById(AppData.ApplicationRole_IdSelect);
+    }
+    protected void CleanSearchBox()
+    {
+        grid.GoToFirstPage();
+        list = MainController.GetSearchByField("");
+        AppData.ApplicationRole_IdSelect = "0";
+    }
+     private void CRUD(string pOperType, string pNavLink, string pRecId)
+    {         
+        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
+                  servClass.CRUD(pOperType,pNavLink, pRecId);
+    }
 
-            if (string.IsNullOrEmpty(p_selectedRow)   || p_selectedRow=="0") //String.IsNullOrEmpty(p_selectedRow)
-            {
-                JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-            }
-            else
-            {
-                NavManager.NavigateTo(pNavLink + p_selectedRow);
-            }
-        }
-        protected void Delete(string pNavLink, string p_selectedRow)
-        {
-            if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
-            {
-                JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-            }
-            else
-            {
-                NavManager.NavigateTo(pNavLink + p_selectedRow);
-            }
-
-        }
-        protected void ExportToExcel()
-        {
-            // JSRuntime.InvokeVoidAsync("msgbox", "ExportToExcel");
-            SrvRole.GenerateExcel(JSRuntime,Id);
-        }
-        protected void FilterData()
-        {
-            JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
-            // SrvRole.FilterData(JSRuntime);
-        }
-
-    #endregion Event_Region
+    protected void ExportToExcel()
+    {
+       // MainController.GenerateExcel(JSRuntime);
+    }
+    protected void FilterData()
+    {
+        JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
+    }
+ #endregion Event
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController SrvRole { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AppData AppData { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }

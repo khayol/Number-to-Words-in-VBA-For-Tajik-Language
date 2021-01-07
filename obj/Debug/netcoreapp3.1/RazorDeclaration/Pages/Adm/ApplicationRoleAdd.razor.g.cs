@@ -203,29 +203,29 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleAdd.razor"
+#line 35 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleAdd.razor"
       
-    ApplicationRole objApplicationRole= new ApplicationRole();
 
-     protected override void OnInitialized()
-    {
-        base.OnInitialized();
-          // objApplicationRole.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
-    protected  void CreateApplicationRole(){ 
+    [Parameter]
+    public string CurrentID { get; set; }
 
-        objApplicationRoleController.Create(objApplicationRole);
+    ApplicationRole objMain= new ApplicationRole();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
         NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
-    }
+     }
+
     void Cancel(){
-       NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationRoleViewStd/0");
     }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController objApplicationRoleController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationRoleController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

@@ -43,7 +43,7 @@ namespace Woorj.Services
         #endregion General
     
     #region Dir    
-        public string GenderIdSlcd { get; set; }
+        //public string GenderIdSlcd { get; set; }
         public string GenderCode { get; set; }        
         public string Country_IdSelect { get; set; }="0";
         public string Gender_IdSelect { get; set; }="0";
@@ -51,6 +51,8 @@ namespace Woorj.Services
     #endregion Dir
 
     #region Adm
+       public string ApplicationRole_IdSelect { get; set; }="0";
+       public string ApplicationUser_IdSelect { get; set; }="0";
 
         public string UserRoleEditRoleIdSlcd { get; set; }
         public string UserRoleEditRoleCode { get; set; }
@@ -61,7 +63,7 @@ namespace Woorj.Services
         public string ApplicationUserCode { get; set; }
 
     #endregion Adm
-    
+
     #region IndOrg 
         
         public string Individual_IdSelect { get; set; }="0";

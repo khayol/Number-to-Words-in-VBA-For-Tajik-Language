@@ -46,15 +46,11 @@ namespace Woorj.CtrServerSide.IndOrg
             columns.AddRange(
                 new ColumnDefinition[] {
 
-                    new ColumnDefinition { DataField = "Id"},
-          
+                    new ColumnDefinition { DataField = "Id"},          
                     new ColumnDefinition { DataField = "Code", Caption="Code", MinWidth="70", MaxWidth="70" },
                     new ColumnDefinition { DataField = "FullName",  MinWidth="300", MaxWidth="300", SortDirection = SortDirection.Asc },
-                  
                     new ColumnDefinition { DataField = "FullNameEN", MinWidth="300", MaxWidth="300"},
-                    
                     new ColumnDefinition { DataField = "BirthDay", Format = "dd.MM.yyyy", DataType = DataType.Date, MinWidth="180", MaxWidth="180" },
-
                     new ColumnDefinition { DataField = "TaxCode",  MinWidth="120", MaxWidth="120"  },
                     new ColumnDefinition { DataField = "PassSerial",  MinWidth="20", MaxWidth="20"   },
                     new ColumnDefinition { DataField = "PassCode",  MinWidth="80", MaxWidth="80"   },
@@ -62,15 +58,13 @@ namespace Woorj.CtrServerSide.IndOrg
                     new ColumnDefinition { DataField = "DocDateEnd", Format = "dd.MM.yyyy", DataType = DataType.Date, MinWidth="180", MaxWidth="180"   },
                     new ColumnDefinition { DataField = "PassOrg",  MinWidth="300", MaxWidth="300"  },
                     new ColumnDefinition { DataField = "Address",  MinWidth="300", MaxWidth="300"  },
-              
-            new ColumnDefinition { DataField = "Contact", DataType=DataType.Collection , LinkAddress="IndOrg/ContactViewStd/" , MinWidth="40", MaxWidth="40"  },
-            new ColumnDefinition { DataField = "Gender",  DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="GenderId"  , LinkAddress="Dir/GenderViewStd/", MinWidth="90", MaxWidth="90"   },
-            new ColumnDefinition { DataField = "Country", DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="BirthPlace_CountryId"  , LinkAddress="Dir/CountryViewStd/" , MinWidth="100", MaxWidth="100"   },
-            
                     new ColumnDefinition { DataField = "CreatedDate", Format = "dd.MM.yyyy hh:mm:ss", DataType = DataType.Date , MinWidth="180", MaxWidth="180"   },
-           /* */
-                        //new ColumnDefinition { DataField = "Salary", Caption="Annual Salary", DataType = DataType.Currency, Alignment = Alignment.Right, Format="c", SortDirection = SortDirection.Desc },
-
+    
+                    new ColumnDefinition { DataField = "Contact", DataType=DataType.Collection , LinkAddress="IndOrg/ContactViewStd/" , MinWidth="40", MaxWidth="40"  },
+                    new ColumnDefinition { DataField = "Gender",  DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="GenderId"  , LinkAddress="Dir/GenderViewStd/", MinWidth="90", MaxWidth="90"   },
+                    new ColumnDefinition { DataField = "Country", Caption= "BirthPlace", DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="BirthPlace_CountryId"  , LinkAddress="Dir/CountryViewStd/" , MinWidth="100", MaxWidth="100"   },
+                    
+                     //new ColumnDefinition { DataField = "Salary", Caption="Annual Salary", DataType = DataType.Currency, Alignment = Alignment.Right, Format="c", SortDirection = SortDirection.Desc },
 
                     }
             );

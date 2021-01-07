@@ -1,63 +1,58 @@
 @page "/Adm/ApplicationUserAdd"
-@inject ApplicationUserController objApplicationUserController
+@inject ApplicationUserController MainController
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-        <input type="button" class="btn bnt-style-general" @onclick="@CreateApplicationUser" value="Save" >
-        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-</ControlQuickAccess>
-</WrPnlElm>
-</div> 
-<div class="under-cls">
-<form>
-<div class="row">
-    
-    <div class="col-md-8  field-content">
+<AuthorizeView Roles="@admSer.GetRolesList("ApplicationUserAdd")" Context="authContext">
+<Authorized>
+<EditForm Model="@objMain" OnValidSubmit="@Create">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    <WrPnlElm>
+    <ControlQuickAccess>
+    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")" >
+    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+    </ControlQuickAccess>
+    </WrPnlElm>
+  <WrFormBody>
+        <FormElements>
+
+            <WrFieldStr  FieldCaption="UserName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
+
+            <WrFieldStr FieldCaption="FirstName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FirstName"/>
+
+            <WrFieldStr  FieldCaption="SecondName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.SecondName"/>
+
+            <WrFieldStr  FieldCaption="LastName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.LastName"/>
+     
+       </FormElements>      
+    </WrFormBody> 
+</EditForm>
+
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+</AuthorizeView>
 
 
-        <div class="form-group">
-            <label for="Name" class="control-lable">UserName</label>
-            <input form="Name" class="form-control" @bind="@objApplicationUser.UserName" />
-        </div>
-
-        <div class="form-group">
-            <label for="Name" class="control-lable">FirstName</label>
-            <input form="Name" class="form-control" @bind="@objApplicationUser.FirstName" />
-        </div>
-
-        <div class="form-group">
-            <label for="Name" class="control-lable">SecondName</label>
-            <input form="Name" class="form-control" @bind="@objApplicationUser.SecondName" />
-        </div>
-
-        <div class="form-group">
-            <label for="Name" class="control-lable">LastName</label>
-            <input form="Name" class="form-control" @bind="@objApplicationUser.LastName" />
-        </div>
-
-        
-    </div>
-    
-</div>
-
-</form>
-</div>
 @code{
-    ApplicationUser objApplicationUser= new ApplicationUser();
 
-     protected override void OnInitialized()
-    {
-        base.OnInitialized();
-          // objApplicationUser.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
-    protected  void CreateApplicationUser(){ 
+    [Parameter]
+    public string CurrentID { get; set; }
 
-        objApplicationUserController.Create(objApplicationUser);
+    ApplicationUser objMain= new ApplicationUser();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
         NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
-    }
+     }
+
     void Cancel(){
-       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationUserViewStd/0");
     }
 
 }
