@@ -1,66 +1,76 @@
 @page "/Dir/GenderEdit/{CurrentID}"
-@inject GenderController objGenderController
+@inject GenderController MainController
 
- <div class="fix-possition">
-<WrPnlElm>
-    <ControlQuickAccess>
-              <input type="button" class="btn bnt-style-general" @onclick="@UpdateGender" value="Update">
-              <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-    </ControlQuickAccess>
-</WrPnlElm>
-</div> 
 
-<div class="under-cls">
-<form>
-    <div class="row">
+<AuthorizeView Roles="@admSer.GetRolesList("GenderEdit")" Context="authContext">
+  <Authorized>
 
-        <div class="col-md-8  field-content">
+<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    
+    <WrPnlElm>
+        <ControlQuickAccess>
+             
+                @if( readonlyOther==false )
+                {
+                    CancelOrBeckTxt="Cancel";
+                    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+                    
+                }else{
+                  CancelOrBeckTxt="Back";
+                }
+                 &nbsp;
+                    <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,"General")">
+                 &nbsp;
 
-            <div class="form-group">
-                <label for="Code" class="control-lable">Code</label>
-                <input readonly="@readonlyMain1" form="Code" class="form-control" @bind="@objGender.Code" />
-            </div>
-            <div class="form-group">
-                <label for="Name" class="control-lable">Name</label>
-                <input readonly="@readonlyOther" form="Name" class="form-control" @bind="@objGender.Name" />
-            </div>
-            
-            @* <div class="form-group">
-                <label for="CreatedDate" class="control-lable">CreatedDate</label>
-                <input readonly="@readonlyMain1"  form="AlpCreatedDateha3" class="form-control" @bind="@objGender.CreatedDate" />
-            </div> *@
-        </div>
+        </ControlQuickAccess>
+    </WrPnlElm>
 
-    </div>
+    <WrFormBody>
+        <FormElements>
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
 
- </form>
-</div>
+            <WrFieldStr  FieldCaption="Name" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+
+  </AuthorizeView>
+
 
 @code{
+
     [Parameter]
     public string CurrentID { get; set; }
-    Gender objGender = new Gender();
-
+    Gender objMain = new Gender();    
+    private string  CancelOrBeckTxt { get; set; } 
     private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyMain2 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
 
     protected override void OnInitialized()
     {
-        objGender = objGenderController.GetGenderById(Convert.ToInt32(CurrentID));
-        
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
         readonlyMain1=AppData.readonlyMain1;
-        readonlyMain2=AppData.readonlyMain2;
         readonlyOther=AppData.readonlyOther;
     }
 
-    protected void UpdateGender()
+    protected void Update()
     {
-        objGenderController.UpdateGender(objGender);
-       NavManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Dir/GenderViewStd/0");
     }
     void Cancel()
     {
-      NavManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Dir/GenderViewStd/0");
     }
+
+  
 }

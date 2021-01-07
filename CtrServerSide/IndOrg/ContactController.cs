@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Woorj.Data;
 using Woorj.Data.IndOrg;
+using Woorj.Data.WrComponents;
 
 namespace Woorj.CtrServerSide.IndOrg
 {
@@ -12,11 +13,31 @@ namespace Woorj.CtrServerSide.IndOrg
     {
         private readonly ApplicationDbContext _db;
 
+         public List<ColumnDefinition> columns;
+
         public ContactController(ApplicationDbContext db)
         {
             _db=db;
         }
         
+
+        public void Initialized()
+        {
+            if (columns == null)
+        {
+            columns = new List<ColumnDefinition>();
+            columns.AddRange(
+                new ColumnDefinition[] {
+
+                    new ColumnDefinition { DataField = "Code", Caption="Code"},
+                    new ColumnDefinition { DataField = "Name", Caption="Name" },
+                    new ColumnDefinition { DataField = "Description", Caption="Description" },
+
+                    }
+            );
+            }
+        }
+     
         // Get all Contact
         public List<Contact> GetContact(){
           var list_Contact=_db.Contact.ToList();
@@ -26,8 +47,19 @@ namespace Woorj.CtrServerSide.IndOrg
         // Get Contact by ID
         public Contact GetContactById(int id){
           Contact Contact= _db.Contact.FirstOrDefault(s=> s.Id==id);
-          return Contact;
-        
+          return Contact;        
+        }
+
+        public List<Contact> GetByIndividualId(int pIndividualId){
+        List<Contact> list;
+
+        if (pIndividualId==0 || string.IsNullOrEmpty(pIndividualId.ToString())){
+        list=_db.Contact.ToList();
+        }else
+        {                
+        list=_db.Contact.Where(s=>s.IndividualId==pIndividualId).ToList();
+        }
+        return list;        
         }
         public List<Contact> GetContactById2(int pId){
           // Contact Contact= _db.Contact.FirstOrDefault(s=> s.Id==id);
@@ -67,7 +99,6 @@ namespace Woorj.CtrServerSide.IndOrg
               _db.Contact.Add(obj_Contact);
               _db.SaveChanges();
               return "Save Successfully";
-
         }
 
         // Edit Contact
@@ -75,15 +106,20 @@ namespace Woorj.CtrServerSide.IndOrg
               _db.Contact.Update(obj_Contact);
               _db.SaveChanges();
               return "Edited Successfully";
-
         }
 
           // Delete Contact
-        public string DeleteContact(Contact obj_Contact){
-              _db.Remove(obj_Contact); // _db.Contact.Remove(obj_Contact); 
-              _db.SaveChanges();
-              return "Delete Successfully";
-
+        public string DeleteContact(Contact obj_Contact)
+        {
+              if (obj_Contact!=null)
+              {
+                _db.Remove(obj_Contact); // _db.Contact.Remove(obj_Contact); 
+                _db.SaveChanges();
+                return "Delete Successfully";  
+              }else
+              {
+                return "The row not Exist";  
+              }
         }
 
                 // Generate Excel
@@ -131,9 +167,13 @@ namespace Woorj.CtrServerSide.IndOrg
         public List<Contact> GetContactByFiled(string searchTxt, int pIndividualId){
         var list_Contact = _db.Contact
                               .Where(i=>
-                                      (i.Code.ToString().Contains(searchTxt)
+                                      ((i.Code.ToString().Contains(searchTxt)
                                       || i.Name.Contains(searchTxt)) && 
-                                      i.IndividualId==pIndividualId                                      
+                                      i.IndividualId==pIndividualId) 
+                                      ||
+                                      (String.IsNullOrEmpty(searchTxt)&& 
+                                      i.IndividualId==pIndividualId)
+
                                   ).ToList();
         return list_Contact;
        }

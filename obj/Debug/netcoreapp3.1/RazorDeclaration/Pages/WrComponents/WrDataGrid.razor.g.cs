@@ -104,91 +104,91 @@ using Blazored.FluentValidation;
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 35 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 36 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 37 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 43 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 53 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
 
 #line default
@@ -209,7 +209,7 @@ using System.Reflection;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 164 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 167 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
          
 
 
@@ -349,7 +349,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 308 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 311 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -537,7 +537,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 504 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 507 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -549,7 +549,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 515 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 518 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -602,6 +602,7 @@ using System.Reflection;
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private GnrSrv GnrSrv { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AppData AppData { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor hca { get; set; }

@@ -75,7 +75,7 @@ namespace Woorj.Services
            // Console.WriteLine(queryTxt);
             command.CommandText =queryTxt;               
              _db.Database.OpenConnection();
-             string existData = command.ExecuteScalar().ToString();
+             string existData = command.ExecuteScalar()?.ToString() ?? GlobVarStat.nullval;
              _db.Database.CloseConnection();
 
             if(!string.IsNullOrEmpty(existData)) 
@@ -98,8 +98,7 @@ namespace Woorj.Services
             {
             IndividualController IndividualController= new IndividualController(_db);
             IndividualController.UpdateSome_FK_Key(pChoosedEntityId,pChoosedEntityFK,pIdSelected);
-            }
-                
+            }                
        }
 
        

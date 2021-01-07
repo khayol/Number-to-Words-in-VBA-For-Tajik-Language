@@ -1,51 +1,50 @@
 @page "/Dir/GenderAdd"
-@inject GenderController objGenderController
+@inject GenderController MainController
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-        <input type="button" class="btn bnt-style-general" @onclick="@CreateGender" value="Save" >
-        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-</ControlQuickAccess>
-</WrPnlElm>
-</div> 
-<div class="under-cls">
-<form>
-<div class="row">
-    
-    <div class="col-md-8  field-content">
+<AuthorizeView Roles="@admSer.GetRolesList("GenderAdd")" Context="authContext">
+<Authorized>
+<EditForm Model="@objMain" OnValidSubmit="@Create">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    <WrPnlElm>
+    <ControlQuickAccess>
+    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")" >
+    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+    </ControlQuickAccess>
+    </WrPnlElm>
+  <WrFormBody>
+        <FormElements>
+  
+            <WrFieldStr FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
+      
+       </FormElements>      
+    </WrFormBody> 
+</EditForm>
 
-        <div class="form-group">
-            <label for="Name" class="control-lable">Name</label>
-            <input form="Name" class="form-control" @bind="@objGender.Name" />
-        </div>
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+</AuthorizeView>
 
-            @* <div class="form-group">
-                <label for="CreatedDate" class="control-lable">CreatedDate</label>
-                <input form="AlpCreatedDateha3" class="form-control" @bind="@objGender.CreatedDate" />
-            </div> *@
-        
-    </div>
-    
-</div>
 
-</form>
-</div>
 @code{
-    Gender objGender= new Gender();
 
-     protected override void OnInitialized()
-    {
-        base.OnInitialized();
-          // objGender.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
-    protected  void CreateGender(){ 
+    [Parameter]
+    public string CurrentID { get; set; }
 
-        objGenderController.Create(objGender);
-        NavManager.NavigateTo("/Dir/GenderViewStd/");
-    }
+    Gender objMain= new Gender();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
+        NavManager.NavigateTo("/Dir/GenderViewStd/0");
+     }
+
     void Cancel(){
-       NavManager.NavigateTo("/Dir/GenderViewStd/");
+        NavManager.NavigateTo("/Dir/GenderViewStd/0");
     }
 
 }
+

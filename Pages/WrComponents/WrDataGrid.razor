@@ -101,14 +101,14 @@ else
                           // Create the header based on columns definition
                         foreach (var column in Columns)
                         {
+                            string col_caption=(!string.IsNullOrEmpty(@column.Caption)) ? @column.Caption : @column.DataField;
                             if (
                                     StatCls.IsContains(ColumnsToExcludeCSV,column.DataField)==false
                                 //!ColumnsToExcludeCSV.Contains(column.DataField, StringComparison.OrdinalIgnoreCase)
                                ) //непоказывать колонки(Причеслите их как CSV например "Id,Name")
                             { 
                             <th style="@(FontStyleHeader(column))" class="@(AlignmentClass(column)) theader-stl" @onclick="@(()=> SortData(column))" >
-                            @* @column.Caption Without Translation*@
-                            @trs.GetTranslation(@column.Caption,@AppData.ActiveUser?.ToString() ?? "",thisModel)
+                            @trs.GetTranslation(@col_caption,@AppData.ActiveUser?.ToString() ?? "",thisModel)
                             <span style="float:right" class="@(SortClass(column))"></span>
                             </th>
                             }
@@ -121,7 +121,6 @@ else
         {
             string IdOfRecord = @item.GetType().GetProperty(this.UniqIdOfRecord).GetValue(item).ToString(); //member.Name
             string CurrLink = @item.GetType().Name.ToString(); //member.Name
-
             <tr >
                 @foreach (var column in Columns)
                 {
@@ -129,8 +128,12 @@ else
                     if (!string.IsNullOrEmpty(column.SelectedFieldKey)){
                      IdOfFieldKey= @item.GetType().GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString()  ?? GlobVarStat.nullval; //member.Name
                     }
-                    var cellValue= FormatItemValue(item, column,IdOfRecord);                                
-               
+                    var cellValue= FormatItemValue(item, column,IdOfRecord); 
+
+                      string minWidth=(string.IsNullOrEmpty(column.MinWidth)) ? "" : "min-width:"+column.MinWidth+"px;";                    
+                      string maxWidth=(string.IsNullOrEmpty(column.MaxWidth)) ? "" : "max-width:"+column.MaxWidth+"px;";    
+                      string tdStyle=GlobVarStat.tdMainStyle+minWidth+maxWidth;
+                       
                     if (column.Alignment != Alignment.NotSet)
                     {
                         if (
@@ -138,7 +141,7 @@ else
                            // !ColumnsToExcludeCSV.Contains(column.DataField, StringComparison.OrdinalIgnoreCase)
                            ) //непоказывать Записи(Причеслите их как CSV например "Id,Name")
                         {
-                        <td style="@(FontStyleHeader(column))" align="@column.Alignment.ToString().ToLower()" class="tdata-stl" @ondblclick="() => DoubleClickOnTheData(item, column,CurrLink,IdOfRecord, column.DataField, IdOfFieldKey,column.LinkAddress,cellValue.ToString())" @onclick="() => ClickOnTheRecord(IdOfRecord)">@cellValue</td>
+                        <td  style="@(FontStyleHeader(column));  @tdStyle" align="@column.Alignment.ToString().ToLower()"  @ondblclick="() => DoubleClickOnTheData(item, column,CurrLink,IdOfRecord, column.DataField, IdOfFieldKey,column.LinkAddress,cellValue.ToString())" @onclick="() => ClickOnTheRecord(IdOfRecord)">@cellValue</td>
                         }
                     }
                     else
@@ -148,7 +151,7 @@ else
                             StatCls.IsContains(ColumnsToExcludeCSV,column.DataField)==false
                            ) //непоказывать Записи(Причеслите их как CSV например "Id,Name")
                         {
-                        <td style="@(FontStyleHeader(column))" class="tdata-stl" @ondblclick="() => DoubleClickOnTheData(item, column,CurrLink,IdOfRecord, column.DataField, IdOfFieldKey,column.LinkAddress,cellValue.ToString())" @onclick="() => ClickOnTheRecord(IdOfRecord)">@cellValue</td>
+                        <td  style="@(FontStyleHeader(column)); @tdStyle"  @ondblclick="() => DoubleClickOnTheData(item, column,CurrLink,IdOfRecord, column.DataField, IdOfFieldKey,column.LinkAddress,cellValue.ToString())" @onclick="() => ClickOnTheRecord(IdOfRecord)">@cellValue</td>
                         }
                     }
                 }

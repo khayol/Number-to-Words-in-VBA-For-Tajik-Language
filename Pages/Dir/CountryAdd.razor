@@ -1,73 +1,64 @@
 @page "/Dir/CountryAdd"
-@inject CountryController objCountryController
+@inject CountryController MainController
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-        <input type="button" class="btn bnt-style-general" @onclick="@CreateCountry" value="Save" >
-        <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-</ControlQuickAccess>
-</WrPnlElm>
-</div> 
-<div class="under-cls">
-<form>
-<div class="row">
-    
-    <div class="col-md-8  field-content">
+<AuthorizeView Roles="@admSer.GetRolesList("CountryAdd")" Context="authContext">
+<Authorized>
+<EditForm Model="@objMain" OnValidSubmit="@Create">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    <WrPnlElm>
+    <ControlQuickAccess>
+    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")" >
+    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+    </ControlQuickAccess>
+    </WrPnlElm>
+  <WrFormBody>
+        <FormElements>
 
-        <div class="form-group">
-            <label for="Name" class="control-lable">Name</label>
-            <input form="Name" class="form-control" @bind="@objCountry.Name" />
-        </div>
+            <WrFieldStr  FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
 
-        <div class="form-group">
-            <label for="FullName" class="control-lable">FullName</label>
-            <input form="FullName" class="form-control" @bind="@objCountry.FullName" />
-        </div>
+            <WrFieldStr FieldCaption="FullName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
 
-        <div class="form-group">
-                <label for="English" class="control-lable">English</label>
-                <input form="English" class="form-control" @bind="@objCountry.English" />
-            </div>
-            <div class="form-group">
-                <label for="Alpha2" class="control-lable">Alpha2</label>
-                <input form="Alpha2" class="form-control" @bind="@objCountry.Alpha2" />
-            </div>
-            <div class="form-group">
-                <label for="Alpha3" class="control-lable">Alpha3</label>
-                <input form="Alpha3" class="form-control" @bind="@objCountry.Alpha3" />
-            </div>
-            <div class="form-group">
-                <label for="Iso" class="control-lable">Iso</label>
-                <input form="Iso" class="form-control" @bind="@objCountry.Iso" />
-            </div>
+            <WrFieldStr  FieldCaption="English"
+            TransEntity="General"  @bind-BindingValue ="@objMain.English"/>
 
-            @* <div class="form-group">
-                <label for="CreatedDate" class="control-lable">CreatedDate</label>
-                <input form="AlpCreatedDateha3" class="form-control" @bind="@objCountry.CreatedDate" />
-            </div> *@
-        
-    </div>
-    
-</div>
+            <WrFieldStr  FieldCaption="Alpha2"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha2"/>
 
-</form>
-</div>
+            <WrFieldStr  FieldCaption="Alpha3"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
+
+            <WrFieldStr FieldCaption="Iso"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Iso"/>    
+       
+       </FormElements>      
+    </WrFormBody> 
+</EditForm>
+
+</Authorized>
+ <NotAuthorized>
+       <WrPageNotFound/>
+ </NotAuthorized>
+</AuthorizeView>
+
+
 @code{
-    Country objCountry= new Country();
 
-     protected override void OnInitialized()
-    {
-        base.OnInitialized();
-          // objCountry.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
-    protected  void CreateCountry(){ 
+    [Parameter]
+    public string CurrentID { get; set; }
 
-        objCountryController.Create(objCountry);
-        NavManager.NavigateTo("/Dir/CountryViewStd/");
-    }
+    Country objMain= new Country();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
+        NavManager.NavigateTo("/Dir/CountryViewStd/0");
+     }
+
     void Cancel(){
-       NavManager.NavigateTo("/Dir/CountryViewStd/");
+        NavManager.NavigateTo("/Dir/CountryViewStd/0");
     }
 
 }

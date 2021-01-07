@@ -270,7 +270,7 @@ namespace Woorj.Migrations
                         .HasMaxLength(256);
 
                     b.Property<string>("Parent_AccessRightId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -279,8 +279,9 @@ namespace Woorj.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.HasIndex("Name")
-                        .IsUnique();
+                    b.HasIndex("Name", "Parent_AccessRightId", "AccessRightTypeId")
+                        .IsUnique()
+                        .HasFilter("[Parent_AccessRightId] IS NOT NULL AND [AccessRightTypeId] IS NOT NULL");
 
                     b.ToTable("AccessRight");
                 });

@@ -5,69 +5,84 @@ using System.Collections.Generic;
 using System.Linq;
 using Woorj.Data;
 using Woorj.Data.Dir;
+using Woorj.Data.WrComponents;
 
 namespace Woorj.CtrServerSide.Dir
 {
     public class GenderController
     {
+          public List<ColumnDefinition> columns;
         private readonly ApplicationDbContext _db;
 
         public GenderController(ApplicationDbContext db)
         {
             _db=db;
         }
+
+        public void Initialized()
+        {
+            if (columns == null)
+            {
+                columns = new List<ColumnDefinition>();
+                columns.AddRange(
+                    new ColumnDefinition[] 
+                      {
+                      new ColumnDefinition { DataField = "Code"},
+                      new ColumnDefinition { DataField = "Name"}
+                      }
+                                );
+            }
+        }
         
-        // Get all Gender
-        public List<Gender> GetGender(){
+        public List<Gender> Get(){
           var list_Gender=_db.Gender.ToList();
           return list_Gender;
         }
 
-        // Get Gender by ID
-        public Gender GetGenderById(int id){
-          Gender Gender= _db.Gender.FirstOrDefault(s=> s.Id==id);
-          return Gender;
-        
-        }
-       // Get Gender by ID
-         public List<Gender> GetGenderById2(int pId){
-          //   var list_Gender=_db.Gender.Where(s=>s.Id==pId).ToList();
-          // return list_Gender;
+        public List<Gender> GetById(int pId){
+        List<Gender> list;
 
-            List<Gender> list_Gender;
-
-            if (pId==0 || string.IsNullOrEmpty(pId.ToString())){
-             list_Gender=_db.Gender.ToList();
-            }else
-            {                
-             list_Gender=_db.Gender.Where(s=>s.Id==pId).ToList();
-            }
-          return list_Gender;
+        if (pId==0 || string.IsNullOrEmpty(pId.ToString())){
+          list=_db.Gender.ToList();
+        }else
+        {                
+          list=_db.Gender.Where(s=>s.Id==pId).ToList();
         }
-        public string GetGenderCodeById(int id){
-          string code= _db.Gender.FirstOrDefault(s=> s.Id==id).Code.ToString();
-          return code;
+        return list;        
+        }
+  
+        public Gender GetById_FirstOrDefault(int id){
+        Gender Gender= _db.Gender.FirstOrDefault(s=> s.Id==id);
+        return Gender;
         }
 
-        // Insert Gender
-        public string Create(Gender obj_Gender){
-              _db.Gender.Add(obj_Gender);
+     
+       public List<Gender> GetSearchByField(string searchTxt){
+        var list = _db.Gender.Where(i=>
+                                       i.Code.ToString().Contains(searchTxt)
+                                      || i.Name.Contains(searchTxt)                                                                    
+                                  ).ToList();
+        return list;
+       }
+
+         public string Create(Gender pObj){
+              _db.Gender.Add(pObj);
               _db.SaveChanges();
               return "Save Successfully";
 
         }
 
-        // Edit Gender
-        public string UpdateGender(Gender obj_Gender){
-              _db.Gender.Update(obj_Gender);
+
+        public string Update(Gender pObj){
+              _db.Gender.Update(pObj);
               _db.SaveChanges();
               return "Edited Successfully";
 
         }
 
-          // Delete Gender
-        public string DeleteGender(Gender obj_Gender){
-              _db.Remove(obj_Gender); // _db.Gender.Remove(obj_Gender); 
+    
+            public string Delete(Gender pObj){
+              _db.Remove(pObj); 
               _db.SaveChanges();
               return "Delete Successfully";
 

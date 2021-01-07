@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,16 @@ namespace Woorj.Services
         public static string GetModelNameFromObject(object pObject){
            string res=pObject.GetType().ToString().Replace("]","").Split(".").Last();
             return res;
+        }
+
+        public static string GetPxFromString(string pString)
+        {
+              using (System.Drawing.Graphics graphics = System.Drawing.Graphics.FromImage(new Bitmap(1, 1)))
+                    {
+                        SizeF size = graphics.MeasureString(pString, new Font("Segoe UI", 11, FontStyle.Regular, GraphicsUnit.Point));
+                        return size.ToString();
+                    }
+                        
         }
         public static bool IsContains(string pLine,string pSearchStr)
         {

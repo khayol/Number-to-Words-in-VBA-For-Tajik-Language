@@ -1,52 +1,65 @@
 @page "/Dir/CountryDelete/{CurrentID}"
-@inject CountryController objCountryController
+@inject CountryController MainController
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-    <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteCountry" value="Delete">
-    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
-</ControlQuickAccess>
-</WrPnlElm>
-</div>
+<AuthorizeView Roles="@admSer.GetRolesList("CountryDelete")" Context="authContext">
+  <Authorized>
 
-<div class="under-cls">
-<h3>Are you sure want to delete this row?</h3>
+<EditForm Model="@objMain" OnValidSubmit="@Delete" OnInvalidSubmit="@Cancel" Context="formContext">  
+   
+    <WrPnlElm>
+        <ControlQuickAccess>
+                <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")">
+                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+        </ControlQuickAccess>
+    </WrPnlElm>
 
-<div class="row">
-    <div class="col-md-8 field-content">
+    <WrFormBody>
+        <FormElements>
+            <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
+           
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
 
-        <div class="form-group">
-            <label> Code:</label>
-            <label>@objEmp.Code</label>
-        </div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Alpha3"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/> 
 
-        <div class="form-group">
-            <label>Name:</label>
-            <label>@objEmp.Name</label>
-        </div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
 
-    </div>
-</div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="FullName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
 
-</div>
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</Authorized>
+<NotAuthorized>
+    <WrPageNotFound/>
+</NotAuthorized>
+</AuthorizeView>
+
 
 @code{
-   [Parameter]
-   public string CurrentID {get;set;}
-    Country objEmp= new Country();
 
-    protected override async Task OnInitializedAsync()
+    [Parameter]
+    public string CurrentID { get; set; }
+    Country objMain = new Country();  
+    private bool readonlyMain1 {get;set;}=false;
+
+    protected override void OnInitialized()
     {
-    objEmp= await Task.Run(()=>objCountryController.GetCountryById(Convert.ToInt32(CurrentID)));        
+          readonlyMain1=AppData.readonlyMain1;
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
-    
-    protected void DeleteCountry(){
 
-        objCountryController.DeleteCountry(objEmp);
-        NavManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+    protected void Delete()
+    {
+        MainController.Delete(objMain);
+        NavManager.NavigateTo("/Dir/CountryViewStd/0");
     }
-    void Cancel(){
-        NavManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Dir/CountryViewStd/0");
     }
+
 }

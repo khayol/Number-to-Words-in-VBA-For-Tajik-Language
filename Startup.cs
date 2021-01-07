@@ -107,6 +107,7 @@ namespace Woorj
                 services.AddScoped<ContactController>();
                 services.AddScoped<EmployeeController>();
                 services.AddScoped<AppData>();
+                services.AddScoped<NavMeths>();
                 services.AddScoped<GnrSrv>();
 
                 services.AddScoped<ICustomTranslator, CustomTranslator>();

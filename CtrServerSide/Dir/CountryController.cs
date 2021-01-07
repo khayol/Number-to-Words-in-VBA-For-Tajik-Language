@@ -5,66 +5,99 @@ using System.Collections.Generic;
 using System.Linq;
 using Woorj.Data;
 using Woorj.Data.Dir;
+using Woorj.Data.WrComponents;
 
 namespace Woorj.CtrServerSide.Dir
 {
+    
     public class CountryController
     {
+       public List<ColumnDefinition> columns;
         private readonly ApplicationDbContext _db;
 
         public CountryController(ApplicationDbContext db)
         {
             _db=db;
         }
+
+
+
+     public void Initialized()
+        {
+        if (columns == null)
+        {
+            columns = new List<ColumnDefinition>();
+            columns.AddRange(
+                new ColumnDefinition[] {
+
+                    new ColumnDefinition { DataField = "Code"},
+                    new ColumnDefinition { DataField = "Name"},
+                    new ColumnDefinition { DataField = "FullName" },
+                    new ColumnDefinition { DataField = "English"},
+                    new ColumnDefinition { DataField = "Alpha2"},
+                    new ColumnDefinition { DataField = "Alpha3"},
+                    new ColumnDefinition { DataField = "CreatedDate"}
+
+                    }
+            );
+            }
+        }
         
-        // Get all Country
-        public List<Country> GetCountry(){
+        public List<Country> Get(){
           var list_Country=_db.Country.ToList();
           return list_Country;
         }
 
-        // Get Country by ID
-        public Country GetCountryById(int id){
-          Country Country= _db.Country.FirstOrDefault(s=> s.Id==id);
-          return Country;
-        
-        }
-       // Get Country by ID
-         public List<Country> GetCountryById2(int pId){
-            List<Country> list_Country;
+        public List<Country> GetById(int pId){
+        List<Country> list;
 
-            if (pId==0 || string.IsNullOrEmpty(pId.ToString())){
-             list_Country=_db.Country.ToList();
-            }else
-            {                
-             list_Country=_db.Country.Where(s=>s.Id==pId) .ToList();
-            }
-          return list_Country;
+        if (pId==0 || string.IsNullOrEmpty(pId.ToString())){
+          list=_db.Country.ToList();
+        }else
+        {                
+          list=_db.Country.Where(s=>s.Id==pId).ToList();
         }
-        public string GetCountryCodeById(int id){
-          string code= _db.Country.FirstOrDefault(s=> s.Id==id).Code.ToString();
-          return code;
+        return list;        
         }
 
-        // Insert Country
-        public string Create(Country obj_Country){
-              _db.Country.Add(obj_Country);
+       
+        public Country GetById_FirstOrDefault(int id){
+        Country Country= _db.Country.FirstOrDefault(s=> s.Id==id);
+        return Country;
+        }
+
+     
+       public List<Country> GetSearchByField(string searchTxt){
+        var list = _db.Country.Where(i=>
+                                       i.Code.ToString().Contains(searchTxt)
+                                      || i.Name.Contains(searchTxt) 
+                                      || i.FullName.Contains(searchTxt)
+                                      || i.Alpha2.Contains(searchTxt)
+                                      || i.Alpha3.Contains(searchTxt)
+                                      || i.English.Contains(searchTxt)
+                                      || i.Iso.Contains(searchTxt)                              
+                                  ).ToList();
+        return list;
+       }
+
+
+            public string Create(Country pObj){
+              _db.Country.Add(pObj);
               _db.SaveChanges();
               return "Save Successfully";
 
         }
 
-        // Edit Country
-        public string UpdateCountry(Country obj_Country){
-              _db.Country.Update(obj_Country);
+           public string Update(Country pObj){
+              _db.Country.Update(pObj);
               _db.SaveChanges();
               return "Edited Successfully";
 
         }
 
-          // Delete Country
-        public string DeleteCountry(Country obj_Country){
-              _db.Remove(obj_Country); // _db.Country.Remove(obj_Country); 
+    
+            public string Delete(Country pObj){
+              _db.Remove(pObj); 
               _db.SaveChanges();
               return "Delete Successfully";
 

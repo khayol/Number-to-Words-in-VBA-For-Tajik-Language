@@ -6,11 +6,19 @@
 }
 else
 {  
-       
+ <AuthorizeView Roles="@admSer.GetRolesList("Help")" Context="authContext">
+   <Authorized>      
 <br><br>
 <span  aria-hidden="true"> @trs.GetTranslation("BrowserLangage",@AppData.ActiveUser,"Adm"): @trs.GetLangNameByAlpha2(@AppData.BrowserIterfaceLang,"NativeName") (@trs.GetTranslation("YouChangeBrowserSett",@AppData.ActiveUser,"Adm"))</span>
 <br><br>
 <span  aria-hidden="true"> @trs.GetTranslation("UserLangage",@AppData.ActiveUser,"Adm"): @trs.GetActiveUserLang(@AppData.ActiveUser) (@trs.GetTranslation("YouChangeUserSett",@AppData.ActiveUser,"Adm"))</span>
+</Authorized>
+ <NotAuthorized>
+ <br><br>
+ <span  aria-hidden="true"> @trs.GetTranslation("BrowserLangage",@AppData.ActiveUser,"Adm"): @trs.GetLangNameByAlpha2(@AppData.BrowserIterfaceLang,"NativeName") (@trs.GetTranslation("YouChangeBrowserSett",@AppData.ActiveUser,"Adm"))</span>
+ </NotAuthorized>
+
+ </AuthorizeView>
 }
 
  @code {
@@ -30,7 +38,7 @@ else
         var authState = await AuthProvider.GetAuthenticationStateAsync();
         username = authState?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "";
         AppData.ActiveUser=username;
-        // For Blazor Web Assembly may be you can use this 
+        // For Blazor Web Assembly may be you can use this one 
         //username= hca?.HttpContext?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "" ?? "";
         AppData.BrowserIterfaceLang= @trs.GetTheBrowserIterfaceLang(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
         AppData.ActiveUserLang=trs.GetActiveUserLang(username);

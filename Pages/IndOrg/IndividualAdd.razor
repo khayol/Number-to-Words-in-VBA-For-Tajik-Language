@@ -1,11 +1,11 @@
 @page "/IndOrg/IndividualAdd"
-@inject IndividualController IndividualController
+@inject IndividualController MainController
 @inject GenderController GenderController
 @inject GnrSrv GnrSrv 
 
 <AuthorizeView Roles="@admSer.GetRolesList("IndividualAdd")" Context="authContext">
 <Authorized>
-<EditForm Model="@objIndividual" OnValidSubmit="@CreateIndividual">  
+<EditForm Model="@objMain" OnValidSubmit="@Create">  
     <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
     <ValidationSummary/>
     <WrPnlElm>
@@ -19,41 +19,42 @@
         <FormElements>
 
             <WrFieldStr  FieldCaption="FirstName"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstName"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
 
             <WrFieldStr FieldCaption="SecondName"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
 
             <WrFieldStr  FieldCaption="LastName"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
 
             <WrFieldStr  FieldCaption="FirstNameEN"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstNameEN"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstNameEN"/>
 
             <WrFieldStr  FieldCaption="SecondNameEN"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondNameEN"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondNameEN"/>
 
             <WrFieldStr FieldCaption="LastNameEN"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastNameEN"/>    
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastNameEN"/>    
 
           <WrFieldDateTime TransEntity="Individual" FieldCaption="BirthDay">
                <RenderFrg>
-                   <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@objIndividual.BirthDay" @bind-Value:format="dd/MM/yyyy"/>
+                   <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@objMain.BirthDay" @bind-Value:format="dd/MM/yyyy"/>
                </RenderFrg>
            </WrFieldDateTime>
             
             <WrFieldStr  FieldCaption="Address"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.Address"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.Address"/>
+
          
             <WrFieldStr  FieldCaption="PassSerial"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.PassSerial"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.PassSerial"/>
     
             <WrFieldStr  FieldCaption="PassCode"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.PassCode"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.PassCode"/>
  
             <div class="form-group">
              <WrLebel TransEntity="Individual" FieldCaption="Gender"/>
-                <select class="form-control selectpicker" @bind="@objIndividual.GenderId">
+                <select class="form-control selectpicker" @bind="@objMain.GenderId">
                     <option>--select--</option>
                     @foreach (var item in GenderList)
                     {
@@ -70,27 +71,23 @@
  <NotAuthorized>
        <WrPageNotFound/>
  </NotAuthorized>
-
-  </AuthorizeView>
+</AuthorizeView>
 
 
 @code{
 
-    [Parameter]
-    public string CurrentID { get; set; }
-
-    Individual objIndividual= new Individual();
+    Individual objMain= new Individual();
 
      private List<Gender> GenderList;
   
-       protected override void OnInitialized()
+    protected override void OnInitialized()
     {
-        GenderList =  GenderController.GetGender();
+        GenderList =  GenderController.Get();
     }
 
-     protected  void CreateIndividual()
+     protected  void Create()
      { 
-        IndividualController.Create(objIndividual);
+        MainController.Create(objMain);
         NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+AppData.Individual_IdSelect);
      }
 

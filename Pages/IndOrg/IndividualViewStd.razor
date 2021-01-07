@@ -1,10 +1,10 @@
 ﻿@page  "/IndOrg/IndividualViewStd/{Id}"
-@inject IndividualController Service
+@inject IndividualController MainController
 @* @inject IStringLocalizer<IndividualViewStd> LL  *@
 
 @if (list == null)
 {
-    <p><em>Loading...</em></p>
+   <WrLoading/>   
 }
 else
 {
@@ -13,7 +13,7 @@ else
     <WrDataGrid @ref="grid"
                   DataItems="list"
                   SelectedRow="SelectedRowMeth"
-                  Columns="@Service.columns"
+                  Columns="@MainController.columns"
                   BaseUrlUri="@AppData.BaseUrlUri"
                   UniqIdOfRecord="Id"
                   ColumnsToExcludeCSV="Id, FirstName"
@@ -32,13 +32,8 @@ else
             <a @onclick="@(args => CRUD("D","/IndOrg/IndividualDelete/", @AppData.Individual_IdSelect))" class="menu-itms">@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")</a>
         </ControlMenu>
 
-        <ControlQuickAccess>
-                  
-            @*             
-            <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.BaseUrlUri))" data-toggle="tooltip" title="@trs.GetTranslation("Beck",@AppData.ActiveUser,"General")"><span class="fa fa-backward" aria-hidden="true"></span>  @trs.GetTranslation("Beck",@AppData.ActiveUser,"General")</button>
-            &nbsp &nbsp
-            *@
-            
+        <ControlQuickAccess>                  
+          
             <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
             &nbsp &nbsp
             <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="@trs.GetTranslation("ShowMoreRecords",@AppData.ActiveUser,"General")"><span class="fa fa-angle-double-down" aria-hidden="true"></span></button>
@@ -61,32 +56,26 @@ else
 }
 
 @code  {
+
+
  #region     Declare
     [Parameter]
     public string Id { get; set; }
     private WrDataGrid<Individual> grid;
     private List<Individual> list;
-    
-   // [Inject]
-   // private IHttpContextAccessor hca { get; set; } = default!;
+
  
  #endregion  Declare
 
  #region    BlazorMethods
 
-
     protected override void OnInitialized()
     {
-        Service.OnInitialized();
+        MainController.Initialized();
         AppData.BaseUrlUri=NavManager.Uri.ToString(); 
-        list = Service.GetById(int.Parse(Id)).ToList();         
+        list = MainController.GetById(int.Parse(Id)).ToList();         
     }
 
-    public override async Task SetParametersAsync(ParameterView parameters)
-    {
-    await base.SetParametersAsync(parameters);
-    // username =  hca.HttpContext.User.Identity.Name;
-    }
 #endregion BlazorMethods
 
 #region    Event
@@ -94,8 +83,8 @@ else
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
         string searchValue = changeEventArgs.Value.ToString();
-        list = Service.GetSearchByField(searchValue);
-        GoToFirstPage();
+        list = MainController.GetSearchByField(searchValue);
+        grid.GoToFirstPage();
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
@@ -103,18 +92,14 @@ else
     }
     protected void FindSelectedRec()
     {
-        GoToFirstPage();
-        list = Service.GetById(int.Parse(AppData.Individual_IdSelect));
+        grid.GoToFirstPage();
+        list = MainController.GetById(int.Parse(AppData.Individual_IdSelect));
     }
     protected void CleanSearchBox()
     {
-        GoToFirstPage();
-        list = Service.GetSearchByField("");
-        AppData.Individual_IdSelect = "0";
-    }
-    private void GoToFirstPage()
-    {
         grid.GoToFirstPage();
+        list = MainController.GetSearchByField("");
+        AppData.Individual_IdSelect = "0";
     }
     private void CRUD(string pOperType, string pNavLink, string pRecId)
     {         
@@ -123,7 +108,7 @@ else
     }
     protected void ExportToExcel()
     {
-        Service.GenerateExcel(JSRuntime);
+        MainController.GenerateExcel(JSRuntime);
     }
     protected void FilterData()
     {

@@ -104,91 +104,91 @@ using Blazored.FluentValidation;
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 35 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 36 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 37 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 43 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 53 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
 
 #line default
@@ -203,184 +203,54 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\ContactViewStd.razor"
-            
-  
+#line 40 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\ContactViewStd.razor"
+              
 
-
+ #region     Declare
+ 
+    private WrDataGrid<Contact> grid;
+    private List<Contact> ContactList;
+    
     [Parameter]
     public string IndividualId { get; set; }
-   // Contact objEmp = new Contact();
-    private List<Contact> ContactList;
-    private List<Contact> filteredContactList { get; set; }
-    private WrDataGrid<Contact> grid;
-        
-    private List<ColumnDefinition> columnsDefinition;
+ 
+ #endregion  Declare
 
-    private string selectedRow { get; set; } = "";
-
-        private int CurrentPage { get; set; } = 1;
-
-    private void OnContactSearchTextChanged(ChangeEventArgs changeEventArgs)
-    {
-        string searchValue = changeEventArgs.Value.ToString();
-        ContactList = ContactController.GetContactByFiled(searchValue,int.Parse(IndividualId));
-        GoToFirstPage();
-        GetCurrentPage();         
-    }
-
-
-    private void SelectedRowMeth(string pSelectedRow)
-    {
-        selectedRow = pSelectedRow;
-        AppData.ContactIdSlcd= selectedRow;
-        AppData.ContactCode = ContactController.GetContactCodeById(int.Parse(selectedRow));
-     //   AppData.ContactPageNum = grid.CurrentPage.ToString();
-    }
-
-    protected void FindSelectedRec()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.ContactCode;
-        ContactList = ContactController.GetContactByFiled(searchValue,int.Parse(IndividualId));
-        GoToFirstPage();
-        GetCurrentPage();
-        
-    }
-    protected void CleanSearchBox()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.ContactCode = "";
-        ContactList = ContactController.GetContactByFiled(searchValue,int.Parse(IndividualId));
-        GoToFirstPage();
-        GetCurrentPage();
-        selectedRow = "";
-        
-    }
+ #region    BlazorMethods
 
     protected override void OnInitialized()
     {
-        base.OnInitialized();
-        Initilize();
-       // selectedRow = AppData.ContactIdSlcd;
-        AppData.ActivePageName="View-Contact";
+        Service.Initialized();
+        AppData.ActivePageName="View-Contact"; 
+        ContactList = Service.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
     }
 
-    protected override void OnAfterRender(bool firstRender)
+#endregion BlazorMethods
+
+#region    Event
+    private void SelectedRowMeth(string pSelectedRow)
     {
-        base.OnAfterRender(firstRender);
+     AppData.Individual_IdSelect = pSelectedRow;
+    }
+    private void CRUD(string pOperType, string pNavLink, string pRecId)
+    {         
+        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
+                  servClass.CRUD(pOperType,pNavLink, pRecId);
+        AppData.Individual_IdSelect=IndividualId;          
     }
 
-    protected override void OnParametersSet()
-    {
-        base.OnParametersSet();
-    }
+ #endregion Event
 
-    private void Initilize()
-    {
-        if (columnsDefinition == null)
-        {
-            columnsDefinition = new List<ColumnDefinition>();
-            columnsDefinition.AddRange(
-                new ColumnDefinition[] {
-
-                    new ColumnDefinition { DataField = "Code", Caption="Code"},
-                    new ColumnDefinition { DataField = "Name", Caption="Name" },
-                    new ColumnDefinition { DataField = "Description", Caption="Description" },
-                   }
-            );
-        }
-
-        ContactList = ContactController.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
-
-    }
-
-    private void GoToFirstPage()
-    {
-     grid.GoToFirstPage();
-     CurrentPage=1;    
-    }
-  
-    private void GetCurrentPage()
-    {
-        CurrentPage= grid.GetCurrentPage();        
-    }
-
-    
-
-    private void ViewOrEditFlag(string pViewOrEdit)
-    {
-        if(pViewOrEdit.ToUpper()=="VIEW")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=true;
-        }
-        else if(pViewOrEdit.ToUpper()=="EDIT")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=false; 
-        }
-    }
-
-    protected void NavigateTo(string pNavLink)
-    {
-        NavManager.NavigateTo(pNavLink);
-    }
-    protected void AddNew(string pNavLink)
-    {
-        ViewOrEditFlag("EDIT");
-         NavManager.NavigateTo(pNavLink);
-    }
-
-    protected void ViewOrEdit(string pNavLink, string p_selectedRow, string pViewOrEdit)
-    {
-        ViewOrEditFlag(pViewOrEdit);
-
-        if (string.IsNullOrEmpty(p_selectedRow)   || int.Parse(p_selectedRow)==0) //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-    }
-
-    protected void Delete(string pNavLink, string p_selectedRow)
-    {
-        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-
-    }
-
-    protected void ExportToExcel()
-    {
-        // JSRuntime.InvokeVoidAsync("msgbox", "ExportToExcel");
-        ContactController.GenerateExcel(JSRuntime,int.Parse(IndividualId));
-    }
-
-    protected void FilterData()
-    {
-        JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
-        // ContactController.FilterData(JSRuntime);
-    }
-
+ 
     
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController ContactController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController Service { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AppData AppData { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor hca { get; set; }

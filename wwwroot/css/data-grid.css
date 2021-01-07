@@ -24,7 +24,7 @@
 }
 /*----------------------------------------------*/
 .table-style {
-    height: 600px;
+    height: 567px;
     width: 100%;
     overflow-y: scroll;
     overflow-x: scroll;
@@ -42,10 +42,10 @@
     top: 0;  Don't forget this, required for the stickiness */
 }
 .tdata-stl { /* The row should be one line in the table*/
+ 
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-
+    text-overflow: ellipsis; 
 }
 
 .th-not-move {

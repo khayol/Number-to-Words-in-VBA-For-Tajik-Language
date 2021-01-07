@@ -26,7 +26,6 @@ namespace Woorj.CtrServerSide.IndOrg
             _db=db;
         }
 
-  
    private ICustomTranslator CustomTranslator { get; }    
     public string GetValue()
     {
@@ -39,7 +38,7 @@ namespace Woorj.CtrServerSide.IndOrg
           Console.WriteLine("Hello World");
         }
 
-        public void OnInitialized()
+        public void Initialized()
         {
         if (columns == null)
         {
@@ -47,28 +46,28 @@ namespace Woorj.CtrServerSide.IndOrg
             columns.AddRange(
                 new ColumnDefinition[] {
 
-                    new ColumnDefinition { DataField = "Id", Caption="Id" },
-                    new ColumnDefinition { DataField = "Code", Caption="Code"},
+                    new ColumnDefinition { DataField = "Id"},
           
-                    new ColumnDefinition { DataField = "FullName", Caption="fullnAmE" , SortDirection = SortDirection.Asc },
+                    new ColumnDefinition { DataField = "Code", Caption="Code", MinWidth="70", MaxWidth="70" },
+                    new ColumnDefinition { DataField = "FullName",  MinWidth="300", MaxWidth="300", SortDirection = SortDirection.Asc },
                   
-                    new ColumnDefinition { DataField = "FullNameEN", Caption="FullNameEN" },
+                    new ColumnDefinition { DataField = "FullNameEN", MinWidth="300", MaxWidth="300"},
                     
-                    new ColumnDefinition { DataField = "BirthDay", Caption="BirthDay", Format = "dd.MM.yyyy", DataType = DataType.Date },
+                    new ColumnDefinition { DataField = "BirthDay", Format = "dd.MM.yyyy", DataType = DataType.Date, MinWidth="180", MaxWidth="180" },
 
-                    new ColumnDefinition { DataField = "TaxCode", Caption="TaxCode" },
-                    new ColumnDefinition { DataField = "PassSerial", Caption="PassSerial" },
-                    new ColumnDefinition { DataField = "PassCode", Caption="PassCode" },
-                    new ColumnDefinition { DataField = "DocDate", Caption="DocDate", Format = "dd-MM-yyyy", DataType = DataType.Date },
-                    new ColumnDefinition { DataField = "DocDateEnd", Caption="DocDateEnd", Format = "dd.MM.yyyy", DataType = DataType.Date },
-                    new ColumnDefinition { DataField = "PassOrg", Caption="PassOrg" },
-                    new ColumnDefinition { DataField = "Address", Caption="Address"},
+                    new ColumnDefinition { DataField = "TaxCode",  MinWidth="120", MaxWidth="120"  },
+                    new ColumnDefinition { DataField = "PassSerial",  MinWidth="20", MaxWidth="20"   },
+                    new ColumnDefinition { DataField = "PassCode",  MinWidth="80", MaxWidth="80"   },
+                    new ColumnDefinition { DataField = "DocDate",  Format = "dd-MM-yyyy", DataType = DataType.Date, MinWidth="180", MaxWidth="180"   },
+                    new ColumnDefinition { DataField = "DocDateEnd", Format = "dd.MM.yyyy", DataType = DataType.Date, MinWidth="180", MaxWidth="180"   },
+                    new ColumnDefinition { DataField = "PassOrg",  MinWidth="300", MaxWidth="300"  },
+                    new ColumnDefinition { DataField = "Address",  MinWidth="300", MaxWidth="300"  },
               
-            new ColumnDefinition { DataField = "Contact", Caption="Contact" ,DataType=DataType.Collection , LinkAddress="IndOrg/ContactViewStd/" },
-            new ColumnDefinition { DataField = "Gender", Caption="Gender" , DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="GenderId"  , LinkAddress="Dir/GenderViewStd/" },
-            new ColumnDefinition { DataField = "Country", Caption="BirthPlace" , DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="BirthPlace_CountryId"  , LinkAddress="Dir/CountryViewStd/" },
+            new ColumnDefinition { DataField = "Contact", DataType=DataType.Collection , LinkAddress="IndOrg/ContactViewStd/" , MinWidth="40", MaxWidth="40"  },
+            new ColumnDefinition { DataField = "Gender",  DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="GenderId"  , LinkAddress="Dir/GenderViewStd/", MinWidth="90", MaxWidth="90"   },
+            new ColumnDefinition { DataField = "Country", DataType=DataType.RelatedData, SelectedField="Name",SelectedFieldKey="BirthPlace_CountryId"  , LinkAddress="Dir/CountryViewStd/" , MinWidth="100", MaxWidth="100"   },
             
-                    new ColumnDefinition { DataField = "CreatedDate", Caption="CreatedDate",Format = "dd.MM.yyyy hh:mm:ss", DataType = DataType.Date  },
+                    new ColumnDefinition { DataField = "CreatedDate", Format = "dd.MM.yyyy hh:mm:ss", DataType = DataType.Date , MinWidth="180", MaxWidth="180"   },
            /* */
                         //new ColumnDefinition { DataField = "Salary", Caption="Annual Salary", DataType = DataType.Currency, Alignment = Alignment.Right, Format="c", SortDirection = SortDirection.Desc },
 
@@ -78,8 +77,7 @@ namespace Woorj.CtrServerSide.IndOrg
             }
         }
            
-        // Get all Individual
-        public List<Individual> Get(){
+         public List<Individual> Get(){
           var list=_db.Individual.Include(s=>s.Gender).ToList();
           return list;
         }
@@ -96,13 +94,10 @@ namespace Woorj.CtrServerSide.IndOrg
           return list;        
         }
 
-        // Get Individual by ID  GetById_FirstOrDefault
         public Individual GetById_FirstOrDefault(int id){
           Individual Individual= _db.Individual.Include(s=>s.Gender).FirstOrDefault(s=> s.Id==id);
-          return Individual;
-        
+          return Individual;        
         }
-        // Get Individual by ByFiled GetSearchByField
         public List<Individual> GetSearchByField(string searchTxt){
         var list = _db.Individual.Include(s=>s.Gender)
                                  .Where(i=>
@@ -121,21 +116,16 @@ namespace Woorj.CtrServerSide.IndOrg
                                   ).ToList();
         return list;
        }
-
-        // Insert Individual
-        public string Create(Individual obj_Individual){
-              _db.Individual.Add(obj_Individual);
+        public string Create(Individual pObj){
+              _db.Individual.Add(pObj);
               _db.SaveChanges();
               return "Save Successfully";
 
         }
-
-        // Edit Individual
-        public string Update(Individual obj_Individual){
-              _db.Individual.Update(obj_Individual);
+        public string Update(Individual pObj){
+              _db.Individual.Update(pObj);
               _db.SaveChanges();
               return "Edited Successfully";
-
         }
 
         public void UpdateSome_FK_Key(int pChoosedEntityId,string pChoosedEntityFK, int pIdSelected){
@@ -146,16 +136,15 @@ namespace Woorj.CtrServerSide.IndOrg
             _db.SaveChanges();
         }
 
-          // Delete Individual
-        public string Delete(Individual obj_Individual){
-              _db.Remove(obj_Individual); // _db.Individual.Remove(obj_Individual); 
+       public string Delete(Individual pObj){
+              _db.Remove(pObj); // _db.Individual.Remove(pObj); 
               _db.SaveChanges();
               return "Delete Successfully";
 
         }
 
-                // Generate Excel
-        public void GenerateExcel(IJSRuntime JSRuntime)
+
+       public void GenerateExcel(IJSRuntime JSRuntime)
         {
             byte[] fileContetnts;
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;

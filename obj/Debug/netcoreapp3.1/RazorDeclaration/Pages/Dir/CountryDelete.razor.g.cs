@@ -104,91 +104,91 @@ using Blazored.FluentValidation;
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 35 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 36 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 37 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 43 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 53 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
 
 #line default
@@ -203,32 +203,38 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "E:\A_NewProjects\01\Woorj\Pages\Dir\CountryDelete.razor"
+#line 42 "E:\A_NewProjects\01\Woorj\Pages\Dir\CountryDelete.razor"
       
-   [Parameter]
-   public string CurrentID {get;set;}
-    Country objEmp= new Country();
 
-    protected override async Task OnInitializedAsync()
+    [Parameter]
+    public string CurrentID { get; set; }
+    Country objMain = new Country();  
+    private bool readonlyMain1 {get;set;}=false;
+
+    protected override void OnInitialized()
     {
-    objEmp= await Task.Run(()=>objCountryController.GetCountryById(Convert.ToInt32(CurrentID)));        
+          readonlyMain1=AppData.readonlyMain1;
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
-    
-    protected void DeleteCountry(){
 
-        objCountryController.DeleteCountry(objEmp);
-        NavManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+    protected void Delete()
+    {
+        MainController.Delete(objMain);
+        NavManager.NavigateTo("/Dir/CountryViewStd/0");
     }
-    void Cancel(){
-        NavManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Dir/CountryViewStd/0");
     }
+
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CountryController objCountryController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CountryController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AppData AppData { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor hca { get; set; }

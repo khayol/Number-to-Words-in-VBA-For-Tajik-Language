@@ -104,91 +104,91 @@ using Blazored.FluentValidation;
 #line hidden
 #nullable disable
 #nullable restore
-#line 27 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 30 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 35 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 36 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 37 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 40 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 43 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 51 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 53 "E:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
 
 #line default
@@ -203,186 +203,76 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 54 "E:\A_NewProjects\01\Woorj\Pages\Dir\GenderViewStd.razor"
-            
-  
+#line 58 "E:\A_NewProjects\01\Woorj\Pages\Dir\GenderViewStd.razor"
+        
 
+
+ #region     Declare
     [Parameter]
     public string Id { get; set; }
-    private List<Gender> GenderList;
-    private List<Gender> filteredGenderList { get; set; }
     private WrDataGrid<Gender> grid;
-        
-    private List<ColumnDefinition> columnsDefinition;
+    private List<Gender> list;
+    private string searchValue   { get; set; }
+ 
+ #endregion  Declare
 
-    private string selectedRow { get; set; } = "";
-
-        private int CurrentPage { get; set; } = 1;
-
-    private void OnGenderSearchTextChanged(ChangeEventArgs changeEventArgs)
-    {
-        string searchValue = changeEventArgs.Value.ToString();
-        GenderList = GenderController.GetGenderByFiled(searchValue,int.Parse(Id));
-        GoToFirstPage();
-        GetCurrentPage();         
-    }
-
-
-    private void SelectedRowMeth(string pSelectedRow)
-    {
-        selectedRow = pSelectedRow;
-        AppData.GenderIdSlcd= selectedRow;
-        AppData.GenderCode = GenderController.GetGenderCodeById(int.Parse(selectedRow));
-     //   AppData.GenderPageNum = grid.CurrentPage.ToString();
-    }
-
-    protected void FindSelectedRec()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.GenderCode;
-        GenderList = GenderController.GetGenderByFiled(searchValue,int.Parse(Id));
-        GoToFirstPage();
-        GetCurrentPage();
-        
-    }
-
-    protected void CleanSearchBox()
-    {
-        //JSRuntime.InvokeVoidAsync("msgbox","Test");
-        string searchValue = AppData.GenderCode = "";
-        GenderList = GenderController.GetGenderByFiled(searchValue,int.Parse(Id));
-        GoToFirstPage();
-        GetCurrentPage();
-        selectedRow = "";
-        
-    }
+ #region    BlazorMethods
 
     protected override void OnInitialized()
     {
-        base.OnInitialized();
-        Initilize();
-      //  selectedRow = AppData.GenderIdSlcd;
-        AppData.ActivePageName="View-Gender";
-
+        MainController.Initialized();
+        AppData.BaseUrlUri=NavManager.Uri.ToString(); 
+        list = MainController.GetById(int.Parse(Id)).ToList();         
     }
 
-    protected override void OnAfterRender(bool firstRender)
+#endregion BlazorMethods
+
+#region    Event
+
+    private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        base.OnAfterRender(firstRender);
-
-       
+        searchValue = changeEventArgs.Value.ToString();
+        list = MainController.GetSearchByField(searchValue);
+        grid.GoToFirstPage();
     }
-
-    protected override void OnParametersSet()
+    private void SelectedRowMeth(string pSelectedRow)
     {
-        base.OnParametersSet();
+        AppData.Gender_IdSelect = pSelectedRow;
     }
-
-    private void Initilize()
+    protected void FindSelectedRec()
     {
-        if (columnsDefinition == null)
-        {
-            columnsDefinition = new List<ColumnDefinition>();
-            columnsDefinition.AddRange(
-                new ColumnDefinition[] {
-
-                    new ColumnDefinition { DataField = "Code", Caption="Code"},
-                    new ColumnDefinition { DataField = "Name", Caption="Name" },
-                   
-                    }
-            );
-        }
-
-        GenderList = GenderController.GetGenderById2(int.Parse(Id)).ToList();
-
+        grid.GoToFirstPage();
+        list = MainController.GetById(int.Parse(AppData.Gender_IdSelect));
     }
-
-    private void GoToFirstPage()
+    protected void CleanSearchBox()
     {
-     grid.GoToFirstPage();
-     CurrentPage=1;    
+        grid.GoToFirstPage();
+        list = MainController.GetSearchByField("");
+        AppData.Gender_IdSelect = "0";
     }
-    
-    private void GetCurrentPage()
-    {
-        CurrentPage= grid.GetCurrentPage();        
+     private void CRUD(string pOperType, string pNavLink, string pRecId)
+    {         
+        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
+                  servClass.CRUD(pOperType,pNavLink, pRecId);
     }
-
-    
-
-    private void ViewOrEditFlag(string pViewOrEdit)
-    {
-        if(pViewOrEdit.ToUpper()=="VIEW")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=true;
-        }
-        else if(pViewOrEdit.ToUpper()=="EDIT")
-        {
-            AppData.readonlyMain1=true;
-            AppData.readonlyMain2=true;
-            AppData.readonlyOther=false; 
-        }
-    }
-
-    protected void NavigateTo(string pNavLink)
-    {
-        NavManager.NavigateTo(pNavLink);
-    }
-    protected void AddNew(string pNavLink)
-    {
-        ViewOrEditFlag("EDIT");
-         NavManager.NavigateTo(pNavLink);
-    }
-
-    protected void ViewOrEdit(string pNavLink, string p_selectedRow, string pViewOrEdit)
-    {
-        ViewOrEditFlag(pViewOrEdit);
-
-        if (string.IsNullOrEmpty(p_selectedRow)   || int.Parse(p_selectedRow)==0) //String.IsNullOrEmpty(p_selectedRow)
-        {
-           JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-    }
-
-    protected void Delete(string pNavLink, string p_selectedRow)
-    {
-        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
-        {
-            JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-        }
-        else
-        {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
-        }
-
-    }
-
     protected void ExportToExcel()
     {
-        // JSRuntime.InvokeVoidAsync("msgbox", "ExportToExcel");
-        GenderController.GenerateExcel(JSRuntime,int.Parse(Id));
+       // MainController.GenerateExcel(JSRuntime);
     }
-
     protected void FilterData()
     {
         JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
-        // GenderController.FilterData(JSRuntime);
     }
+ #endregion Event
 
-    
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GenderController GenderController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GenderController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AppData AppData { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor hca { get; set; }

@@ -1,49 +1,52 @@
 @page "/IndOrg/ContactDelete/{CurrentID}"
 @inject ContactController objContactController
 
+<AuthorizeView Roles="@admSer.GetRolesList("ContactDelete")" Context="authContext" > 
+  <Authorized>
 
+<EditForm Model="@objContact" OnValidSubmit="@DeleteContact" OnInvalidSubmit="@Cancel" Context="formContext" >  
+   
+    <WrPnlElm>
+        <ControlQuickAccess>
+                <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")">
+                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+        </ControlQuickAccess>
+    </WrPnlElm>
 
-<div class="fix-possition">
-<WrPnlElm>
-<ControlQuickAccess>
-         <input type="button" class="btn btn bnt-style-general" @onclick="@DeleteContact" value="Delete">
-         <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
- </ControlQuickAccess>
-</WrPnlElm>
-</div>
-<div class="under-cls">
-<h3>Are you sure want to delete this row?</h3
-<div class="row under-cls">
-
-    <div class="col-md-8 field-content">
+    <WrFormBody>
+        <FormElements>
+            <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
   
-        <div class="form-group">
-            <label> Code:</label>
-            <label>@objEmp.Code</label>
-        </div>
+             <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objContact.Code" />
 
-        <div class="form-group">
-            <label>Name:</label>
-            <label>@objEmp.Name</label>
-        </div>
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Name"
+            TransEntity="Individual"  @bind-BindingValue ="@objContact.Name"/> 
 
-    </div>
-</div>
-</div>
+      </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</Authorized>
+<NotAuthorized>
+    <WrPageNotFound/>
+</NotAuthorized>
+</AuthorizeView>
 
 @code{
    [Parameter]
    public string CurrentID {get;set;}
-    Contact objEmp= new Contact();
+    Contact objContact= new Contact();
+       private bool readonlyMain1 {get;set;}=false;
 
-    protected override async Task OnInitializedAsync()
+       protected override void OnInitialized()
     {
-    objEmp= await Task.Run(()=>objContactController.GetContactById(Convert.ToInt32(CurrentID)));        
+      readonlyMain1=AppData.readonlyMain1;
+      objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));       
     }
     
     protected void DeleteContact(){
 
-        objContactController.DeleteContact(objEmp);
+        objContactController.DeleteContact(objContact);
         NavManager.NavigateTo("/IndOrg/ContactViewStd/"+AppData.Individual_IdSelect);
     }
     void Cancel(){

@@ -1,12 +1,10 @@
 @page "/IndOrg/IndividualDelete/{CurrentID}"
-@inject IndividualController IndividualController
-@inject GenderController GenderController
-@inject CountryController CountryController
+@inject IndividualController MainController
 
 <AuthorizeView Roles="@admSer.GetRolesList("IndividualDelete")" Context="authContext">
   <Authorized>
 
-<EditForm Model="@objIndividual" OnValidSubmit="@UpdateIndividual" OnInvalidSubmit="@OnInvalidSubmitMsg" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Delete" OnInvalidSubmit="@Cancel" Context="formContext">  
    
     <WrPnlElm>
         <ControlQuickAccess>
@@ -20,16 +18,16 @@
             <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
            
             <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-            ReadonlyOpt="readonlyMain1" Val="@objIndividual.Code" />
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
 
             <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="FirstName"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.FirstName"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
 
             <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="SecondName"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
 
             <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="LastName"
-            TransEntity="Individual"  @bind-BindingValue ="@objIndividual.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
 
         </FormElements>      
     </WrFormBody>    
@@ -45,22 +43,18 @@
 
     [Parameter]
     public string CurrentID { get; set; }
-    Individual objIndividual = new Individual();  
+    Individual objMain = new Individual();  
     private bool readonlyMain1 {get;set;}=false;
 
-    private void RefrashPage()
-     {
-             StateHasChanged();
-     }
     protected override void OnInitialized()
     {
           readonlyMain1=AppData.readonlyMain1;
-        objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 
-    protected void UpdateIndividual()
+    protected void Delete()
     {
-        IndividualController.Delete(objIndividual);
+        MainController.Delete(objMain);
         NavManager.NavigateTo(AppData.IndividualLink);
     }
     void Cancel()
@@ -68,8 +62,4 @@
         NavManager.NavigateTo(AppData.IndividualLink);
     }
 
-     void OnInvalidSubmitMsg()
-    {
-       // Console.WriteLine("OnInvalidSubmit");
-    }
 }

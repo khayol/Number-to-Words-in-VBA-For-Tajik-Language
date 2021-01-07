@@ -67,8 +67,11 @@ namespace Woorj.Services
         #endregion   DATE_TIME
         //---------------------------------------------------------------------
         #region   DESIGN_SECTION
-        public static string linkStyle { get; set; }="font-style: italic; color:#0000BA";
-        public static string staticDataStyle { get; set; }="font-style: normal; color:black";
+        public static string linkStyle { get; set; }="font-style: italic; color:#0000BA; ";
+        public static string staticDataStyle { get; set; }="font-style: normal; color:black;";
+        public static string tdMainStyle { get; set; }=@"white-space: nowrap;  
+                                                          overflow: hidden; 
+                                                          text-overflow: ellipsis;";
          #endregion   DESIGN_SECTION
         //---------------------------------------------------------------------
         #region  MESSAGE_SECTION

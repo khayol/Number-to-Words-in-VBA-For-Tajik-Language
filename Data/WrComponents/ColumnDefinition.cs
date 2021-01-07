@@ -27,5 +27,8 @@ namespace Woorj.Data.WrComponents
         public string Format { get; set; }
         public Alignment Alignment { get; set; }
         public SortDirection SortDirection { get; set; }
+
+        public string MinWidth { get; set; }
+        public string MaxWidth { get; set; }
     }
 }
