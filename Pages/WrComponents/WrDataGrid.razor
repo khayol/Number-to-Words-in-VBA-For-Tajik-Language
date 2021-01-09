@@ -14,9 +14,8 @@ else
 <div class="panel-elements">
     <div class="row ">
         <div>
-
             <div class="form-group ">
-        
+             
                 @if (ControlMenu != null )
                 {
                     <div class="dropdown main-menu-place">
@@ -34,13 +33,13 @@ else
                  if (ControlMenu != null){
                     @ControlQuickAccess
                  }else{
-                  <a>&nbsp; &nbsp; &nbsp;</a>  @ControlQuickAccess
+                    <WrSpace Length=3/>  @ControlQuickAccess
                  }
                 }else{
                   @* <a>Inner ControlQuickAccess should Developer</a> *@
                 }
 
-               <a>&nbsp; &nbsp; &nbsp;</a>
+                  <WrSpace Length=3/>
                 @if (Paging != null && Paging.Enabled)
                 {
                     @if (Paging.CustomPager)
@@ -59,11 +58,11 @@ else
 
 
                     @* New Design of Pagination *@
-
+                    <WrSpace Length=2/>
                     <button class="btn bnt-style-general" @onclick="GoToFirstPage" data-toggle="tooltip" title="@trs.GetTranslation("FirstPage",@AppData.ActiveUser,"General")"><span class="fa fa-fast-backward" aria-hidden="true"></span></button>
                     <button class="btn bnt-style-general" @onclick="GoToPrevPage" data-toggle="tooltip" title="@trs.GetTranslation("PrevPage",@AppData.ActiveUser,"General")"><span class="fa fa-caret-left" aria-hidden="true"></span></button>
                     <span>
-                    &nbsp;&nbsp; @trs.GetTranslation("Page",@AppData.ActiveUser,"General")
+                       <WrSpace Length=1/> @trs.GetTranslation("Page",@AppData.ActiveUser,"General")
                     <input  class="input2" type="number" max="@Paging.MaxPageNumber(DataItems.Count)" min="1" @bind-value="@CurrentPage" id="page-input" />
                     @trs.GetTranslation("of",@AppData.ActiveUser,"General") @Paging.MaxPageNumber(DataItems.Count) &nbsp;&nbsp;
                     </span>
@@ -72,13 +71,15 @@ else
                 
                     }
                 }
-                  
+
                 @if (PageNameTitle != null )
                 {
-                    <a>&nbsp;&nbsp;</a> @trs.GetTranslation("PageName",@AppData.ActiveUser,"General")<a>&#58;&nbsp;</a><input readonly="true" class="page-name" data-toggle="tooltip" title="@PageNameTitle"  @bind="@PageNameTitle"/>
+                   <WrSpace Length=3/> @trs.GetTranslation("PageName",@AppData.ActiveUser,"General")<a>&#58;&nbsp;</a><input readonly="true" class="page-name" data-toggle="tooltip" title="@PageNameTitle"  @bind="@PageNameTitle"/>
                 }else{
-                        @* @PageName *@
+                     
                 }
+                  
+             
                  
             </div>
 

@@ -46,9 +46,9 @@ namespace Woorj.CtrServerSide.IndOrg
             columns.AddRange(
                 new ColumnDefinition[] {
 
-                    new ColumnDefinition { DataField = "Id"},          
-                    new ColumnDefinition { DataField = "Code", Caption="Code", MinWidth="70", MaxWidth="70" },
-                    new ColumnDefinition { DataField = "FullName",  MinWidth="300", MaxWidth="300", SortDirection = SortDirection.Asc },
+                    new ColumnDefinition { DataField = "Id", SortDirection = SortDirection.Asc},          
+                    new ColumnDefinition { DataField = "Code", Caption="Code", MinWidth="70", MaxWidth="70"  },
+                    new ColumnDefinition { DataField = "FullName",  MinWidth="300", MaxWidth="300" },
                     new ColumnDefinition { DataField = "FullNameEN", MinWidth="300", MaxWidth="300"},
                     new ColumnDefinition { DataField = "BirthDay", Format = "dd.MM.yyyy", DataType = DataType.Date, MinWidth="180", MaxWidth="180" },
                     new ColumnDefinition { DataField = "TaxCode",  MinWidth="120", MaxWidth="120"  },

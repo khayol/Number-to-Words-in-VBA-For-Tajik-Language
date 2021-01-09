@@ -609,3 +609,9 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Cou
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\CountryEdit.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\CountryDelete.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\CountryEdit.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrBtn.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrBtn.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrSpace.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrSpace.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrOper.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrOper.razor.g.cs

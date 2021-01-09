@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Woorj.Pages.IndOrg
+namespace Woorj.Pages.WrComponents
 {
     #line hidden
     using System;
@@ -194,94 +194,13 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/IndividualEdit/{CurrentID}")]
-    public partial class IndividualEdit : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class WrBtn : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 114 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
-      
-
-    [Parameter]
-    public string CurrentID { get; set; }
-    Individual objMain = new Individual();
-    
-    private string  CancelOrBeckTxt { get; set; }
-    private List<Country> CountryList;
-    
-    private List<Gender> GenderList;
-    //private WrCombo<Gender> grid;    
-
-    private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyMain2 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;  
-
-    protected override void OnInitialized()
-    {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
-        GenderList =  GenderController.Get();
-        CountryList =  CountryController.Get();
-
-        readonlyMain1=AppData.readonlyMain1;
-        readonlyMain2=AppData.readonlyMain2;
-        readonlyOther=AppData.readonlyOther;
-
-    }
-    public void GoToCollection(string pLinkAddress,string pIdOfRecord)
-    {           
-      AppData.BaseUrlUri=NavManager.Uri;//"/IndOrg/IndividualEdit/"+pIdOfRecord;
-      NavManager.NavigateTo(pLinkAddress+pIdOfRecord); // change "0" to the Contact Id in Individual Table
-      AppData.flg_ChoosedRow=1;
-      AppData.ChoosedRowId=int.Parse(pIdOfRecord);      
-    }
-
-    public void GoToCollection(string pLinkAddress,string pIdOfRecord,  string pChoosedEntityName, 
-                               int pChoosedEntityId, string pChoosedEntityFK)
-    {           
-        AppData.BaseUrlUri=NavManager.Uri;
-        NavManager.NavigateTo(pLinkAddress+"0");
-        AppData.flg_ChoosedRow=1;
-
-        if (!string.IsNullOrEmpty(pIdOfRecord)){
-        AppData.ChoosedRowId=int.Parse(pIdOfRecord);
-        } else
-        {
-          AppData.ChoosedRowId=1; // NeedUpdate (bad solution)
-        }
-        AppData.ChoosedEntityName=pChoosedEntityName; 
-        AppData.ChoosedEntityId=pChoosedEntityId; 
-        AppData.ChoosedEntityFK=pChoosedEntityFK;
-      
-    }
-
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo(AppData.IndividualLink);
-    }
-    void Cancel()
-    {
-        NavManager.NavigateTo(AppData.IndividualLink);
-    }
-
-     void Nothing()
-    {
-        
-    }
-
-  
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GnrSrv GnrSrv { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CountryController CountryController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GenderController GenderController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IndividualController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

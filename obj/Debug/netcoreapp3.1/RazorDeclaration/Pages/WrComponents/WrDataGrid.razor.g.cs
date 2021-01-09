@@ -209,7 +209,7 @@ using System.Reflection;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 167 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 168 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
          
 
 
@@ -349,7 +349,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 311 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 312 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -537,7 +537,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 507 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 508 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -549,7 +549,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 518 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 519 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

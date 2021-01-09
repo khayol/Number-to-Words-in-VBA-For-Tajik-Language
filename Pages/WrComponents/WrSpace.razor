@@ -1,0 +1,18 @@
+@if (Length==0 || Length==1 ||Length<=1 )
+{
+   <a>&nbsp</a>
+
+}else if (Length>1)
+{
+    @for (int i = 1; i < Length; i++)
+    {
+    <a>&nbsp</a>     
+    }
+}
+
+@code 
+{
+[Parameter]
+public int Length {get;set;}=0;
+
+}

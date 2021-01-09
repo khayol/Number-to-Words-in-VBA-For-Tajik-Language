@@ -7,7 +7,7 @@
 <AuthorizeView Roles="@admSer.GetRolesList("IndividualEdit")" Context="authContext">
   <Authorized>
 
-<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Update" Context="formContext">  
     <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
     <ValidationSummary/>
     
@@ -173,6 +173,11 @@
     void Cancel()
     {
         NavManager.NavigateTo(AppData.IndividualLink);
+    }
+
+     void Nothing()
+    {
+        
     }
 
   
