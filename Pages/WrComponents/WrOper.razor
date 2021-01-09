@@ -14,7 +14,25 @@
       <span class="@Ico" aria-hidden="true"></span>
       </button>
     }
+ }else if (Category.ToUpper().Trim()=="RUNCMD".ToUpper())
+ {
+    if(Design.ToUpper().Trim()=="a".ToUpper())
+    {
+      Cls="menu-itms";
+    <a @onclick="OnClickCallback" value="@Val" 
+     class="@Cls">@trs.GetTranslation(@KeyWorkTrn,@AppData.ActiveUser,@EntityTrn)</a>
+    }else if (Design.ToUpper().Trim()=="btn".ToUpper()) 
+    {
+       Cls="btn bnt-style-general";
+      <button class="@Cls" @onclick="OnClickCallback"
+         data-toggle="tooltip"  title="@trs.GetTranslation(@KeyWorkTrn,@AppData.ActiveUser,@EntityTrn)">
+      <span class="@Ico" aria-hidden="true"></span>
+      </button>
+    }
+
+    
  }
+
 
 @code  {
   
@@ -27,14 +45,13 @@
     [Parameter]  
     public string Category { get; set; }="CRUD"; 
 
-
     [Parameter]  
     public string Type { get; set; }="";  
    
     [Parameter]  
     public string Link { get; set; } =""; 
     
-      [Parameter]  
+    [Parameter]  
     public string LinkId { get; set; }="";   
 
     [Parameter]
@@ -46,6 +63,8 @@
     [Parameter]
     public string Val { get; set; }=""; 
 
+      [Parameter]
+    public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
 
     private void CRUD(string pOperType, string pNavLink, string pRecId)
     {         

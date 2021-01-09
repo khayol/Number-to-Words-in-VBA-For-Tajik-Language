@@ -202,7 +202,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 19 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
+#line 37 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
         
   
     [Parameter]  
@@ -214,14 +214,13 @@ using Woorj.Pages.TESTS.L22;
     [Parameter]  
     public string Category { get; set; }="CRUD"; 
 
-
     [Parameter]  
     public string Type { get; set; }="";  
    
     [Parameter]  
     public string Link { get; set; } =""; 
     
-      [Parameter]  
+    [Parameter]  
     public string LinkId { get; set; }="";   
 
     [Parameter]
@@ -233,6 +232,8 @@ using Woorj.Pages.TESTS.L22;
     [Parameter]
     public string Val { get; set; }=""; 
 
+      [Parameter]
+    public EventCallback<MouseEventArgs> OnClickCallback { get; set; }
 
     private void CRUD(string pOperType, string pNavLink, string pRecId)
     {         

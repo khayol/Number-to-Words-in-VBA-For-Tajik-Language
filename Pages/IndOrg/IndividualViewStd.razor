@@ -32,21 +32,19 @@ else
             <WrOper Design="a" Type="D"  Link="/IndOrg/IndividualDelete/" LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Delete" />
         </ControlMenu>
 
-        <ControlQuickAccess>                  
-          
+        <ControlQuickAccess>
             <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
             <WrSpace Length=2/>
-            <button class="btn bnt-style-general" @onclick="@(args => CleanSearchBox())" data-toggle="tooltip" title="@trs.GetTranslation("ShowMoreRecords",@AppData.ActiveUser,"General")"><span class="fa fa-angle-double-down" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => FindSelectedRec())" data-toggle="tooltip" title="@trs.GetTranslation("Choose",@AppData.ActiveUser,"General")"><span class="fa fa-hand-pointer-o" aria-hidden="true" id="search-input"></span></button>
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  KeyWorkTrn="ShowMoreRecords" />
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" KeyWorkTrn="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/IndOrg/IndividualAdd"     KeyWorkTrn="Add" />
             <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect KeyWorkTrn="View" />
             <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Edit" />
             <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/IndOrg/IndividualDelete/" LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Delete" />
-    
             <WrSpace Length=2/>
-            <button class="btn bnt-style-general" @onclick="@(args => FilterData())" data-toggle="tooltip" title="@trs.GetTranslation("Filter",@AppData.ActiveUser,"General")"><span class="fa fa-filter" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => ExportToExcel())" data-toggle="tooltip" title="@trs.GetTranslation("ExportToExcel",@AppData.ActiveUser,"General")"><span class="fa fa-file-excel-o" aria-hidden="true"></span></button>
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  KeyWorkTrn="Filter" />
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" KeyWorkTrn="ExportToExcel"/>
         </ControlQuickAccess>
     </WrDataGrid>
 </Authorized>
