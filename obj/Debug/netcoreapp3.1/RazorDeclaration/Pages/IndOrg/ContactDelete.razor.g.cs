@@ -216,7 +216,7 @@ using Woorj.Pages.TESTS.L22;
       objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));       
     }
     
-    protected void DeleteContact(){
+    protected void Delete(){
 
         objContactController.DeleteContact(objContact);
         NavManager.NavigateTo("/IndOrg/ContactViewStd/"+AppData.Individual_IdSelect);

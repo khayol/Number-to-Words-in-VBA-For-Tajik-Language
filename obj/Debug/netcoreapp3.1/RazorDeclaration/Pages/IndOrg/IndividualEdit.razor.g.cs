@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 114 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
+#line 101 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualEdit.razor"
       
 
     [Parameter]

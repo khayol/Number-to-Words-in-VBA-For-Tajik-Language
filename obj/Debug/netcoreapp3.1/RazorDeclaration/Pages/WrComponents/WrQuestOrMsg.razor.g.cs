@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Woorj.Pages.IndOrg
+namespace Woorj.Pages.WrComponents
 {
     #line hidden
     using System;
@@ -194,8 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/IndividualAdd")]
-    public partial class IndividualAdd : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class WrQuestOrMsg : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -203,35 +202,21 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 76 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\IndividualAdd.razor"
+#line 17 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
       
 
-    Individual objMain= new Individual();
+    [Parameter]
+    public string TxtSize { get; set; }="h4"; 
 
-     private List<Gender> GenderList;
-  
-    protected override void OnInitialized()
-    {
-        GenderList =  GenderController.Get();
-    }
+    [Parameter]
+    public string Txt { get; set; }=""; 
 
-     protected  void Create()
-     { 
-        MainController.Create(objMain);
-        NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+AppData.Individual_IdSelect);
-     }
-
-    void Cancel(){
-        NavManager.NavigateTo("/IndOrg/IndividualViewStd/"+AppData.Individual_IdSelect);
-    }
-
+    [Parameter]
+    public string EntityTrn { get; set; }="General"; 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GnrSrv GnrSrv { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GenderController GenderController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IndividualController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

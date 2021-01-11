@@ -8,8 +8,8 @@
     <ValidationSummary/>
     <WrPnlElm>
     <ControlQuickAccess>
-    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")" >
-    <input type="button" class="btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+        <WrOper Category="EditForm" TypeInput="submit" Txt="Save"/>
+        <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
     </ControlQuickAccess>
     </WrPnlElm>
   <WrFormBody>

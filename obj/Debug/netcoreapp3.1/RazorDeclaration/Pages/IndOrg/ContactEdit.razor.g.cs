@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\ContactEdit.razor"
+#line 41 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\ContactEdit.razor"
       
     [Parameter]
     public string CurrentID { get; set; }

@@ -13,22 +13,9 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-             
-                @if( readonlyOther==false )
-                {
-                    CancelOrBeckTxt="Cancel";
-                    <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
-                    
-                }else{
-                  CancelOrBeckTxt="Back";
-                }
-                 &nbsp;
-                    <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,"General")">
-                 &nbsp;
-            @* <button class="btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.IndividualLink))"
-                data-toggle="tooltip" title="Beck"><span class="fa fa-backward" aria-hidden="true"></span> Beck</button>
-            *@
-        </ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="submit" Txt="Update"/>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
+       </ControlQuickAccess>
     </WrPnlElm>
 
     <WrFormBody>

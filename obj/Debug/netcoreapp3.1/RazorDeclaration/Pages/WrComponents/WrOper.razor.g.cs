@@ -202,7 +202,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
+#line 67 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
         
   
     [Parameter]  
@@ -211,11 +211,25 @@ using Woorj.Pages.TESTS.L22;
     public string Cls { get; set; }="";
     [Parameter]  
     public string Ico { get; set; }=""; 
+
+    [Parameter]  
+    public bool EditOrView{ get; set; }=false; 
+
+    [Parameter]  
+    public bool ReadonlyOther { get; set; }=false; 
+
+    [Parameter]  
+    public string CancelOrBeckTxt { get; set; }=""; 
+
+
     [Parameter]  
     public string Category { get; set; }="CRUD"; 
 
     [Parameter]  
     public string Type { get; set; }="";  
+
+    [Parameter]  
+    public string TypeInput { get; set; }="";  
    
     [Parameter]  
     public string Link { get; set; } =""; 
@@ -224,7 +238,10 @@ using Woorj.Pages.TESTS.L22;
     public string LinkId { get; set; }="";   
 
     [Parameter]
-    public string KeyWorkTrn { get; set; }=""; 
+    public string TxtToolTip { get; set; }=""; 
+
+    [Parameter]
+    public string Txt { get; set; }=""; 
 
     [Parameter]
     public string EntityTrn { get; set; }="General"; 

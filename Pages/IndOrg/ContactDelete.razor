@@ -4,12 +4,12 @@
 <AuthorizeView Roles="@admSer.GetRolesList("ContactDelete")" Context="authContext" > 
   <Authorized>
 
-<EditForm Model="@objContact" OnValidSubmit="@DeleteContact" OnInvalidSubmit="@Cancel" Context="formContext" >  
+<EditForm Model="@objContact" OnValidSubmit="@Delete" OnInvalidSubmit="@Cancel" Context="formContext" >  
    
     <WrPnlElm>
-        <ControlQuickAccess>
-                <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")">
-                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+     <ControlQuickAccess>
+             <WrOper Category="EditForm" TypeInput="submit" Txt="Delete"/>
+             <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
         </ControlQuickAccess>
     </WrPnlElm>
 
@@ -44,7 +44,7 @@
       objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));       
     }
     
-    protected void DeleteContact(){
+    protected void Delete(){
 
         objContactController.DeleteContact(objContact);
         NavManager.NavigateTo("/IndOrg/ContactViewStd/"+AppData.Individual_IdSelect);

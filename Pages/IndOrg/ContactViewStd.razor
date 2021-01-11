@@ -18,17 +18,14 @@ else
                   PageNameTitle="@trs.GetTranslation("ContactViewStd",@AppData.ActiveUser,"Individual")">
 
            <ControlQuickAccess>
-   
-              &nbsp &nbsp
-            <input   type="button" class="btn btn bnt-style-general" @onclick="@(args => NavManager.NavigateTo(AppData.BaseUrlUri))" value="@trs.GetTranslation("Back",@AppData.ActiveUser,"General")">
-          
-            <button class="btn bnt-style-general" @onclick="@(args => CRUD("C","/IndOrg/ContactAdd",""))" data-toggle="tooltip" title="@trs.GetTranslation("Add",@AppData.ActiveUser,"General")"><span class="fa fa-plus" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => CRUD("R","/IndOrg/ContactEdit/", @AppData.Individual_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("View",@AppData.ActiveUser,"General")"><span class="fa fa-file" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => CRUD("U","/IndOrg/ContactEdit/", @AppData.Individual_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("Edit",@AppData.ActiveUser,"General")"><span class="fa fa-pencil" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => CRUD("D","/IndOrg/ContactDelete/", @AppData.Individual_IdSelect))" data-toggle="tooltip" title="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")"><span class="fa fa-trash" aria-hidden="true"></span></button>
-        
+               <WrSpace Length=2/>
+               <WrOper Category="RUNCMD" Design="btn"  OnClickCallback="() => NavManager.NavigateTo(AppData.BaseUrlUri)"  Txt="Back" />
+               <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/IndOrg/ContactAdd"     TxtToolTip="Add" />
+               <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/ContactEdit/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="View" />
+               <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/IndOrg/ContactEdit/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="Edit" />
+               <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/IndOrg/ContactDelete/" LinkId=@AppData.Contact_IdSelect TxtToolTip="Delete" />
             </ControlQuickAccess> 
-    
+
     </WrDataGrid>
     </Authorized>
  <NotAuthorized>
@@ -37,7 +34,7 @@ else
  </AuthorizeView>
 }
 
-    @code  {  
+@code  {  
 
  #region     Declare
  
@@ -63,16 +60,8 @@ else
 #region    Event
     private void SelectedRowMeth(string pSelectedRow)
     {
-     AppData.Individual_IdSelect = pSelectedRow;
+     AppData.Contact_IdSelect = pSelectedRow;
     }
-    private void CRUD(string pOperType, string pNavLink, string pRecId)
-    {         
-        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
-                  servClass.CRUD(pOperType,pNavLink, pRecId);
-        AppData.Individual_IdSelect=IndividualId;          
-    }
-
  #endregion Event
-
  
     }

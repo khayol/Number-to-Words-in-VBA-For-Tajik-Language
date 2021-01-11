@@ -5,13 +5,13 @@
     {
       Cls="menu-itms";
     <a @onclick="@(args => CRUD(@Type,@Link,@LinkId))" value="@Val" 
-     class="@Cls">@trs.GetTranslation(@KeyWorkTrn,@AppData.ActiveUser,@EntityTrn)</a>
+     class="@Cls.ToLower()">@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</a>
     }else if (Design.ToUpper().Trim()=="btn".ToUpper()) 
     {
        Cls="btn bnt-style-general";
-      <button class="@Cls" @onclick="@(args => CRUD(@Type,@Link,@LinkId))"
-         data-toggle="tooltip"  title="@trs.GetTranslation(@KeyWorkTrn,@AppData.ActiveUser,@EntityTrn)">
-      <span class="@Ico" aria-hidden="true"></span>
+      <button class="@Cls.ToLower()" @onclick="@(args => CRUD(@Type,@Link,@LinkId))"
+         data-toggle="tooltip"  title="@trs.GetTranslation(@TxtToolTip,@AppData.ActiveUser,@EntityTrn)">
+      <span class="@Ico.ToLower()" aria-hidden="true">@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</span>
       </button>
     }
  }else if (Category.ToUpper().Trim()=="RUNCMD".ToUpper())
@@ -20,18 +20,48 @@
     {
       Cls="menu-itms";
     <a @onclick="OnClickCallback" value="@Val" 
-     class="@Cls">@trs.GetTranslation(@KeyWorkTrn,@AppData.ActiveUser,@EntityTrn)</a>
+     class="@Cls">@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</a>
     }else if (Design.ToUpper().Trim()=="btn".ToUpper()) 
     {
        Cls="btn bnt-style-general";
-      <button class="@Cls" @onclick="OnClickCallback"
-         data-toggle="tooltip"  title="@trs.GetTranslation(@KeyWorkTrn,@AppData.ActiveUser,@EntityTrn)">
-      <span class="@Ico" aria-hidden="true"></span>
+      <button class="@Cls.ToLower()" @onclick="OnClickCallback"
+         data-toggle="tooltip"  title="@trs.GetTranslation(@TxtToolTip,@AppData.ActiveUser,@EntityTrn)">
+      <span class="@Ico.ToLower()" aria-hidden="true">@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</span>
       </button>
     }
 
     
- }
+ }else if (Category.ToUpper().Trim()=="EditForm".ToUpper())
+ {
+           Cls="btn bnt-style-general";
+           
+           @if (@EditOrView==true)
+           {
+               @if( ReadonlyOther==false )
+               {
+                  CancelOrBeckTxt="Cancel";
+                   <WrSpace/>
+                  <input type="@TypeInput.ToLower()" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)">
+               
+               }else if ( ReadonlyOther==true ){
+               CancelOrBeckTxt="Back";
+                   <WrSpace/>
+                   if(@TypeInput=="submit"){
+                   <input  type="hidden" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,@EntityTrn)"> 
+                   }else if(@TypeInput=="button"){
+                    <input  type="@TypeInput.ToLower()" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,@EntityTrn)"> 
+                   
+                   }
+              <WrSpace/>
+               }          
+
+            }else{
+              <WrSpace/>
+            <input type="@TypeInput.ToLower()" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)">
+
+            }
+      
+       }
 
 
 @code  {
@@ -42,11 +72,25 @@
     public string Cls { get; set; }="";
     [Parameter]  
     public string Ico { get; set; }=""; 
+
+    [Parameter]  
+    public bool EditOrView{ get; set; }=false; 
+
+    [Parameter]  
+    public bool ReadonlyOther { get; set; }=false; 
+
+    [Parameter]  
+    public string CancelOrBeckTxt { get; set; }=""; 
+
+
     [Parameter]  
     public string Category { get; set; }="CRUD"; 
 
     [Parameter]  
     public string Type { get; set; }="";  
+
+    [Parameter]  
+    public string TypeInput { get; set; }="";  
    
     [Parameter]  
     public string Link { get; set; } =""; 
@@ -55,7 +99,10 @@
     public string LinkId { get; set; }="";   
 
     [Parameter]
-    public string KeyWorkTrn { get; set; }=""; 
+    public string TxtToolTip { get; set; }=""; 
+
+    [Parameter]
+    public string Txt { get; set; }=""; 
 
     [Parameter]
     public string EntityTrn { get; set; }="General"; 

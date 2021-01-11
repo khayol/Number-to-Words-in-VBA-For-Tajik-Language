@@ -1,0 +1,27 @@
+
+@if (TxtSize=="h4")
+{
+<h4>@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</h4>
+}else if (TxtSize=="h3")
+{
+<h3>@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</h3>
+}else if (TxtSize=="h2")
+{
+<h2>@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</h2>
+}else if (TxtSize=="h1")
+{
+<h1>@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</h1>
+}
+
+
+@code{
+
+    [Parameter]
+    public string TxtSize { get; set; }="h4"; 
+
+    [Parameter]
+    public string Txt { get; set; }=""; 
+
+    [Parameter]
+    public string EntityTrn { get; set; }="General"; 
+}

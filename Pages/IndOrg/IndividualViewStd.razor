@@ -26,25 +26,25 @@ else
                             })">
 
         <ControlMenu>
-            <WrOper Design="a" Type="C"  Link="/IndOrg/IndividualAdd"     KeyWorkTrn="Add" />
-            <WrOper Design="a" Type="R"  Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect KeyWorkTrn="View" />
-            <WrOper Design="a" Type="U"  Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Edit" />
-            <WrOper Design="a" Type="D"  Link="/IndOrg/IndividualDelete/" LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Delete" />
+            <WrOper Design="a" Type="C"  Link="/IndOrg/IndividualAdd"     Txt="Add" />
+            <WrOper Design="a" Type="R"  Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect Txt="View" />
+            <WrOper Design="a" Type="U"  Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link="/IndOrg/IndividualDelete/" LinkId=@AppData.Individual_IdSelect Txt="Delete" />
         </ControlMenu>
 
         <ControlQuickAccess>
             <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
             <WrSpace Length=2/>
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  KeyWorkTrn="ShowMoreRecords" />
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" KeyWorkTrn="Choose"/>
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  TxtToolTip="ShowMoreRecords" />
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
-            <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/IndOrg/IndividualAdd"     KeyWorkTrn="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect KeyWorkTrn="View" />
-            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Edit" />
-            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/IndOrg/IndividualDelete/" LinkId=@AppData.Individual_IdSelect KeyWorkTrn="Delete" />
+            <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/IndOrg/IndividualAdd"     TxtToolTip="Add" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/IndOrg/IndividualEdit/"   LinkId=@AppData.Individual_IdSelect TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/IndOrg/IndividualDelete/" LinkId=@AppData.Individual_IdSelect TxtToolTip="Delete" />
             <WrSpace Length=2/>
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  KeyWorkTrn="Filter" />
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" KeyWorkTrn="ExportToExcel"/>
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
+            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
         </ControlQuickAccess>
     </WrDataGrid>
 </Authorized>

@@ -203,8 +203,8 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\ContactViewStd.razor"
-              
+#line 37 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\ContactViewStd.razor"
+          
 
  #region     Declare
  
@@ -230,17 +230,9 @@ using Woorj.Pages.TESTS.L22;
 #region    Event
     private void SelectedRowMeth(string pSelectedRow)
     {
-     AppData.Individual_IdSelect = pSelectedRow;
+     AppData.Contact_IdSelect = pSelectedRow;
     }
-    private void CRUD(string pOperType, string pNavLink, string pRecId)
-    {         
-        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
-                  servClass.CRUD(pOperType,pNavLink, pRecId);
-        AppData.Individual_IdSelect=IndividualId;          
-    }
-
  #endregion Event
-
  
     
 
