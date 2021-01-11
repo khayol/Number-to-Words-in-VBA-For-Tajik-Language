@@ -19,7 +19,7 @@ else
 
            <ControlQuickAccess>
                <WrSpace Length=2/>
-               <WrOper Category="RUNCMD" Design="btn"  OnClickCallback="() => NavManager.NavigateTo(AppData.BaseUrlUri)"  Txt="Back" />
+               <WrOper Category="RunCmd" Design="btn"  OnClickCallback="() => NavManager.NavigateTo(AppData.BaseUrlUri)"  Txt="Back" />
                <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/IndOrg/ContactAdd"     TxtToolTip="Add" />
                <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/ContactEdit/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="View" />
                <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/IndOrg/ContactEdit/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="Edit" />

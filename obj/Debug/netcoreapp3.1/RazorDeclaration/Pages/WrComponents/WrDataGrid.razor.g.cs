@@ -209,7 +209,7 @@ using System.Reflection;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 168 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 172 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
          
 
 
@@ -219,6 +219,8 @@ using System.Reflection;
 
     [Parameter]
     public string BaseUrlUri { get; set; }
+    [Parameter]
+    public string BackLink { get; set; }
     [Parameter]
     public string ColumnsToExcludeCSV { get; set; }
 
@@ -349,7 +351,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 312 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 318 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -537,7 +539,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 508 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 514 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -549,7 +551,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 519 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 525 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

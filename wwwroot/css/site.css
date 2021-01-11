@@ -201,7 +201,7 @@
 
     .bnt-style-general { /*The style of the std. buttons*/
     color: #fff;
-    background-color:#c4bcee ;/*   #B4B4B4 #808080;  #8379F4;   darkseagreen; */
+    background-color:#8a79e2 ;/*   #B4B4B4 #808080;  #8379F4;   darkseagreen; */
     border-color: #8e9299; 
     position: center;
     padding: 4.5px;
@@ -213,7 +213,7 @@
 
     }
     .bnt-main-menu { /*The style of the std. buttons*/
-    margin-left: 33px;
+    margin-left: 15px;
     /* width: 33px;   */
     }
 

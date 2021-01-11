@@ -13,8 +13,8 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="submit" Txt="Update"/>
             <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="submit" Txt="Update"/>
        </ControlQuickAccess>
     </WrPnlElm>
 
@@ -160,11 +160,6 @@
     void Cancel()
     {
         NavManager.NavigateTo(AppData.IndividualLink);
-    }
-
-     void Nothing()
-    {
-        
     }
 
   

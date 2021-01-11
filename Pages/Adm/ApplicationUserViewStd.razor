@@ -34,16 +34,16 @@ else
         <ControlQuickAccess>
             <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
             <WrSpace Length=2/>
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  TxtToolTip="ShowMoreRecords" />
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  TxtToolTip="ShowMoreRecords" />
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Adm/ApplicationUserAdd"     TxtToolTip="Add" />
             <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationUserEdit/"   LinkId=@AppData.ApplicationUser_IdSelect TxtToolTip="View" />
             <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Adm/ApplicationUserEdit/"   LinkId=@AppData.ApplicationUser_IdSelect TxtToolTip="Edit" />
             <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Adm/ApplicationUserDelete/" LinkId=@AppData.ApplicationUser_IdSelect TxtToolTip="Delete" />
             <WrSpace Length=2/>
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
-            <WrOper Category="RUNCMD" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
         </ControlQuickAccess>
     </WrDataGrid>
 </Authorized>

@@ -179,10 +179,5 @@ namespace Woorj.CtrServerSide.IndOrg
 
         }
 
-
- 
-
-
-
     }
 }

@@ -14,7 +14,7 @@
       <span class="@Ico.ToLower()" aria-hidden="true">@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</span>
       </button>
     }
- }else if (Category.ToUpper().Trim()=="RUNCMD".ToUpper())
+ }else if (Category.ToUpper().Trim()=="RunCmd".ToUpper())
  {
     if(Design.ToUpper().Trim()=="a".ToUpper())
     {
@@ -40,23 +40,22 @@
                @if( ReadonlyOther==false )
                {
                   CancelOrBeckTxt="Cancel";
-                   <WrSpace/>
                   <input type="@TypeInput.ToLower()" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)">
                
                }else if ( ReadonlyOther==true ){
                CancelOrBeckTxt="Back";
-                   <WrSpace/>
+
                    if(@TypeInput=="submit"){
                    <input  type="hidden" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,@EntityTrn)"> 
                    }else if(@TypeInput=="button"){
                     <input  type="@TypeInput.ToLower()" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,@EntityTrn)"> 
                    
                    }
-              <WrSpace/>
+
                }          
 
             }else{
-              <WrSpace/>
+ 
             <input type="@TypeInput.ToLower()" class="@Cls.ToLower()" @onclick="OnClickCallback"  value="@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)">
 
             }

@@ -17,6 +17,8 @@ namespace Woorj.Services
         public static int rowNumMid { get; set; }=30;
         //---------------------------------------------------------------------
 
+        public string HomePageUrl { get; set; } = "https://localhost:5001/";
+        public string MainMenuUrl { get; set; } = "/MainMenu";
         public string BaseUrlUri { get; set; } = "";
         public string ActivePageName { get; set; } = "";
         public static string ActiveUser { get; set; } = "";

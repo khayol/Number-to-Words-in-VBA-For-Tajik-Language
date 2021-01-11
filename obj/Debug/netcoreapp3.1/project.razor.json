@@ -237,6 +237,59 @@
         }
       },
       {
+        "HashCode": 773036075,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRoleViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ApplicationRoleViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRoleViewStd"
+        }
+      },
+      {
+        "HashCode": 609158548,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRoleViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Adm.ApplicationRoleViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRoleViewStd",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -1806809131,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Adm.ApplicationUserAdd",
@@ -1012,6 +1065,59 @@
         }
       },
       {
+        "HashCode": -1665295634,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.GenderViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "GenderViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.GenderViewStd"
+        }
+      },
+      {
+        "HashCode": 646188619,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.GenderViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.GenderViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.GenderViewStd",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 1485143563,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Error",
@@ -1471,6 +1577,59 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.IndOrg.IndividualViewStdSimpleTable",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1458136947,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.IndividualViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "IndividualViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.IndividualViewStd"
+        }
+      },
+      {
+        "HashCode": -114980722,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.IndividualViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.IndOrg.IndividualViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.IndividualViewStd",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -2655,433 +2814,6 @@
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.WrComponents.WrCombo<TItem>",
           "Components.GenericTyped": "True",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 207291907,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "WrDataGrid"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "TItem",
-            "TypeName": "System.Type",
-            "Documentation": "Specifies the type of the type parameter TItem for the Woorj.Pages.WrComponents.WrDataGrid<TItem> component.",
-            "Metadata": {
-              "Common.PropertyName": "TItem",
-              "Components.TypeParameter": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "BaseUrlUri",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "BaseUrlUri"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ColumnsToExcludeCSV",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ColumnsToExcludeCSV"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "UniqIdOfRecord",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "UniqIdOfRecord"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "PageNameTitle",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "PageNameTitle"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentPage",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "CurrentPage"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ControlMenu",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "ControlMenu",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ControlQuickAccess",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "ControlQuickAccess",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Paging",
-            "TypeName": "Woorj.Data.WrComponents.PagingConfig",
-            "Metadata": {
-              "Common.PropertyName": "Paging"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "CustomPager",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "CustomPager",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "PageName",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "PageName",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "DataItems",
-            "TypeName": "System.Collections.Generic.List<TItem>",
-            "Metadata": {
-              "Common.PropertyName": "DataItems",
-              "Components.GenericTyped": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Columns",
-            "TypeName": "System.Collections.Generic.List<Woorj.Data.WrComponents.ColumnDefinition>",
-            "Metadata": {
-              "Common.PropertyName": "Columns"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "SelectedRow",
-            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<System.String>",
-            "Metadata": {
-              "Common.PropertyName": "SelectedRow",
-              "Components.EventCallback": "True"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
-          "Components.GenericTyped": "True"
-        }
-      },
-      {
-        "HashCode": 1384269937,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.WrComponents.WrDataGrid"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "TItem",
-            "TypeName": "System.Type",
-            "Documentation": "Specifies the type of the type parameter TItem for the Woorj.Pages.WrComponents.WrDataGrid<TItem> component.",
-            "Metadata": {
-              "Common.PropertyName": "TItem",
-              "Components.TypeParameter": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "BaseUrlUri",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "BaseUrlUri"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ColumnsToExcludeCSV",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ColumnsToExcludeCSV"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "UniqIdOfRecord",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "UniqIdOfRecord"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "PageNameTitle",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "PageNameTitle"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentPage",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "CurrentPage"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ControlMenu",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "ControlMenu",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ControlQuickAccess",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "ControlQuickAccess",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Paging",
-            "TypeName": "Woorj.Data.WrComponents.PagingConfig",
-            "Metadata": {
-              "Common.PropertyName": "Paging"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "CustomPager",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "CustomPager",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "PageName",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "Metadata": {
-              "Common.PropertyName": "PageName",
-              "Components.ChildContent": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "DataItems",
-            "TypeName": "System.Collections.Generic.List<TItem>",
-            "Metadata": {
-              "Common.PropertyName": "DataItems",
-              "Components.GenericTyped": "True"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Columns",
-            "TypeName": "System.Collections.Generic.List<Woorj.Data.WrComponents.ColumnDefinition>",
-            "Metadata": {
-              "Common.PropertyName": "Columns"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "SelectedRow",
-            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<System.String>",
-            "Metadata": {
-              "Common.PropertyName": "SelectedRow",
-              "Components.EventCallback": "True"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
-          "Components.GenericTyped": "True",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -2105230803,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ControlMenu",
-            "ParentTag": "WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
-          "Components.IsSpecialKind": "Components.ChildContent"
-        }
-      },
-      {
-        "HashCode": 394059995,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ControlMenu",
-            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
-          "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1530703889,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ControlQuickAccess",
-            "ParentTag": "WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
-          "Components.IsSpecialKind": "Components.ChildContent"
-        }
-      },
-      {
-        "HashCode": 495008382,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ControlQuickAccess",
-            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
-          "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -232434939,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CustomPager",
-            "ParentTag": "WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
-          "Components.IsSpecialKind": "Components.ChildContent"
-        }
-      },
-      {
-        "HashCode": -136752051,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CustomPager",
-            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
-          "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 118962320,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "PageName",
-            "ParentTag": "WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
-          "Components.IsSpecialKind": "Components.ChildContent"
-        }
-      },
-      {
-        "HashCode": -1787625005,
-        "Kind": "Components.ChildContent",
-        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "PageName",
-            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
-          "Components.IsSpecialKind": "Components.ChildContent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -4521,301 +4253,6 @@
         }
       },
       {
-        "HashCode": -1406347723,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.WrComponents.WrOper",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "WrOper"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Design",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Design"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Cls",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Cls"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Ico",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Ico"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "EditOrView",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "EditOrView"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ReadonlyOther",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "ReadonlyOther"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "CancelOrBeckTxt",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CancelOrBeckTxt"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Category",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Category"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Type",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Type"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "TypeInput",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "TypeInput"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Link",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Link"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "LinkId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "LinkId"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "TxtToolTip",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "TxtToolTip"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Txt",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Txt"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "EntityTrn",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "EntityTrn"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Val",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Val"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "OnClickCallback",
-            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs>",
-            "Metadata": {
-              "Common.PropertyName": "OnClickCallback",
-              "Components.EventCallback": "True"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrOper"
-        }
-      },
-      {
-        "HashCode": -165272177,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.WrComponents.WrOper",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.WrComponents.WrOper"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Design",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Design"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Cls",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Cls"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Ico",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Ico"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "EditOrView",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "EditOrView"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ReadonlyOther",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "ReadonlyOther"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "CancelOrBeckTxt",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CancelOrBeckTxt"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Category",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Category"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Type",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Type"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "TypeInput",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "TypeInput"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Link",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Link"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "LinkId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "LinkId"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "TxtToolTip",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "TxtToolTip"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Txt",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Txt"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "EntityTrn",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "EntityTrn"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Val",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Val"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "OnClickCallback",
-            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs>",
-            "Metadata": {
-              "Common.PropertyName": "OnClickCallback",
-              "Components.EventCallback": "True"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.WrComponents.WrOper",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -1751341148,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.WrComponents.WrPageName",
@@ -5381,6 +4818,744 @@
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.WrComponents.WrTbl<TItem>",
           "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1406347723,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.WrComponents.WrOper",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "WrOper"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Design",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Design"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Cls",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Cls"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Ico",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Ico"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EditOrView",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "EditOrView"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ReadonlyOther",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "ReadonlyOther"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "CancelOrBeckTxt",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CancelOrBeckTxt"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Category",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Category"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Type",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Type"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "TypeInput",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "TypeInput"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Link",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Link"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "LinkId",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "LinkId"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "TxtToolTip",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "TxtToolTip"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Txt",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Txt"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EntityTrn",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "EntityTrn"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Val",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Val"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "OnClickCallback",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs>",
+            "Metadata": {
+              "Common.PropertyName": "OnClickCallback",
+              "Components.EventCallback": "True"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrOper"
+        }
+      },
+      {
+        "HashCode": -165272177,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.WrComponents.WrOper",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.WrComponents.WrOper"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Design",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Design"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Cls",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Cls"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Ico",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Ico"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EditOrView",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "EditOrView"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ReadonlyOther",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "ReadonlyOther"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "CancelOrBeckTxt",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CancelOrBeckTxt"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Category",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Category"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Type",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Type"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "TypeInput",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "TypeInput"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Link",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Link"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "LinkId",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "LinkId"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "TxtToolTip",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "TxtToolTip"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Txt",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Txt"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "EntityTrn",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "EntityTrn"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Val",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Val"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "OnClickCallback",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<Microsoft.AspNetCore.Components.Web.MouseEventArgs>",
+            "Metadata": {
+              "Common.PropertyName": "OnClickCallback",
+              "Components.EventCallback": "True"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrOper",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1844975651,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "WrDataGrid"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TItem",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TItem for the Woorj.Pages.WrComponents.WrDataGrid<TItem> component.",
+            "Metadata": {
+              "Common.PropertyName": "TItem",
+              "Components.TypeParameter": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "BaseUrlUri",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "BaseUrlUri"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Backlink",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Backlink"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ColumnsToExcludeCSV",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ColumnsToExcludeCSV"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "UniqIdOfRecord",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "UniqIdOfRecord"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "PageNameTitle",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "PageNameTitle"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentPage",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "CurrentPage"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ControlMenu",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "ControlMenu",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ControlQuickAccess",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "ControlQuickAccess",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Paging",
+            "TypeName": "Woorj.Data.WrComponents.PagingConfig",
+            "Metadata": {
+              "Common.PropertyName": "Paging"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "CustomPager",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "CustomPager",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "PageName",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "PageName",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "DataItems",
+            "TypeName": "System.Collections.Generic.List<TItem>",
+            "Metadata": {
+              "Common.PropertyName": "DataItems",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Columns",
+            "TypeName": "System.Collections.Generic.List<Woorj.Data.WrComponents.ColumnDefinition>",
+            "Metadata": {
+              "Common.PropertyName": "Columns"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "SelectedRow",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<System.String>",
+            "Metadata": {
+              "Common.PropertyName": "SelectedRow",
+              "Components.EventCallback": "True"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
+          "Components.GenericTyped": "True"
+        }
+      },
+      {
+        "HashCode": 483290359,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.WrComponents.WrDataGrid"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "TItem",
+            "TypeName": "System.Type",
+            "Documentation": "Specifies the type of the type parameter TItem for the Woorj.Pages.WrComponents.WrDataGrid<TItem> component.",
+            "Metadata": {
+              "Common.PropertyName": "TItem",
+              "Components.TypeParameter": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "BaseUrlUri",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "BaseUrlUri"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Backlink",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Backlink"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ColumnsToExcludeCSV",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ColumnsToExcludeCSV"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "UniqIdOfRecord",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "UniqIdOfRecord"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "PageNameTitle",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "PageNameTitle"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentPage",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "CurrentPage"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ControlMenu",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "ControlMenu",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ControlQuickAccess",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "ControlQuickAccess",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Paging",
+            "TypeName": "Woorj.Data.WrComponents.PagingConfig",
+            "Metadata": {
+              "Common.PropertyName": "Paging"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "CustomPager",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "CustomPager",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "PageName",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "Metadata": {
+              "Common.PropertyName": "PageName",
+              "Components.ChildContent": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "DataItems",
+            "TypeName": "System.Collections.Generic.List<TItem>",
+            "Metadata": {
+              "Common.PropertyName": "DataItems",
+              "Components.GenericTyped": "True"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Columns",
+            "TypeName": "System.Collections.Generic.List<Woorj.Data.WrComponents.ColumnDefinition>",
+            "Metadata": {
+              "Common.PropertyName": "Columns"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "SelectedRow",
+            "TypeName": "Microsoft.AspNetCore.Components.EventCallback<System.String>",
+            "Metadata": {
+              "Common.PropertyName": "SelectedRow",
+              "Components.EventCallback": "True"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>",
+          "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2105230803,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ControlMenu",
+            "ParentTag": "WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": 394059995,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ControlMenu",
+            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlMenu",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1530703889,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ControlQuickAccess",
+            "ParentTag": "WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": 495008382,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ControlQuickAccess",
+            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.ControlQuickAccess",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -232434939,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CustomPager",
+            "ParentTag": "WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": -136752051,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "CustomPager",
+            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.CustomPager",
+          "Components.IsSpecialKind": "Components.ChildContent",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 118962320,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PageName",
+            "ParentTag": "WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "HashCode": -1787625005,
+        "Kind": "Components.ChildContent",
+        "Name": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "PageName",
+            "ParentTag": "Woorj.Pages.WrComponents.WrDataGrid"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "Woorj.Pages.WrComponents.WrDataGrid<TItem>.PageName",
+          "Components.IsSpecialKind": "Components.ChildContent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

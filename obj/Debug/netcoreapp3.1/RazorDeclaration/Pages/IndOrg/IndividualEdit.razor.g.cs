@@ -268,11 +268,6 @@ using Woorj.Pages.TESTS.L22;
         NavManager.NavigateTo(AppData.IndividualLink);
     }
 
-     void Nothing()
-    {
-        
-    }
-
   
 
 #line default
