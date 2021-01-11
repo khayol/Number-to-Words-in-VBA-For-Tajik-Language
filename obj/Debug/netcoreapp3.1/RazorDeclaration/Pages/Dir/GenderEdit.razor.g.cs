@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "E:\A_NewProjects\01\Woorj\Pages\Dir\GenderEdit.razor"
+#line 38 "E:\A_NewProjects\01\Woorj\Pages\Dir\GenderEdit.razor"
       
 
     [Parameter]

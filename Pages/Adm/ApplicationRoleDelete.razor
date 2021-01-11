@@ -8,14 +8,14 @@
    
     <WrPnlElm>
         <ControlQuickAccess>
-                <input type="submit" class="btn bnt-style-general"  value="@trs.GetTranslation("Delete",@AppData.ActiveUser,"General")">
-                <input   type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+                <WrOper Category="EditForm" TypeInput="submit" Txt="Delete"/>
+                <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
         </ControlQuickAccess>
     </WrPnlElm>
 
     <WrFormBody>
         <FormElements>
-            <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
+              <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
            
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
             ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />

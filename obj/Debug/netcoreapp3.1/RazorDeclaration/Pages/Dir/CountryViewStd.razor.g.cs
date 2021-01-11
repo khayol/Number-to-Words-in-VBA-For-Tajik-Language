@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "E:\A_NewProjects\01\Woorj\Pages\Dir\CountryViewStd.razor"
+#line 57 "E:\A_NewProjects\01\Woorj\Pages\Dir\CountryViewStd.razor"
         
 
 
@@ -249,11 +249,7 @@ using Woorj.Pages.TESTS.L22;
         list = MainController.GetSearchByField("");
         AppData.Country_IdSelect = "0";
     }
-     private void CRUD(string pOperType, string pNavLink, string pRecId)
-    {         
-        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
-                  servClass.CRUD(pOperType,pNavLink, pRecId);
-    }
+
     protected void ExportToExcel()
     {
        // MainController.GenerateExcel(JSRuntime);

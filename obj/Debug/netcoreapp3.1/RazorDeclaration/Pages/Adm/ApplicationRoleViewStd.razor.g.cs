@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleViewStd.razor"
+#line 56 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleViewStd.razor"
         
 
 
@@ -249,12 +249,6 @@ using Woorj.Pages.TESTS.L22;
         list = MainController.GetSearchByField("");
         AppData.ApplicationRole_IdSelect = "0";
     }
-     private void CRUD(string pOperType, string pNavLink, string pRecId)
-    {         
-        ServClass servClass = new ServClass(NavManager,AppData,JSRuntime);
-                  servClass.CRUD(pOperType,pNavLink, pRecId);
-    }
-
     protected void ExportToExcel()
     {
        // MainController.GenerateExcel(JSRuntime);

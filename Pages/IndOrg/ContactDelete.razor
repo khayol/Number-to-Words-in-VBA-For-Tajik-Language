@@ -10,15 +10,15 @@
      <ControlQuickAccess>
              <WrOper Category="EditForm" TypeInput="submit" Txt="Delete"/>
              <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
-        </ControlQuickAccess>
+     </ControlQuickAccess>
     </WrPnlElm>
 
     <WrFormBody>
         <FormElements>
-            <h4>@trs.GetTranslation("AreYouSureToDeteteRow",@AppData.ActiveUser,"General")</h4>
-  
+            <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
+              
              <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-            ReadonlyOpt="readonlyMain1" Val="@objContact.Code" />
+              ReadonlyOpt="readonlyMain1" Val="@objContact.Code" />
 
             <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Name"
             TransEntity="Individual"  @bind-BindingValue ="@objContact.Name"/> 
