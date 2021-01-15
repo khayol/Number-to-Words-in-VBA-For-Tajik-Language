@@ -206,20 +206,16 @@ using Woorj.Pages.TESTS.L22;
 #line 35 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Contact\Edit.razor"
       
     [Parameter] public string CurrentID { get; set; }
-    Contact objContact = new Contact();
-    private string  CancelOrBeckTxt { get; set; }
-
-
-
+    Contact objMain = new Contact();
 
     protected override void OnInitialized()
     {
-        objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));
+        objMain = objMainController.GetContactById(Convert.ToInt32(CurrentID));
    }
 
     protected void UpdateContact()
     {
-        objContactController.UpdateContact(objContact);
+        objMainController.UpdateContact(objMain);
         NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
     }
     void Cancel()
@@ -230,7 +226,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController objContactController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController objMainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

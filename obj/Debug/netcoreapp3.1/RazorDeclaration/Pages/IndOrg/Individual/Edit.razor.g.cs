@@ -208,24 +208,16 @@ using Woorj.Pages.TESTS.L22;
 
     [Parameter] public string CurrentID { get; set; }
     Individual objMain = new Individual();
-    
-    private string  CancelOrBeckTxt { get; set; }
     private List<Country> CountryList;
-    
     private List<Gender> GenderList;
-
-
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
         GenderList =  GenderController.Get();
         CountryList =  CountryController.Get();
-
-
     }
     public void GoToCollection(string pLinkAddress,string pIdOfRecord)
-    {           
-      AppData.BaseUrlUri=NavManager.Uri;//"/IndOrg/IndividualEdit/"+pIdOfRecord;
+    { 
       NavManager.NavigateTo(pLinkAddress+pIdOfRecord); // change "0" to the Contact Id in Individual Table
       AppData.flg_ChoosedRow=1;
       AppData.ChoosedRowId=int.Parse(pIdOfRecord);      
@@ -234,7 +226,6 @@ using Woorj.Pages.TESTS.L22;
     public void GoToCollection(string pLinkAddress,string pIdOfRecord,  string pChoosedEntityName, 
                                int pChoosedEntityId, string pChoosedEntityFK)
     {           
-        AppData.BaseUrlUri=NavManager.Uri;
         NavManager.NavigateTo(pLinkAddress+"0");
         AppData.flg_ChoosedRow=1;
 
@@ -253,12 +244,14 @@ using Woorj.Pages.TESTS.L22;
     protected void Update()
     {
         MainController.Update(objMain);
-        NavManager.NavigateTo(AppData.IndividualLink);
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
     }
-    void Cancel()
+       void Cancel()
     {
-        NavManager.NavigateTo(AppData.IndividualLink);
+          NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
     }
+
+    
 
   
 

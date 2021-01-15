@@ -207,8 +207,6 @@ using Woorj.Pages.TESTS.L22;
       
     [Parameter] public string CurrentID { get; set; }
     Gender objMain = new Gender();    
-    private string  CancelOrBeckTxt { get; set; } 
- 
 
     protected override void OnInitialized()
     {

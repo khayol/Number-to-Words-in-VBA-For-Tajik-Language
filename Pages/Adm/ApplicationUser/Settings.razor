@@ -66,7 +66,7 @@ else
     [Parameter] public string CurrentID { get; set; }
     ApplicationUser objApplicationUser = new ApplicationUser();
     public List<Language> LanguageList;
-
+        
      protected override void OnInitialized()
     {
         objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
@@ -76,11 +76,15 @@ else
     protected void UpdateApplicationUser()
     {
        objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       NavManager.NavigateTo(AppData.BaseUrlUri);
+       GoBrwsNavigation(-2);
     }
     void Cancel()
     {
-         NavManager.NavigateTo(AppData.BaseUrlUri);
+         GoBrwsNavigation(-2);
+    }
+     public  void GoBrwsNavigation(int pVal)
+    {
+        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
     }
 
 

@@ -16,11 +16,7 @@ namespace Woorj.Services
       //---------------------------------------------------------------------
         public static int rowNumMid { get; set; }=30;
         //---------------------------------------------------------------------
-
-        public string HomePageUrl { get; set; } = "https://localhost:5001/";
-        public string MainMenuUrl { get; set; } = "/MainMenu";
-        public string BaseUrlUri { get; set; } = "";
-        public string ActivePageName { get; set; } = "";
+       
         public static string ActiveUser { get; set; } = "";
         public static string BrowserIterfaceLang { get; set; }="";
         public static string ActiveUserLang { get; set; }="";
@@ -31,8 +27,7 @@ namespace Woorj.Services
 
         public string ChoosedEntityName { get; set; } = "";
         public int ChoosedEntityId { get; set; } = 0;
-        public string ChoosedEntityFK { get; set; } = "";
-        public int UpdatedFK_Id { get; set; } = 0;
+        public string ChoosedEntityFK { get; set; } = ""; 
 
         public string designSite{get;set;}="css/site.css";
      
@@ -57,11 +52,24 @@ namespace Woorj.Services
     #region IndOrg 
         
         public string Individual_IdSelect { get; set; }="0";
-        public string IndividualLink { get; set; } = "/IndOrg/Individual/ViewStd/0";
+    
     
     #endregion IndOrg
 
+         /*
 
+        */
+
+    /* // Other Old Fields
+        public string HomePageUrl { get; set; } = "https://localhost:5001/";
+        public string MainMenuUrl { get; set; } = "/MainMenu";
+        public string BaseUrlUri { get; set; } = "";
+        public string ActivePageName { get; set; } = "";
+        public int UpdatedFK_Id { get; set; } = 0;
+            public string IndividualLink { get; set; } = "/IndOrg/Individual/ViewStd/0";
+        */
+
+   
 
 
     }

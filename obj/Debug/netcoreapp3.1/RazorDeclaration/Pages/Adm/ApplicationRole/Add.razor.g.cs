@@ -207,9 +207,7 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter] public string CurrentID { get; set; }
-
-    ApplicationRole objMain= new ApplicationRole();
-  
+    ApplicationRole objMain= new ApplicationRole();  
      protected  void Create()
      { 
         MainController.Create(objMain);

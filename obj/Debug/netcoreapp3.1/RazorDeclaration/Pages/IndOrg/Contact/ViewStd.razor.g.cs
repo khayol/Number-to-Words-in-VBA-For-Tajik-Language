@@ -209,8 +209,7 @@ using Woorj.Pages.TESTS.L22;
  #region     Declare
     
    private WrDataGrid<Contact> grid;
-    private List<Contact> ContactList;
-    
+    private List<Contact> ContactList;    
     [Parameter] public string IndividualId { get; set;}
     public string  backLink  { get; set; }
  
@@ -223,7 +222,6 @@ using Woorj.Pages.TESTS.L22;
         MainController.Initialized();
 
        backLink="/IndOrg/Individual/Edit/"+ IndividualId;
-        AppData.ActivePageName="View-Contact"; 
         ContactList = MainController.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
     }
 

@@ -4,7 +4,7 @@
 
 <WrAuth PageName="CountryEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Cancel" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
@@ -50,18 +50,11 @@
 @code{
     [Parameter] public string CurrentID { get; set; }
     Country objMain = new Country();    
-    private string  CancelOrBeckTxt { get; set; } 
-
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
-    }
     void Cancel()
     {
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");

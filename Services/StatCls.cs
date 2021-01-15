@@ -40,6 +40,7 @@ namespace Woorj.Services
             return  hca?.HttpContext?.User?.Identity.Name.ToString() ?? "NN1"  ?? "NN2" ?? "NN3";
           }
 
+
         public static string GetModelNameFromObject(object pObject){
            string res=pObject.GetType().ToString().Replace("]","").Split(".").Last();
             return res;

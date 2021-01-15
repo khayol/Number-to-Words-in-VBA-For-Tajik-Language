@@ -293,10 +293,8 @@ private string ErrorMessage;
                 */
 
                  GnrSrv.UpdateReleatedDataMain(AppData.ChoosedEntityId,AppData.ChoosedEntityFK,IdSelected,AppData.ChoosedEntityName);
-             
-             NavManager.NavigateTo(AppData.BaseUrlUri);
-             AppData.UpdatedFK_Id=int.Parse(pIdOfRecord);
-           
+                 GoBrwsNavigation(-1);
+              
            }
        }else
          {
@@ -325,7 +323,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 317 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 315 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -517,7 +515,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 517 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 515 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -529,7 +527,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 528 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 526 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

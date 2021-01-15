@@ -207,18 +207,11 @@ using Woorj.Pages.TESTS.L22;
       
     [Parameter] public string CurrentID { get; set; }
     Country objMain = new Country();    
-    private string  CancelOrBeckTxt { get; set; } 
-
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
-    }
     void Cancel()
     {
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");

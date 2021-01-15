@@ -253,7 +253,6 @@ using Woorj.Pages.TESTS.L22;
 
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        AppData.BaseUrlUri=NavManager.Uri.ToString(); 
         string searchValue = changeEventArgs.Value.ToString();
         list = MainController.GetSearchByField(searchValue);
         grid.GoToFirstPage();

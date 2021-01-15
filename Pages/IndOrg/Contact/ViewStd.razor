@@ -15,7 +15,7 @@
            <ControlQuickAccess>
                <WrSpace Length=2/>
                <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/IndOrg/Contact/Add"     TxtToolTip="Add" />
-               <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/Contact/Edit/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="View" />
+               <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/IndOrg/Contact/View/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="View" />
                <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/IndOrg/Contact/Edit/"   LinkId=@AppData.Contact_IdSelect TxtToolTip="Edit" />
                <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/IndOrg/Contact/Delete/" LinkId=@AppData.Contact_IdSelect TxtToolTip="Delete" />
             </ControlQuickAccess> 
@@ -28,8 +28,7 @@
  #region     Declare
     
    private WrDataGrid<Contact> grid;
-    private List<Contact> ContactList;
-    
+    private List<Contact> ContactList;    
     [Parameter] public string IndividualId { get; set;}
     public string  backLink  { get; set; }
  
@@ -42,7 +41,6 @@
         MainController.Initialized();
 
        backLink="/IndOrg/Individual/Edit/"+ IndividualId;
-        AppData.ActivePageName="View-Contact"; 
         ContactList = MainController.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
     }
 

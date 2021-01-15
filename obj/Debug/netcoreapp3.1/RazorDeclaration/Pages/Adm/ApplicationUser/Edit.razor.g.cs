@@ -207,7 +207,6 @@ using Woorj.Pages.TESTS.L22;
       
     [Parameter] public string CurrentID { get; set; }
     ApplicationUser objMain = new ApplicationUser();    
-    private string  CancelOrBeckTxt { get; set; } 
 
     protected override void OnInitialized()
     {

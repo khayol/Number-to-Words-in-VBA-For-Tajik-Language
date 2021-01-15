@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Woorj.Pages.Adm.ApplicationUser
+namespace Woorj.Pages.IndOrg.Contact
 {
     #line hidden
     using System;
@@ -194,8 +194,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Settings/{CurrentID}")]
-    public partial class Settings : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Contact/View/{CurrentID}")]
+    public partial class View : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -203,41 +203,25 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Settings.razor"
+#line 34 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Contact\View.razor"
       
-
     [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objApplicationUser = new ApplicationUser();
-    public List<Language> LanguageList;
-        
-     protected override void OnInitialized()
-    {
-        objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
-        LanguageList =  LanguageController.GetLangActive();
-     }
+    Contact objMain = new Contact();
 
-    protected void UpdateApplicationUser()
+    protected override void OnInitialized()
     {
-       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       GoBrwsNavigation(-2);
-    }
+        objMain = MainController.GetContactById(Convert.ToInt32(CurrentID));
+   }
+
     void Cancel()
     {
-         GoBrwsNavigation(-2);
+        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
     }
-     public  void GoBrwsNavigation(int pVal)
-    {
-        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-    }
-
-
-
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private LanguageController LanguageController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController objApplicationUserController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

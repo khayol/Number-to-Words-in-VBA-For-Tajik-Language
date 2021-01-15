@@ -633,3 +633,5 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Cou
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Country\View.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Gender\View.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Gender\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\Contact\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\Contact\View.razor.g.cs

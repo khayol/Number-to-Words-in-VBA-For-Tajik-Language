@@ -207,19 +207,11 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();    
-    private string  CancelOrBeckTxt { get; set; } 
-
+    ApplicationUser objMain = new ApplicationUser();  
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
-    }
-
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
     }
     void Cancel()
     {

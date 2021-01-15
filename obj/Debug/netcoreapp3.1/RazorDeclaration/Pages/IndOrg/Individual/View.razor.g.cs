@@ -204,61 +204,21 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning restore 1998
 #nullable restore
 #line 90 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Individual\View.razor"
-      
-   [Parameter] public string CurrentID { get; set; }
-    Individual objMain = new Individual();
-    
-    private string  CancelOrBeckTxt { get; set; }
-    private List<Country> CountryList;
-    
+       
+    [Parameter] public string CurrentID { get; set; }
+    Individual objMain = new Individual();    
+    private List<Country> CountryList;    
     private List<Gender> GenderList;
-    //private WrCombo<Gender> grid;    
-
-
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
         GenderList =  GenderController.Get();
         CountryList =  CountryController.Get();
-
-
-    }
-    public void GoToCollection(string pLinkAddress,string pIdOfRecord)
-    {           
-      AppData.BaseUrlUri=NavManager.Uri;//"/IndOrg/IndividualEdit/"+pIdOfRecord;
-      NavManager.NavigateTo(pLinkAddress+pIdOfRecord); // change "0" to the Contact Id in Individual Table
-      AppData.flg_ChoosedRow=1;
-      AppData.ChoosedRowId=int.Parse(pIdOfRecord);      
-    }
-
-    public void GoToCollection(string pLinkAddress,string pIdOfRecord,  string pChoosedEntityName, 
-                               int pChoosedEntityId, string pChoosedEntityFK)
-    {           
-        AppData.BaseUrlUri=NavManager.Uri;
-        NavManager.NavigateTo(pLinkAddress+"0");
-        AppData.flg_ChoosedRow=1;
-
-        if (!string.IsNullOrEmpty(pIdOfRecord)){
-        AppData.ChoosedRowId=int.Parse(pIdOfRecord);
-        } else
-        {
-          AppData.ChoosedRowId=1; // NeedUpdate (bad solution)
-        }
-        AppData.ChoosedEntityName=pChoosedEntityName; 
-        AppData.ChoosedEntityId=pChoosedEntityId; 
-        AppData.ChoosedEntityFK=pChoosedEntityFK;
-      
-    }
-
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo(AppData.IndividualLink);
     }
     void Cancel()
     {
-        NavManager.NavigateTo(AppData.IndividualLink);
+         NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
     }
 
   

@@ -208,18 +208,12 @@ using Woorj.Pages.TESTS.L22;
 
     [Parameter] public string CurrentID { get; set; }
     ApplicationRole objMain = new ApplicationRole();    
-    private string  CancelOrBeckTxt { get; set; } 
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
     }
 
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
-    }
     void Cancel()
     {
         NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");

@@ -208,8 +208,6 @@ using Woorj.Pages.TESTS.L22;
 
     [Parameter] public string CurrentID { get; set; }
     Country objMain = new Country();    
-    private string  CancelOrBeckTxt { get; set; } 
-
 
     protected override void OnInitialized()
     {

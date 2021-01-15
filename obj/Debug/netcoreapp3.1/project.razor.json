@@ -78,274 +78,9 @@
         }
       },
       {
-        "HashCode": -196565902,
+        "HashCode": 1236630394,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Add"
-        }
-      },
-      {
-        "HashCode": 1191886387,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Adm.ApplicationRole.Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Add",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1078881999,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.Delete",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Delete"
-        }
-      },
-      {
-        "HashCode": -875862502,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.Delete",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Adm.ApplicationRole.Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Delete",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1946329663,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Edit"
-        }
-      },
-      {
-        "HashCode": -862792920,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Adm.ApplicationRole.Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Edit",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1256609677,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.EditRoles",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "EditRoles"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.EditRoles"
-        }
-      },
-      {
-        "HashCode": -2035588986,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.EditRoles",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Adm.ApplicationRole.EditRoles"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.EditRoles",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -668245060,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.View",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "View"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.View"
-        }
-      },
-      {
-        "HashCode": 125364821,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.View",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Adm.ApplicationRole.View"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.View",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 976749247,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.ViewStd",
+        "Name": "Woorj.Pages.Adm.ApplicationUser.ViewStd",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
@@ -365,18 +100,18 @@
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.ViewStd"
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationUser.ViewStd"
         }
       },
       {
-        "HashCode": -1682138823,
+        "HashCode": -1856592999,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationRole.ViewStd",
+        "Name": "Woorj.Pages.Adm.ApplicationUser.ViewStd",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Woorj.Pages.Adm.ApplicationRole.ViewStd"
+            "TagName": "Woorj.Pages.Adm.ApplicationUser.ViewStd"
           }
         ],
         "BoundAttributes": [
@@ -391,7 +126,7 @@
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.ViewStd",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationUser.ViewStd",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -714,9 +449,274 @@
         }
       },
       {
-        "HashCode": 1236630394,
+        "HashCode": -196565902,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationUser.ViewStd",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.Add",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Add"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Add"
+        }
+      },
+      {
+        "HashCode": 1191886387,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.Add",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Adm.ApplicationRole.Add"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Add",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1078881999,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.Delete",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Delete"
+        }
+      },
+      {
+        "HashCode": -875862502,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.Delete",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Adm.ApplicationRole.Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Delete",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1946329663,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Edit"
+        }
+      },
+      {
+        "HashCode": -862792920,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Adm.ApplicationRole.Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.Edit",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1256609677,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.EditRoles",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EditRoles"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.EditRoles"
+        }
+      },
+      {
+        "HashCode": -2035588986,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.EditRoles",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Adm.ApplicationRole.EditRoles"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.EditRoles",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -668245060,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.View"
+        }
+      },
+      {
+        "HashCode": 125364821,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Adm.ApplicationRole.View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.View",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 976749247,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.ViewStd",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
@@ -736,18 +736,18 @@
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationUser.ViewStd"
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.ViewStd"
         }
       },
       {
-        "HashCode": -1856592999,
+        "HashCode": -1682138823,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationUser.ViewStd",
+        "Name": "Woorj.Pages.Adm.ApplicationRole.ViewStd",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Woorj.Pages.Adm.ApplicationUser.ViewStd"
+            "TagName": "Woorj.Pages.Adm.ApplicationRole.ViewStd"
           }
         ],
         "BoundAttributes": [
@@ -762,7 +762,7 @@
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationUser.ViewStd",
+          "Common.TypeName": "Woorj.Pages.Adm.ApplicationRole.ViewStd",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -796,536 +796,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.Core.Help",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1491665092,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.Add"
-        }
-      },
-      {
-        "HashCode": -1790715101,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Country.Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.Add",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1274069099,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.Delete",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.Delete"
-        }
-      },
-      {
-        "HashCode": -653429182,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.Delete",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Country.Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.Delete",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1268593207,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.Edit"
-        }
-      },
-      {
-        "HashCode": 867983048,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Country.Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.Edit",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -802145170,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.View",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "View"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.View"
-        }
-      },
-      {
-        "HashCode": 1899250537,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.View",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Country.View"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.View",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1602107571,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.ViewStd"
-        }
-      },
-      {
-        "HashCode": 777711135,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Country.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Country.ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Country.ViewStd",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1897246189,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.Add"
-        }
-      },
-      {
-        "HashCode": 465582217,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Gender.Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.Add",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 337143114,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.Delete",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.Delete"
-        }
-      },
-      {
-        "HashCode": -144137423,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.Delete",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Gender.Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.Delete",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1863683326,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.Edit"
-        }
-      },
-      {
-        "HashCode": 56072139,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Gender.Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.Edit",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1900631859,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.View",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "View"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.View"
-        }
-      },
-      {
-        "HashCode": 255380363,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.View",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Gender.View"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.View",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1925632174,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.ViewStd"
-        }
-      },
-      {
-        "HashCode": 1862914462,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Dir.Gender.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Dir.Gender.ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Dir.Gender.ViewStd",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -1396,247 +866,68 @@
         }
       },
       {
-        "HashCode": -1636267691,
+        "HashCode": -1628899068,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.Add",
+        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdClassic",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Add"
+            "TagName": "ViewStdClassic"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Add"
+          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdClassic"
         }
       },
       {
-        "HashCode": -2058142842,
+        "HashCode": -1485457363,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.Add",
+        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdClassic",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Woorj.Pages.IndOrg.Contact.Add"
+            "TagName": "Woorj.Pages.IndOrg.Individual.ViewStdClassic"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Add",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdClassic",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
       {
-        "HashCode": -501061073,
+        "HashCode": 2106188566,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.Delete",
+        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
+            "TagName": "ViewStdSimpleTable"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Delete"
+          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable"
         }
       },
       {
-        "HashCode": -530901264,
+        "HashCode": -311748084,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.Delete",
+        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Woorj.Pages.IndOrg.Contact.Delete"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
+            "TagName": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Delete",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1035478664,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Edit"
-        }
-      },
-      {
-        "HashCode": -225351454,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.Edit",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.IndOrg.Contact.Edit"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentID",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentID"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Edit",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1245058971,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "IndividualId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "IndividualId"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.ViewStd"
-        }
-      },
-      {
-        "HashCode": 1092039209,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Contact.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.IndOrg.Contact.ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "IndividualId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "IndividualId"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.ViewStd",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -782942346,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Gender.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Gender.ViewStd"
-        }
-      },
-      {
-        "HashCode": -254799667,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Gender.ViewStd",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.IndOrg.Gender.ViewStd"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Gender.ViewStd",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -1998,68 +1289,353 @@
         }
       },
       {
-        "HashCode": -1628899068,
+        "HashCode": -1636267691,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdClassic",
+        "Name": "Woorj.Pages.IndOrg.Contact.Add",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ViewStdClassic"
+            "TagName": "Add"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdClassic"
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Add"
         }
       },
       {
-        "HashCode": -1485457363,
+        "HashCode": -2058142842,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdClassic",
+        "Name": "Woorj.Pages.IndOrg.Contact.Add",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Woorj.Pages.IndOrg.Individual.ViewStdClassic"
+            "TagName": "Woorj.Pages.IndOrg.Contact.Add"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdClassic",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Add",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
       {
-        "HashCode": 2106188566,
+        "HashCode": -501061073,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable",
+        "Name": "Woorj.Pages.IndOrg.Contact.Delete",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "ViewStdSimpleTable"
+            "TagName": "Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable"
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Delete"
         }
       },
       {
-        "HashCode": -311748084,
+        "HashCode": -530901264,
         "Kind": "Components.Component",
-        "Name": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable",
+        "Name": "Woorj.Pages.IndOrg.Contact.Delete",
         "AssemblyName": "Woorj",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable"
+            "TagName": "Woorj.Pages.IndOrg.Contact.Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.IndOrg.Individual.ViewStdSimpleTable",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Delete",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 267969155,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Contact.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.View"
+        }
+      },
+      {
+        "HashCode": -773864169,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Contact.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.IndOrg.Contact.View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.View",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1245058971,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Contact.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IndividualId",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "IndividualId"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.ViewStd"
+        }
+      },
+      {
+        "HashCode": 1092039209,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Contact.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.IndOrg.Contact.ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IndividualId",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "IndividualId"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.ViewStd",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1035478664,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Contact.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Edit"
+        }
+      },
+      {
+        "HashCode": -225351454,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Contact.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.IndOrg.Contact.Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Contact.Edit",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -782942346,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Gender.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Gender.ViewStd"
+        }
+      },
+      {
+        "HashCode": -254799667,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Gender.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.IndOrg.Gender.ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Gender.ViewStd",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -2030330951,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Country.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Country.ViewStd"
+        }
+      },
+      {
+        "HashCode": -549368962,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.IndOrg.Country.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.IndOrg.Country.ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.IndOrg.Country.ViewStd",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -6276,6 +5852,536 @@
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "Woorj.Pages.WrComponents.WrTbl<TItem>",
           "Components.GenericTyped": "True",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1491665092,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.Add",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Add"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.Add"
+        }
+      },
+      {
+        "HashCode": -1790715101,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.Add",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Country.Add"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.Add",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1274069099,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.Delete",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.Delete"
+        }
+      },
+      {
+        "HashCode": -653429182,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.Delete",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Country.Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.Delete",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1268593207,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.Edit"
+        }
+      },
+      {
+        "HashCode": 867983048,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Country.Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.Edit",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -802145170,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.View"
+        }
+      },
+      {
+        "HashCode": 1899250537,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Country.View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.View",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1602107571,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.ViewStd"
+        }
+      },
+      {
+        "HashCode": 777711135,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Country.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Country.ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Country.ViewStd",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1897246189,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.Add",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Add"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.Add"
+        }
+      },
+      {
+        "HashCode": 465582217,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.Add",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Gender.Add"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.Add",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 337143114,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.Delete",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.Delete"
+        }
+      },
+      {
+        "HashCode": -144137423,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.Delete",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Gender.Delete"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.Delete",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1900631859,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.View"
+        }
+      },
+      {
+        "HashCode": 255380363,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.View",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Gender.View"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.View",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1925632174,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.ViewStd"
+        }
+      },
+      {
+        "HashCode": 1862914462,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.ViewStd",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Gender.ViewStd"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.ViewStd",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1863683326,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.Edit"
+        }
+      },
+      {
+        "HashCode": 56072139,
+        "Kind": "Components.Component",
+        "Name": "Woorj.Pages.Dir.Gender.Edit",
+        "AssemblyName": "Woorj",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Woorj.Pages.Dir.Gender.Edit"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "CurrentID",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "CurrentID"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Woorj.Pages.Dir.Gender.Edit",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -22889,6 +22995,11 @@
     {
       "FilePath": "e:\\A_NewProjects\\01\\Woorj\\Pages\\Dir\\Gender\\Add.razor",
       "TargetPath": "Pages\\Dir\\Gender\\Add.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "e:\\A_NewProjects\\01\\Woorj\\Pages\\IndOrg\\Contact\\View.razor",
+      "TargetPath": "Pages\\IndOrg\\Contact\\View.razor",
       "FileKind": "component"
     },
     {

@@ -207,7 +207,6 @@ using Woorj.Pages.TESTS.L22;
         
 protected override void OnInitialized()
 {
-    AppData.BaseUrlUri=NavManager.Uri.ToString(); 
 }
 
 #line default

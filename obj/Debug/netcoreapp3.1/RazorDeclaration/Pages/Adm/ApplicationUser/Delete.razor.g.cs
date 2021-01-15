@@ -205,10 +205,8 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 41 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Delete.razor"
       
-
     [Parameter] public string CurrentID { get; set; }
     ApplicationUser objMain = new ApplicationUser();  
- 
 
     protected override void OnInitialized()
     {

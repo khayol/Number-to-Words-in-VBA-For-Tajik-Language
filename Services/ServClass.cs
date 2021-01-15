@@ -21,6 +21,7 @@ namespace Woorj.Services
         JSRuntime=iJSRuntime;
     }
 
+ 
     public void CRUD(string pOperType, string pNavLink, string pRecId)
     {      
         //  CRUD => C=CREATE, R=READ,= U=UPDATE, D=DELETE

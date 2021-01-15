@@ -4,7 +4,7 @@
 
 <WrAuth PageName="ApplicationUserEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Cancel" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
@@ -40,19 +40,11 @@
 @code{
 
     [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();    
-    private string  CancelOrBeckTxt { get; set; } 
-
+    ApplicationUser objMain = new ApplicationUser();  
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
-    }
-
-    protected void Update()
-    {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
     }
     void Cancel()
     {
