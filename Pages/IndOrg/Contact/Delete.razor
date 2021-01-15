@@ -16,9 +16,9 @@
             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
               
              <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-              ReadonlyOpt="readonlyMain1" Val="@objContact.Code" />
+              ReadonlyOpt="true" Val="@objContact.Code" />
 
-            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Name"
+            <WrFieldStr ReadonlyThis="true" FieldCaption="Name"
             TransEntity="Individual"  @bind-BindingValue ="@objContact.Name"/> 
 
       </FormElements>      
@@ -30,11 +30,9 @@
    [Parameter]
    public string CurrentID {get;set;}
     Contact objContact= new Contact();
-       private bool readonlyMain1 {get;set;}=false;
 
-       protected override void OnInitialized()
+    protected override void OnInitialized()
     {
-      readonlyMain1=AppData.readonlyMain1;
       objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));       
     }
     

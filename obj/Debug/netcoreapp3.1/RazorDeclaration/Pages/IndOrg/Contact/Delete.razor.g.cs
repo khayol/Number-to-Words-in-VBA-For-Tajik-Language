@@ -208,11 +208,9 @@ using Woorj.Pages.TESTS.L22;
    [Parameter]
    public string CurrentID {get;set;}
     Contact objContact= new Contact();
-       private bool readonlyMain1 {get;set;}=false;
 
-       protected override void OnInitialized()
+    protected override void OnInitialized()
     {
-      readonlyMain1=AppData.readonlyMain1;
       objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));       
     }
     

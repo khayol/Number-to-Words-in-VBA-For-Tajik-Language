@@ -262,14 +262,8 @@ using System.Reflection;
     public EventCallback<string> SelectedRow { get; set; } 
     
 #endregion  Declare_Region
-
-        protected override void OnInitialized()
+     protected override void OnInitialized()
      {
-
-
-        readonlyMain1=AppData.readonlyMain1;
-        readonlyMain2=AppData.readonlyMain2;
-        readonlyOther=AppData.readonlyOther;
 
     }
 
@@ -368,7 +362,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 285 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrEditView4.razor"
+#line 279 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrEditView4.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -380,7 +374,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 296 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrEditView4.razor"
+#line 290 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrEditView4.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

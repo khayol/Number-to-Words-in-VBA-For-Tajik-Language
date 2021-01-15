@@ -35,21 +35,12 @@ namespace Woorj.Services
         } 
         else if (pOperType.ToUpper()=="R" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId) || pRecId!="0"))
         {
-            _AppData.readonlyMain1=true;
-            _AppData.readonlyMain2=true;
-            _AppData.readonlyOther=true;
             NavManager.NavigateTo(pNavLink + pRecId);
         }else if (pOperType.ToUpper()=="U" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId)  || pRecId!="0"))
         {
-            _AppData.readonlyMain1=true;
-            _AppData.readonlyMain2=true;
-            _AppData.readonlyOther=false; 
             NavManager.NavigateTo(pNavLink + pRecId);
         }else if (pOperType.ToUpper()=="D" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId)  || pRecId!="0"))
         {
-            _AppData.readonlyMain1=true;
-            _AppData.readonlyMain2=true;
-            _AppData.readonlyOther=true; 
             NavManager.NavigateTo(pNavLink + pRecId);
         }else if (pOperType.ToUpper()=="N" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId)  || pRecId!="0"))
         {

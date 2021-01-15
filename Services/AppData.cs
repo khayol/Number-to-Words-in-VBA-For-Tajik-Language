@@ -34,14 +34,8 @@ namespace Woorj.Services
         public string ChoosedEntityFK { get; set; } = "";
         public int UpdatedFK_Id { get; set; } = 0;
 
-
         public string designSite{get;set;}="css/site.css";
-
-        
-        public bool readonlyMain1 {get;set;}=true;
-        public bool readonlyMain2 {get;set;}=true;
-        public bool readonlyOther {get;set;}=true;
-
+     
         #endregion General
     
     #region Dir    
