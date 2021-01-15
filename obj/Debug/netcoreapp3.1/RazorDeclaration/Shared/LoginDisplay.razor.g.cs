@@ -229,7 +229,7 @@ using Woorj.Pages.TESTS.L22;
 
      protected void UserSettings()
     {
-       NavManager.NavigateTo("/Adm/ApplicationUserSettings/"+trs.GetIdByUserName(AppData.ActiveUser));
+       NavManager.NavigateTo("/Adm/ApplicationUser/Settings/"+trs.GetIdByUserName(AppData.ActiveUser));
 
     }
 
