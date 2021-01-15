@@ -1,4 +1,4 @@
-@page "/Dir/Gender/Edit/{CurrentID}"
+@page "/Dir/Gender/View/{CurrentID}"
 @inject GenderController MainController
 
 <WrAuth PageName="GenderEdit"><MainContent>  
@@ -9,9 +9,8 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-            <WrOper Category="EditForm" EditOrView=true TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
-            <WrOper Category="EditForm" EditOrView=true TypeInput="submit" Txt="Update"/>
-       </ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="Back"  OnClickCallback="Cancel"/> 
+          </ControlQuickAccess>
     </WrPnlElm>
 
     <WrFormBody>
@@ -19,7 +18,7 @@
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
             ReadonlyOpt="true" Val="@objMain.Code" />
 
-            <WrFieldStr  FieldCaption="Name" 
+            <WrFieldStr  FieldCaption="Name" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
 
         </FormElements>      
@@ -34,7 +33,6 @@
     public string CurrentID { get; set; }
     Gender objMain = new Gender();    
     private string  CancelOrBeckTxt { get; set; } 
- 
 
     protected override void OnInitialized()
     {

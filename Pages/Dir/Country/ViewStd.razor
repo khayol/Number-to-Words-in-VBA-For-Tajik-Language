@@ -19,7 +19,7 @@
 
           <ControlMenu>
             <WrOper Design="a" Type="C"  Link="/Dir/Country/Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect Txt="View" />
+            <WrOper Design="a" Type="R"  Link="/Dir/Country/View/"   LinkId=@AppData.Country_IdSelect Txt="View" />
             <WrOper Design="a" Type="U"  Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect Txt="Edit" />
             <WrOper Design="a" Type="D"  Link="/Dir/Country/Delete/" LinkId=@AppData.Country_IdSelect Txt="Delete" />
         </ControlMenu>
@@ -31,7 +31,7 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Dir/Country/Add"     TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect TxtToolTip="View" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Country/View/"   LinkId=@AppData.Country_IdSelect TxtToolTip="View" />
             <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect TxtToolTip="Edit" />
             <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Dir/Country/Delete/" LinkId=@AppData.Country_IdSelect TxtToolTip="Delete" />
             <WrSpace Length=2/>

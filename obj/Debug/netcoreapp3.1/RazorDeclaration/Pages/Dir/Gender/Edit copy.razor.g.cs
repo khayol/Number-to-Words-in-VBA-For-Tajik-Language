@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Woorj.Pages.Adm.ApplicationUser
+namespace Woorj.Pages.Dir.Gender
 {
     #line hidden
     using System;
@@ -13,189 +13,189 @@ namespace Woorj.Pages.Adm.ApplicationUser
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 1 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 2 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 3 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 4 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 5 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.Extensions.Localization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 6 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 7 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 8 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 9 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 12 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Toolbelt.Blazor.HeadElement;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 13 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Blazored;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 14 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Blazored.Menu;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 15 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Blazored.FluentValidation;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 28 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 29 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 29 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 31 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 31 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 32 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 32 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Core;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 33 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 33 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 34 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 34 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 35 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 35 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Data.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 37 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 37 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 41 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Adm;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 42 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 42 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.Dir;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 43 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 43 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.CtrServerSide.IndOrg;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 52 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 52 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.WrComponents;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 53 "E:\A_NewProjects\01\Woorj\_Imports.razor"
+#line 53 "e:\A_NewProjects\01\Woorj\_Imports.razor"
 using Woorj.Pages.TESTS.L22;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Delete/{CurrentID}")]
-    public partial class Delete : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/Gender/Edit/{CurrentID}")]
+    public partial class Edit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -203,34 +203,39 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Delete.razor"
+#line 31 "e:\A_NewProjects\01\Woorj\Pages\Dir\Gender\Edit copy.razor"
       
 
     [Parameter]
     public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();  
- 
+    Gender objMain = new Gender();    
+    private string  CancelOrBeckTxt { get; set; } 
+    private bool readonlyMain1 {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        readonlyMain1=AppData.readonlyMain1;
+        readonlyOther=AppData.readonlyOther;
     }
 
-    protected void DeleteRow()
+    protected void Update()
     {
-        MainController.Delete(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/0");
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/0");
     }
 
+  
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private GenderController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

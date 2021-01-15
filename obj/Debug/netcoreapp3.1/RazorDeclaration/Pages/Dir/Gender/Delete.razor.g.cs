@@ -209,11 +209,9 @@ using Woorj.Pages.TESTS.L22;
     [Parameter]
     public string CurrentID { get; set; }
     Gender objMain = new Gender();  
-    private bool readonlyMain1 {get;set;}=false;
 
     protected override void OnInitialized()
     {
-        readonlyMain1=AppData.readonlyMain1;
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 

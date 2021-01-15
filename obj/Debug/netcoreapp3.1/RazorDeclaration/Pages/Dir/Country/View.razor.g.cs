@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Woorj.Pages.Adm.ApplicationUser
+namespace Woorj.Pages.Dir.Country
 {
     #line hidden
     using System;
@@ -194,8 +194,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Delete/{CurrentID}")]
-    public partial class Delete : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/Country/View/{CurrentID}")]
+    public partial class View : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -203,34 +203,35 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Delete.razor"
+#line 50 "E:\A_NewProjects\01\Woorj\Pages\Dir\Country\View.razor"
       
 
     [Parameter]
     public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();  
- 
+    Country objMain = new Country();    
+    private string  CancelOrBeckTxt { get; set; } 
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 
-    protected void DeleteRow()
+    protected void Update()
     {
-        MainController.Delete(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
     }
 
+  
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CountryController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

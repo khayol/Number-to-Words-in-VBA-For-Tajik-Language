@@ -209,15 +209,11 @@ using Woorj.Pages.TESTS.L22;
     [Parameter]
     public string CurrentID { get; set; }
     ApplicationRole objMain = new ApplicationRole();    
-    private string  CancelOrBeckTxt { get; set; } 
-    private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;  
+    private string  CancelOrBeckTxt { get; set; }  
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
-        readonlyMain1=AppData.readonlyMain1;
-        readonlyOther=AppData.readonlyOther;
     }
 
     protected void Update()

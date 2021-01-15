@@ -194,8 +194,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Delete/{CurrentID}")]
-    public partial class Delete : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/View/{CurrentID}")]
+    public partial class View : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -203,22 +203,23 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Delete.razor"
+#line 40 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\View.razor"
       
 
     [Parameter]
     public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();  
- 
+    ApplicationUser objMain = new ApplicationUser();    
+    private string  CancelOrBeckTxt { get; set; } 
+
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
     }
 
-    protected void DeleteRow()
+    protected void Update()
     {
-        MainController.Delete(objMain);
+        MainController.Update(objMain);
         NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
     }
     void Cancel()
@@ -226,6 +227,7 @@ using Woorj.Pages.TESTS.L22;
         NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
     }
 
+  
 
 #line default
 #line hidden

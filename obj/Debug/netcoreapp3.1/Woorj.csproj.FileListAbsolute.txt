@@ -627,3 +627,11 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\Country\ViewStd.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\Individual\View.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\Individual\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Adm\ApplicationRole\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Adm\ApplicationRole\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Adm\ApplicationUser\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Adm\ApplicationUser\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Country\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Country\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Gender\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Gender\View.razor.g.cs

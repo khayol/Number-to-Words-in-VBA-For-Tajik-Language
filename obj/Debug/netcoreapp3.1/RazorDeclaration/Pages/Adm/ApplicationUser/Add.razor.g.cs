@@ -208,7 +208,6 @@ using Woorj.Pages.TESTS.L22;
 
     [Parameter]
     public string CurrentID { get; set; }
-
     ApplicationUser objMain= new ApplicationUser();
   
      protected  void Create()

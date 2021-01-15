@@ -19,7 +19,7 @@
 
           <ControlMenu>
             <WrOper Design="a" Type="C"  Link="/Adm/ApplicationRole/Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link="/Adm/ApplicationRole/Edit/"   LinkId=@AppData.ApplicationRole_IdSelect Txt="View" />
+            <WrOper Design="a" Type="R"  Link="/Adm/ApplicationRole/View/"   LinkId=@AppData.ApplicationRole_IdSelect Txt="View" />
             <WrOper Design="a" Type="U"  Link="/Adm/ApplicationRole/Edit/"   LinkId=@AppData.ApplicationRole_IdSelect Txt="Edit" />
             <WrOper Design="a" Type="D"  Link="/Adm/ApplicationRole/Delete/" LinkId=@AppData.ApplicationRole_IdSelect Txt="Delete" />
         </ControlMenu>
@@ -31,7 +31,7 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Adm/ApplicationRole/Add"     TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationRole/Edit/"   LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="View" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationRole/View/"   LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="View" />
             <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Adm/ApplicationRole/Edit/"   LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="Edit" />
             <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Adm/ApplicationRole/Delete/" LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="Delete" />
             <WrSpace Length=2/>

@@ -17,15 +17,15 @@
             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
                        
              <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />        
+            ReadonlyOpt="true" Val="@objMain.Code" />        
 
-            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Alpha3"
+            <WrFieldStr ReadonlyThis="true" FieldCaption="Alpha3"
             TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
 
-            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Name"
+            <WrFieldStr ReadonlyThis="true" FieldCaption="Name"
             TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
 
-            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="FullName"
+            <WrFieldStr ReadonlyThis="true" FieldCaption="FullName"
             TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
 
         </FormElements>      
@@ -38,11 +38,9 @@
     [Parameter]
     public string CurrentID { get; set; }
     Country objMain = new Country();  
-    private bool readonlyMain1 {get;set;}=false;
 
     protected override void OnInitialized()
     {
-          readonlyMain1=AppData.readonlyMain1;
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 

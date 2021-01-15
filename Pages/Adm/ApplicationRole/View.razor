@@ -1,4 +1,4 @@
-@page "/Adm/ApplicationRole/Edit/{CurrentID}"
+@page "/Adm/ApplicationRole/View/{CurrentID}"
 @inject ApplicationRoleController MainController
 
 
@@ -10,23 +10,22 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-            <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
-            <WrOper Category="EditForm" EditOrView=true  TypeInput="submit" Txt="Update"/>
+            <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="Back"  OnClickCallback="Cancel"/> 
        </ControlQuickAccess> 
     </WrPnlElm>
 
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-             ReadonlyOpt="true"  Val="@objMain.Code" />
+            ReadonlyOpt="true" Val="@objMain.Code" />
 
-            <WrFieldStr  FieldCaption="Name" 
+            <WrFieldStr  FieldCaption="Name" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
 
-            <WrFieldStr FieldCaption="NormalizedName" 
+            <WrFieldStr FieldCaption="NormalizedName" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.NormalizedName"/>
 
-            <WrFieldStr  FieldCaption="Description" 
+            <WrFieldStr  FieldCaption="Description" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
 
          </FormElements>      
@@ -40,7 +39,7 @@
     [Parameter]
     public string CurrentID { get; set; }
     ApplicationRole objMain = new ApplicationRole();    
-    private string  CancelOrBeckTxt { get; set; }  
+    private string  CancelOrBeckTxt { get; set; } 
 
     protected override void OnInitialized()
     {

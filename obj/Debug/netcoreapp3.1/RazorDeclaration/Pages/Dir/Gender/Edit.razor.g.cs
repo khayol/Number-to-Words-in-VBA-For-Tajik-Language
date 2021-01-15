@@ -210,14 +210,11 @@ using Woorj.Pages.TESTS.L22;
     public string CurrentID { get; set; }
     Gender objMain = new Gender();    
     private string  CancelOrBeckTxt { get; set; } 
-    private bool readonlyMain1 {get;set;}=false;
-    private bool readonlyOther {get;set;}=false;  
+ 
 
     protected override void OnInitialized()
     {
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
-        readonlyMain1=AppData.readonlyMain1;
-        readonlyOther=AppData.readonlyOther;
     }
 
     protected void Update()

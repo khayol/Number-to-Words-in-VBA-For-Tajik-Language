@@ -1,4 +1,4 @@
-@page "/Dir/Country/Edit/{CurrentID}"
+@page "/Dir/Country/View/{CurrentID}"
 @inject CountryController MainController
 
 
@@ -10,8 +10,7 @@
     
     <WrPnlElm>
         <ControlQuickAccess>
-            <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
-            <WrOper Category="EditForm" EditOrView=true  TypeInput="submit" Txt="Update"/>
+            <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="Back"  OnClickCallback="Cancel"/> 
        </ControlQuickAccess>
     </WrPnlElm>
 
@@ -20,22 +19,22 @@
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
             ReadonlyOpt="true" Val="@objMain.Code" />
 
-            <WrFieldStr  FieldCaption="Name" 
+            <WrFieldStr  FieldCaption="Name" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
 
-            <WrFieldStr FieldCaption="FullName" 
+            <WrFieldStr FieldCaption="FullName" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
 
-            <WrFieldStr  FieldCaption="English" 
+            <WrFieldStr  FieldCaption="English" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.English"/>
 
-            <WrFieldStr  FieldCaption="Alpha2" 
+            <WrFieldStr  FieldCaption="Alpha2" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Alpha2"/>
 
-            <WrFieldStr  FieldCaption="Alpha3" 
+            <WrFieldStr  FieldCaption="Alpha3" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
 
-            <WrFieldStr FieldCaption="Iso" 
+            <WrFieldStr FieldCaption="Iso" ReadonlyThis="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Iso"/>   
      
             <div class="form-group">
@@ -54,7 +53,6 @@
     public string CurrentID { get; set; }
     Country objMain = new Country();    
     private string  CancelOrBeckTxt { get; set; } 
-
 
     protected override void OnInitialized()
     {
