@@ -202,7 +202,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 66 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
+#line 70 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
         
   
     [Parameter]  
@@ -233,6 +233,9 @@ using Woorj.Pages.TESTS.L22;
    
     [Parameter]  
     public string Link { get; set; } =""; 
+    
+   [Parameter]  
+    public string SubPage { get; set; } =""; 
     
     [Parameter]  
     public string LinkId { get; set; }="";   

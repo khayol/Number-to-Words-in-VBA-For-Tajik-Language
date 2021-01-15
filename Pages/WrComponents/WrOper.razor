@@ -1,6 +1,10 @@
  
  @if(Category.ToUpper().Trim()=="CRUD".ToUpper())
  {
+         if(!string.IsNullOrEmpty(@SubPage)){
+          Link=@Link.Trim().ToString()+@SubPage.Trim().ToString();  
+          }
+    
     if(Design.ToUpper().Trim()=="a".ToUpper())
     {
       Cls="menu-itms";
@@ -93,6 +97,9 @@
    
     [Parameter]  
     public string Link { get; set; } =""; 
+    
+   [Parameter]  
+    public string SubPage { get; set; } =""; 
     
     [Parameter]  
     public string LinkId { get; set; }="";   

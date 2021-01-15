@@ -1,0 +1,150 @@
+@page "/IndOrg/Individual/View/{CurrentID}"
+@inject IndividualController MainController
+@inject GenderController GenderController
+@inject CountryController CountryController
+@inject GnrSrv GnrSrv 
+
+<WrAuth PageName="IndividualEdit"><MainContent>  
+
+<EditForm Model="@objMain" OnValidSubmit="@Update" Context="formContext">  
+    <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
+    <ValidationSummary/>
+    
+    <WrPnlElm>
+        <ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="back"  OnClickCallback="Cancel"/> 
+       </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+            <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
+            ReadonlyOpt="true" Val="@objMain.Code" />
+
+           <WrFieldStr ReadonlyThis="true" FieldCaption="FirstName"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
+
+            <WrFieldStr ReadonlyThis="true" FieldCaption="SecondName"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+
+            <WrFieldStr ReadonlyThis="true" FieldCaption="LastName"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
+
+            <WrFieldStr ReadonlyThis="true" FieldCaption="FirstNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstNameEN"/>
+
+            <WrFieldStr ReadonlyThis="true" FieldCaption="SecondNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondNameEN"/>
+
+            <WrFieldStr ReadonlyThis="true" FieldCaption="LastNameEN"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastNameEN"/>    
+           
+           <WrFieldDateTime TransEntity="Individual" FieldCaption="BirthDay">
+               <RenderFrg>
+                   <InputDate readonly="@true"  form="BirthDay"  class="form-control"  @bind-Value="@objMain.BirthDay" @bind-Value:format="dd/MM/yyyy"/>
+               </RenderFrg>
+           </WrFieldDateTime>
+            
+            <WrFieldStr ReadonlyThis="true" FieldCaption="Address"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.Address"/>
+
+            <WrFieldArray TransEntity="Individual" FieldCaption="Contact" >
+                <RenderFrg>
+                <label  class="control-clct">@GnrSrv.ExistDataORNotFlag("Contact", "IndividualId", @CurrentID)</label>
+                </RenderFrg>
+            </WrFieldArray>
+
+            <WrFieldStr ReadonlyThis="true" FieldCaption="PassSerial"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.PassSerial"/>
+    
+            <WrFieldStr ReadonlyThis="true" FieldCaption="PassCode"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.PassCode"/>
+ 
+            <div class="form-group">
+                     <WrLebel TransEntity="Individual" FieldCaption="Gender"/>
+                          <select disabled="@true" class="form-control selectpicker" @bind="@objMain.GenderId">
+                            <option>--select--</option>
+                            @foreach (var item in GenderList)
+                            {
+                            <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
+                            }
+                        </select>   
+            </div> 
+                 
+               <div class="form-group">
+                    <WrLebel TransEntity="Individual" FieldCaption="BirthPlace" />
+                    <input readonly="true" form="BirthPlace" class="form-control" value="@GnrSrv.GetReleatedData("Country", "Name", @objMain.BirthPlace_CountryId.ToString())" />
+                </div>
+     
+                <div class="form-group">
+                    <WrLebel TransEntity="Individual" FieldCaption="CreatedDate"/>
+                    <input  readonly="true" class="form-control" @bind="@objMain.CreatedDate" />
+                </div>
+
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+
+@code{
+
+    [Parameter]
+    public string CurrentID { get; set; }
+    Individual objMain = new Individual();
+    
+    private string  CancelOrBeckTxt { get; set; }
+    private List<Country> CountryList;
+    
+    private List<Gender> GenderList;
+    //private WrCombo<Gender> grid;    
+
+
+
+    protected override void OnInitialized()
+    {
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        GenderList =  GenderController.Get();
+        CountryList =  CountryController.Get();
+
+
+    }
+    public void GoToCollection(string pLinkAddress,string pIdOfRecord)
+    {           
+      AppData.BaseUrlUri=NavManager.Uri;//"/IndOrg/IndividualEdit/"+pIdOfRecord;
+      NavManager.NavigateTo(pLinkAddress+pIdOfRecord); // change "0" to the Contact Id in Individual Table
+      AppData.flg_ChoosedRow=1;
+      AppData.ChoosedRowId=int.Parse(pIdOfRecord);      
+    }
+
+    public void GoToCollection(string pLinkAddress,string pIdOfRecord,  string pChoosedEntityName, 
+                               int pChoosedEntityId, string pChoosedEntityFK)
+    {           
+        AppData.BaseUrlUri=NavManager.Uri;
+        NavManager.NavigateTo(pLinkAddress+"0");
+        AppData.flg_ChoosedRow=1;
+
+        if (!string.IsNullOrEmpty(pIdOfRecord)){
+        AppData.ChoosedRowId=int.Parse(pIdOfRecord);
+        } else
+        {
+          AppData.ChoosedRowId=1; // NeedUpdate (bad solution)
+        }
+        AppData.ChoosedEntityName=pChoosedEntityName; 
+        AppData.ChoosedEntityId=pChoosedEntityId; 
+        AppData.ChoosedEntityFK=pChoosedEntityFK;
+      
+    }
+
+    protected void Update()
+    {
+        MainController.Update(objMain);
+        NavManager.NavigateTo(AppData.IndividualLink);
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo(AppData.IndividualLink);
+    }
+
+  
+}

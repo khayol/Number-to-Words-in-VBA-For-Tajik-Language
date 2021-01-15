@@ -1,16 +1,6 @@
 ﻿<div >
      <div class="panel-header" >
-@*         
-            &nbsp;
-            <div style="display: inline" @onclick="@(args => NavManager.NavigateTo("/"))"><span class="fa fa-home" aria-hidden="true"></span></div>
-            &nbsp;
-            <div style="display: inline" @onclick="@(args => NavManager.NavigateTo("/MainMenu"))"><span class="fa fa-list" aria-hidden="true"></span></div>
-            &nbsp;
-            <div style="display: inline" @onclick="@(args => NavManager.NavigateTo("/Core/Help"))"><span class="fa fa-question" aria-hidden="true"></span></div>
-            &nbsp;  
-             *@
-
-        &nbsp;
+        
         <button class="btn bnt-style-general"  @onclick="@(args => NavManager.NavigateTo("/"))" data-toggle="tooltip" title=""><span class="fa fa-home" aria-hidden="true"></span></button>
         &nbsp; 
         <button class="btn bnt-style-general"  @onclick="@(args => NavManager.NavigateTo("/MainMenu"))" data-toggle="tooltip" title=""><span class="fa fa-list" aria-hidden="true"></span></button>
@@ -18,9 +8,7 @@
         <button class="btn bnt-style-general"  @onclick="@(args => NavManager.NavigateTo("/Core/Help"))" data-toggle="tooltip" title=""><span class="fa fa-question" aria-hidden="true"></span></button>
         &nbsp;  
 
-        @* <a>@AppData.appName   </a>  *@
-        @* <a>&nbsp;&nbsp;&nbsp;&nbsp;@AppData.orgName</a>  *@
-        @* span *@
+
         <div style="display: inline; " id="org-name">
         @trs.GetTranslation("OrgName",@AppData.ActiveUser,"General")
         </div>

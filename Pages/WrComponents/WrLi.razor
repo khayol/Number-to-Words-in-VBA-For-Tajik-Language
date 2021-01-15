@@ -1,0 +1,45 @@
+   @if (Authorize)
+   {   
+    <AuthorizeView Roles="@admSer.GetRolesList(@PageName)">  
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="@Link" Match="@Match">
+                  <span class="oi oi-home" aria-hidden="true"></span> @trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
+            </NavLink>
+        </li> 
+    </AuthorizeView>
+   }else
+   {
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="@Link" Match="@Match">
+                  <span class="oi oi-home" aria-hidden="true"></span> @trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
+            </NavLink>
+        </li> 
+   }
+@code
+{
+    [Parameter]
+    public bool Authorize { get; set; }=true;
+
+    [Parameter]
+    public string PageName { get; set; }
+    [Parameter]
+    public string Link { get; set; }
+
+    [Parameter]
+    public NavLinkMatch Match { get; set; }    
+
+    [Parameter]
+    public string FieldCaption { get; set; }
+      
+    [Parameter]
+    public string TransEntity { get; set; }="General"; 
+    
+  protected override void OnInitialized()
+    {
+      if (string.IsNullOrEmpty(FieldCaption))
+      {
+         FieldCaption=PageName; 
+      } 
+     
+    }
+}    

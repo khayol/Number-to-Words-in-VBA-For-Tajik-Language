@@ -4,6 +4,12 @@
 function console_write(p_msg_txt) {
     console.log(p_msg_txt);
 }
+// Widows Navigation method
+window.brws = {
+    historyGo(value) {
+        window.history.go(value);
+    }
+};
 
 function saveMessage(firstName, lastName) {
     alert(firstName+''+lastName+'Record has been saved successfully');

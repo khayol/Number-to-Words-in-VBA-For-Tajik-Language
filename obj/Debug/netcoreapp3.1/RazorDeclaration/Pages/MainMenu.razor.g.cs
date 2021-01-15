@@ -203,13 +203,11 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 71 "E:\A_NewProjects\01\Woorj\Pages\MainMenu.razor"
+#line 24 "E:\A_NewProjects\01\Woorj\Pages\MainMenu.razor"
         
 protected override void OnInitialized()
-//protected override async Task OnInitializedAsync()
 {
     AppData.BaseUrlUri=NavManager.Uri.ToString(); 
-
 }
 
 #line default

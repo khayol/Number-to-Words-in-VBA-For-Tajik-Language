@@ -232,13 +232,6 @@ using Woorj.Pages.TESTS.L22;
     [Parameter]
     public EventCallback<string> BindingValueChanged { get; set; } 
 
-/*
-     protected override void OnInitialized()
-    {
-      Console.WriteLine("BindingValue = "+BindingValue);
-      Console.WriteLine("BindingValue = "+BindingValue);
-    }
-*/
 
    
 

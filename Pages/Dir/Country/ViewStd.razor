@@ -1,0 +1,101 @@
+﻿@page "/Dir/Country/ViewStd/{Id}"
+@inject CountryController MainController
+
+<WrAuth PageName="CountryViewStd"><MainContent> 
+    <WrDataGrid @ref="grid"
+                  DataItems="list"
+                  SelectedRow="SelectedRowMeth"
+                  Columns="@MainController.columns"
+                  UniqIdOfRecord="Id"
+                  ColumnsToExcludeCSV="Id"
+                  PageNameTitle="CountryViewStd::Dir"
+                  BackLink="/MainMenu"
+                  Paging="@(new PagingConfig
+                            {
+                                Enabled = true,
+                                CustomPager = false,
+                                PageSize = @AppData.rowNumMid
+                            })">
+
+          <ControlMenu>
+            <WrOper Design="a" Type="C"  Link="/Dir/Country/Add"     Txt="Add" />
+            <WrOper Design="a" Type="R"  Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect Txt="View" />
+            <WrOper Design="a" Type="U"  Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link="/Dir/Country/Delete/" LinkId=@AppData.Country_IdSelect Txt="Delete" />
+        </ControlMenu>
+
+        <ControlQuickAccess>
+            <WrSrchDGrid OnSearchTextChanged="SearchTxt"> </WrSrchDGrid>
+            <WrSpace Length=2/>
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  TxtToolTip="ShowMoreRecords" />
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
+            <WrSpace Length=2/>
+            <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Dir/Country/Add"     TxtToolTip="Add" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Dir/Country/Edit/"   LinkId=@AppData.Country_IdSelect TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Dir/Country/Delete/" LinkId=@AppData.Country_IdSelect TxtToolTip="Delete" />
+            <WrSpace Length=2/>
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
+        </ControlQuickAccess>
+    </WrDataGrid>
+ </MainContent></WrAuth>
+
+
+@code  {
+
+
+ #region     Declare
+    [Parameter]
+    public string Id { get; set; }
+    private WrDataGrid<Country> grid;
+    private List<Country> list;
+    private string searchValue   { get; set; }
+ 
+ #endregion  Declare
+
+ #region    BlazorMethods
+
+    protected override void OnInitialized()
+    {
+        MainController.Initialized();
+        list = MainController.GetById(int.Parse(Id)).ToList();         
+    }
+
+#endregion BlazorMethods
+
+#region    Event
+
+    private void SearchTxt(ChangeEventArgs changeEventArgs)
+    {
+        searchValue = changeEventArgs.Value.ToString();
+        list = MainController.GetSearchByField(searchValue);
+        grid.GoToFirstPage();
+    }
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        AppData.Country_IdSelect = pSelectedRow;
+    }
+    protected void FindSelectedRec()
+    {
+        grid.GoToFirstPage();
+        list = MainController.GetById(int.Parse(AppData.Country_IdSelect));
+    }
+    protected void CleanSearchBox()
+    {
+        grid.GoToFirstPage();
+        list = MainController.GetSearchByField("");
+        AppData.Country_IdSelect = "0";
+    }
+
+    protected void ExportToExcel()
+    {
+       // MainController.GenerateExcel(JSRuntime);
+    }
+    protected void FilterData()
+    {
+        JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
+    }
+ #endregion Event
+
+}

@@ -1,7 +1,8 @@
 ﻿@typeparam TItem
 @using System.Reflection
 @inject GnrSrv GnrSrv 
-
+@* @inject IStringLocalizer<IndividualViewStd> LL  *@
+    
 @if (!string.IsNullOrWhiteSpace(ErrorMessage))
 {
 <div class="notification is-danger">
@@ -18,8 +19,20 @@ else
              
                <WrSpace Length=5/>
                 @if (ControlMenu != null )
-                {                    
-                        <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-left" OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
+                {       
+                       @if(!string.IsNullOrEmpty(BackLink)){
+                           if(BackLink.ToUpper()=="WndBack".ToUpper())
+                           {
+                                <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
+                                OnClickCallback="@(e=>GoBrwsNavigation(-1))"  TxtToolTip="Back" />
+
+                           }else{
+
+                                <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
+                                OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
+                           }
+
+                       }             
                         <div class="dropdown main-menu-place">
                         <button class="btn btn-primary bnt-style-general  bnt-main-menu" ><span class="oi oi-menu" aria-hidden="true"></span></button>
                         <div class="dropdown-content"> 
@@ -35,7 +48,18 @@ else
                  if (ControlMenu != null){
                          @ControlQuickAccess
                  }else{
-                           <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-left" OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
+                           @if(!string.IsNullOrEmpty(BackLink)){
+                           if(BackLink.ToUpper()=="WndBack".ToUpper())
+                           {
+                                <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
+                                OnClickCallback="@(e=>GoBrwsNavigation(-1))"  TxtToolTip="Back" />
+
+                           }else{
+
+                                <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
+                                OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
+                           }
+                           }
                            <WrSpace Length=3/>
                            @ControlQuickAccess
                  }
@@ -78,13 +102,20 @@ else
 
                 @if (PageNameTitle != null )
                 {
-                   <WrSpace Length=3/> @trs.GetTranslation("PageName",@AppData.ActiveUser,"General")<a>&#58;&nbsp;</a><input readonly="true" class="page-name" data-toggle="tooltip" title="@PageNameTitle"  @bind="@PageNameTitle"/>
+                   <WrSpace Length=3/> @trs.GetTranslation("PageName",@AppData.ActiveUser,"General")<a>&#58;&nbsp;</a>
+                   if(PageNameTitle.Contains("::"))
+                   {
+                        string[] arrPageNameTitle = PageNameTitle.Split("::");
+                        string transPageNameTitle=@trs.GetTranslation(@arrPageNameTitle[0],@AppData.ActiveUser,@arrPageNameTitle[1]);
+
+                   <input readonly="true" class="page-name" data-toggle="tooltip" title="@transPageNameTitle"  @bind="@transPageNameTitle"/>
+                   }else
+                   {
+                   <input readonly="true" class="page-name" data-toggle="tooltip" title="@PageNameTitle"  @bind="@PageNameTitle"/>
+                   }
                 }else{
                      
                 }
-                  
-             
-                 
             </div>
 
         </div>
@@ -178,8 +209,10 @@ else
 
     [Parameter]
     public string BaseUrlUri { get; set; }
+    
     [Parameter]
     public string BackLink { get; set; }
+    
     [Parameter]
     public string ColumnsToExcludeCSV { get; set; }
 
@@ -220,8 +253,7 @@ else
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
-        
+        await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");        
     }
     protected override void OnParametersSet()
     {
@@ -280,21 +312,20 @@ else
              
              NavManager.NavigateTo(AppData.BaseUrlUri);
              AppData.UpdatedFK_Id=int.Parse(pIdOfRecord);
- 
+           
            }
        }else
          {
-          AppData.BaseUrlUri=BaseUrlUri.ToString();
-       //if(pCellValue.ToString()==GlobVarStat.dataArrExist || pCellValue.ToString()==GlobVarStat.dataArrEmpty){
-         if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
-          NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
-        }else{
+            /*
+            // Go to the Entity from the WrDataGrid
+            if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
+            NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
+            }else{
 
-          NavManager.NavigateTo(pLinkAddress+pIdOfFieldKey);
-        }
-        //Console.WriteLine("\n\r -------------------- \n\r "); 
-       // Console.WriteLine($"Base URL {BaseUrlUri} \n\r pCurrLink {pCurrLink}  \n\r td clicked at index: {pIdOfRecord}!  \n\r cloumName: {pColName}   \n\r  Link: {pLinkAddress} \n\r  pCellValue: {pCellValue.ToString()}  \n\r pIdOfFieldKey: {pIdOfFieldKey}  ");
-         
+            NavManager.NavigateTo(pLinkAddress+pIdOfFieldKey);
+            }
+            */
+        
        }
 
         
@@ -364,6 +395,10 @@ else
 
     }
   
+    private void GoBrwsNavigation(int pVal)
+{
+    JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
+}
 
     public void GoToPrevPage()
     {

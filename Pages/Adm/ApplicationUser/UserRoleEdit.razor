@@ -1,0 +1,171 @@
+@page "/Adm/ApplicationUser/UserRoleEdit/{CurrentID}"
+@inject ApplicationUserController SrvUser
+@inject ApplicationRoleController SrvRole
+
+<WrAuth PageName="ContactViewStd"><MainContent>  
+
+@if (VGetUserRole_List == null)
+                {
+                    <p><em>Loading...</em></p>
+                }
+                else
+                {
+    <div class="fix-possition">
+        <WrPnlElm>
+            <ControlQuickAccess>
+                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+                    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+                        <label for="Code" class="control-lable">
+                        &nbsp;&nbsp; &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ",@AppData.ActiveUser,"Adm") &#58; &nbsp;@objUser.Code &nbsp;&nbsp; @objUser.UserName &nbsp;&nbsp; @objUser.FirstName &nbsp; @objUser.SecondName
+                        </label>
+            </ControlQuickAccess>
+        </WrPnlElm>
+    </div> 
+                }
+
+
+<div class="under-cls">
+
+  <div class="form-group">
+    <div class="row-pnl-layout">
+              @if (VGetUserRole_List == null)
+                {
+                    <p><em>Loading...</em></p>
+                }
+                else
+                {
+        <div class="column-pnl-layout ">
+                        <div class="nav-pnl-layout">
+                        @* &nbsp;&nbsp;  <input type="button" class="btn btn bnt-style-general"  value="TestBtn"> *@
+                            &nbsp;&nbsp; @trs.GetTranslation("GrantedAccess",@AppData.ActiveUser,"Adm") 
+                        </div>
+            
+               
+                    <WrDataGrid @ref="grid_VGetUserRole"
+                                DataItems="VGetUserRole_List"
+                                Columns="@SrvRole.clmDef_VGetUserRole"  
+                                SelectedRow="SelectedRowMeth"
+                                UniqIdOfRecord="RoleId"
+                                ColumnsToExcludeCSV="RoleId,RoleName,Description"
+                                Paging="@(new PagingConfig
+                                            {
+                                                Enabled = true,
+                                                CustomPager = false,
+                                                PageSize = @AppData.rowNumMid
+                                            })">
+                        <ControlQuickAccess>
+                            <WrSrchDGrid  OnSearchTextChanged="VGetUserRole_SchTxt"> </WrSrchDGrid>
+                        </ControlQuickAccess>
+                    </WrDataGrid>
+                    
+                
+        </div>
+}
+        <div class="column-pnl-layout" style=" width: 60px; text-align: center;">
+            <br><br><br><br><br>
+            <button class="btn bnt-style-general" data-toggle="tooltip" title="GrantSelectedAccesses"><span class="fa fa-backward" aria-hidden="true"></span></button>
+            <br><br>
+            <button class="btn bnt-style-general" data-toggle="tooltip" title="DeleteSelectedAccesses"><span class="fa fa-forward" aria-hidden="true"></span></button>
+            <br><br><br>
+            <button class="btn bnt-style-general" data-toggle="tooltip" title="GrantAllAccesses"><span class="fa fa-fast-backward" aria-hidden="true"></span></button>
+            <br><br>
+            <button class="btn bnt-style-general" data-toggle="tooltip" title="DeleteAllAccesses"><span class="fa fa-fast-forward" aria-hidden="true"></span></button>
+        </div>
+        
+        <div class="column-pnl-layout">
+                <div class="nav-pnl-layout">
+                    &nbsp;&nbsp; @trs.GetTranslation("NotGrantedAccess",@AppData.ActiveUser,"Adm")   
+                </div>
+                @if (DiffRoleList == null)
+                {
+                    <p><em>Loading...</em></p>
+                }
+                else
+                {
+                    <WrDataGrid @ref="grid_DiffRoleList"
+                                DataItems="DiffRoleList"
+                                Columns="@SrvRole.clmDef_Role"
+                                SelectedRow="SelectedRowMeth"
+                                UniqIdOfRecord="Id"
+                                ColumnsToExcludeCSV="Id,Name"
+                                Paging="@(new PagingConfig
+                                            {
+                                                Enabled = true,
+                                                CustomPager = false,
+                                                PageSize = @AppData.rowNumMid
+                                            })">
+                        <ControlQuickAccess>
+                            <WrSrchDGrid  OnSearchTextChanged="DiffRoleList_SrchTxt"> </WrSrchDGrid>
+                        </ControlQuickAccess>
+                    </WrDataGrid>
+                }
+        </div>
+
+    </div>
+  </div>
+
+</div>             
+
+</MainContent></WrAuth>
+
+@code{
+
+    #region  Declare
+        [Parameter]
+        public string CurrentID { get; set; }
+        private string selectedRow { get; set; } = "";
+        private List<VGetUserRole> VGetUserRole_List;       
+        private List<ApplicationRole> ApplicationRole_List; 
+        private List<ApplicationRole> DiffRoleList;  
+        private WrDataGrid<ApplicationRole> grid_DiffRoleList;      
+        private WrDataGrid<VGetUserRole> grid_VGetUserRole; 
+        private ApplicationUser objUser = new ApplicationUser(); 
+    #endregion  Declare
+    
+    #region  BlazorMethods
+        
+         protected override void OnInitialized()
+        //protected override async Task OnInitializedAsync()
+        {
+            SrvRole.Init_UserRoleEdit();
+          //  objUser = await Task.Run(() => SrvUser.GetApplicationUserById(CurrentID));
+            objUser = SrvUser.GetApplicationUserById(CurrentID);
+            VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
+            ApplicationRole_List=SrvRole.GetApplicationRole().ToList();
+            DiffRoleList   = ApplicationRole_List.Where(x => !VGetUserRole_List.Any(y => x.Id == y.RoleId)).ToList();
+        } 
+
+    #endregion  BlazorMethods
+
+    #region  Event
+
+        private void DiffRoleList_SrchTxt(ChangeEventArgs changeEventArgs)
+        {
+            string searchValue = changeEventArgs.Value.ToString();
+            DiffRoleList = SrvRole.GetApplicationRoleByFiled(searchValue); 
+            grid_DiffRoleList.GoToFirstPage();       
+        }
+        private void VGetUserRole_SchTxt(ChangeEventArgs changeEventArgs)
+        {
+            string searchValue = changeEventArgs.Value.ToString();
+            VGetUserRole_List = SrvRole.GetVGetUserRoleByFiled(searchValue, @objUser.Id);      
+            grid_VGetUserRole.GoToFirstPage();  
+        }
+        private void SelectedRowMeth(string pSelectedRow)
+        {
+            selectedRow = pSelectedRow;
+            AppData.UserRoleEditRoleIdSlcd = selectedRow;
+            AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
+        }
+        protected void UpdateRoles()
+        {
+          //  SrvUser.UpdateRoles(objUser);
+            NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+        }
+        void Cancel()
+        {
+            NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+        }
+    #endregion  Event
+
+}

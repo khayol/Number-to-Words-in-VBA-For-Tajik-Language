@@ -1,79 +1,30 @@
 ﻿@page "/MainMenu"
-<br>
-<p><h2> @trs.GetTranslation("MainMenu",@AppData.ActiveUser,"General")</h2></p>
-@*  <BlazoredMenu MenuBuilder="@menuBuilder"></BlazoredMenu>*@
+<WrQuestOrMsg TxtSize="h2" Txt="MainMenu"/>
  <div>
         <ul class="nav flex-column">
-
-              <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> @trs.GetTranslation("Home",@AppData.ActiveUser,"General")
-            </NavLink>
-            </li>        
-            <li class="nav-item px-3"> 
-                <NavLink class="nav-link" href="Adm/ApplicationRoleViewStd/0">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("ApplicationRoleViewStd",@AppData.ActiveUser,"Adm") 
-                </NavLink>
-            </li>         
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="Adm/ApplicationUserViewStd/0">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("ApplicationUserViewStd",@AppData.ActiveUser,"Adm")  
-                </NavLink>
-            </li>         
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="Dir/GenderViewStd/0">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("GenderViewStd",@AppData.ActiveUser,"Dir")   
-                </NavLink>
-            </li>          
-             
-            <AuthorizeView Roles="@admSer.GetRolesList("CountryViewStd")">     
-                <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="Dir/CountryViewStd/0">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("CountryViewStd",@AppData.ActiveUser,"Dir")   
-                    </NavLink>
-                </li>
-            </AuthorizeView>
+         <WrLi PageName="Index" Link="" Match="NavLinkMatch.All" FieldCaption="Home" />
+         <WrLi PageName="ApplicationRoleViewStd" Link="Adm/ApplicationRole/ViewStd/0"  TransEntity="Adm"/>
+         <WrLi PageName="ApplicationUserViewStd" Link="Adm/ApplicationUser/ViewStd/0"  TransEntity="Adm"/>
+         <WrLi PageName="GenderViewStd" Link="Dir/Gender/ViewStd/0"  TransEntity="Dir"/>
+         <WrLi PageName="CountryViewStd" Link="Dir/Country/ViewStd/0"  TransEntity="Dir"/>
+         <WrLi PageName="IndividualViewStd" Link="IndOrg/Individual/ViewStd/0" TransEntity="Individual"/>
          
-            <AuthorizeView Roles="@admSer.GetRolesList("IndividualViewStd")">   
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="IndOrg/IndividualViewStd/0">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("IndividualViewStd",@AppData.ActiveUser,"Individual") 
-                </NavLink>
-            </li>
-             </AuthorizeView>
+
+         @*     
+         <WrLi Authorize="false" PageName="IndividualViewStdClassic" 
+                           Link="IndOrg/IndividualViewStdClassic"/> 
+
+         <WrLi PageName="TestUserAPI" Link="/api/User" /> 
+         *@
             
-
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="IndOrg/ContactViewStd/0">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("ContactViewStd",@AppData.ActiveUser,"Individual") 
-                </NavLink>
-            </li>
-
-        
-            @*    
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="IndOrg/IndividualViewStdClassic">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("ViewStdClassic",@AppData.ActiveUser,"General") 
-                </NavLink>
-            </li>
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="/api/User">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @trs.GetTranslation("TestUserAPI",@AppData.ActiveUser,"General")  
-                </NavLink>
-            </li>
-
-          
-             *@
 
 
         </ul>
     </div>
 @code  {
 protected override void OnInitialized()
-//protected override async Task OnInitializedAsync()
 {
     AppData.BaseUrlUri=NavManager.Uri.ToString(); 
-
 }
 }
 

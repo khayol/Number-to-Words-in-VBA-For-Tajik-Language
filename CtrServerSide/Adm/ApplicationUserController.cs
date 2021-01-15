@@ -29,10 +29,10 @@ namespace Woorj.CtrServerSide.Adm
         columns.AddRange(
             new ColumnDefinition[] {
 
-              new ColumnDefinition { DataField = "Code" },
-              new ColumnDefinition { DataField = "UserName"},
-              new ColumnDefinition { DataField = "FullName"},
-              new ColumnDefinition { DataField = "CreatedDate"},
+              new ColumnDefinition { DataField = "Code" , MinWidth="70", MaxWidth="70"  },
+              new ColumnDefinition { DataField = "UserName", MinWidth="300", MaxWidth="300" },
+              new ColumnDefinition { DataField = "FullName", MinWidth="300", MaxWidth="300"},
+              new ColumnDefinition { DataField = "CreatedDate", MinWidth="300", MaxWidth="300"},
 
                 }
         );

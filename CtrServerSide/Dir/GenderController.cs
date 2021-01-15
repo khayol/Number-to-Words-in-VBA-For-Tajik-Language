@@ -27,8 +27,8 @@ namespace Woorj.CtrServerSide.Dir
                 columns.AddRange(
                     new ColumnDefinition[] 
                       {
-                      new ColumnDefinition { DataField = "Code"},
-                      new ColumnDefinition { DataField = "Name"}
+                      new ColumnDefinition { DataField = "Code",  MinWidth="70", MaxWidth="70" },
+                      new ColumnDefinition { DataField = "Name", MinWidth="300", MaxWidth="300"}
                       }
                                 );
             }

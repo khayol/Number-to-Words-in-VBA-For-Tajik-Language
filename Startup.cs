@@ -94,6 +94,7 @@ namespace Woorj
     #endregion ForWebAPI
         
             #region EntityRegion
+
                 services.AddScoped<ApplicationRoleController>();
                 services.AddScoped<ApplicationUserController>();
                 services.AddTransient<ServClass>();
@@ -113,7 +114,7 @@ namespace Woorj
                 services.AddScoped<ICustomTranslator, CustomTranslator>();
                 services.AddScoped<ICoreService, CoreService>();
                 services.AddScoped<IAdmService, AdmService>();
-            #endregion EntityRegion
+                 #endregion EntityRegion
             
             #region LocalizationAndGlobalization
              /*

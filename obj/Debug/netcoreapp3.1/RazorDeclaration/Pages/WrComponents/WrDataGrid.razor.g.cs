@@ -209,7 +209,7 @@ using System.Reflection;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 172 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 203 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
          
 
 
@@ -219,8 +219,10 @@ using System.Reflection;
 
     [Parameter]
     public string BaseUrlUri { get; set; }
+    
     [Parameter]
     public string BackLink { get; set; }
+    
     [Parameter]
     public string ColumnsToExcludeCSV { get; set; }
 
@@ -261,8 +263,7 @@ using System.Reflection;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
-        
+        await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");        
     }
     protected override void OnParametersSet()
     {
@@ -321,21 +322,20 @@ using System.Reflection;
              
              NavManager.NavigateTo(AppData.BaseUrlUri);
              AppData.UpdatedFK_Id=int.Parse(pIdOfRecord);
- 
+           
            }
        }else
          {
-          AppData.BaseUrlUri=BaseUrlUri.ToString();
-       //if(pCellValue.ToString()==GlobVarStat.dataArrExist || pCellValue.ToString()==GlobVarStat.dataArrEmpty){
-         if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
-          NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
-        }else{
+            /*
+            // Go to the Entity from the WrDataGrid
+            if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
+            NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
+            }else{
 
-          NavManager.NavigateTo(pLinkAddress+pIdOfFieldKey);
-        }
-        //Console.WriteLine("\n\r -------------------- \n\r "); 
-       // Console.WriteLine($"Base URL {BaseUrlUri} \n\r pCurrLink {pCurrLink}  \n\r td clicked at index: {pIdOfRecord}!  \n\r cloumName: {pColName}   \n\r  Link: {pLinkAddress} \n\r  pCellValue: {pCellValue.ToString()}  \n\r pIdOfFieldKey: {pIdOfFieldKey}  ");
-         
+            NavManager.NavigateTo(pLinkAddress+pIdOfFieldKey);
+            }
+            */
+        
        }
 
         
@@ -351,7 +351,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 318 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 349 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -401,6 +401,10 @@ using System.Reflection;
 
     }
   
+    private void GoBrwsNavigation(int pVal)
+{
+    JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
+}
 
     public void GoToPrevPage()
     {
@@ -539,7 +543,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 514 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 549 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -551,7 +555,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 525 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 560 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

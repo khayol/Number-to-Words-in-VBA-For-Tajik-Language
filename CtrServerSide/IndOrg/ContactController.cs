@@ -29,9 +29,9 @@ namespace Woorj.CtrServerSide.IndOrg
             columns.AddRange(
                 new ColumnDefinition[] {
 
-                    new ColumnDefinition { DataField = "Code", Caption="Code"},
-                    new ColumnDefinition { DataField = "Name", Caption="Name" },
-                    new ColumnDefinition { DataField = "Description", Caption="Description" },
+                    new ColumnDefinition { DataField = "Code", Caption="Code", MinWidth="70", MaxWidth="70"},
+                    new ColumnDefinition { DataField = "Name", Caption="Name", MinWidth="300", MaxWidth="300" },
+                    new ColumnDefinition { DataField = "Description", Caption="Description", MinWidth="300", MaxWidth="300" },
 
                     }
             );

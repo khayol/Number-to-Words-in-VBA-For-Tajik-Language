@@ -63,7 +63,7 @@ namespace Woorj.Services
     #region IndOrg 
         
         public string Individual_IdSelect { get; set; }="0";
-        public string IndividualLink { get; set; } = "/IndOrg/IndividualViewStd/0";
+        public string IndividualLink { get; set; } = "/IndOrg/Individual/ViewStd/0";
     
     #endregion IndOrg
 

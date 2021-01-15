@@ -1,0 +1,78 @@
+@page "/Dir/Country/Edit/{CurrentID}"
+@inject CountryController MainController
+
+
+<WrAuth PageName="CountryEdit"><MainContent>  
+
+<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    
+    <WrPnlElm>
+        <ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="submit" Txt="Update"/>
+       </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
+
+            <WrFieldStr  FieldCaption="Name" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+
+            <WrFieldStr FieldCaption="FullName" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
+
+            <WrFieldStr  FieldCaption="English" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.English"/>
+
+            <WrFieldStr  FieldCaption="Alpha2" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha2"/>
+
+            <WrFieldStr  FieldCaption="Alpha3" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
+
+            <WrFieldStr FieldCaption="Iso" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Iso"/>   
+     
+            <div class="form-group">
+                <WrLebel TransEntity="General" FieldCaption="CreatedDate"/>
+                <input  readonly="@readonlyMain1" class="form-control" @bind="@objMain.CreatedDate" />
+            </div>
+
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+@code{
+
+    [Parameter]
+    public string CurrentID { get; set; }
+    Country objMain = new Country();    
+    private string  CancelOrBeckTxt { get; set; } 
+    private bool readonlyMain1 {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
+
+    protected override void OnInitialized()
+    {
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        readonlyMain1=AppData.readonlyMain1;
+        readonlyOther=AppData.readonlyOther;
+    }
+
+    protected void Update()
+    {
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
+    }
+
+  
+}

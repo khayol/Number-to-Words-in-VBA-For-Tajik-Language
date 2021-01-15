@@ -1,0 +1,58 @@
+﻿@page "/IndOrg/Gender/ViewStd/{Id}"
+@inject GenderController MainController
+
+<WrAuth PageName="GenderViewStd"><MainContent>  
+    <WrDataGrid @ref="grid"
+                  DataItems="list"
+                  SelectedRow="SelectedRowMeth"
+                  Columns="@MainController.columns"
+                  UniqIdOfRecord="Id"
+                  ColumnsToExcludeCSV="Id"
+                  PageNameTitle="GenderViewStd::Dir"
+                  BackLink="/IndOrg/Individual/ViewStd/0"
+                  Paging="@(new PagingConfig
+                            {
+                                Enabled = false,
+                                CustomPager = false,
+                                PageSize = @AppData.rowNumMid
+                            })">
+
+        <ControlQuickAccess>
+             
+        </ControlQuickAccess>
+    </WrDataGrid>
+ </MainContent></WrAuth>
+
+@code  {
+
+
+ #region     Declare
+    [Parameter]
+    public string Id { get; set; }
+    private WrDataGrid<Gender> grid;
+    private List<Gender> list;
+ 
+ #endregion  Declare
+
+ #region    BlazorMethods
+
+    protected override void OnInitialized()
+    {
+        MainController.Initialized();
+        list = MainController.GetById(int.Parse(Id)).ToList();         
+    }
+
+#endregion BlazorMethods
+
+#region    Event
+
+    private void SelectedRowMeth(string pSelectedRow)
+    {
+        AppData.Gender_IdSelect = pSelectedRow;
+    }
+
+
+
+ #endregion Event
+
+}

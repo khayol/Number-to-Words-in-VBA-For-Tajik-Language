@@ -1,0 +1,57 @@
+@page "/IndOrg/Individual/Delete/{CurrentID}"
+@inject IndividualController MainController
+
+<WrAuth PageName="IndividualDelete"><MainContent>  
+<EditForm Model="@objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
+   
+    <WrPnlElm>
+        <ControlQuickAccess>
+             <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
+             <WrOper Category="EditForm" TypeInput="submit" Txt="Delete"/>
+        </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+            <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
+           
+            <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
+            ReadonlyOpt="false" Val="@objMain.Code" />
+
+            <WrFieldStr ReadonlyThis="false" FieldCaption="FirstName"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
+
+            <WrFieldStr ReadonlyThis="false" FieldCaption="SecondName"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+
+            <WrFieldStr ReadonlyThis="false" FieldCaption="LastName"
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
+
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+
+@code{
+
+    [Parameter]
+    public string CurrentID { get; set; }
+    Individual objMain = new Individual();  
+
+    protected override void OnInitialized()
+    {
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+    }
+
+    protected void DeleteRow()
+    {
+        MainController.Delete(objMain);
+        NavManager.NavigateTo(AppData.IndividualLink);
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo(AppData.IndividualLink);
+    }
+
+}

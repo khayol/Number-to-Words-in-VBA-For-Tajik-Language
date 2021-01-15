@@ -1,0 +1,89 @@
+@page "/Adm/ApplicationUser/Settings/{CurrentID}"
+@inject ApplicationUserController objApplicationUserController
+@inject LanguageController LanguageController
+
+<WrAuth PageName="ApplicationUserSettings"><MainContent>  
+
+@if (LanguageList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{  
+  
+      
+ <div class="fix-possition">
+<WrPnlElm>
+    <ControlQuickAccess>
+    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+    <input type="button" class="btn bnt-style-general" @onclick="@UpdateApplicationUser" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
+    </ControlQuickAccess>
+</WrPnlElm>
+</div> 
+
+
+    @* <p>@trs.GetTranslation("FullName",@AppData.ActiveUser,"Individual")</p> *@
+<div class="under-cls">
+  <form>
+      <div class="row">
+          <div class="col-md-8  field-content">
+          
+              <div class="form-group">
+                <label for="Language"  class="control-lable">@trs.GetTranslation("Language",@AppData.ActiveUser?.ToString() ?? "","")</label>            
+                @* <label for="Language"  class="control-lable">@trs.GetTranslation("Language",@username,"")</label>             *@
+                <select class="form-control selectpicker"  @bind="@objApplicationUser.LanguageId">
+                      @if (LanguageList == null)
+                      {
+                      <p><em>Loading...</em></p>
+                      }
+                      else
+                      {
+                        <option>--@trs.GetTranslation("select",@AppData.ActiveUser?.ToString() ?? "","")--</option>                  
+                    
+                      @foreach (var item in LanguageList)
+                      {
+                      <option value="@item.Id">@item.Name (@item.NativeName) </option> // Blazor needs to know what values it binds to!
+                      } 
+                      }                  
+                  </select>
+              </div>
+              
+          
+              
+          </div>
+      </div>
+  </form>    
+</div>
+
+}
+</MainContent></WrAuth>       
+
+ 
+
+
+@code{
+    
+    [Parameter]
+    public string CurrentID { get; set; }
+    ApplicationUser objApplicationUser = new ApplicationUser();
+    public List<Language> LanguageList;
+
+     protected override void OnInitialized()
+    {
+        objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
+        LanguageList =  LanguageController.GetLangActive();
+     }
+
+    protected void UpdateApplicationUser()
+    {
+       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
+       NavManager.NavigateTo(AppData.BaseUrlUri);
+    }
+    void Cancel()
+    {
+         NavManager.NavigateTo(AppData.BaseUrlUri);
+    }
+
+
+
+}

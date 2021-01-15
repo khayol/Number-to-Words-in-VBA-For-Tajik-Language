@@ -1,0 +1,33 @@
+   @if (Authorize)
+   {   
+        <AuthorizeView Roles="@admSer.GetRolesList(@PageName)" Context="authContext">
+            <Authorized>
+                @if (MainContent != null)
+                {
+                @MainContent
+                }
+
+            </Authorized>
+            <NotAuthorized>
+                 <WrPageNotFound/>
+            </NotAuthorized>
+        </AuthorizeView> 
+   }else
+   {
+       @if (MainContent != null)
+            {
+              @MainContent
+            }
+   } 
+
+ @code
+{
+    [Parameter]
+    public bool Authorize { get; set; }=true;
+
+    [Parameter]
+    public string PageName { get; set; }
+
+    [Parameter]
+    public RenderFragment MainContent { get; set; }
+}      

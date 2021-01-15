@@ -1,0 +1,52 @@
+@page "/Adm/ApplicationUser/Add"
+@inject ApplicationUserController MainController
+
+<WrAuth PageName="ApplicationUserAdd"><MainContent>  
+<EditForm Model="@objMain" OnValidSubmit="@Create">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    <WrPnlElm>
+    <ControlQuickAccess>
+        <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
+        <WrOper Category="EditForm" TypeInput="submit" Txt="Save"/>
+    </ControlQuickAccess>
+    </WrPnlElm>
+  <WrFormBody>
+        <FormElements>
+
+            <WrFieldStr  FieldCaption="UserName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
+
+            <WrFieldStr FieldCaption="FirstName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.FirstName"/>
+
+            <WrFieldStr  FieldCaption="SecondName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.SecondName"/>
+
+            <WrFieldStr  FieldCaption="LastName"
+            TransEntity="General"  @bind-BindingValue ="@objMain.LastName"/>
+     
+       </FormElements>      
+    </WrFormBody> 
+</EditForm>
+
+</MainContent></WrAuth>
+
+@code{
+
+    [Parameter]
+    public string CurrentID { get; set; }
+
+    ApplicationUser objMain= new ApplicationUser();
+  
+     protected  void Create()
+     { 
+        MainController.Create(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+     }
+
+    void Cancel(){
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+    }
+
+}

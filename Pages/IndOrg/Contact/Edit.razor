@@ -1,0 +1,58 @@
+@page "/IndOrg/Contact/Edit/{CurrentID}"
+@inject ContactController objContactController
+
+<WrAuth PageName="ContactEdit"><MainContent>  
+
+<EditForm Model="@objContact" OnValidSubmit="@UpdateContact" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <FluentValidationValidator /> 
+    <ValidationSummary/>
+    
+    <WrPnlElm>
+        <ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="submit" Txt="Update"/>
+       </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="false" Val="@objContact.Code" />
+
+           <WrFieldStr ReadonlyThis="false" FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objContact.Name"/> 
+
+            <WrFieldStr ReadonlyThis="false" FieldCaption="Description"
+            TransEntity="General"  @bind-BindingValue ="@objContact.Description"/>
+
+   
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+@code{
+    [Parameter]
+    public string CurrentID { get; set; }
+    Contact objContact = new Contact();
+    private string  CancelOrBeckTxt { get; set; }
+
+
+
+
+    protected override void OnInitialized()
+    {
+        objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));
+   }
+
+    protected void UpdateContact()
+    {
+        objContactController.UpdateContact(objContact);
+        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
+    }
+}

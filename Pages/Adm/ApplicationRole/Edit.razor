@@ -1,0 +1,65 @@
+@page "/Adm/ApplicationRole/Edit/{CurrentID}"
+@inject ApplicationRoleController MainController
+
+
+<WrAuth PageName="ApplicationRoleEdit"><MainContent>  
+
+<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <FluentValidationValidator />  
+    <ValidationSummary/>
+    
+    <WrPnlElm>
+        <ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther=@readonlyOther TypeInput="submit" Txt="Update"/>
+       </ControlQuickAccess> 
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
+
+            <WrFieldStr  FieldCaption="Name" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+
+            <WrFieldStr FieldCaption="NormalizedName" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.NormalizedName"/>
+
+            <WrFieldStr  FieldCaption="Description" ReadonlyThis="readonlyOther"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+
+         </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+
+@code{
+
+    [Parameter]
+    public string CurrentID { get; set; }
+    ApplicationRole objMain = new ApplicationRole();    
+    private string  CancelOrBeckTxt { get; set; } 
+    private bool readonlyMain1 {get;set;}=false;
+    private bool readonlyOther {get;set;}=false;  
+
+    protected override void OnInitialized()
+    {
+        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        readonlyMain1=AppData.readonlyMain1;
+        readonlyOther=AppData.readonlyOther;
+    }
+
+    protected void Update()
+    {
+        MainController.Update(objMain);
+        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
+    }
+
+  
+}

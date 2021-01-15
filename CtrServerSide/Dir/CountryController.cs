@@ -30,13 +30,13 @@ namespace Woorj.CtrServerSide.Dir
             columns.AddRange(
                 new ColumnDefinition[] {
 
-                    new ColumnDefinition { DataField = "Code"},
-                    new ColumnDefinition { DataField = "Name"},
-                    new ColumnDefinition { DataField = "FullName" },
-                    new ColumnDefinition { DataField = "English"},
-                    new ColumnDefinition { DataField = "Alpha2"},
-                    new ColumnDefinition { DataField = "Alpha3"},
-                    new ColumnDefinition { DataField = "CreatedDate"}
+                    new ColumnDefinition { DataField = "Code",  MinWidth="70", MaxWidth="70"  },
+                    new ColumnDefinition { DataField = "Name", MinWidth="300", MaxWidth="300"},
+                    new ColumnDefinition { DataField = "FullName",  MinWidth="300", MaxWidth="300"},
+                    new ColumnDefinition { DataField = "English", MinWidth="300", MaxWidth="300"},
+                    new ColumnDefinition { DataField = "Alpha2",  MinWidth="70", MaxWidth="70" },
+                    new ColumnDefinition { DataField = "Alpha3",  MinWidth="70", MaxWidth="70" },
+                    new ColumnDefinition { DataField = "CreatedDate",  MinWidth="70", MaxWidth="70" }
 
                     }
             );

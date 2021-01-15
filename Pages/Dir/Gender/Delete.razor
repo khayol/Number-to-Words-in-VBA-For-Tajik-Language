@@ -1,0 +1,54 @@
+@page "/Dir/Gender/Delete/{CurrentID}"
+@inject GenderController MainController
+
+<WrAuth PageName="GenderDelete"><MainContent>  
+
+<EditForm Model="@objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
+   
+    <WrPnlElm>
+     <ControlQuickAccess>
+             <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
+             <WrOper Category="EditForm" TypeInput="submit" Txt="Delete"/>
+     </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+               <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
+
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="readonlyMain1" Val="@objMain.Code" />
+     
+            <WrFieldStr ReadonlyThis="readonlyMain1" FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
+
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+
+@code{
+
+    [Parameter]
+    public string CurrentID { get; set; }
+    Gender objMain = new Gender();  
+    private bool readonlyMain1 {get;set;}=false;
+
+    protected override void OnInitialized()
+    {
+        readonlyMain1=AppData.readonlyMain1;
+        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+    }
+
+    protected void DeleteRow()
+    {
+        MainController.Delete(objMain);
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/0");
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/0");
+    }
+
+}
