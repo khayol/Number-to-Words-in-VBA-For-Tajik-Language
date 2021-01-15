@@ -218,11 +218,11 @@ using Woorj.Pages.TESTS.L22;
      protected  void Create()
      { 
         MainController.Create(objMain);
-        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+AppData.Individual_IdSelect);
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
      }
 
     void Cancel(){
-        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+AppData.Individual_IdSelect);
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
     }
 
 

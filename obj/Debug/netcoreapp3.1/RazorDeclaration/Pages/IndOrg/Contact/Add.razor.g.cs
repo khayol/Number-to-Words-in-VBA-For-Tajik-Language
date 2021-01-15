@@ -214,10 +214,10 @@ using Woorj.Pages.TESTS.L22;
     protected  void CreateContact()
     { 
         objContactController.Create(objContact);
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
+        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/0");
     }
     void Cancel(){
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
+        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/0");
     }
 
 
