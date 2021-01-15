@@ -203,27 +203,27 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Settings.razor"
+#line 35 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Settings.razor"
       
 
     [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objApplicationUser = new ApplicationUser();
+    ApplicationUser objMain = new ApplicationUser();
     public List<Language> LanguageList;
         
      protected override void OnInitialized()
     {
-        objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
+        objMain =  MainController.GetApplicationUserById(CurrentID);
         LanguageList =  LanguageController.GetLangActive();
      }
 
-    protected void UpdateApplicationUser()
+    protected void Save()
     {
-       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       GoBrwsNavigation(-2);
+       MainController.UpdateApplicationUser(objMain);    
+        GoBrwsNavigation(-2); 
     }
     void Cancel()
     {
-         GoBrwsNavigation(-2);
+         GoBrwsNavigation(-2);   
     }
      public  void GoBrwsNavigation(int pVal)
     {
@@ -231,13 +231,11 @@ using Woorj.Pages.TESTS.L22;
     }
 
 
-
-
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private LanguageController LanguageController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController objApplicationUserController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

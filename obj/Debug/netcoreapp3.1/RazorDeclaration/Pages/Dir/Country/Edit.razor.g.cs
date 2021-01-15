@@ -214,7 +214,7 @@ using Woorj.Pages.TESTS.L22;
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 
-    protected void Update()
+    protected void Save()
     {
         MainController.Update(objMain);
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");

@@ -1,92 +1,61 @@
 @page "/Adm/ApplicationUser/Settings/{CurrentID}"
-@inject ApplicationUserController objApplicationUserController
+@inject ApplicationUserController MainController
 @inject LanguageController LanguageController
-
+   
 <WrAuth PageName="ApplicationUserSettings"><MainContent>  
 
-@if (LanguageList == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{  
-  
-      
- <div class="fix-possition">
-<WrPnlElm>
-    <ControlQuickAccess>
-    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
-    <input type="button" class="btn bnt-style-general" @onclick="@UpdateApplicationUser" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
-    </ControlQuickAccess>
-</WrPnlElm>
-</div> 
+    <WrPnlElm>
+        <ControlQuickAccess>
+          <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+          <input type="button" class="btn bnt-style-general" @onclick="@Save" value="@trs.GetTranslation("Save",@AppData.ActiveUser,"General")">
+       </ControlQuickAccess>
+    </WrPnlElm>
 
+    <WrFormBody>
+        <FormElements>      
+ 
+            <div class="form-group">
+            <label for="Language"  class="control-lable">@trs.GetTranslation("UserLangage",@AppData.ActiveUser?.ToString() ?? "","Adm")</label>
+                          <select  class="form-control selectpicker" @bind="@objMain.LanguageId" >
+                            <option>--select--</option>
+                            @foreach (var item in LanguageList)
+                            {
+                            <option value="@item.Id">@item.Name (@item.NativeName)</option> // Blazor needs to know what values it binds to!
+                            }
+                        </select>   
+            </div> 
 
-    @* <p>@trs.GetTranslation("FullName",@AppData.ActiveUser,"Individual")</p> *@
-<div class="under-cls">
-  <form>
-      <div class="row">
-          <div class="col-md-8  field-content">
-          
-              <div class="form-group">
-                <label for="Language"  class="control-lable">@trs.GetTranslation("Language",@AppData.ActiveUser?.ToString() ?? "","")</label>            
-                @* <label for="Language"  class="control-lable">@trs.GetTranslation("Language",@username,"")</label>             *@
-                <select class="form-control selectpicker"  @bind="@objApplicationUser.LanguageId">
-                      @if (LanguageList == null)
-                      {
-                      <p><em>Loading...</em></p>
-                      }
-                      else
-                      {
-                        <option>--@trs.GetTranslation("select",@AppData.ActiveUser?.ToString() ?? "","")--</option>                  
-                    
-                      @foreach (var item in LanguageList)
-                      {
-                      <option value="@item.Id">@item.Name (@item.NativeName) </option> // Blazor needs to know what values it binds to!
-                      } 
-                      }                  
-                  </select>
-              </div>
-              
-          
-              
-          </div>
-      </div>
-  </form>    
-</div>
-
-}
-</MainContent></WrAuth>       
-
+        </FormElements>      
+    </WrFormBody>    
+   
+</MainContent></WrAuth>
  
 
 
 @code{
 
     [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objApplicationUser = new ApplicationUser();
+    ApplicationUser objMain = new ApplicationUser();
     public List<Language> LanguageList;
         
      protected override void OnInitialized()
     {
-        objApplicationUser =  objApplicationUserController.GetApplicationUserById(CurrentID);
+        objMain =  MainController.GetApplicationUserById(CurrentID);
         LanguageList =  LanguageController.GetLangActive();
      }
 
-    protected void UpdateApplicationUser()
+    protected void Save()
     {
-       objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       GoBrwsNavigation(-2);
+       MainController.UpdateApplicationUser(objMain);    
+        GoBrwsNavigation(-2); 
     }
     void Cancel()
     {
-         GoBrwsNavigation(-2);
+         GoBrwsNavigation(-2);   
     }
      public  void GoBrwsNavigation(int pVal)
     {
         JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
     }
-
-
 
 }

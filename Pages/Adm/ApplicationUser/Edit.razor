@@ -4,14 +4,14 @@
 
 <WrAuth PageName="ApplicationUserEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
     <WrPnlElm>
         <ControlQuickAccess>
             <WrOper Category="EditForm" EditOrView=true TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
-            <WrOper Category="EditForm" EditOrView=true  TypeInput="submit" Txt="Update"/>
+            <WrOper Category="EditForm" EditOrView=true  TypeInput="submit" Txt="Save"/>
        </ControlQuickAccess>
     </WrPnlElm>
 
@@ -47,7 +47,7 @@
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
     }
 
-    protected void Update()
+    protected void Save()
     {
         MainController.Update(objMain);
         NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");

@@ -213,7 +213,7 @@ using Woorj.Pages.TESTS.L22;
         objMain = objMainController.GetContactById(Convert.ToInt32(CurrentID));
    }
 
-    protected void UpdateContact()
+    protected void Save()
     {
         objMainController.UpdateContact(objMain);
         NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);

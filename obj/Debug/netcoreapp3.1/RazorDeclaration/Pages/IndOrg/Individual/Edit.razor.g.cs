@@ -241,7 +241,7 @@ using Woorj.Pages.TESTS.L22;
       
     }
 
-    protected void Update()
+    protected void Save()
     {
         MainController.Update(objMain);
         NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");

@@ -6,14 +6,14 @@
 
 <WrAuth PageName="IndividualEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Update" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Save" Context="formContext">  
     <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
     <ValidationSummary/>
     
     <WrPnlElm>
         <ControlQuickAccess>
             <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
-            <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="submit" Txt="Update"/>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="submit" Txt="Save"/>
        </ControlQuickAccess>
     </WrPnlElm>
 
@@ -129,7 +129,7 @@
       
     }
 
-    protected void Update()
+    protected void Save()
     {
         MainController.Update(objMain);
         NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");

@@ -4,14 +4,14 @@
 
 <WrAuth PageName="CountryEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Update" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
     <WrPnlElm>
         <ControlQuickAccess>
             <WrOper Category="EditForm" EditOrView=true  TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
-            <WrOper Category="EditForm" EditOrView=true  TypeInput="submit" Txt="Update"/>
+            <WrOper Category="EditForm" EditOrView=true  TypeInput="submit" Txt="Save"/>
        </ControlQuickAccess>
     </WrPnlElm>
 
@@ -58,7 +58,7 @@
         objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
     }
 
-    protected void Update()
+    protected void Save()
     {
         MainController.Update(objMain);
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");

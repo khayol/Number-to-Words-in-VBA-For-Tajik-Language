@@ -215,7 +215,7 @@ using Woorj.Pages.TESTS.L22;
         objMain = MainController.GetById_FirstOrDefault(CurrentID);
     }
 
-    protected void Update()
+    protected void Save()
     {
         MainController.Update(objMain);
         NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
