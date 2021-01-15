@@ -204,21 +204,13 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 7 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr.razor"
          
-
-    [Parameter]
-    public bool ReadonlyThis { get; set; }
-    
-    [Parameter]
-    public string FieldCaption { get; set; }
-      
-    [Parameter]
-    public string TransEntity { get; set; }
-    
-    
     private string _value;
+    [Parameter] public bool ReadonlyThis { get; set; }
+    [Parameter] public string FieldCaption { get; set; }
+    [Parameter] public string TransEntity { get; set; }
+    [Parameter] public EventCallback<string> BindingValueChanged { get; set; } 
 
-    [Parameter]
-    public string BindingValue
+    [Parameter] public string BindingValue
     {
         get => _value;
         set
@@ -228,26 +220,6 @@ using Woorj.Pages.TESTS.L22;
             BindingValueChanged.InvokeAsync(value);
         }
     }
-
-    [Parameter]
-    public EventCallback<string> BindingValueChanged { get; set; } 
-
-
-   
-
-
-
-
-    
-  
-
-   
-    
-
-
-  
- 
-    
 
 
 #line default

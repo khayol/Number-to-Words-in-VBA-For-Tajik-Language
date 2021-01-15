@@ -206,8 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 40 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\View.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     ApplicationUser objMain = new ApplicationUser();    
     private string  CancelOrBeckTxt { get; set; } 
 

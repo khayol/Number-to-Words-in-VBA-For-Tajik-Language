@@ -163,7 +163,7 @@
     }
     .under-cls
     {
-    height: 520px;
+    height: 620px;
     width: 100%;
     overflow-y: scroll;
     overflow-x: scroll;
@@ -201,7 +201,7 @@
 
     .bnt-style-general { /*The style of the std. buttons*/
     color: #fff;
-    background-color:#c4bcee ;/*   #B4B4B4 #808080;  #8379F4;   darkseagreen; */
+    background-color:#8a79e2 ;/*   #B4B4B4 #808080;  #8379F4;   darkseagreen; */
     border-color: #8e9299; 
     position: center;
     padding: 4.5px;
@@ -213,7 +213,7 @@
 
     }
     .bnt-main-menu { /*The style of the std. buttons*/
-    margin-left: 33px;
+    margin-left: 20px;
     /* width: 33px;   */
     }
 
@@ -322,6 +322,11 @@
             .main .top-row:not(.auth) {
             display: none;
             }
+            #org-name{
+              color:red;
+              visibility: hidden;   
+              text-align:center;       
+            }
 
             .main .top-row.auth {
             justify-content: space-between;
@@ -361,7 +366,12 @@
             .main .top-row:not(.auth) {
             display: none;
             }
-
+           
+            #org-name{
+              color:midnightblue;
+              text-align:center;
+            
+            }
             .main .top-row.auth {
             justify-content: space-between;
             }
@@ -440,51 +450,6 @@
         .column-pnl-layout {
           width: 100%;
         }
-       /* E_Panel for ganting access rights*/
-       /* -------------------------------------------------- */
-
-
-            
-      /* -------------------------------------------------- */
-      /* S_TreeView*/
-      /*
-      .ul-treev, .myUL {
-        list-style-type: none;
-      }
-      
-      .myUL {
-        margin: 0;
-        padding: 0;
-      }
-      
-      .caret {
-        cursor: pointer;
-         -moz-user-select: none; 
-        -ms-user-select: none; 
-        user-select: none;
-      }
-      
-      .caret::before {
-        content: "\25B6";
-        color: black;
-        display: inline-block;
-        margin-right: 6px;
-      }
-      
-      .caret-down::before {
-        -ms-transform: rotate(90deg); 
-        transform: rotate(90deg);  
-      }
-      
-      .nested {
-        display: none;
-      }
-      
-      .active {
-        display: block;
-      }
-*/
-      /* E_TreeView*/
-      /* -------------------------------------------------- */
+       
 
     }

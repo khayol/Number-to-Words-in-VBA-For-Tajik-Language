@@ -211,8 +211,7 @@ using Woorj.Pages.TESTS.L22;
    private WrDataGrid<Contact> grid;
     private List<Contact> ContactList;
     
-    [Parameter]
-    public string IndividualId { get; set;}
+    [Parameter] public string IndividualId { get; set;}
     public string  backLink  { get; set; }
  
  #endregion  Declare

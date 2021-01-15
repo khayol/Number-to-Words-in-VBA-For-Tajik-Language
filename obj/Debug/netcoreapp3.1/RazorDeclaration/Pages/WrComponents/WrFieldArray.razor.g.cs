@@ -203,36 +203,17 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning restore 1998
 #nullable restore
 #line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldArray.razor"
-         
+             
 
-    
-    [Parameter]
-    public string ReadonlyOpt { get; set; }   
-
-    [Parameter]
-    public string FieldCaption { get; set; }
-      
-    [Parameter]
-    public string TransEntity { get; set; }  
-   
-    [Parameter]
-    public int Val { get; set; }
-
-    [Parameter]
-    public RenderFragment RenderFrg { get; set; }
-
-
-    [Parameter]
-    public string TableName { get; set; }
-
-    [Parameter]
-    public string ForeinKey { get; set; }
-
-    [Parameter]
-    public string IdOfRecord { get; set; }
-
-     [Parameter]
-    public string SubLink { get; set; }
+    [Parameter] public string ReadonlyOpt { get; set; }
+    [Parameter] public string FieldCaption { get; set; }
+    [Parameter] public string TransEntity { get; set; }  
+    [Parameter] public int Val { get; set; }
+    [Parameter] public RenderFragment RenderFrg { get; set; }
+    [Parameter] public string TableName { get; set; }
+    [Parameter] public string ForeinKey { get; set; }
+    [Parameter] public string IdOfRecord { get; set; }
+    [Parameter] public string SubLink { get; set; }
  
 /*
    public void GoToCollection(string pLinkAddress,string pIdOfRecord)

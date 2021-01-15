@@ -203,11 +203,10 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Individual\Delete.razor"
+#line 37 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Individual\Delete.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Individual objMain = new Individual();  
 
     protected override void OnInitialized()

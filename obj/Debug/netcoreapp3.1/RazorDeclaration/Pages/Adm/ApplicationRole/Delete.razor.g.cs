@@ -206,8 +206,8 @@ using Woorj.Pages.TESTS.L22;
 #line 36 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRole\Delete.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
+    
     ApplicationRole objMain = new ApplicationRole();  
     protected override void OnInitialized()
      {

@@ -205,8 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Contact\Delete.razor"
       
-   [Parameter]
-   public string CurrentID {get;set;}
+   [Parameter] public string CurrentID {get;set;}
     Contact objContact= new Contact();
 
     protected override void OnInitialized()

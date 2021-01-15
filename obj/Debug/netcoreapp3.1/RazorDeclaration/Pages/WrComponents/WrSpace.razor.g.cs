@@ -204,9 +204,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 14 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrSpace.razor"
  
-[Parameter]
-public int Length {get;set;}=0;
-
+[Parameter] public int Length {get;set;}=0;
 
 #line default
 #line hidden

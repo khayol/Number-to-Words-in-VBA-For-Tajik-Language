@@ -206,8 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 31 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRole\Add.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
 
     ApplicationRole objMain= new ApplicationRole();
   

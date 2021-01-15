@@ -203,15 +203,10 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning restore 1998
 #nullable restore
 #line 24 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrAuth.razor"
- 
-    [Parameter]
-    public bool Authorize { get; set; }=true;
-
-    [Parameter]
-    public string PageName { get; set; }
-
-    [Parameter]
-    public RenderFragment MainContent { get; set; }
+    
+[Parameter] public bool Authorize { get; set; }=true;
+[Parameter] public string PageName { get; set; }
+[Parameter] public RenderFragment MainContent { get; set; }
 
 #line default
 #line hidden

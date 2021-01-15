@@ -1,8 +1,6 @@
 ﻿&nbsp &nbsp
  <input class="input1" placeholder="@trs.GetTranslation("Search",@AppData.ActiveUser,"General")" @oninput="OnSearchTextChanged" />
 
-@code {
-    [Parameter]
-    public EventCallback<ChangeEventArgs> OnSearchTextChanged { get; set; }
-
+@code {    
+    [Parameter] public EventCallback<ChangeEventArgs> OnSearchTextChanged { get; set; }
 }

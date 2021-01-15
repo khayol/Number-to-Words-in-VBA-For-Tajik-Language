@@ -205,9 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 90 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Individual\View.razor"
       
-
-    [Parameter]
-    public string CurrentID { get; set; }
+   [Parameter] public string CurrentID { get; set; }
     Individual objMain = new Individual();
     
     private string  CancelOrBeckTxt { get; set; }

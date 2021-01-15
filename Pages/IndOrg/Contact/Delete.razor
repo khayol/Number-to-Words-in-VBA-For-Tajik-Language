@@ -13,7 +13,7 @@
 
     <WrFormBody>
         <FormElements>
-            <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
+            <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Bleck" BackgroundColor="yellow" />
               
              <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
               ReadonlyOpt="true" Val="@objContact.Code" />
@@ -27,8 +27,7 @@
 </MainContent></WrAuth>
 
 @code{
-   [Parameter]
-   public string CurrentID {get;set;}
+   [Parameter] public string CurrentID {get;set;}
     Contact objContact= new Contact();
 
     protected override void OnInitialized()

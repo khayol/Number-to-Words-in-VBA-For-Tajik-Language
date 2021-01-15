@@ -21,13 +21,8 @@
    } 
 
  @code
-{
-    [Parameter]
-    public bool Authorize { get; set; }=true;
-
-    [Parameter]
-    public string PageName { get; set; }
-
-    [Parameter]
-    public RenderFragment MainContent { get; set; }
+{   
+[Parameter] public bool Authorize { get; set; }=true;
+[Parameter] public string PageName { get; set; }
+[Parameter] public RenderFragment MainContent { get; set; }
 }      

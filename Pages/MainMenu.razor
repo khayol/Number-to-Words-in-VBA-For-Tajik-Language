@@ -1,5 +1,14 @@
 ﻿@page "/MainMenu"
-<WrQuestOrMsg TxtSize="h2" Txt="MainMenu"/>
+
+<AuthorizeView>
+    <Authorized>
+        <WrQuestOrMsg TxtSize="h2" Txt="MainMenu"/>
+    </Authorized>
+    <NotAuthorized>
+        @* Nothing *@
+    </NotAuthorized>
+</AuthorizeView>
+
  <div>
         <ul class="nav flex-column">
          <WrLi PageName="Index" Link="" Match="NavLinkMatch.All" FieldCaption="Home" />
@@ -8,7 +17,6 @@
          <WrLi PageName="GenderViewStd" Link="Dir/Gender/ViewStd/0"  TransEntity="Dir"/>
          <WrLi PageName="CountryViewStd" Link="Dir/Country/ViewStd/0"  TransEntity="Dir"/>
          <WrLi PageName="IndividualViewStd" Link="IndOrg/Individual/ViewStd/0" TransEntity="Individual"/>
-         
 
          @*     
          <WrLi Authorize="false" PageName="IndividualViewStdClassic" 
@@ -16,10 +24,7 @@
 
          <WrLi PageName="TestUserAPI" Link="/api/User" /> 
          *@
-            
-
-
-        </ul>
+         </ul>
     </div>
 @code  {
 protected override void OnInitialized()

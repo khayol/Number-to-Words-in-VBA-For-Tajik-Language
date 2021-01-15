@@ -205,9 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 30 "E:\A_NewProjects\01\Woorj\Pages\Dir\Gender\View.razor"
       
-
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Gender objMain = new Gender();    
     private string  CancelOrBeckTxt { get; set; } 
 

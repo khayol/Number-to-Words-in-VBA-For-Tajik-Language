@@ -5,21 +5,13 @@
     </div>  
 
 @code  { 
-
-    [Parameter]
-    public bool ReadonlyThis { get; set; }
-    
-    [Parameter]
-    public string FieldCaption { get; set; }
-      
-    [Parameter]
-    public string TransEntity { get; set; }
-    
-    
     private string _value;
+    [Parameter] public bool ReadonlyThis { get; set; }
+    [Parameter] public string FieldCaption { get; set; }
+    [Parameter] public string TransEntity { get; set; }
+    [Parameter] public EventCallback<string> BindingValueChanged { get; set; } 
 
-    [Parameter]
-    public string BindingValue
+    [Parameter] public string BindingValue
     {
         get => _value;
         set
@@ -29,25 +21,5 @@
             BindingValueChanged.InvokeAsync(value);
         }
     }
-
-    [Parameter]
-    public EventCallback<string> BindingValueChanged { get; set; } 
-
-
-   
-
-
-
-
-    
-  
-
-   
-    
-
-
-  
- 
-    
 
 }

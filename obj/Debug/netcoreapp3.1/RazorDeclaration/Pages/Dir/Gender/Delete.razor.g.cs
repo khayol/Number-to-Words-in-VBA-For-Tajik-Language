@@ -205,9 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 31 "E:\A_NewProjects\01\Woorj\Pages\Dir\Gender\Delete.razor"
       
-
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Gender objMain = new Gender();  
 
     protected override void OnInitialized()

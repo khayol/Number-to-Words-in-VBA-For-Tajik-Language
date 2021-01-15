@@ -209,56 +209,30 @@ using System.Reflection;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 203 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 197 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
          
 
 
     
 #region  Declare_Region
 
+private string ErrorMessage;
 
-    [Parameter]
-    public string BaseUrlUri { get; set; }
-    
-    [Parameter]
-    public string BackLink { get; set; }
-    
-    [Parameter]
-    public string ColumnsToExcludeCSV { get; set; }
+[Parameter] public string BaseUrlUri { get; set;}
+[Parameter] public string BackLink { get; set;}
+[Parameter] public string ColumnsToExcludeCSV { get; set;}
+[Parameter] public string UniqIdOfRecord { get; set;}
+[Parameter] public string PageNameTitle { get; set; }
+[Parameter] public int CurrentPage { get; set; } = 1;
+[Parameter] public RenderFragment ControlMenu { get; set; }
+[Parameter] public RenderFragment ControlQuickAccess { get; set; }
+[Parameter] public PagingConfig Paging { get; set; } = new PagingConfig();
+[Parameter] public RenderFragment CustomPager { get; set; }
+[Parameter] public RenderFragment PageName { get; set; }
+[Parameter] public List<TItem> DataItems { get; set; }
+[Parameter] public List<ColumnDefinition> Columns { get; set; }
+[Parameter] public EventCallback<string> SelectedRow { get; set; } 
 
-    [Parameter]
-    public string UniqIdOfRecord { get; set; }
-
-    [Parameter]
-    public string PageNameTitle { get; set; }
-    [Parameter]
-    public int CurrentPage { get; set; } = 1;
-
-    private string ErrorMessage;
-    [Parameter]
-    public RenderFragment ControlMenu { get; set; }
-
-    [Parameter]
-    public RenderFragment ControlQuickAccess { get; set; }
-
-       [Parameter]
-    public PagingConfig Paging { get; set; } = new PagingConfig();
-
-    [Parameter]
-    public RenderFragment CustomPager { get; set; }
-
-    [Parameter]
-    public RenderFragment PageName { get; set; }
-
-    [Parameter]
-    public List<TItem> DataItems { get; set; }
-
-    [Parameter]
-    public List<ColumnDefinition> Columns { get; set; }
-
-    [Parameter]
-    public EventCallback<string> SelectedRow { get; set; } 
-    
 #endregion  Declare_Region
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -351,7 +325,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 349 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 317 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -402,14 +376,14 @@ using System.Reflection;
     }
   
     private void GoBrwsNavigation(int pVal)
-{
-    JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-}
+    {
+        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
+    }
 
     public void GoToPrevPage()
     {
         CurrentPage = Paging.PrevPageNumber(CurrentPage);
-         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+        JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
     }
 
     public void GoToFirstPage()
@@ -543,7 +517,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 549 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 517 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -555,7 +529,7 @@ using System.Reflection;
 #line hidden
 #nullable disable
 #nullable restore
-#line 560 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 528 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

@@ -205,9 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 50 "E:\A_NewProjects\01\Woorj\Pages\Dir\Country\View.razor"
       
-
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Country objMain = new Country();    
     private string  CancelOrBeckTxt { get; set; } 
 

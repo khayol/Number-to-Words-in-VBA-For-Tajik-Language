@@ -203,10 +203,8 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning restore 1998
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPageName.razor"
-       
-    [Parameter]
-    public string PageName { get; set; }
- 
+        
+[Parameter] public string PageName { get; set; }
 
 
 #line default

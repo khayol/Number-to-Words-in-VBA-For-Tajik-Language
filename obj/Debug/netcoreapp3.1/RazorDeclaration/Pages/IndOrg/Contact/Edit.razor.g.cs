@@ -205,8 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 35 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Contact\Edit.razor"
       
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Contact objContact = new Contact();
     private string  CancelOrBeckTxt { get; set; }
 

@@ -205,9 +205,8 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 38 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRole\Edit.razor"
       
-
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
+    
     ApplicationRole objMain = new ApplicationRole();    
     private string  CancelOrBeckTxt { get; set; }  
 

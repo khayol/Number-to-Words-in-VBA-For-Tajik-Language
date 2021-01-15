@@ -206,8 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 51 "E:\A_NewProjects\01\Woorj\Pages\Dir\Country\Edit.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Country objMain = new Country();    
     private string  CancelOrBeckTxt { get; set; } 
 

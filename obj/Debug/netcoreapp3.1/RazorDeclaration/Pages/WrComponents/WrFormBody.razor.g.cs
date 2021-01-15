@@ -203,10 +203,8 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning restore 1998
 #nullable restore
 #line 9 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFormBody.razor"
-      
-
-    [Parameter]
-    public RenderFragment FormElements { get; set; }
+          
+    [Parameter] public RenderFragment FormElements { get; set; }
 
 #line default
 #line hidden

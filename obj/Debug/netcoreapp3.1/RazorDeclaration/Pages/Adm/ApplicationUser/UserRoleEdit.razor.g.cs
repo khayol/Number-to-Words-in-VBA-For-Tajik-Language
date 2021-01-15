@@ -207,8 +207,7 @@ using Woorj.Pages.TESTS.L22;
       
 
     #region  Declare
-        [Parameter]
-        public string CurrentID { get; set; }
+        [Parameter] public string CurrentID { get; set; }
         private string selectedRow { get; set; } = "";
         private List<VGetUserRole> VGetUserRole_List;       
         private List<ApplicationRole> ApplicationRole_List; 

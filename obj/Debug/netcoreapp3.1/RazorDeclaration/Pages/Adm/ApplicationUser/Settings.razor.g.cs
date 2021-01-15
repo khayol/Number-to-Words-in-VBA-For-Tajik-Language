@@ -205,9 +205,8 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 64 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Settings.razor"
       
-    
-    [Parameter]
-    public string CurrentID { get; set; }
+
+    [Parameter] public string CurrentID { get; set; }
     ApplicationUser objApplicationUser = new ApplicationUser();
     public List<Language> LanguageList;
 

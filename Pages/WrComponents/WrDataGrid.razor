@@ -15,19 +15,16 @@ else
 <div class="panel-elements">
     <div class="row ">
         <div>
-            <div class="form-group ">
-             
+            <div class="form-group ">             
                <WrSpace Length=5/>
-                @if (ControlMenu != null )
-                {       
+                    @if (ControlMenu != null )
+                    {       
                        @if(!string.IsNullOrEmpty(BackLink)){
                            if(BackLink.ToUpper()=="WndBack".ToUpper())
                            {
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
                                 OnClickCallback="@(e=>GoBrwsNavigation(-1))"  TxtToolTip="Back" />
-
                            }else{
-
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
                                 OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
                            }
@@ -53,12 +50,9 @@ else
                            {
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
                                 OnClickCallback="@(e=>GoBrwsNavigation(-1))"  TxtToolTip="Back" />
-
                            }else{
-
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
-                                OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
-                           }
+                                OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />                           }
                            }
                            <WrSpace Length=3/>
                            @ControlQuickAccess
@@ -206,49 +200,23 @@ else
     
 #region  Declare_Region
 
+private string ErrorMessage;
 
-    [Parameter]
-    public string BaseUrlUri { get; set; }
-    
-    [Parameter]
-    public string BackLink { get; set; }
-    
-    [Parameter]
-    public string ColumnsToExcludeCSV { get; set; }
+[Parameter] public string BaseUrlUri { get; set;}
+[Parameter] public string BackLink { get; set;}
+[Parameter] public string ColumnsToExcludeCSV { get; set;}
+[Parameter] public string UniqIdOfRecord { get; set;}
+[Parameter] public string PageNameTitle { get; set; }
+[Parameter] public int CurrentPage { get; set; } = 1;
+[Parameter] public RenderFragment ControlMenu { get; set; }
+[Parameter] public RenderFragment ControlQuickAccess { get; set; }
+[Parameter] public PagingConfig Paging { get; set; } = new PagingConfig();
+[Parameter] public RenderFragment CustomPager { get; set; }
+[Parameter] public RenderFragment PageName { get; set; }
+[Parameter] public List<TItem> DataItems { get; set; }
+[Parameter] public List<ColumnDefinition> Columns { get; set; }
+[Parameter] public EventCallback<string> SelectedRow { get; set; } 
 
-    [Parameter]
-    public string UniqIdOfRecord { get; set; }
-
-    [Parameter]
-    public string PageNameTitle { get; set; }
-    [Parameter]
-    public int CurrentPage { get; set; } = 1;
-
-    private string ErrorMessage;
-    [Parameter]
-    public RenderFragment ControlMenu { get; set; }
-
-    [Parameter]
-    public RenderFragment ControlQuickAccess { get; set; }
-
-       [Parameter]
-    public PagingConfig Paging { get; set; } = new PagingConfig();
-
-    [Parameter]
-    public RenderFragment CustomPager { get; set; }
-
-    [Parameter]
-    public RenderFragment PageName { get; set; }
-
-    [Parameter]
-    public List<TItem> DataItems { get; set; }
-
-    [Parameter]
-    public List<ColumnDefinition> Columns { get; set; }
-
-    [Parameter]
-    public EventCallback<string> SelectedRow { get; set; } 
-    
 #endregion  Declare_Region
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -396,14 +364,14 @@ else
     }
   
     private void GoBrwsNavigation(int pVal)
-{
-    JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-}
+    {
+        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
+    }
 
     public void GoToPrevPage()
     {
         CurrentPage = Paging.PrevPageNumber(CurrentPage);
-         JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
+        JSRuntime.InvokeVoidAsync("ResetSelectedRowColorChange");
     }
 
     public void GoToFirstPage()

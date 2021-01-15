@@ -206,8 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 36 "E:\A_NewProjects\01\Woorj\Pages\Dir\Country\Delete.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Country objMain = new Country();  
 
     protected override void OnInitialized()

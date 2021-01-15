@@ -206,7 +206,6 @@ using Woorj.Pages.TESTS.L22;
 #line 4 "E:\A_NewProjects\01\Woorj\Pages\Index.razor"
         
 protected override void OnInitialized()
-//protected override async Task OnInitializedAsync()
 {
     AppData.BaseUrlUri=NavManager.Uri.ToString(); 
 

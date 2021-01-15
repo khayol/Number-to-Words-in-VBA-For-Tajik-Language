@@ -208,8 +208,7 @@ using Woorj.Pages.TESTS.L22;
 
 
  #region     Declare
-    [Parameter]
-    public string Id { get; set; }
+    [Parameter] public string Id { get; set; }
     private WrDataGrid<ApplicationRole> grid;
     private List<ApplicationRole> list;
  

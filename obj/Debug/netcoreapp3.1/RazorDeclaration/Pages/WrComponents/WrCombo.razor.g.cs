@@ -204,11 +204,9 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 21 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrCombo.razor"
          
- [Parameter]
-    public List<TItem> DataItems { get; set; }
 
-        [Parameter] 
-      public  int IdSelected{ get; set; }
+[Parameter] public List<TItem> DataItems { get; set; }
+[Parameter] public  int IdSelected{ get; set; }
 
 #line default
 #line hidden

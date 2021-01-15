@@ -206,8 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 35 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Add.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     ApplicationUser objMain= new ApplicationUser();
   
      protected  void Create()

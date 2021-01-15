@@ -204,22 +204,12 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 19 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
  
-    [Parameter]
-    public bool Authorize { get; set; }=true;
-
-    [Parameter]
-    public string PageName { get; set; }
-    [Parameter]
-    public string Link { get; set; }
-
-    [Parameter]
-    public NavLinkMatch Match { get; set; }    
-
-    [Parameter]
-    public string FieldCaption { get; set; }
-      
-    [Parameter]
-    public string TransEntity { get; set; }="General"; 
+    [Parameter] public bool Authorize { get; set; }=true;
+    [Parameter] public string PageName { get; set; }
+    [Parameter] public string Link { get; set; }
+    [Parameter] public NavLinkMatch Match { get; set; } 
+    [Parameter] public string FieldCaption { get; set; }
+    [Parameter] public string TransEntity { get; set; }="General"; 
     
   protected override void OnInitialized()
     {

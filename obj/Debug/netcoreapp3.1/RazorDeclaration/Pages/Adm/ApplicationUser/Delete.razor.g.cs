@@ -206,8 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 41 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Delete.razor"
       
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     ApplicationUser objMain = new ApplicationUser();  
  
 

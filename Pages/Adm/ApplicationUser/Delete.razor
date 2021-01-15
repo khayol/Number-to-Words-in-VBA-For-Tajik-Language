@@ -14,7 +14,7 @@
 
     <WrFormBody>
         <FormElements>
-             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
+             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Bleck" BackgroundColor="yellow" />
            
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
             ReadonlyOpt="true" Val="@objMain.Code" />
@@ -40,8 +40,7 @@
 
 @code{
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     ApplicationUser objMain = new ApplicationUser();  
  
 

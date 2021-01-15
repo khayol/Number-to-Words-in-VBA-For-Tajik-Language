@@ -203,10 +203,8 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning restore 1998
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrSrchDGrid.razor"
-       
-    [Parameter]
-    public EventCallback<ChangeEventArgs> OnSearchTextChanged { get; set; }
-
+           
+    [Parameter] public EventCallback<ChangeEventArgs> OnSearchTextChanged { get; set; }
 
 #line default
 #line hidden

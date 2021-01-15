@@ -1,9 +1,8 @@
 ﻿@page "/"
-<br><br><br>
-<p><center><h1> @trs.GetTranslation("Welcome",@AppData.ActiveUser,"General")!</h1></center></p>
+  <WrSpace Length=3/>
+  <WrQuestOrMsg TxtSize="h1" Center="true" Color="Blue" Txt="Welcome"/>
 @code  {
 protected override void OnInitialized()
-//protected override async Task OnInitializedAsync()
 {
     AppData.BaseUrlUri=NavManager.Uri.ToString(); 
 

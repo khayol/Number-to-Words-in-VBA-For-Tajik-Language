@@ -204,16 +204,8 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 11 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLebel.razor"
          
-
-    
-    [Parameter]
-    public string FieldCaption { get; set; }
-      
-    [Parameter]
-    public string TransEntity { get; set; }
-    
-    
-
+    [Parameter] public string FieldCaption { get; set; }
+    [Parameter] public string TransEntity { get; set; }
 
 #line default
 #line hidden

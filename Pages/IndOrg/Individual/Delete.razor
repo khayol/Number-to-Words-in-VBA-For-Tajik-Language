@@ -13,18 +13,19 @@
 
     <WrFormBody>
         <FormElements>
-            <WrQuestOrMsg Txt="AreYouSureToDeteteRow"/>
+            <WrQuestOrMsg Txt="AreYouSureToDeteteRow" Color="Bleck" BackgroundColor="yellow" />
            
             <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-            ReadonlyOpt="false" Val="@objMain.Code" />
+            ReadonlyOpt="true" Val="@objMain.Code" />
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="FirstName"
+            <WrFieldStr ReadonlyThis="true" FieldCaption="FirstName"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="SecondName"
+            <WrFieldStr ReadonlyThis="true" FieldCaption="SecondName"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="LastName"
+            <WrFieldStr ReadonlyThis="true
+            " FieldCaption="LastName"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
 
         </FormElements>      
@@ -35,8 +36,7 @@
 
 @code{
 
-    [Parameter]
-    public string CurrentID { get; set; }
+    [Parameter] public string CurrentID { get; set; }
     Individual objMain = new Individual();  
 
     protected override void OnInitialized()

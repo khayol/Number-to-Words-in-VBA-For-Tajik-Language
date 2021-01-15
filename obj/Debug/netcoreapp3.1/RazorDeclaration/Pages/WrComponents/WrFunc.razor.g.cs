@@ -204,12 +204,8 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFunc.razor"
        
-    [Parameter]
-    public RenderFragment ControlMenu { get; set; }
-    
-    [Parameter]
-    public RenderFragment ControlQuickAccess { get; set; }
-
+    [Parameter] public RenderFragment ControlMenu { get; set; }
+    [Parameter] public RenderFragment ControlQuickAccess { get; set; }
 
 #line default
 #line hidden
