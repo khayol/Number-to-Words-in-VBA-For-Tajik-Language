@@ -50,6 +50,29 @@ namespace Woorj.CtrServerSide.IndOrg
           return Contact;        
         }
 
+          public List<Contact> GetById(int pId){
+            List<Contact> list;
+
+            if (pId==0 || string.IsNullOrEmpty(pId.ToString())){
+            list=_db.Contact.ToList();
+            }else
+            {                
+            list=_db.Contact.Where(s=>s.Id==pId).ToList();
+            }
+            return list;        
+          }
+
+         public List<Contact> GetSearchByField(string searchTxt){
+        var list = _db.Contact.Where(i=>
+                                       i.Code.ToString().Contains(searchTxt)
+                                      || i.Name.Contains(searchTxt) 
+                                      || i.Description.Contains(searchTxt)
+                                      || i.CreatedDate.ToString().Contains(searchTxt)
+                                      
+                                  ).ToList();
+        return list;
+       }
+
         public List<Contact> GetByIndividualId(int pIndividualId){
         List<Contact> list;
 

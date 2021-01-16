@@ -13,8 +13,8 @@
     <div class="fix-possition">
         <WrPnlElm>
             <ControlQuickAccess>
-                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
                     <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
+                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
                         <label for="Code" class="control-lable">
                         &nbsp;&nbsp; &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ",@AppData.ActiveUser,"Adm") &#58; &nbsp;@objUser.Code &nbsp;&nbsp; @objUser.UserName &nbsp;&nbsp; @objUser.FirstName &nbsp; @objUser.SecondName
                         </label>
@@ -159,11 +159,11 @@
         protected void UpdateRoles()
         {
           //  SrvUser.UpdateRoles(objUser);
-            NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
         }
         void Cancel()
         {
-            NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
         }
     #endregion  Event
 

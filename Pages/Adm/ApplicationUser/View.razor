@@ -23,13 +23,13 @@
             TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
 
             <WrFieldStr FieldCaption="FirstName" ReadonlyThis="true"
-            TransEntity="General"  @bind-BindingValue ="@objMain.FirstName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/>
 
             <WrFieldStr  FieldCaption="SecondName" ReadonlyThis="true"
-            TransEntity="General"  @bind-BindingValue ="@objMain.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
 
             <WrFieldStr  FieldCaption="LastName" ReadonlyThis="true"
-            TransEntity="General"  @bind-BindingValue ="@objMain.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
 
         </FormElements>      
     </WrFormBody>    
@@ -48,7 +48,7 @@
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
     }
 
   

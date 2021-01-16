@@ -214,7 +214,7 @@ using Woorj.Pages.TESTS.L22;
 
     void Cancel()
     {
-        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
+        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentID);
     }
 
   

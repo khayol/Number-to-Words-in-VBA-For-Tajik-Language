@@ -6,8 +6,8 @@
     <div class="fix-possition">
         <WrPnlElm>
             <ControlQuickAccess>
-                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="Update">
                     <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
+                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="Update">
                         <label for="Code" class="control-lable">
                         &nbsp;&nbsp; &nbsp;&nbsp;  @objRole.Code &nbsp;&nbsp; @objRole.NormalizedName </label>
             </ControlQuickAccess>
@@ -85,7 +85,7 @@
         }
         void Cancel()
         {
-            NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
+            NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
         }
     
     }

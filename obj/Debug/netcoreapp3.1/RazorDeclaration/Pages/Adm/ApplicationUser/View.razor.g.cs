@@ -215,7 +215,7 @@ using Woorj.Pages.TESTS.L22;
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
     }
 
   

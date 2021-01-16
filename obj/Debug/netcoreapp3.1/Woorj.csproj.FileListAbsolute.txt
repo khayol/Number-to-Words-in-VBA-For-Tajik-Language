@@ -635,3 +635,13 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Gen
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Gender\View.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\IndOrg\Contact\View.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\IndOrg\Contact\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Contact\Add.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Contact\Delete.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Contact\Edit.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Contact\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Dir\Contact\ViewStd.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\Add.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\Delete.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\Edit.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\View.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\ViewStd.razor.g.cs

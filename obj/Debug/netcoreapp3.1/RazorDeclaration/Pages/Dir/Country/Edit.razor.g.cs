@@ -217,11 +217,11 @@ using Woorj.Pages.TESTS.L22;
     protected void Save()
     {
         MainController.Update(objMain);
-        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
+        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentID);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Dir/Country/ViewStd/0");
+        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentID);
     }
 
   

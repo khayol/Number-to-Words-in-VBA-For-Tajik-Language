@@ -217,11 +217,11 @@ using Woorj.Pages.TESTS.L22;
     protected void DeleteRow()
     {
         MainController.Delete(objMain);
-        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+CurrentID);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+CurrentID);
     }
 
 

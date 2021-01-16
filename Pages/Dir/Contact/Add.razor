@@ -1,0 +1,44 @@
+@page "/Dir/Contact/Add"
+@inject ContactController MainController
+
+<WrAuth PageName="ContactAdd"><MainContent>    
+    <EditForm Model="@objMain" OnValidSubmit="@CreateContact">  
+        <FluentValidationValidator />  
+        <ValidationSummary/>
+        <WrPnlElm>
+        <ControlQuickAccess>
+            <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
+            <WrOper Category="EditForm" TypeInput="submit" Txt="Save"/>
+        </ControlQuickAccess>
+        </WrPnlElm>
+    <WrFormBody>
+            <FormElements>
+
+                <WrFieldStr FieldCaption="Name"
+                TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
+
+                <WrFieldStr  FieldCaption="Description"
+                TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+        
+        </FormElements>      
+        </WrFormBody> 
+    </EditForm>
+</MainContent></WrAuth>
+
+@code{
+
+     Contact objMain= new Contact();
+     protected override void OnInitialized()
+    {
+       //objMain.IndividualId=int.Parse(AppData.Individual_IdSelect);
+    }
+    protected  void CreateContact()
+    { 
+        MainController.Create(objMain);
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/0");
+    }
+    void Cancel(){
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/0");
+    }
+
+}

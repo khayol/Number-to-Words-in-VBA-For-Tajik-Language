@@ -206,10 +206,7 @@ using Woorj.Pages.TESTS.L22;
 #line 41 "E:\A_NewProjects\01\Woorj\Pages\Dir\Country\Add.razor"
       
 
-    [Parameter] public string CurrentID { get; set; }
-
-    Country objMain= new Country();
-  
+     Country objMain= new Country();  
      protected  void Create()
      { 
         MainController.Create(objMain);

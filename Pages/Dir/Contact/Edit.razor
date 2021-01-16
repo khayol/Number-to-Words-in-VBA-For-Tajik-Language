@@ -1,0 +1,53 @@
+@page "/Dir/Contact/Edit/{CurrentID}"
+@inject ContactController objMainController
+
+<WrAuth PageName="ContactEdit"><MainContent>  
+
+<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <FluentValidationValidator /> 
+    <ValidationSummary/>
+    
+    <WrPnlElm>
+        <ControlQuickAccess>
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/> 
+            <WrOper Category="EditForm" EditOrView=true ReadonlyOther="false" TypeInput="submit" Txt="Save"/>
+       </ControlQuickAccess>
+    </WrPnlElm>
+
+    <WrFormBody>
+        <FormElements>
+
+            <WrFieldInt TransEntity="General" FieldCaption="Code" 
+            ReadonlyOpt="false" Val="@objMain.Code" />
+
+           <WrFieldStr ReadonlyThis="false" FieldCaption="Name"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+
+            <WrFieldStr ReadonlyThis="false" FieldCaption="Description"
+            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+
+   
+        </FormElements>      
+    </WrFormBody>    
+    </EditForm>    
+</MainContent></WrAuth>
+
+@code{
+    [Parameter] public string CurrentID { get; set; }
+    Contact objMain = new Contact();
+
+    protected override void OnInitialized()
+    {
+        objMain = objMainController.GetContactById(Convert.ToInt32(CurrentID));
+   }
+
+    protected void Save()
+    {
+        objMainController.UpdateContact(objMain);
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentID);
+    }
+    void Cancel()
+    {
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentID);
+    }
+}

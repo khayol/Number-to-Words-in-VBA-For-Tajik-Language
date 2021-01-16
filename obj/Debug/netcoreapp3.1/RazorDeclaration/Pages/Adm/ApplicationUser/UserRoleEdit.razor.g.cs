@@ -255,11 +255,11 @@ using Woorj.Pages.TESTS.L22;
         protected void UpdateRoles()
         {
           //  SrvUser.UpdateRoles(objUser);
-            NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
         }
         void Cancel()
         {
-            NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
         }
     #endregion  Event
 

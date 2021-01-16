@@ -218,11 +218,11 @@ using Woorj.Pages.TESTS.L22;
     protected void Save()
     {
         MainController.Update(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
+        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
     }
 
   
