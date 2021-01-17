@@ -1,5 +1,5 @@
-@page "/IndOrg/Contact/Add"
-@inject ContactController objContactController
+@page "/IndOrg/Contact/Add/{IndividualId}"
+@inject ContactController MainController
 
 <WrAuth PageName="ContactAdd"><MainContent>    
     <EditForm Model="@objContact" OnValidSubmit="@CreateContact">  
@@ -27,18 +27,19 @@
 
 @code{
 
+    [Parameter] public string IndividualId { get; set; }
      Contact objContact= new Contact();
      protected override void OnInitialized()
     {
-       objContact.IndividualId=int.Parse(AppData.Individual_IdSelect);
+       objContact.IndividualId=int.Parse(IndividualId);
     }
     protected  void CreateContact()
     { 
-        objContactController.Create(objContact);
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/0");
+        MainController.Create(objContact);
+          AppData.GoBrwsNavigation(-1);
     }
     void Cancel(){
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/0");
+         AppData.GoBrwsNavigation(-1);
     }
 
 }

@@ -107,22 +107,13 @@
     public void GoToCollection(string pLinkAddress,string pIdOfRecord)
     { 
       NavManager.NavigateTo(pLinkAddress+pIdOfRecord); // change "0" to the Contact Id in Individual Table
-      AppData.flg_ChoosedRow=1;
-      AppData.ChoosedRowId=int.Parse(pIdOfRecord);      
     }
 
     public void GoToCollection(string pLinkAddress,string pIdOfRecord,  string pChoosedEntityName, 
                                int pChoosedEntityId, string pChoosedEntityFK)
     {           
         NavManager.NavigateTo(pLinkAddress+"0");
-        AppData.flg_ChoosedRow=1;
-
-        if (!string.IsNullOrEmpty(pIdOfRecord)){
-        AppData.ChoosedRowId=int.Parse(pIdOfRecord);
-        } else
-        {
-          AppData.ChoosedRowId=1; // NeedUpdate (bad solution)
-        }
+ 
         AppData.ChoosedEntityName=pChoosedEntityName; 
         AppData.ChoosedEntityId=pChoosedEntityId; 
         AppData.ChoosedEntityFK=pChoosedEntityFK;

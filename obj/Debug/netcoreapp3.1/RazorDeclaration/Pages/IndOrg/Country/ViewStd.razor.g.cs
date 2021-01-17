@@ -212,6 +212,7 @@ using Woorj.Pages.TESTS.L22;
     private WrDataGrid<Country> grid;
     private List<Country> list;
     private string searchValue   { get; set; }  
+        [Parameter] public string selectedId { get; set;}="0";
  
  #endregion  Declare
 
@@ -236,18 +237,18 @@ using Woorj.Pages.TESTS.L22;
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        AppData.Country_IdSelect = pSelectedRow;
+        selectedId = pSelectedRow;
     }
     protected void FindSelectedRec()
     {
         grid.GoToFirstPage();
-        list = MainController.GetById(int.Parse(AppData.Country_IdSelect));
+        list = MainController.GetById(int.Parse(selectedId));
     }
     protected void CleanSearchBox()
     {
         grid.GoToFirstPage();
         list = MainController.GetSearchByField("");
-        AppData.Country_IdSelect = "0";
+        selectedId = "0";
         searchValue="";
     }
 

@@ -211,7 +211,9 @@ using Woorj.Pages.TESTS.L22;
    private WrDataGrid<Contact> grid;
     private List<Contact> ContactList;    
     [Parameter] public string IndividualId { get; set;}
-    public string  backLink  { get; set; }
+    public string  backLink  { get; set; } 
+    
+    public string  selectedRow  { get; set; }
  
  #endregion  Declare
 
@@ -221,7 +223,7 @@ using Woorj.Pages.TESTS.L22;
     {        
         MainController.Initialized();
 
-       backLink="/IndOrg/Individual/Edit/"+ IndividualId;
+        backLink="/IndOrg/Individual/Edit/"+ IndividualId;
         ContactList = MainController.GetContactByIndividualId(int.Parse(IndividualId)).ToList();
     }
 
@@ -230,7 +232,7 @@ using Woorj.Pages.TESTS.L22;
 #region    Event
     private void SelectedRowMeth(string pSelectedRow)
     {
-     AppData.Contact_IdSelect = pSelectedRow;
+     selectedRow= pSelectedRow;
     }
  #endregion Event
  

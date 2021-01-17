@@ -243,8 +243,6 @@ private string ErrorMessage;
        
        if (string.IsNullOrEmpty(pLinkAddress)){
          
-           if(AppData.flg_ChoosedRow==1)
-           {
              int IdSelected= int.Parse(typeof(TItem).GetProperty("Id").GetValue(item).ToString());
                 /*
                 Console.WriteLine("===================================");
@@ -279,7 +277,7 @@ private string ErrorMessage;
                  GnrSrv.UpdateReleatedDataMain(AppData.ChoosedEntityId,AppData.ChoosedEntityFK,IdSelected,AppData.ChoosedEntityName);
                  GoBrwsNavigation(-1);
               
-           }
+          
        }else
          {
             /*

@@ -215,7 +215,7 @@ using Woorj.Pages.TESTS.L22;
 
     void Cancel()
     {
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/"+AppData.Individual_IdSelect);
+        AppData.GoBrwsNavigation(-1);
     }
 
 #line default

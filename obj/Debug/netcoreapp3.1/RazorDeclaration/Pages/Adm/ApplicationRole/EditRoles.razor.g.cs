@@ -210,7 +210,9 @@ using Woorj.Pages.TESTS.L22;
         [Parameter] public string CurrentID { get; set; }
         private string selectedRow { get; set; } = "";       
       //  private List<ApplicationRole> ApplicationRole_List; 
-      //  private WrDataGrid<ApplicationRole> grid_DiffRoleList;      
+      //  private WrDataGrid<ApplicationRole> grid_DiffRoleList;   
+
+            [Parameter] public string selectedId { get; set;}="0";       
         private ApplicationRole objRole = new ApplicationRole(); 
     #endregion  Declare
     
@@ -233,8 +235,8 @@ using Woorj.Pages.TESTS.L22;
         private void SelectedRowMeth(string pSelectedRow)
         {
             selectedRow = pSelectedRow;
-            AppData.UserRoleEditRoleIdSlcd = selectedRow;
-            AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
+            selectedId= selectedRow;
+           // AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
         }
         protected void Test()
         {

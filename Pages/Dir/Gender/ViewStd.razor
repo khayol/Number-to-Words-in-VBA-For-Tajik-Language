@@ -21,9 +21,9 @@
 
         <ControlMenu>
             <WrOper Design="a" Type="C"  Link="/Dir/Gender/Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link="/Dir/Gender/View/"   LinkId=@AppData.Gender_IdSelect Txt="View" />
-            <WrOper Design="a" Type="U"  Link="/Dir/Gender/Edit/"   LinkId=@AppData.Gender_IdSelect Txt="Edit" />
-            <WrOper Design="a" Type="D"  Link="/Dir/Gender/Delete/" LinkId=@AppData.Gender_IdSelect Txt="Delete" />
+            <WrOper Design="a" Type="R"  Link="/Dir/Gender/View/"   LinkId=@selectedId Txt="View" />
+            <WrOper Design="a" Type="U"  Link="/Dir/Gender/Edit/"   LinkId=@selectedId Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link="/Dir/Gender/Delete/" LinkId=@selectedId Txt="Delete" />
         </ControlMenu>
 
         <ControlQuickAccess>
@@ -33,9 +33,9 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Dir/Gender/Add"     TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Gender/View/"   LinkId=@AppData.Gender_IdSelect TxtToolTip="View" />
-            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Dir/Gender/Edit/"   LinkId=@AppData.Gender_IdSelect TxtToolTip="Edit" />
-            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Dir/Gender/Delete/" LinkId=@AppData.Gender_IdSelect TxtToolTip="Delete" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Gender/View/"   LinkId=@selectedId TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Dir/Gender/Edit/"   LinkId=@selectedId TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Dir/Gender/Delete/" LinkId=@selectedId TxtToolTip="Delete" />
             <WrSpace Length=2/>
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
@@ -51,6 +51,7 @@
     private WrDataGrid<Gender> grid;
     private List<Gender> list;
     private string searchValue   { get; set; }
+      [Parameter] public string selectedId { get; set;}="0";
  
  #endregion  Declare
 
@@ -74,18 +75,18 @@
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        AppData.Gender_IdSelect = pSelectedRow;
+        selectedId = pSelectedRow;
     }
     protected void FindSelectedRec()
     {
         grid.GoToFirstPage();
-        list = MainController.GetById(int.Parse(AppData.Gender_IdSelect));
+        list = MainController.GetById(int.Parse(selectedId));
     }
     protected void CleanSearchBox()
     {
         grid.GoToFirstPage();
         list = MainController.GetSearchByField("");
-        AppData.Gender_IdSelect = "0";
+        selectedId = "0";
     }
     protected void ExportToExcel()
     {

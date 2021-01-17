@@ -21,31 +21,46 @@ namespace Woorj.Services
         JSRuntime=iJSRuntime;
     }
 
- 
+
     public void CRUD(string pOperType, string pNavLink, string pRecId)
     {      
-        //  CRUD => C=CREATE, R=READ,= U=UPDATE, D=DELETE
 
-        if (pOperType.ToUpper()!="C" && (string.IsNullOrEmpty(pRecId) || pRecId=="0"))       
+        if (                            
+                (
+                    pOperType.ToUpper()!="C"  && (string.IsNullOrEmpty(pRecId) || pRecId=="0") 
+                )
+                && 
+                (
+                    pOperType.ToUpper()!="CU"  && (string.IsNullOrEmpty(pRecId) || pRecId=="0") 
+                ) 
+                          
+            )       
         {     
             JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
+             Console.WriteLine("Exaption=> "+pNavLink + pRecId);
         }
-        else if (pOperType.ToUpper()=="C"  && !string.IsNullOrEmpty(pNavLink))
+        else if (pOperType.ToUpper()=="C"  && !string.IsNullOrEmpty(pNavLink) && (string.IsNullOrEmpty(pRecId) || pRecId=="0"))
         {
            NavManager.NavigateTo(pNavLink);
         } 
-        else if (pOperType.ToUpper()=="R" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId) || pRecId!="0"))
+        else if (!string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId) || pRecId!="0"))
         {
-            NavManager.NavigateTo(pNavLink + pRecId);
-        }else if (pOperType.ToUpper()=="U" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId)  || pRecId!="0"))
-        {
-            NavManager.NavigateTo(pNavLink + pRecId);
-        }else if (pOperType.ToUpper()=="D" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId)  || pRecId!="0"))
-        {
-            NavManager.NavigateTo(pNavLink + pRecId);
-        }else if (pOperType.ToUpper()=="N" && !string.IsNullOrEmpty(pNavLink) && (!string.IsNullOrEmpty(pRecId)  || pRecId!="0"))
-        {
-            NavManager.NavigateTo(pNavLink + pRecId);
+           switch (pOperType.ToUpper())
+            {
+                case "R":
+                case "U":
+                case "CU":
+                case "D":
+                case "N":
+                    NavManager.NavigateTo(pNavLink + pRecId);
+                    break;
+                default:
+                    // Nothing
+                    break;
+            }
+    
+                 
+               
         } 
      
     }

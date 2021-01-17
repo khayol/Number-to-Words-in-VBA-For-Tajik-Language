@@ -202,7 +202,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 70 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
+#line 71 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
           
     
     [Parameter] public string Design { get; set; }="";

@@ -212,6 +212,7 @@ using Woorj.Pages.TESTS.L22;
     private WrDataGrid<ApplicationUser> grid;
     private List<ApplicationUser> list;
     private string searchValue   { get; set; }
+    [Parameter] public string selectedId { get; set;}="0";    
  
  #endregion  Declare
 
@@ -226,7 +227,6 @@ using Woorj.Pages.TESTS.L22;
 #endregion BlazorMethods
 
 #region    Event
-
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
         searchValue = changeEventArgs.Value.ToString();
@@ -235,18 +235,18 @@ using Woorj.Pages.TESTS.L22;
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        AppData.ApplicationUser_IdSelect = pSelectedRow;
+        selectedId = pSelectedRow;
     }
     protected void FindSelectedRec()
     {
         grid.GoToFirstPage();
-        list = MainController.GetById(AppData.ApplicationUser_IdSelect);
+        list = MainController.GetById(selectedId);
     }
     protected void CleanSearchBox()
     {
         grid.GoToFirstPage();
         list = MainController.GetSearchByField("");
-        AppData.ApplicationUser_IdSelect = "0";
+        selectedId = "0";
     }
     protected void ExportToExcel()
     {

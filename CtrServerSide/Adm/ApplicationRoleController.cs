@@ -45,9 +45,9 @@ namespace Woorj.CtrServerSide.Adm
             clmDef_Role = new List<ColumnDefinition>();
             clmDef_Role.AddRange(
                 new ColumnDefinition[] {
-                    new ColumnDefinition { DataField = "Code", Caption="Code" },
-                    new ColumnDefinition { DataField = "Name", Caption="Name" },
-                    new ColumnDefinition { DataField = "NormalizedName", Caption="NameOfRoles" },                       
+                    new ColumnDefinition { DataField = "Code", Caption="Code", MinWidth="70", MaxWidth="70"   },
+                    new ColumnDefinition { DataField = "Name", Caption="Name", MinWidth="400", MaxWidth="400"  },
+                    new ColumnDefinition { DataField = "NormalizedName", Caption="NameOfRoles", MinWidth="400", MaxWidth="400"  },                       
                     }
             );
         }
@@ -57,10 +57,10 @@ namespace Woorj.CtrServerSide.Adm
             clmDef_VGetUserRole = new List<ColumnDefinition>();
             clmDef_VGetUserRole.AddRange(
                 new ColumnDefinition[] {
-                    new ColumnDefinition { DataField = "RoleCode", Caption="Code" },
-                    new ColumnDefinition { DataField = "RoleName", Caption="RoleName" },
-                    new ColumnDefinition { DataField = "NormalizedName", Caption="NameOfRoles" },
-                    new ColumnDefinition { DataField = "Description", Caption="Description" },                       
+                    new ColumnDefinition { DataField = "RoleCode", Caption="Code", MinWidth="70", MaxWidth="70"   },
+                    new ColumnDefinition { DataField = "RoleName", Caption="RoleName" , MinWidth="400", MaxWidth="400" },
+                    new ColumnDefinition { DataField = "NormalizedName", Caption="NameOfRoles", MinWidth="400", MaxWidth="400"  },
+                    new ColumnDefinition { DataField = "Description", Caption="Description", MinWidth="400", MaxWidth="400"  },                       
                     }
             );
         }

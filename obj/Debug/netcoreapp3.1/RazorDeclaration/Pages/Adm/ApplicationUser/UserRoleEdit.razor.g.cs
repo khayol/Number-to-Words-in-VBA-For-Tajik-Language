@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 111 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\UserRoleEdit.razor"
+#line 92 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\UserRoleEdit.razor"
       
 
     #region  Declare
@@ -215,6 +215,8 @@ using Woorj.Pages.TESTS.L22;
         private WrDataGrid<ApplicationRole> grid_DiffRoleList;      
         private WrDataGrid<VGetUserRole> grid_VGetUserRole; 
         private ApplicationUser objUser = new ApplicationUser(); 
+
+        [Parameter] public string selectedId { get; set;}="0";   
     #endregion  Declare
     
     #region  BlazorMethods
@@ -223,7 +225,6 @@ using Woorj.Pages.TESTS.L22;
         //protected override async Task OnInitializedAsync()
         {
             SrvRole.Init_UserRoleEdit();
-          //  objUser = await Task.Run(() => SrvUser.GetApplicationUserById(CurrentID));
             objUser = SrvUser.GetApplicationUserById(CurrentID);
             VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
             ApplicationRole_List=SrvRole.GetApplicationRole().ToList();
@@ -249,8 +250,8 @@ using Woorj.Pages.TESTS.L22;
         private void SelectedRowMeth(string pSelectedRow)
         {
             selectedRow = pSelectedRow;
-            AppData.UserRoleEditRoleIdSlcd = selectedRow;
-            AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
+            selectedId = selectedRow;
+            //AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
         }
         protected void UpdateRoles()
         {

@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Contact/Add")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Contact/Add/{IndividualId}")]
     public partial class Add : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -206,25 +206,26 @@ using Woorj.Pages.TESTS.L22;
 #line 28 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Contact\Add.razor"
       
 
+    [Parameter] public string IndividualId { get; set; }
      Contact objContact= new Contact();
      protected override void OnInitialized()
     {
-       objContact.IndividualId=int.Parse(AppData.Individual_IdSelect);
+       objContact.IndividualId=int.Parse(IndividualId);
     }
     protected  void CreateContact()
     { 
-        objContactController.Create(objContact);
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/0");
+        MainController.Create(objContact);
+          AppData.GoBrwsNavigation(-1);
     }
     void Cancel(){
-        NavManager.NavigateTo("/IndOrg/Contact/ViewStd/0");
+         AppData.GoBrwsNavigation(-1);
     }
 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController objContactController { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ContactController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

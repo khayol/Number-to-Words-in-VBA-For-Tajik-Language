@@ -19,9 +19,9 @@
 
           <ControlMenu>
             <WrOper Design="a" Type="C"  Link="/Adm/ApplicationRole/Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link="/Adm/ApplicationRole/View/"   LinkId=@AppData.ApplicationRole_IdSelect Txt="View" />
-            <WrOper Design="a" Type="U"  Link="/Adm/ApplicationRole/Edit/"   LinkId=@AppData.ApplicationRole_IdSelect Txt="Edit" />
-            <WrOper Design="a" Type="D"  Link="/Adm/ApplicationRole/Delete/" LinkId=@AppData.ApplicationRole_IdSelect Txt="Delete" />
+            <WrOper Design="a" Type="R"  Link="/Adm/ApplicationRole/View/"   LinkId=@selectedId Txt="View" />
+            <WrOper Design="a" Type="U"  Link="/Adm/ApplicationRole/Edit/"   LinkId=@selectedId Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link="/Adm/ApplicationRole/Delete/" LinkId=@selectedId Txt="Delete" />
         </ControlMenu>
 
         <ControlQuickAccess>
@@ -31,13 +31,13 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Adm/ApplicationRole/Add"     TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationRole/View/"   LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="View" />
-            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Adm/ApplicationRole/Edit/"   LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="Edit" />
-            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Adm/ApplicationRole/Delete/" LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="Delete" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationRole/View/"   LinkId=@selectedId TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Adm/ApplicationRole/Edit/"   LinkId=@selectedId TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Adm/ApplicationRole/Delete/" LinkId=@selectedId TxtToolTip="Delete" />
             <WrSpace Length=2/>
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
-            <WrOper Design="btn" Type="U" Ico="fa fa-hand-paper-o"  Link="/Adm/ApplicationRole/EditRoles/" LinkId=@AppData.ApplicationRole_IdSelect TxtToolTip="EditUserRoles" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-hand-paper-o"  Link="/Adm/ApplicationRole/EditRoles/" LinkId=@selectedId TxtToolTip="EditUserRoles" />
 
         </ControlQuickAccess>
     </WrDataGrid>
@@ -51,6 +51,8 @@
     [Parameter] public string Id { get; set; }
     private WrDataGrid<ApplicationRole> grid;
     private List<ApplicationRole> list;
+
+      [Parameter] public string selectedId { get; set;}="0";    
  
  #endregion  Declare
 
@@ -74,18 +76,18 @@
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        AppData.ApplicationRole_IdSelect = pSelectedRow;
+        selectedId = pSelectedRow;
     }
     protected void FindSelectedRec()
     {
         grid.GoToFirstPage();
-        list = MainController.GetById(AppData.ApplicationRole_IdSelect);
+        list = MainController.GetById(selectedId);
     }
     protected void CleanSearchBox()
     {
         grid.GoToFirstPage();
         list = MainController.GetSearchByField("");
-        AppData.ApplicationRole_IdSelect = "0";
+        selectedId = "0";
     }
     protected void ExportToExcel()
     {

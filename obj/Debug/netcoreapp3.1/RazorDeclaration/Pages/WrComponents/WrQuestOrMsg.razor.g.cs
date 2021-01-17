@@ -202,8 +202,10 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+#line 51 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
    
+   
+    [Parameter]  public int SpaceLength { get; set; }=0; 
     [Parameter]  public string TxtSize { get; set; }="h4"; 
     [Parameter]  public bool Center { get; set; }=false; 
     [Parameter]  public string Txt { get; set; }=""; 

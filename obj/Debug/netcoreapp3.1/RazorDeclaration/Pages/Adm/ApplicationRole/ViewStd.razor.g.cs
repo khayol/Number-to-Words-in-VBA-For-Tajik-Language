@@ -211,6 +211,8 @@ using Woorj.Pages.TESTS.L22;
     [Parameter] public string Id { get; set; }
     private WrDataGrid<ApplicationRole> grid;
     private List<ApplicationRole> list;
+
+      [Parameter] public string selectedId { get; set;}="0";    
  
  #endregion  Declare
 
@@ -234,18 +236,18 @@ using Woorj.Pages.TESTS.L22;
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        AppData.ApplicationRole_IdSelect = pSelectedRow;
+        selectedId = pSelectedRow;
     }
     protected void FindSelectedRec()
     {
         grid.GoToFirstPage();
-        list = MainController.GetById(AppData.ApplicationRole_IdSelect);
+        list = MainController.GetById(selectedId);
     }
     protected void CleanSearchBox()
     {
         grid.GoToFirstPage();
         list = MainController.GetSearchByField("");
-        AppData.ApplicationRole_IdSelect = "0";
+        selectedId = "0";
     }
     protected void ExportToExcel()
     {

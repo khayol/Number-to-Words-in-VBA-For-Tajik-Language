@@ -242,13 +242,11 @@ using Woorj.Pages.TESTS.L22;
     {
         grid.GoToFirstPage();
         list = MainController.GetSearchByField("");
-        AppData.Contact_IdSelect = "0";
         selectedId="0";
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
         selectedId= pSelectedRow;
-        AppData.Contact_IdSelect = pSelectedRow;
     }
 
     private void SearchTxt(ChangeEventArgs changeEventArgs)

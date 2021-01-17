@@ -207,10 +207,6 @@ using Woorj.Pages.TESTS.L22;
       
 
      Contact objMain= new Contact();
-     protected override void OnInitialized()
-    {
-       //objMain.IndividualId=int.Parse(AppData.Individual_IdSelect);
-    }
     protected  void CreateContact()
     { 
         MainController.Create(objMain);

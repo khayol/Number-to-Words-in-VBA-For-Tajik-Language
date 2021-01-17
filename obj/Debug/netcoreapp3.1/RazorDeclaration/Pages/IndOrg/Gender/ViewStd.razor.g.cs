@@ -211,6 +211,7 @@ using Woorj.Pages.TESTS.L22;
     [Parameter] public string Id { get; set; }
     private WrDataGrid<Gender> grid;
     private List<Gender> list;
+    [Parameter] public string selectedId { get; set;}="0";    
  
  #endregion  Declare
 
@@ -228,7 +229,7 @@ using Woorj.Pages.TESTS.L22;
 
     private void SelectedRowMeth(string pSelectedRow)
     {
-        AppData.Gender_IdSelect = pSelectedRow;
+        selectedId = pSelectedRow;
     }
 
 

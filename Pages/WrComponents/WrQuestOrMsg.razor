@@ -1,4 +1,16 @@
 
+@if (SpaceLength==0 || SpaceLength==1 ||SpaceLength<=1 )
+{
+   <a>&nbsp</a>
+
+}else if (SpaceLength>1)
+{
+    @for (int i = 1; i < SpaceLength; i++)
+    {
+    <a>&nbsp</a>     
+    }
+}
+
 @if(Center)
 {
     <center>
@@ -37,6 +49,8 @@
 
 @code
 {  
+   
+    [Parameter]  public int SpaceLength { get; set; }=0; 
     [Parameter]  public string TxtSize { get; set; }="h4"; 
     [Parameter]  public bool Center { get; set; }=false; 
     [Parameter]  public string Txt { get; set; }=""; 
