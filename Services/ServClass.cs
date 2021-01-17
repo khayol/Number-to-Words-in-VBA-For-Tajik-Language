@@ -47,15 +47,8 @@ namespace Woorj.Services
         {
            switch (pOperType.ToUpper())
             {
-                case "R":
-                case "U":
-                case "CU":
-                case "D":
-                case "N":
+                case "R": case "U":  case "CU": case "D": case "N":
                     NavManager.NavigateTo(pNavLink + pRecId);
-                    break;
-                default:
-                    // Nothing
                     break;
             }
     
