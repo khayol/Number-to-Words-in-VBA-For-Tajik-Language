@@ -13,7 +13,7 @@ namespace Woorj.Services
     public NavigationManager NavManager;
     public AppData _AppData;
 
-       private ICustomTranslator trs { get; set;}  
+    private ICustomTranslator trs { get; set;}  
     public ServClass(NavigationManager navigationManager , AppData appData, IJSRuntime iJSRuntime)
     {
         NavManager=navigationManager;
@@ -23,8 +23,7 @@ namespace Woorj.Services
 
 
     public void CRUD(string pOperType, string pNavLink, string pRecId)
-    {      
-
+    { 
         if (                            
                 (
                     pOperType.ToUpper()!="C"  && (string.IsNullOrEmpty(pRecId) || pRecId=="0") 
@@ -32,8 +31,7 @@ namespace Woorj.Services
                 && 
                 (
                     pOperType.ToUpper()!="CU"  && (string.IsNullOrEmpty(pRecId) || pRecId=="0") 
-                ) 
-                          
+                )                           
             )       
         {     
             JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
@@ -50,15 +48,11 @@ namespace Woorj.Services
                 case "R": case "U":  case "CU": case "D": case "N":
                     NavManager.NavigateTo(pNavLink + pRecId);
                     break;
-            }
-    
-                 
+            }    
                
         } 
      
     }
-
-
 
     }
 }

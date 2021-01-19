@@ -38,6 +38,7 @@
             <WrSpace Length=2/>
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@(e=>ConfirmDelete("Test Message"))" TxtToolTip="ExportToExcel"/>
         </ControlQuickAccess>
     </WrDataGrid>
    </MainContent></WrAuth>
@@ -73,6 +74,12 @@
         MainController.Initialized();
         list = MainController.GetById(int.Parse(Id)).ToList();       
     }
+
+    protected void ConfirmDelete(string title)
+{
+ 
+    //RegisteredFunction.Invoke<bool>("confirmDelete", title);
+}
 
 #endregion BlazorMethods
 

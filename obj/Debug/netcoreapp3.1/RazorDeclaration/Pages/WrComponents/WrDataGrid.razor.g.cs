@@ -260,7 +260,7 @@ private string ErrorMessage;
        if (string.IsNullOrEmpty(pLinkAddress)){
          
              int IdSelected= int.Parse(typeof(TItem).GetProperty("Id").GetValue(item).ToString());
-                /*
+               /*
                 Console.WriteLine("===================================");
                 
                 Console.WriteLine("-----------EF Fitures ----------");
@@ -283,7 +283,7 @@ private string ErrorMessage;
                 Console.WriteLine("AppData.ChoosedEntityFK= "+AppData.ChoosedEntityFK);
                 Console.WriteLine("int.Parse(pIdOfRecord)= "+pIdOfRecord);
                 Console.WriteLine("----------ACTION-------------");
-              */
+                */
                  /*
                 // It's working well but we need to show the rusults after every UI updating  
                 GnrSrv.UpdateReleatedData(AppData.ChoosedEntityName,AppData.ChoosedEntityId, 
@@ -291,13 +291,13 @@ private string ErrorMessage;
                 */
 
                  GnrSrv.UpdateReleatedDataMain(AppData.ChoosedEntityId,AppData.ChoosedEntityFK,IdSelected,AppData.ChoosedEntityName);
-                 GoBrwsNavigation(-1);
+                 AppData.GoBrwsNavigation(-1);
               
           
        }else
          {
             /*
-            // Go to the Entity from the WrDataGrid
+            // Go to the Entity from the WrDataGrid List
             if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
             NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
             }else{
@@ -370,11 +370,7 @@ private string ErrorMessage;
         }
 
     }
-  
-    private void GoBrwsNavigation(int pVal)
-    {
-        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-    }
+
 
     public void GoToPrevPage()
     {
@@ -513,7 +509,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 513 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 509 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -525,7 +521,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 524 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 520 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;

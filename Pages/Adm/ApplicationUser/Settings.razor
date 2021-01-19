@@ -47,15 +47,12 @@
     protected void Save()
     {
        MainController.UpdateApplicationUser(objMain);    
-        GoBrwsNavigation(-2); 
+       AppData.GoBrwsNavigation(-2); 
     }
     void Cancel()
     {
-         GoBrwsNavigation(-2);   
+       AppData.GoBrwsNavigation(-2);   
     }
-     public  void GoBrwsNavigation(int pVal)
-    {
-        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-    }
+
 
 }

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Woorj.Pages.Adm.ApplicationUser
+namespace Woorj.Pages.WrComponents
 {
     #line hidden
     using System;
@@ -194,8 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Settings/{CurrentID}")]
-    public partial class Settings : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class WrMsgBox : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -203,36 +202,28 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 35 "E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\Settings.razor"
-      
+#line 28 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrMsgBox.razor"
+ 
 
-    [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();
-    public List<Language> LanguageList;
-        
-     protected override void OnInitialized()
-    {
-        objMain =  MainController.GetApplicationUserById(CurrentID);
-        LanguageList =  LanguageController.GetLangActive();
-     }
+ [Parameter] public string DeleteId { get; set; }="1";  
 
-    protected void Save()
-    {
-       MainController.UpdateApplicationUser(objMain);    
-       AppData.GoBrwsNavigation(-2); 
-    }
-    void Cancel()
-    {
-       AppData.GoBrwsNavigation(-2);   
-    }
-
-
+protected void ConfirmDelete(int id, string title)
+{
+   
+    Console.WriteLine("dsds");
+    // DeleteId = id;
+    //RegisteredFunction.Invoke<bool>("confirmDelete", title);
+}
+protected void DeleteBook()
+{
+ Console.WriteLine("dsds");
+   // DeleteId = id;
+    //RegisteredFunction.Invoke<bool>("confirmDelete", title);
+}
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private LanguageController LanguageController { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ApplicationUserController MainController { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavMeths NavMeths { get; set; }

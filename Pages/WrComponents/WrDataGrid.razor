@@ -23,7 +23,7 @@ else
                            if(BackLink.ToUpper()=="WndBack".ToUpper())
                            {
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
-                                OnClickCallback="@(e=>GoBrwsNavigation(-1))"  TxtToolTip="Back" />
+                                OnClickCallback="@(e=>@AppData.GoBrwsNavigation(-1))"  TxtToolTip="Back" />
                            }else{
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
                                 OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />
@@ -49,7 +49,7 @@ else
                            if(BackLink.ToUpper()=="WndBack".ToUpper())
                            {
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
-                                OnClickCallback="@(e=>GoBrwsNavigation(-1))"  TxtToolTip="Back" />
+                                OnClickCallback="@(e=>@AppData.GoBrwsNavigation(-1))"  TxtToolTip="Back" />
                            }else{
                                 <WrOper Category="RunCmd" Design="btn" Ico="fa fa-arrow-circle-up" 
                                 OnClickCallback="@(e=>NavManager.NavigateTo(@BackLink))"  TxtToolTip="Back" />                           }
@@ -244,7 +244,7 @@ private string ErrorMessage;
        if (string.IsNullOrEmpty(pLinkAddress)){
          
              int IdSelected= int.Parse(typeof(TItem).GetProperty("Id").GetValue(item).ToString());
-                /*
+               /*
                 Console.WriteLine("===================================");
                 
                 Console.WriteLine("-----------EF Fitures ----------");
@@ -267,7 +267,7 @@ private string ErrorMessage;
                 Console.WriteLine("AppData.ChoosedEntityFK= "+AppData.ChoosedEntityFK);
                 Console.WriteLine("int.Parse(pIdOfRecord)= "+pIdOfRecord);
                 Console.WriteLine("----------ACTION-------------");
-              */
+                */
                  /*
                 // It's working well but we need to show the rusults after every UI updating  
                 GnrSrv.UpdateReleatedData(AppData.ChoosedEntityName,AppData.ChoosedEntityId, 
@@ -275,13 +275,13 @@ private string ErrorMessage;
                 */
 
                  GnrSrv.UpdateReleatedDataMain(AppData.ChoosedEntityId,AppData.ChoosedEntityFK,IdSelected,AppData.ChoosedEntityName);
-                 GoBrwsNavigation(-1);
+                 AppData.GoBrwsNavigation(-1);
               
           
        }else
          {
             /*
-            // Go to the Entity from the WrDataGrid
+            // Go to the Entity from the WrDataGrid List
             if (string.IsNullOrEmpty(pIdOfFieldKey)){ 
             NavManager.NavigateTo(pLinkAddress+pIdOfRecord);
             }else{
@@ -358,11 +358,7 @@ private string ErrorMessage;
         }
 
     }
-  
-    private void GoBrwsNavigation(int pVal)
-    {
-        JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-    }
+
 
     public void GoToPrevPage()
     {

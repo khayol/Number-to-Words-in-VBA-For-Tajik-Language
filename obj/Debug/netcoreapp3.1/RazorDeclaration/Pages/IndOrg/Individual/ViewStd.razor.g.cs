@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 46 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Individual\ViewStd.razor"
+#line 47 "E:\A_NewProjects\01\Woorj\Pages\IndOrg\Individual\ViewStd.razor"
         
 
  #region     Declare
@@ -234,6 +234,12 @@ using Woorj.Pages.TESTS.L22;
         MainController.Initialized();
         list = MainController.GetById(int.Parse(Id)).ToList();       
     }
+
+    protected void ConfirmDelete(string title)
+{
+ 
+    //RegisteredFunction.Invoke<bool>("confirmDelete", title);
+}
 
 #endregion BlazorMethods
 

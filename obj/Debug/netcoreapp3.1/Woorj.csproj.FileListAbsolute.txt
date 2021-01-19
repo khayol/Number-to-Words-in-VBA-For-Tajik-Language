@@ -645,3 +645,5 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\Delete
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\Edit.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\View.razor.g.cs
 E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Dir\Contact\ViewStd.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrMsgBox.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrMsgBox.razor.g.cs
