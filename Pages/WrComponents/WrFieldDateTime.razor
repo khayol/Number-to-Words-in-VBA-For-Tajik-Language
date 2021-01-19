@@ -7,7 +7,7 @@
             {
               @* We should fix it *@
                @* <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@Val" @bind-Value:format="dd/MM/yyyy"/> *@
-            <input readonly=@ReadonlyOpt class="form-control" id="Code" @bind="@Val" /> 
+            <input readonly=@Readonly class="form-control" id="Code" @bind="@Val" /> 
         
             }
   </div> 
@@ -20,7 +20,7 @@
             *@ 
 
 @code  { 
-    [Parameter] public string ReadonlyOpt { get; set; } 
+    [Parameter] public string Readonly { get; set; } 
     [Parameter] public string FieldCaption { get; set; }
     [Parameter] public string TransEntity { get; set; }  
     [Parameter] public DateTime Val { get; set; }

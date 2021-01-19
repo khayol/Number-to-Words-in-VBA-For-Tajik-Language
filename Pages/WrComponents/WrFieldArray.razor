@@ -6,7 +6,7 @@
             }else
             {
                @* <label  class="control-clct">@GnrSrv.ExistDataORNotFlag(@TableName, @ForeinKey, @IdOfRecord)</label>  *@
-               @* <input disabled="@ReadonlyOpt" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection(@SubLink, @IdOfRecord))"  value="Edit"> *@
+               @* <input disabled="@Readonly" type="button" class="btn btn bnt-style-general" @onclick="@(args => GoToCollection(@SubLink, @IdOfRecord))"  value="Edit"> *@
         
             }
   </div> 
@@ -19,7 +19,7 @@
 
 @code  {     
 
-    [Parameter] public string ReadonlyOpt { get; set; }
+    [Parameter] public string Readonly { get; set; }
     [Parameter] public string FieldCaption { get; set; }
     [Parameter] public string TransEntity { get; set; }  
     [Parameter] public int Val { get; set; }

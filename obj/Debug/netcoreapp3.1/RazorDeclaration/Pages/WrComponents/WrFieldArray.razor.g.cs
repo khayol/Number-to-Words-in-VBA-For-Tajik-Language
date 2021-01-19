@@ -205,7 +205,7 @@ using Woorj.Pages.TESTS.L22;
 #line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldArray.razor"
              
 
-    [Parameter] public string ReadonlyOpt { get; set; }
+    [Parameter] public string Readonly { get; set; }
     [Parameter] public string FieldCaption { get; set; }
     [Parameter] public string TransEntity { get; set; }  
     [Parameter] public int Val { get; set; }

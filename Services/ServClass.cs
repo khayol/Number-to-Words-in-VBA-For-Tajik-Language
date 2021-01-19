@@ -35,7 +35,7 @@ namespace Woorj.Services
             )       
         {     
             JSRuntime.InvokeVoidAsync("msgbox",StatCls.GetTranslation("NotSelectedRecordMsg",@AppData.ActiveUser,"Msg"));
-             Console.WriteLine("Exaption=> "+pNavLink + pRecId);
+            
         }
         else if (pOperType.ToUpper()=="C"  && !string.IsNullOrEmpty(pNavLink) && (string.IsNullOrEmpty(pRecId) || pRecId=="0"))
         {
@@ -49,7 +49,7 @@ namespace Woorj.Services
                     NavManager.NavigateTo(pNavLink + pRecId);
                     break;
             }    
-               
+                
         } 
      
     }

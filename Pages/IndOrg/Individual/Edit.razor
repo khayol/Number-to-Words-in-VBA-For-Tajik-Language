@@ -20,24 +20,24 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-            ReadonlyOpt="true" Val="@objMain.Code" />
+            Readonly="true" Val="@objMain.Code" />
 
-           <WrFieldStr ReadonlyThis="false" FieldCaption="FirstName"
+           <WrFieldStr Readonly="false" FieldCaption="FirstName"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="SecondName"
+            <WrFieldStr Readonly="false" FieldCaption="SecondName"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="LastName"
+            <WrFieldStr Readonly="false" FieldCaption="LastName"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="FirstNameEN"
+            <WrFieldStr Readonly="false" FieldCaption="FirstNameEN"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstNameEN"/>
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="SecondNameEN"
+            <WrFieldStr Readonly="false" FieldCaption="SecondNameEN"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondNameEN"/>
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="LastNameEN"
+            <WrFieldStr Readonly="false" FieldCaption="LastNameEN"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.LastNameEN"/>    
            
            <WrFieldDateTime TransEntity="Individual" FieldCaption="BirthDay">
@@ -46,7 +46,7 @@
                </RenderFrg>
            </WrFieldDateTime>
             
-            <WrFieldStr ReadonlyThis="false" FieldCaption="Address"
+            <WrFieldStr Readonly="false" FieldCaption="Address"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.Address"/>
 
             <WrFieldArray TransEntity="Individual" FieldCaption="Contact" >
@@ -57,10 +57,10 @@
                 </RenderFrg>
             </WrFieldArray>
 
-            <WrFieldStr ReadonlyThis="false" FieldCaption="PassSerial"
+            <WrFieldStr Readonly="false" FieldCaption="PassSerial"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.PassSerial"/>
     
-            <WrFieldStr ReadonlyThis="false" FieldCaption="PassCode"
+            <WrFieldStr Readonly="false" FieldCaption="PassCode"
             TransEntity="Individual"  @bind-BindingValue ="@objMain.PassCode"/>
  
             <div class="form-group">

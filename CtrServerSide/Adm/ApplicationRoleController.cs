@@ -29,7 +29,7 @@ namespace Woorj.CtrServerSide.Adm
             clmDef_RoleStd.AddRange(
                 new ColumnDefinition[] {
                     new ColumnDefinition { DataField = "Code", MinWidth="70", MaxWidth="70"  },
-                    new ColumnDefinition { DataField = "Name", MinWidth="70", MaxWidth="70" },
+                    new ColumnDefinition { DataField = "Name", MinWidth="300", MaxWidth="300" },
                     new ColumnDefinition { DataField = "NormalizedName", MinWidth="300", MaxWidth="300" },
                     new ColumnDefinition { DataField = "Description", MinWidth="300", MaxWidth="300"  },
                     new ColumnDefinition { DataField = "CreatedDate", MinWidth="180", MaxWidth="180"  },                       

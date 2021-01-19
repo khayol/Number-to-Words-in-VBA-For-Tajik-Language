@@ -48,7 +48,7 @@ namespace Woorj.Services
                   
             if (roles==null)
             {
-                res="1021";
+                res="LOGIN";
             }else if (roles.Count()==1)
             {
               foreach (var item in roles)
@@ -96,7 +96,7 @@ namespace Woorj.Services
                   
             if (roles==null || roles.Count()==0  )
             {
-                res="1021";
+                res="LOGIN";
             }else if (roles.Count()==1)
             {
               foreach (var item in roles)

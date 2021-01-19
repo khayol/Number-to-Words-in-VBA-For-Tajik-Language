@@ -17,15 +17,15 @@
             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
                        
              <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            ReadonlyOpt="true" Val="@objMain.Code" />        
+            Readonly="true" Val="@objMain.Code" />        
 
-            <WrFieldStr ReadonlyThis="true" FieldCaption="Alpha3"
+            <WrFieldStr Readonly="true" FieldCaption="Alpha3"
             TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
 
-            <WrFieldStr ReadonlyThis="true" FieldCaption="Name"
+            <WrFieldStr Readonly="true" FieldCaption="Name"
             TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
 
-            <WrFieldStr ReadonlyThis="true" FieldCaption="FullName"
+            <WrFieldStr Readonly="true" FieldCaption="FullName"
             TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
 
         </FormElements>      

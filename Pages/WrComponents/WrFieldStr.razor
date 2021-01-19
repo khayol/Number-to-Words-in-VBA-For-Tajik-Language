@@ -1,12 +1,12 @@
 ﻿
    <div class="form-group"> 
         <label for="@FieldCaption" class="control-lable">@trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)</label>  
-        <InputText  readonly=@ReadonlyThis class="form-control"  @bind-Value="@BindingValue"  /> 
+        <InputText  readonly=@Readonly class="form-control"  @bind-Value="@BindingValue"  /> 
     </div>  
 
 @code  { 
     private string _value;
-    [Parameter] public bool ReadonlyThis { get; set; }
+    [Parameter] public bool Readonly { get; set; }
     [Parameter] public string FieldCaption { get; set; }
     [Parameter] public string TransEntity { get; set; }
     [Parameter] public EventCallback<string> BindingValueChanged { get; set; } 

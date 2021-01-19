@@ -206,7 +206,7 @@ using Woorj.Pages.TESTS.L22;
          
 
     [Parameter]
-    public bool ReadonlyThis { get; set; }
+    public bool Readonly { get; set; }
     
     [Parameter]
     public string FieldCaption { get; set; }

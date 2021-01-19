@@ -5,7 +5,7 @@
               @RenderFrg
             }else
             {
-              <input readonly=@ReadonlyOpt class="form-control"  @bind="@Val" /> 
+              <input readonly=@Readonly class="form-control"  @bind="@Val" /> 
             }
   </div> 
 
@@ -21,12 +21,12 @@
             2) 
 
             <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-            ReadonlyOpt="readonlyMain1" Val="@objIndividual.Code" />
+            Readonly="readonlyMain1" Val="@objIndividual.Code" />
             
             *@ 
 
 @code  { 
-    [Parameter] public string ReadonlyOpt { get; set; } 
+    [Parameter] public string Readonly { get; set; } 
     [Parameter] public string FieldCaption { get; set; }
     [Parameter] public string TransEntity { get; set; } 
     [Parameter] public int Val { get; set; }

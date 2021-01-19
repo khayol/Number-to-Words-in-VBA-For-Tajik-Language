@@ -17,15 +17,15 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            ReadonlyOpt="true" Val="@objMain.Code" />
+            Readonly="true" Val="@objMain.Code" />
 
-            <WrFieldStr  FieldCaption="Name" ReadonlyThis="true"
+            <WrFieldStr  FieldCaption="Name" Readonly="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
 
-            <WrFieldStr FieldCaption="NormalizedName" ReadonlyThis="true"
+            <WrFieldStr FieldCaption="NormalizedName" Readonly="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.NormalizedName"/>
 
-            <WrFieldStr  FieldCaption="Description" ReadonlyThis="true"
+            <WrFieldStr  FieldCaption="Description" Readonly="true"
             TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
 
          </FormElements>      

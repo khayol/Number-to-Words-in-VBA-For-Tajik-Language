@@ -204,7 +204,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 22 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
          
-    [Parameter] public string ReadonlyOpt { get; set; } 
+    [Parameter] public string Readonly { get; set; } 
     [Parameter] public string FieldCaption { get; set; }
     [Parameter] public string TransEntity { get; set; }  
     [Parameter] public DateTime Val { get; set; }

@@ -75,7 +75,7 @@ namespace Woorj.Data
                     builder.HasSequence<int>("TypeCategoryCode").StartsAt(1000).IncrementsBy(1);
                     builder.Entity<TypeCategory>().Property(t => t.Code)
                     .HasDefaultValueSql("NEXT VALUE FOR TypeCategoryCode");
-                    builder.Entity<TypeCategory>().HasIndex(o => o.Name);
+                    builder.Entity<TypeCategory>().HasIndex(o => o.Name).IsUnique();
                 //E_TypeCategory
 
                 //S_TypeList
@@ -83,7 +83,7 @@ namespace Woorj.Data
                     builder.HasSequence<int>("TypeListCode").StartsAt(1000).IncrementsBy(1);
                     builder.Entity<TypeList>().Property(t => t.Code)
                     .HasDefaultValueSql("NEXT VALUE FOR TypeListCode");
-                    builder.Entity<TypeList>().HasIndex(o => o.Name);
+                    builder.Entity<TypeList>().HasIndex(o => o.Name).IsUnique();
                 //E_TypeList
 
                 //S_Status
@@ -91,7 +91,7 @@ namespace Woorj.Data
                     builder.HasSequence<int>("StatusCode").StartsAt(1000).IncrementsBy(1);
                     builder.Entity<Status>().Property(t => t.Code)
                     .HasDefaultValueSql("NEXT VALUE FOR StatusCode");
-                    builder.Entity<Status>().HasIndex(o => o.Name);
+                    builder.Entity<Status>().HasIndex(o => o.Name).IsUnique();
                 //E_Status
 
                 //S_ysDataType

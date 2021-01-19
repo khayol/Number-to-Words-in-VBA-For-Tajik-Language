@@ -29,15 +29,10 @@ namespace Woorj.Services
         public int ChoosedEntityId { get; set; } = 0;
         public string ChoosedEntityFK { get; set; } = ""; 
         //---------------------------------------------------------------------     
-        #endregion General
-    
-     public void GoBrwsNavigation(Object pVal)
-    {
+        #endregion General    
+        public void GoBrwsNavigation(Object pVal)
+        {
         JSRuntime.InvokeAsync<object>("brws.historyGo", pVal);
-    }
-
-    
-
-
+        }
     }
 }

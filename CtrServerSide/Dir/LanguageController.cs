@@ -32,9 +32,10 @@ namespace Woorj.CtrServerSide.Dir
         public List<Language> GetLangActive(){
 
            var Language= _db.Language.Include(s=>s.Status).ThenInclude(t=>t.TypeList)
-                                      .Where(i=>
-                                              i.Status.Code== 1010 && i.Status.TypeList.Code==1014 
-                                            ).ToList();
+                          .Where(i=>
+                                  i.Status.Name.ToUpper().Trim()== "Active".ToUpper().Trim()
+                                  && i.Status.TypeList.Name.ToUpper().Trim()=="GeneralStatus".ToUpper().Trim() 
+                                ).ToList();
           return Language;        
         }
        // Get Language by ID

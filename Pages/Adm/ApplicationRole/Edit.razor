@@ -18,10 +18,10 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-             ReadonlyOpt="true"  Val="@objMain.Code" />
+             Readonly="true"  Val="@objMain.Code" />
 
             <WrFieldStr  FieldCaption="Name" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General" Readonly="true" @bind-BindingValue ="@objMain.Name"/> 
 
             <WrFieldStr FieldCaption="NormalizedName" 
             TransEntity="General"  @bind-BindingValue ="@objMain.NormalizedName"/>
