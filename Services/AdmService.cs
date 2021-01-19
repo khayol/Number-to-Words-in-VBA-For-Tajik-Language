@@ -66,9 +66,6 @@ namespace Woorj.Services
             }
 
              res=res.Trim();
-                Console.WriteLine("----------------");
-                Console.WriteLine("activeRoles= "+res);
-         
             return res;
 
         }

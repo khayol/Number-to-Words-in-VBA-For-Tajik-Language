@@ -224,6 +224,7 @@ private string ErrorMessage;
 [Parameter] public string UniqIdOfRecord { get; set;}
 [Parameter] public string PageNameTitle { get; set; }
 [Parameter] public int CurrentPage { get; set; } = 1;
+[Parameter] public bool RowSelectFlg { get; set; } = false;
 [Parameter] public RenderFragment ControlMenu { get; set; }
 [Parameter] public RenderFragment ControlQuickAccess { get; set; }
 [Parameter] public PagingConfig Paging { get; set; } = new PagingConfig();
@@ -257,7 +258,7 @@ private string ErrorMessage;
         await SelectedRow.InvokeAsync(pIdOfRecord);
        // await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
        
-       if (string.IsNullOrEmpty(pLinkAddress)){
+       if (string.IsNullOrEmpty(pLinkAddress) && RowSelectFlg==true){
          
              int IdSelected= int.Parse(typeof(TItem).GetProperty("Id").GetValue(item).ToString());
                /*
@@ -321,7 +322,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 313 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 314 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
             
 
         if (Columns.Count(x => x.SortDirection != SortDirection.NotSet) > 1)
@@ -509,7 +510,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 509 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 510 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
 
                 // value = typeof(TItem).GetProperty(column.DataField).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
@@ -521,7 +522,7 @@ private string ErrorMessage;
 #line hidden
 #nullable disable
 #nullable restore
-#line 520 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
+#line 521 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor"
                    
                  
                     string SelectedFieldKey = typeof(TItem).GetProperty(column.SelectedFieldKey).GetValue(item)?.ToString() ?? GlobVarStat.nullval;
