@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\khayol.n\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\khayol.n\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Woorj.-1157298270.00" t="ExcludeRecursive" />
+    <e p="E:\A_NewProjects\01\Woorj" t="IncludeRecursive">
+      <e p="_Imports.razor" t="Include" />
+      <e p="App.razor" t="Include" />
+      <e p="appsettings.Development.json" t="Include" />
+      <e p="appsettings.json" t="Include" />
+      <e p="Areas" t="Include">
+        <e p="Identity" t="Include">
+          <e p="IdentityHostingStartup.cs" t="Include" />
+          <e p="Pages" t="Include">
+            <e p="_ViewImports.cshtml" t="Include" />
+            <e p="_ViewStart.cshtml" t="Include" />
+            <e p="Account" t="Include">
+              <e p="_StatusMessage.cshtml" t="Include" />
+              <e p="_ViewImports.cshtml" t="Include" />
+              <e p="AccessDenied.cshtml" t="Include" />
+              <e p="AccessDenied.cshtml.cs" t="Include" />
+              <e p="ConfirmEmail.cshtml" t="Include" />
+              <e p="ConfirmEmail.cshtml.cs" t="Include" />
+              <e p="ConfirmEmailChange.cshtml" t="Include" />
+              <e p="ConfirmEmailChange.cshtml.cs" t="Include" />
+              <e p="ExternalLogin.cshtml" t="Include" />
+              <e p="ExternalLogin.cshtml.cs" t="Include" />
+              <e p="ForgotPassword.cshtml" t="Include" />
+              <e p="ForgotPassword.cshtml.cs" t="Include" />
+              <e p="ForgotPasswordConfirmation.cshtml" t="Include" />
+              <e p="ForgotPasswordConfirmation.cshtml.cs" t="Include" />
+              <e p="Lockout.cshtml" t="Include" />
+              <e p="Lockout.cshtml.cs" t="Include" />
+              <e p="Login.cshtml" t="Include" />
+              <e p="Login.cshtml.cs" t="Include" />
+              <e p="LoginWith2fa.cshtml" t="Include" />
+              <e p="LoginWith2fa.cshtml.cs" t="Include" />
+              <e p="LoginWithRecoveryCode.cshtml" t="Include" />
+              <e p="LoginWithRecoveryCode.cshtml.cs" t="Include" />
+              <e p="LogOut.cshtml" t="Include" />
+              <e p="Logout.cshtml.cs" t="Include" />
+              <e p="Manage" t="Include">
+                <e p="_Layout.cshtml" t="Include" />
+                <e p="_ManageNav.cshtml" t="Include" />
+                <e p="_StatusMessage.cshtml" t="Include" />
+                <e p="_ViewImports.cshtml" t="Include" />
+                <e p="ChangePassword.cshtml" t="Include" />
+                <e p="ChangePassword.cshtml.cs" t="Include" />
+                <e p="DeletePersonalData.cshtml" t="Include" />
+                <e p="DeletePersonalData.cshtml.cs" t="Include" />
+                <e p="Disable2fa.cshtml" t="Include" />
+                <e p="Disable2fa.cshtml.cs" t="Include" />
+                <e p="DownloadPersonalData.cshtml" t="Include" />
+                <e p="DownloadPersonalData.cshtml.cs" t="Include" />
+                <e p="Email.cshtml" t="Include" />
+                <e p="Email.cshtml.cs" t="Include" />
+                <e p="EnableAuthenticator.cshtml" t="Include" />
+                <e p="EnableAuthenticator.cshtml.cs" t="Include" />
+                <e p="ExternalLogins.cshtml" t="Include" />
+                <e p="ExternalLogins.cshtml.cs" t="Include" />
+                <e p="GenerateRecoveryCodes.cshtml" t="Include" />
+                <e p="GenerateRecoveryCodes.cshtml.cs" t="Include" />
+                <e p="Index.cshtml" t="Include" />
+                <e p="Index.cshtml.cs" t="Include" />
+                <e p="ManageNavPages.cs" t="Include" />
+                <e p="PersonalData.cshtml" t="Include" />
+                <e p="PersonalData.cshtml.cs" t="Include" />
+                <e p="ResetAuthenticator.cshtml" t="Include" />
+                <e p="ResetAuthenticator.cshtml.cs" t="Include" />
+                <e p="SetPassword.cshtml" t="Include" />
+                <e p="SetPassword.cshtml.cs" t="Include" />
+                <e p="ShowRecoveryCodes.cshtml" t="Include" />
+                <e p="ShowRecoveryCodes.cshtml.cs" t="Include" />
+                <e p="TwoFactorAuthentication.cshtml" t="Include" />
+                <e p="TwoFactorAuthentication.cshtml.cs" t="Include" />
+              </e>
+              <e p="Register.cshtml" t="Include" />
+              <e p="Register.cshtml.cs" t="Include" />
+              <e p="RegisterConfirmation.cshtml" t="Include" />
+              <e p="RegisterConfirmation.cshtml.cs" t="Include" />
+              <e p="ResetPassword.cshtml" t="Include" />
+              <e p="ResetPassword.cshtml.cs" t="Include" />
+              <e p="ResetPasswordConfirmation.cshtml" t="Include" />
+              <e p="ResetPasswordConfirmation.cshtml.cs" t="Include" />
+            </e>
+            <e p="Error.cshtml" t="Include" />
+            <e p="Error.cshtml.cs" t="Include" />
+            <e p="Shared" t="Include">
+              <e p="_LoginPartial.cshtml" t="Include" />
+            </e>
+          </e>
+          <e p="RevalidatingIdentityAuthenticationStateProvider.cs" t="Include" />
+        </e>
+      </e>
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="CmdManager" t="Include">
+        <e p="2020_MyCurrentProjectsHistory.log" t="Include" />
+        <e p="2021_MyCurrentProjectsHistory.log" t="Include" />
+        <e p="A_VBS" t="Include">
+          <e p="CreateOwnCMDs.vbs" t="Include" />
+          <e p="DiffFile" t="Include">
+            <e p="NOTES.txt" t="Include" />
+            <e p="OpenWebSite.vbs" t="Include" />
+            <e p="PL_SQLdev Reset.reg" t="Include" />
+            <e p="PLSQl  Key.txt" t="Include" />
+            <e p="test.vbs" t="Include" />
+          </e>
+          <e p="OpenFoldersAndSoftByCommads.vbs" t="Include" />
+          <e p="OpenPhoneFTP.vbs" t="Include" />
+          <e p="PPP" t="Include">
+            <e p="CopyToClipBoard" t="Include">
+              <e p="IBSPass.vbs" t="Include" />
+            </e>
+            <e p="IBS" t="Include">
+              <e p="CmdManager" t="Include">
+                <e p="CreateDeleteCmd.vbs" t="Include" />
+              </e>
+            </e>
+            <e p="KeyboardLangSwitched" t="Include">
+              <e p="EN.vbs" t="Include" />
+              <e p="RU.vbs" t="Include" />
+              <e p="TJ.vbs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="CreateDeleteCmd.vbs" t="Include" />
+        <e p="RunCmd.vbs" t="Include" />
+      </e>
+      <e p="CtrApi" t="Include">
+        <e p="Adm" t="Include">
+          <e p="ApplicationUserApController.cs" t="Include" />
+        </e>
+        <e p="Core" t="Include">
+          <e p="DepartmentApController.cs" t="Include" />
+        </e>
+        <e p="IndOrg" t="Include">
+          <e p="EmployeeApController.cs" t="Include" />
+          <e p="IndividualApController.cs" t="Include" />
+        </e>
+        <e p="MyApiCommands" t="Include">
+          <e p="Individual.txt" t="Include" />
+          <e p="Other.txt" t="Include" />
+        </e>
+        <e p="TESTS" t="Include">
+          <e p="UserController.cs" t="Include" />
+        </e>
+      </e>
+      <e p="CtrServerSide" t="Include">
+        <e p="Adm" t="Include">
+          <e p="ApplicationRoleController.cs" t="Include" />
+          <e p="ApplicationUserController.cs" t="Include" />
+        </e>
+        <e p="Dir" t="Include">
+          <e p="CountryController.cs" t="Include" />
+          <e p="GenderController.cs" t="Include" />
+          <e p="LanguageController.cs" t="Include" />
+        </e>
+        <e p="IndOrg" t="Include">
+          <e p="ContactController.cs" t="Include" />
+          <e p="EmployeeController.cs" t="Include" />
+          <e p="IndividualController.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Data" t="Include">
+        <e p="Adm" t="Include">
+          <e p="AccessRight.cs" t="Include" />
+          <e p="AccessRightType.cs" t="Include" />
+          <e p="ApplicationRole.cs" t="Include" />
+          <e p="ApplicationUser.cs" t="Include" />
+          <e p="AspNetUserRoles.cs" t="Include" />
+          <e p="Grant.cs" t="Include" />
+          <e p="Localization.cs" t="Include" />
+          <e p="RoleAccessRight.cs" t="Include" />
+          <e p="VGetUserRole.cs" t="Include" />
+        </e>
+        <e p="ApplicationDbContext.cs" t="Include" />
+        <e p="Core" t="Include">
+          <e p="Department.cs" t="Include" />
+          <e p="GlobalVariable.cs" t="Include" />
+          <e p="Status.cs" t="Include" />
+          <e p="SysDataType.cs" t="Include" />
+          <e p="TypeCategory.cs" t="Include" />
+          <e p="TypeList.cs" t="Include" />
+        </e>
+        <e p="Dir" t="Include">
+          <e p="Country.cs" t="Include" />
+          <e p="Gender.cs" t="Include" />
+          <e p="Language.cs" t="Include" />
+          <e p="Tmp1.cs" t="Include" />
+          <e p="Tmp2.cs" t="Include" />
+          <e p="Tmp3.cs" t="Include" />
+        </e>
+        <e p="IndOrg" t="Include">
+          <e p="Contact.cs" t="Include" />
+          <e p="Employee.cs" t="Include" />
+          <e p="Individual.cs" t="Include" />
+        </e>
+        <e p="TESTS" t="Include">
+          <e p="L22" t="Include">
+            <e p="DateTimeBaseComponent.cs" t="Include" />
+          </e>
+        </e>
+        <e p="WrComponents" t="Include">
+          <e p="Alignment.cs" t="Include" />
+          <e p="ColumnDefinition.cs" t="Include" />
+          <e p="DataType.cs" t="Include" />
+          <e p="PagingConfig.cs" t="Include" />
+          <e p="SortDirection.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Migrations" t="Include">
+        <e p="20201012102253_Init_00.cs" t="Include" />
+        <e p="20201012102253_Init_00.Designer.cs" t="Include" />
+        <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="Woorj.AssemblyInfo.cs" t="Include" />
+            <e p="Woorj.RazorAssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Pages" t="Include">
+        <e p="_Host.cshtml" t="Include" />
+        <e p="_ViewImports.cshtml" t="Include" />
+        <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Adm" t="Include">
+          <e p="ApplicationRole" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="EditRoles.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+          <e p="ApplicationUser" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="Settings.razor" t="Include" />
+            <e p="UserRoleEdit.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+        </e>
+        <e p="Core" t="Include">
+          <e p="Help.razor" t="Include" />
+        </e>
+        <e p="Dir" t="Include">
+          <e p="Contact" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+          <e p="Country" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+          <e p="Gender" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+        </e>
+        <e p="Error.razor" t="Include" />
+        <e p="Index.razor" t="Include" />
+        <e p="IndOrg" t="Include">
+          <e p="Contact" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+          <e p="Country" t="Include">
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+          <e p="Gender" t="Include">
+            <e p="ViewStd.razor" t="Include" />
+          </e>
+          <e p="Individual" t="Include">
+            <e p="Add.razor" t="Include" />
+            <e p="Delete.razor" t="Include" />
+            <e p="Edit.razor" t="Include" />
+            <e p="View.razor" t="Include" />
+            <e p="ViewStd.razor" t="Include" />
+            <e p="ViewStdClassic.razor" t="Include" />
+            <e p="ViewStdSimpleTable.razor" t="Include" />
+          </e>
+        </e>
+        <e p="MainMenu.razor" t="Include" />
+        <e p="Shared" t="Include">
+          <e p="_Layout.cshtml" t="Include" />
+          <e p="_LoginPartial.cshtml" t="Include" />
+          <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+        </e>
+        <e p="TESTS" t="Include">
+          <e p="Admin.razor" t="Include" />
+          <e p="GeneralComponents" t="Include">
+            <e p="TestDataGrid.razor" t="Include" />
+          </e>
+          <e p="L22" t="Include">
+            <e p="ChildComponentEp12.razor" t="Include" />
+            <e p="Component1.razor" t="Include" />
+            <e p="Component2.razor" t="Include" />
+            <e p="CounterCallBeckEvent.razor" t="Include" />
+            <e p="CounterCallBeckEvent_02.razor" t="Include" />
+            <e p="CounterEP12.razor" t="Include" />
+            <e p="CounterEP12_01.razor" t="Include" />
+            <e p="CounterEP13.razor" t="Include" />
+            <e p="CounterTest.razor" t="Include" />
+            <e p="DataBiding.razor" t="Include" />
+            <e p="DateComponent.razor" t="Include" />
+            <e p="DialogComponentEp12.razor" t="Include" />
+            <e p="FieldComponentEP13.razor" t="Include" />
+            <e p="GridAutoComponentEp14.razor" t="Include" />
+            <e p="Msgbox.razor" t="Include" />
+            <e p="OrderEntryComponent.razor" t="Include" />
+            <e p="ParentComponent.razor" t="Include" />
+            <e p="ParentComponent_02.razor" t="Include" />
+            <e p="PlansLessons.txt" t="Include" />
+            <e p="SalesComponent.razor" t="Include" />
+            <e p="SalesComponent2.razor" t="Include" />
+            <e p="TestingTmlComponentEP14.razor" t="Include" />
+            <e p="TitleComponent.razor" t="Include" />
+          </e>
+        </e>
+        <e p="WrComponents" t="Include">
+          <e p="WrAuth.razor" t="Include" />
+          <e p="WrCombo.razor" t="Include" />
+          <e p="WrDataGrid.razor" t="Include" />
+          <e p="WrEditView4.razor" t="Include" />
+          <e p="WrFieldArray.razor" t="Include" />
+          <e p="WrFieldDateTime.razor" t="Include" />
+          <e p="WrFieldInt.razor" t="Include" />
+          <e p="WrFieldStr.razor" t="Include" />
+          <e p="WrFormBody.razor" t="Include" />
+          <e p="WrFunc.razor" t="Include" />
+          <e p="WrLebel.razor" t="Include" />
+          <e p="WrLi.razor" t="Include" />
+          <e p="WrLoading.razor" t="Include" />
+          <e p="WrMsgBox.razor" t="Include" />
+          <e p="WrOper.razor" t="Include" />
+          <e p="WrPageName.razor" t="Include" />
+          <e p="WrPageNotFound.razor" t="Include" />
+          <e p="WrPnlElm.razor" t="Include" />
+          <e p="WrQuestOrMsg.razor" t="Include" />
+          <e p="WrSpace.razor" t="Include" />
+          <e p="WrSrchDGrid.razor" t="Include" />
+          <e p="WrTbl.razor" t="Include" />
+        </e>
+      </e>
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="launchSettings.json" t="Include" />
+        <e p="serviceDependencies.json" t="Include" />
+        <e p="serviceDependencies.local.json" t="Include" />
+      </e>
+      <e p="README.md" t="Include" />
+      <e p="ReadMe.txt" t="Include" />
+      <e p="Resources" t="Include">
+        <e p="Pages.Dir.CountryEdit.en.resx" t="Include" />
+        <e p="Pages.Dir.CountryEdit.ru.resx" t="Include" />
+        <e p="Pages.IndOrg.IndividualViewStd.en.resx" t="Include" />
+        <e p="Pages.IndOrg.IndividualViewStd.ru.resx" t="Include" />
+        <e p="Services.CustomTranslator.en.resx" t="Include" />
+        <e p="Services.CustomTranslator.ru.resx" t="Include" />
+      </e>
+      <e p="ScaffoldingReadMe.txt" t="Include" />
+      <e p="Services" t="Include">
+        <e p="AdmService.cs" t="Include" />
+        <e p="AppData.cs" t="Include" />
+        <e p="CoreService.cs" t="Include" />
+        <e p="CustomTranslator.cs" t="Include" />
+        <e p="GlobVar.cs" t="Include" />
+        <e p="GlobVarStat.cs" t="Include" />
+        <e p="GnrSrv.cs" t="Include" />
+        <e p="ItemCount.cs" t="Include" />
+        <e p="NavMeths.cs" t="Include" />
+        <e p="ServClass.cs" t="Include" />
+        <e p="StatCls.cs" t="Include" />
+        <e p="TestServ.cs" t="Include" />
+      </e>
+      <e p="Shared" t="Include">
+        <e p="LoginDisplay.razor" t="Include" />
+        <e p="MainLayout.razor" t="Include" />
+        <e p="NavMenu.razor" t="Include" />
+        <e p="SurveyPrompt.razor" t="Include" />
+        <e p="TableTemplate.razor" t="Include" />
+      </e>
+      <e p="Startup.cs" t="Include" />
+      <e p="Woorj.csproj" t="IncludeRecursive" />
+      <e p="Woorj.sln" t="IncludeFlat" />
+      <e p="WoorjCmd.dll" t="Include" />
+      <e p="WoorjCmd.runtimeconfig.json" t="Include" />
+      <e p="wwwroot" t="Include">
+        <e p="css" t="Include">
+          <e p="bootstrap" t="Include">
+            <e p="bootstrap.min.css" t="Include" />
+            <e p="bootstrap.min.css.map" t="Include" />
+          </e>
+          <e p="data-grid.css" t="Include" />
+          <e p="design-templets" t="Include">
+            <e p="blue" t="Include">
+              <e p="site-blue.css" t="Include" />
+            </e>
+            <e p="Default" t="Include">
+              <e p="site.css" t="Include" />
+            </e>
+            <e p="gray" t="Include">
+              <e p="site-gray.css" t="Include" />
+            </e>
+          </e>
+          <e p="font-awesome-4.7.0" t="Include">
+            <e p="css" t="Include">
+              <e p="font-awesome.css" t="Include" />
+              <e p="font-awesome.min.css" t="Include" />
+            </e>
+            <e p="fonts" t="Include">
+              <e p="fontawesome-webfont.eot" t="Include" />
+              <e p="fontawesome-webfont.svg" t="Include" />
+              <e p="fontawesome-webfont.ttf" t="Include" />
+              <e p="fontawesome-webfont.woff" t="Include" />
+              <e p="fontawesome-webfont.woff2" t="Include" />
+              <e p="FontAwesome.otf" t="Include" />
+            </e>
+            <e p="HELP-US-OUT.txt" t="Include" />
+            <e p="less" t="Include">
+              <e p="animated.less" t="Include" />
+              <e p="bordered-pulled.less" t="Include" />
+              <e p="core.less" t="Include" />
+              <e p="fixed-width.less" t="Include" />
+              <e p="font-awesome.less" t="Include" />
+              <e p="icons.less" t="Include" />
+              <e p="larger.less" t="Include" />
+              <e p="list.less" t="Include" />
+              <e p="mixins.less" t="Include" />
+              <e p="path.less" t="Include" />
+              <e p="rotated-flipped.less" t="Include" />
+              <e p="screen-reader.less" t="Include" />
+              <e p="stacked.less" t="Include" />
+              <e p="variables.less" t="Include" />
+            </e>
+            <e p="scss" t="Include">
+              <e p="_animated.scss" t="Include" />
+              <e p="_bordered-pulled.scss" t="Include" />
+              <e p="_core.scss" t="Include" />
+              <e p="_fixed-width.scss" t="Include" />
+              <e p="_icons.scss" t="Include" />
+              <e p="_larger.scss" t="Include" />
+              <e p="_list.scss" t="Include" />
+              <e p="_mixins.scss" t="Include" />
+              <e p="_path.scss" t="Include" />
+              <e p="_rotated-flipped.scss" t="Include" />
+              <e p="_screen-reader.scss" t="Include" />
+              <e p="_stacked.scss" t="Include" />
+              <e p="_variables.scss" t="Include" />
+              <e p="font-awesome.scss" t="Include" />
+            </e>
+          </e>
+          <e p="open-iconic" t="Include">
+            <e p="font" t="Include">
+              <e p="css" t="Include">
+                <e p="open-iconic-bootstrap.min.css" t="Include" />
+              </e>
+              <e p="fonts" t="Include">
+                <e p="open-iconic.eot" t="Include" />
+                <e p="open-iconic.otf" t="Include" />
+                <e p="open-iconic.svg" t="Include" />
+                <e p="open-iconic.ttf" t="Include" />
+                <e p="open-iconic.woff" t="Include" />
+              </e>
+            </e>
+            <e p="FONT-LICENSE" t="Include" />
+            <e p="ICON-LICENSE" t="Include" />
+            <e p="README.md" t="Include" />
+          </e>
+          <e p="site.css" t="Include" />
+        </e>
+        <e p="favicon.ico" t="Include" />
+        <e p="jquery" t="Include">
+          <e p="jquery-3.5.1.min.js" t="Include" />
+          <e p="prj_jquery.js" t="Include" />
+        </e>
+        <e p="js" t="Include">
+          <e p="site.js" t="Include" />
+        </e>
+      </e>
+    </e>
+  </component>
+</project>

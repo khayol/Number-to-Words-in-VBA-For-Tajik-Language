@@ -146,7 +146,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/CountryEdit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/CountryEdit/{CurrentId}")]
     public partial class CountryEdit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -158,7 +158,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line 60 "e:\NewProjects\01\Woorj\Pages\Dir\CountryEdit copy.razor"
       
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     Country objCountry = new Country();
 
     private bool readonlyMain1 {get;set;}=false;
@@ -167,7 +167,7 @@ using Woorj.Pages.TESTS.WrComponents;
 
     protected override async Task OnInitializedAsync()
     {
-        objCountry = await Task.Run(() => objCountryController.GetCountryById(Convert.ToInt32(CurrentID)));
+        objCountry = await Task.Run(() => objCountryController.GetCountryById(Convert.ToInt32(CurrentId)));
         
         readonlyMain1=AppData.readonlyMain1;
         readonlyMain2=AppData.readonlyMain2;

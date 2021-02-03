@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Pages",
-    "\\Pages\\IndOrg"
+    "\\Pages\\IndOrg",
+    "\\Pages\\IndOrg\\Individual"
   ],
-  "SelectedNode": "\\Pages\\IndOrg\\ViewStd.razor",
+  "SelectedNode": "\\Pages\\IndOrg\\Individual\\Add.razor",
   "PreviewInSolutionExplorer": false
 }

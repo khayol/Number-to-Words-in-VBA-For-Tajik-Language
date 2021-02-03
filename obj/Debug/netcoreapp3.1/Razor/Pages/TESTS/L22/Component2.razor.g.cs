@@ -198,8 +198,9 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "ml-5");
-            __builder.OpenElement(2, "h3");
-            __builder.AddAttribute(3, "style", "color:" + " " + (
+            __builder.AddMarkupContent(2, "\r\n    ");
+            __builder.OpenElement(3, "h3");
+            __builder.AddAttribute(4, "style", "color:" + " " + (
 #nullable restore
 #line 2 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Component2.razor"
                        ColorTest
@@ -208,12 +209,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ) + " ");
-            __builder.AddContent(4, "Component2");
+            __builder.AddContent(5, "Component2");
             __builder.CloseElement();
-            __builder.AddMarkupContent(5, "\r\n    ");
-            __builder.OpenElement(6, "p");
-            __builder.AddMarkupContent(7, "\r\n        Count  : ");
-            __builder.AddContent(8, 
+            __builder.AddMarkupContent(6, "\r\n    ");
+            __builder.OpenElement(7, "p");
+            __builder.AddMarkupContent(8, "\r\n        Count  : ");
+            __builder.AddContent(9, 
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Component2.razor"
                   CurrentValue
@@ -222,8 +223,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddMarkupContent(9, "  (on sub level on tree)\r\n       <br>\r\n        Clolr : ");
-            __builder.AddContent(10, 
+            __builder.AddMarkupContent(10, "  (on sub level on tree)\r\n       <br>\r\n        Clolr : ");
+            __builder.AddContent(11, 
 #nullable restore
 #line 6 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Component2.razor"
                  ColorTest
@@ -232,7 +233,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(12, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(13, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

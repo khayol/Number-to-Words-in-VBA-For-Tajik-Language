@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/Country/Delete/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/Country/Delete/{CurrentId}")]
     public partial class Delete : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -207,19 +207,19 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter]
-    public string CurrentID { get; set; }
-    Country objMain = new Country();  
+    public string CurrentId { get; set; }
+    Country _objMain = new Country();  
     private bool readonlyMain1 {get;set;}=false;
 
     protected override void OnInitialized()
     {
           readonlyMain1=AppData.readonlyMain1;
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
     }
 
     protected void DeleteRow()
     {
-        MainController.Delete(objMain);
+        MainController.Delete(_objMain);
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");
     }
     void Cancel()

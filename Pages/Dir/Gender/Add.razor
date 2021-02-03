@@ -2,7 +2,7 @@
 @inject GenderController MainController
 
 <WrAuth PageName="GenderAdd"><MainContent>  
-<EditForm Model="@objMain" OnValidSubmit="@Create">  
+<EditForm Model="@_objMain" OnValidSubmit="@Create">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     <WrPnlElm>
@@ -15,7 +15,7 @@
         <FormElements>
   
             <WrFieldStr FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/>
       
        </FormElements>      
     </WrFormBody> 
@@ -23,13 +23,13 @@
 </MainContent></WrAuth>
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
+    [Parameter] public string CurrentId { get; set; }
 
-    Gender objMain= new Gender();
-  
-     protected  void Create()
+    readonly Gender _objMain= new Gender();
+
+    private void Create()
      { 
-        MainController.Create(objMain);
+        MainController.Create(_objMain);
         NavManager.NavigateTo("/Dir/Gender/ViewStd/0");
      }
 

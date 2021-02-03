@@ -128,7 +128,7 @@ using Microsoft.EntityFrameworkCore;
     }
 
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
 
 
 

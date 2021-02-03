@@ -1,8 +1,8 @@
-@page "/IndOrg/Individual/Delete/{CurrentID}"
+@page "/IndOrg/Individual/Delete/{CurrentId}"
 @inject IndividualController MainController
 
 <WrAuth PageName="IndividualDelete"><MainContent>  
-<EditForm Model="@objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
    
     <WrPnlElm>
         <ControlQuickAccess>
@@ -16,17 +16,17 @@
             <WrQuestOrMsg Txt="AreYouSureToDeteteRow" Color="Black" BackgroundColor="yellow" />
            
             <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
 
             <WrFieldStr Readonly="true" FieldCaption="FirstName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.FirstName"/> 
 
             <WrFieldStr Readonly="true" FieldCaption="SecondName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.SecondName"/>
 
             <WrFieldStr Readonly="true
             " FieldCaption="LastName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.LastName"/>
 
         </FormElements>      
     </WrFormBody>    
@@ -36,22 +36,22 @@
 
 @code{
 
-    [Parameter] public string CurrentID { get; set; }
-    Individual objMain = new Individual();  
+    [Parameter] public string CurrentId { get; set; }
+    Individual _objMain = new Individual();  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
     }
 
-    protected void DeleteRow()
+    private void DeleteRow()
     {
-        MainController.Delete(objMain);
-        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+CurrentID);
+        MainController.Delete(_objMain);
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/IndOrg/Individual/ViewStd/"+CurrentId);
     }
 
 }

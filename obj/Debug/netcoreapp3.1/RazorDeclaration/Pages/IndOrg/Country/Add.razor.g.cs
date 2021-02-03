@@ -207,13 +207,13 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
 
-    Country objMain= new Country();
+    Country _objMain= new Country();
   
      protected  void Create()
      { 
-        MainController.Create(objMain);
+        MainController.Create(_objMain);
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");
      }
 

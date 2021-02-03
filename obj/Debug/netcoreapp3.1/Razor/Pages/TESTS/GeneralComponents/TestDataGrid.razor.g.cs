@@ -235,9 +235,10 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             , 6, (__builder2) => {
-                __builder2.OpenElement(7, "button");
-                __builder2.AddAttribute(8, "class", "btn btn-primary bnt-style-general");
-                __builder2.AddAttribute(9, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(7, "\r\n            ");
+                __builder2.OpenElement(8, "button");
+                __builder2.AddAttribute(9, "class", "btn btn-primary bnt-style-general");
+                __builder2.AddAttribute(10, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 40 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                                                                         PrevPage
@@ -246,12 +247,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddMarkupContent(10, "<span class=\"oi oi-caret-left\" aria-hidden=\"true\"></span>");
+                __builder2.AddMarkupContent(11, "<span class=\"oi oi-caret-left\" aria-hidden=\"true\"></span>");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(11, "\r\n            ");
-                __builder2.OpenElement(12, "span");
-                __builder2.AddMarkupContent(13, "\r\n                &nbsp;&nbsp; Page\r\n                of ");
-                __builder2.AddContent(14, 
+                __builder2.AddMarkupContent(12, "\r\n            ");
+                __builder2.OpenElement(13, "span");
+                __builder2.AddMarkupContent(14, "\r\n                &nbsp;&nbsp; Page\r\n                of ");
+                __builder2.AddContent(15, 
 #nullable restore
 #line 44 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                     grid.MaxPageNumber
@@ -260,12 +261,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 );
-                __builder2.AddMarkupContent(15, " &nbsp;&nbsp;\r\n            ");
+                __builder2.AddMarkupContent(16, " &nbsp;&nbsp;\r\n            ");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(16, "\r\n            ");
-                __builder2.OpenElement(17, "button");
-                __builder2.AddAttribute(18, "class", "btn btn-primary bnt-style-general");
-                __builder2.AddAttribute(19, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(17, "\r\n            ");
+                __builder2.OpenElement(18, "button");
+                __builder2.AddAttribute(19, "class", "btn btn-primary bnt-style-general");
+                __builder2.AddAttribute(20, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 46 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                                                                         NextPage
@@ -274,12 +275,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddMarkupContent(20, "<span class=\"oi oi-caret-right\" aria-hidden=\"true\"></span>");
+                __builder2.AddMarkupContent(21, "<span class=\"oi oi-caret-right\" aria-hidden=\"true\"></span>");
                 __builder2.CloseElement();
+                __builder2.AddMarkupContent(22, "\r\n        ");
             }
-            , 21, (__builder2) => {
-                __builder2.OpenElement(22, "a");
-                __builder2.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            , 23, (__builder2) => {
+                __builder2.AddMarkupContent(24, "\r\n            ");
+                __builder2.OpenElement(25, "a");
+                __builder2.AddAttribute(26, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 49 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                            args => AddNew("/IndOrg/Add")
@@ -288,13 +291,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(24, "value", "Add");
-                __builder2.AddAttribute(25, "class", "menu-itms");
-                __builder2.AddContent(26, "Add");
+                __builder2.AddAttribute(27, "value", "Add");
+                __builder2.AddAttribute(28, "class", "menu-itms");
+                __builder2.AddContent(29, "Add");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(27, "\r\n            ");
-                __builder2.OpenElement(28, "a");
-                __builder2.AddAttribute(29, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(30, "\r\n            ");
+                __builder2.OpenElement(31, "a");
+                __builder2.AddAttribute(32, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 50 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                            args => Edit("/IndOrg/Edit/",selectedRow)
@@ -303,12 +306,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(30, "class", "menu-itms");
-                __builder2.AddContent(31, "Edit");
+                __builder2.AddAttribute(33, "class", "menu-itms");
+                __builder2.AddContent(34, "Edit");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(32, "\r\n            ");
-                __builder2.OpenElement(33, "a");
-                __builder2.AddAttribute(34, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(35, "\r\n            ");
+                __builder2.OpenElement(36, "a");
+                __builder2.AddAttribute(37, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 51 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                            args => Delete("/IndOrg/Delete/",selectedRow)
@@ -317,14 +320,16 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(35, "class", "menu-itms");
-                __builder2.AddContent(36, "Delete");
+                __builder2.AddAttribute(38, "class", "menu-itms");
+                __builder2.AddContent(39, "Delete");
                 __builder2.CloseElement();
+                __builder2.AddMarkupContent(40, "\r\n        ");
             }
-            , 37, (__builder2) => {
-                __builder2.OpenElement(38, "button");
-                __builder2.AddAttribute(39, "class", "btn btn-primary bnt-style-general");
-                __builder2.AddAttribute(40, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            , 41, (__builder2) => {
+                __builder2.AddMarkupContent(42, "\r\n            ");
+                __builder2.OpenElement(43, "button");
+                __builder2.AddAttribute(44, "class", "btn btn-primary bnt-style-general");
+                __builder2.AddAttribute(45, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 54 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                                                                           args => AddNew("/IndOrg/Add")
@@ -333,14 +338,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(41, "data-toggle", "tooltip");
-                __builder2.AddAttribute(42, "title", "Add");
-                __builder2.AddMarkupContent(43, "<span class=\"oi oi-plus\" aria-hidden=\"true\"></span>");
+                __builder2.AddAttribute(46, "data-toggle", "tooltip");
+                __builder2.AddAttribute(47, "title", "Add");
+                __builder2.AddMarkupContent(48, "<span class=\"oi oi-plus\" aria-hidden=\"true\"></span>");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(44, "\r\n            ");
-                __builder2.OpenElement(45, "button");
-                __builder2.AddAttribute(46, "class", "btn btn-primary bnt-style-general");
-                __builder2.AddAttribute(47, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(49, "\r\n            ");
+                __builder2.OpenElement(50, "button");
+                __builder2.AddAttribute(51, "class", "btn btn-primary bnt-style-general");
+                __builder2.AddAttribute(52, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 55 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                                                                           args => Edit("/IndOrg/Edit/",selectedRow)
@@ -349,14 +354,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(48, "data-toggle", "tooltip");
-                __builder2.AddAttribute(49, "title", "Edit");
-                __builder2.AddMarkupContent(50, "<span class=\"oi oi-pencil\" aria-hidden=\"true\"></span>");
+                __builder2.AddAttribute(53, "data-toggle", "tooltip");
+                __builder2.AddAttribute(54, "title", "Edit");
+                __builder2.AddMarkupContent(55, "<span class=\"oi oi-pencil\" aria-hidden=\"true\"></span>");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(51, "\r\n            ");
-                __builder2.OpenElement(52, "button");
-                __builder2.AddAttribute(53, "class", "btn btn-primary bnt-style-general");
-                __builder2.AddAttribute(54, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(56, "\r\n            ");
+                __builder2.OpenElement(57, "button");
+                __builder2.AddAttribute(58, "class", "btn btn-primary bnt-style-general");
+                __builder2.AddAttribute(59, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 56 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                                                                           args => Delete("/IndOrg/Delete/",selectedRow)
@@ -365,12 +370,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(55, "data-toggle", "tooltip");
-                __builder2.AddAttribute(56, "title", "Delete");
-                __builder2.AddMarkupContent(57, "<span class=\"oi oi-circle-x\" aria-hidden=\"true\"></span>");
+                __builder2.AddAttribute(60, "data-toggle", "tooltip");
+                __builder2.AddAttribute(61, "title", "Delete");
+                __builder2.AddMarkupContent(62, "<span class=\"oi oi-circle-x\" aria-hidden=\"true\"></span>");
                 __builder2.CloseElement();
+                __builder2.AddMarkupContent(63, "\r\n        ");
             }
-            , 58, (__value) => {
+            , 64, (__value) => {
 #nullable restore
 #line 28 "E:\A_NewProjects\01\Woorj\Pages\TESTS\GeneralComponents\TestDataGrid.razor"
                   grid = __value;

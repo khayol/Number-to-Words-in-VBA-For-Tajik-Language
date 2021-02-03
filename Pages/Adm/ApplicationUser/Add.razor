@@ -2,7 +2,7 @@
 @inject ApplicationUserController MainController
 
 <WrAuth PageName="ApplicationUserAdd"><MainContent>  
-<EditForm Model="@objMain" OnValidSubmit="@Create">  
+<EditForm Model="@_objMain" OnValidSubmit="@Create">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     <WrPnlElm>
@@ -15,16 +15,16 @@
         <FormElements>
 
             <WrFieldStr  FieldCaption="UserName"
-            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.UserName"/> 
 
             <WrFieldStr FieldCaption="FirstName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.FirstName"/>
 
             <WrFieldStr  FieldCaption="SecondName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.SecondName"/>
 
             <WrFieldStr  FieldCaption="LastName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.LastName"/>
      
        </FormElements>      
     </WrFormBody> 
@@ -34,12 +34,12 @@
 
 @code{
 
-    [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain= new ApplicationUser();
-  
-     protected  void Create()
+    [Parameter] public string CurrentId { get; set; }
+    readonly ApplicationUser _objMain= new ApplicationUser();
+
+    private void Create()
      { 
-        MainController.Create(objMain);
+        MainController.Create(_objMain);
         NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
      }
 

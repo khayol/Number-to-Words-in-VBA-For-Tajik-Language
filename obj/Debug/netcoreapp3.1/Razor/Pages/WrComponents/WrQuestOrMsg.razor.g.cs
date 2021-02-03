@@ -204,7 +204,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(0, "<a>&nbsp</a>");
+            __builder.AddContent(0, "   ");
+            __builder.AddMarkupContent(1, "<a>&nbsp</a>\r\n");
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
 
@@ -223,7 +224,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(1, "<a>&nbsp</a>");
+            __builder.AddContent(2, "    ");
+            __builder.AddMarkupContent(3, "<a>&nbsp</a>     \r\n");
 #nullable restore
 #line 11 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }
@@ -239,6 +241,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddMarkupContent(4, "\r\n");
 #nullable restore
 #line 14 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
  if(Center)
@@ -247,7 +250,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(2, "center");
+            __builder.AddContent(5, "    ");
+            __builder.OpenElement(6, "center");
+            __builder.AddMarkupContent(7, "\r\n    \r\n");
 #nullable restore
 #line 18 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
      if (TxtSize=="h4")
@@ -256,82 +261,11 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(3, "h4");
-            __builder.AddAttribute(4, "style", "color:" + " " + (
-#nullable restore
-#line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-                       Color
-
-#line default
-#line hidden
-#nullable disable
-            ) + ";" + " background-color:" + (
-#nullable restore
-#line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-                                                BackgroundColor
-
-#line default
-#line hidden
-#nullable disable
-            ) + ";");
-            __builder.AddContent(5, 
-#nullable restore
-#line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-                                                                   trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
-
-#line default
-#line hidden
-#nullable disable
-            );
-            __builder.CloseElement();
-#nullable restore
-#line 21 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-    }else if (TxtSize=="h3")
-    {
-
-#line default
-#line hidden
-#nullable disable
-            __builder.OpenElement(6, "h3");
-            __builder.AddAttribute(7, "style", "color:" + " " + (
-#nullable restore
-#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-                       Color
-
-#line default
-#line hidden
-#nullable disable
-            ) + ";" + " background-color:" + (
-#nullable restore
-#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-                                                BackgroundColor
-
-#line default
-#line hidden
-#nullable disable
-            ) + ";");
-            __builder.AddContent(8, 
-#nullable restore
-#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-                                                                   trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
-
-#line default
-#line hidden
-#nullable disable
-            );
-            __builder.CloseElement();
-#nullable restore
-#line 24 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
-    }else if (TxtSize=="h2")
-    {
-
-#line default
-#line hidden
-#nullable disable
-            __builder.OpenElement(9, "h2");
+            __builder.AddContent(8, "    ");
+            __builder.OpenElement(9, "h4");
             __builder.AddAttribute(10, "style", "color:" + " " + (
 #nullable restore
-#line 26 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+#line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                        Color
 
 #line default
@@ -339,7 +273,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             ) + ";" + " background-color:" + (
 #nullable restore
-#line 26 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+#line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                 BackgroundColor
 
 #line default
@@ -348,6 +282,82 @@ using Woorj.Pages.TESTS.L22;
             ) + ";");
             __builder.AddContent(11, 
 #nullable restore
+#line 20 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+                                                                   trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(12, "\r\n");
+#nullable restore
+#line 21 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+    }else if (TxtSize=="h3")
+    {
+
+#line default
+#line hidden
+#nullable disable
+            __builder.AddContent(13, "    ");
+            __builder.OpenElement(14, "h3");
+            __builder.AddAttribute(15, "style", "color:" + " " + (
+#nullable restore
+#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+                       Color
+
+#line default
+#line hidden
+#nullable disable
+            ) + ";" + " background-color:" + (
+#nullable restore
+#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+                                                BackgroundColor
+
+#line default
+#line hidden
+#nullable disable
+            ) + ";");
+            __builder.AddContent(16, 
+#nullable restore
+#line 23 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+                                                                   trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder.CloseElement();
+            __builder.AddMarkupContent(17, "\r\n");
+#nullable restore
+#line 24 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+    }else if (TxtSize=="h2")
+    {
+
+#line default
+#line hidden
+#nullable disable
+            __builder.AddContent(18, "    ");
+            __builder.OpenElement(19, "h2");
+            __builder.AddAttribute(20, "style", "color:" + " " + (
+#nullable restore
+#line 26 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+                       Color
+
+#line default
+#line hidden
+#nullable disable
+            ) + ";" + " background-color:" + (
+#nullable restore
+#line 26 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
+                                                BackgroundColor
+
+#line default
+#line hidden
+#nullable disable
+            ) + ";");
+            __builder.AddContent(21, 
+#nullable restore
 #line 26 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
 
@@ -356,6 +366,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(22, "\r\n");
 #nullable restore
 #line 27 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }else if (TxtSize=="h1")
@@ -364,8 +375,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(12, "h1");
-            __builder.AddAttribute(13, "style", "color:" + " " + (
+            __builder.AddContent(23, "    ");
+            __builder.OpenElement(24, "h1");
+            __builder.AddAttribute(25, "style", "color:" + " " + (
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                        Color
@@ -382,7 +394,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ) + ";");
-            __builder.AddContent(14, 
+            __builder.AddContent(26, 
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -392,6 +404,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(27, "\r\n");
 #nullable restore
 #line 30 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }
@@ -399,7 +412,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(28, "    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(29, "\r\n");
 #nullable restore
 #line 32 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
 
@@ -418,8 +433,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(15, "h4");
-            __builder.AddAttribute(16, "style", "color:" + " " + (
+            __builder.AddContent(30, "    ");
+            __builder.OpenElement(31, "h4");
+            __builder.AddAttribute(32, "style", "color:" + " " + (
 #nullable restore
 #line 37 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                        Color
@@ -436,7 +452,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ) + ";");
-            __builder.AddContent(17, 
+            __builder.AddContent(33, 
 #nullable restore
 #line 37 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -446,6 +462,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(34, "\r\n");
 #nullable restore
 #line 38 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }else if (TxtSize=="h3")
@@ -454,8 +471,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(18, "h3");
-            __builder.AddAttribute(19, "style", "color:" + " " + (
+            __builder.AddContent(35, "    ");
+            __builder.OpenElement(36, "h3");
+            __builder.AddAttribute(37, "style", "color:" + " " + (
 #nullable restore
 #line 40 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                        Color
@@ -472,7 +490,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ) + ";");
-            __builder.AddContent(20, 
+            __builder.AddContent(38, 
 #nullable restore
 #line 40 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -482,6 +500,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(39, "\r\n");
 #nullable restore
 #line 41 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }else if (TxtSize=="h2")
@@ -490,8 +509,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(21, "h2");
-            __builder.AddAttribute(22, "style", "color:" + " " + (
+            __builder.AddContent(40, "    ");
+            __builder.OpenElement(41, "h2");
+            __builder.AddAttribute(42, "style", "color:" + " " + (
 #nullable restore
 #line 43 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                        Color
@@ -508,7 +528,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ) + ";");
-            __builder.AddContent(23, 
+            __builder.AddContent(43, 
 #nullable restore
 #line 43 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -518,6 +538,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(44, "\r\n");
 #nullable restore
 #line 44 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }else if (TxtSize=="h1")
@@ -526,8 +547,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(24, "h1");
-            __builder.AddAttribute(25, "style", "color:" + " " + (
+            __builder.AddContent(45, "    ");
+            __builder.OpenElement(46, "h1");
+            __builder.AddAttribute(47, "style", "color:" + " " + (
 #nullable restore
 #line 46 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                        Color
@@ -544,7 +566,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ) + ";");
-            __builder.AddContent(26, 
+            __builder.AddContent(48, 
 #nullable restore
 #line 46 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
                                                                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -554,6 +576,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(49, "\r\n");
 #nullable restore
 #line 47 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrQuestOrMsg.razor"
     }

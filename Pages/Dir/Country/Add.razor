@@ -2,7 +2,7 @@
 @inject CountryController MainController
 
 <WrAuth PageName="CountryAdd"><MainContent>  
-<EditForm Model="@objMain" OnValidSubmit="@Create">  
+<EditForm Model="@_objMain" OnValidSubmit="@Create">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     <WrPnlElm>
@@ -15,22 +15,22 @@
         <FormElements>
 
             <WrFieldStr  FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
             <WrFieldStr FieldCaption="FullName"
-            TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.FullName"/>
 
             <WrFieldStr  FieldCaption="English"
-            TransEntity="General"  @bind-BindingValue ="@objMain.English"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.English"/>
 
             <WrFieldStr  FieldCaption="Alpha2"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha2"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Alpha2"/>
 
             <WrFieldStr  FieldCaption="Alpha3"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Alpha3"/>
 
             <WrFieldStr FieldCaption="Iso"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Iso"/>    
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Iso"/>    
        
        </FormElements>      
     </WrFormBody> 
@@ -40,10 +40,11 @@
 
 @code{
 
-     Country objMain= new Country();  
-     protected  void Create()
+    readonly Country _objMain= new Country();
+
+    private void Create()
      { 
-        MainController.Create(objMain);
+        MainController.Create(_objMain);
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");
      }
 

@@ -196,8 +196,7 @@ else
 
 @code  { 
 
-// dsds
-    
+   
 #region  Declare_Region
 
 private string ErrorMessage;
@@ -290,10 +289,7 @@ private string ErrorMessage;
             NavManager.NavigateTo(pLinkAddress+pIdOfFieldKey);
             }
             */
-        
-       }
-
-        
+       }        
     }
 
     private void ValidateDefinitions()
@@ -416,7 +412,7 @@ private string ErrorMessage;
 
     private string AlignmentClass(ColumnDefinition column)
     {
-        string alignmentClass = string.Empty;
+        string alignmentClass;
 
         switch (column.Alignment)
         {
@@ -440,7 +436,7 @@ private string ErrorMessage;
 
     private string FontStyleHeader(ColumnDefinition column)
     {
-        string fontStyle = string.Empty;
+        string fontStyle;
         string linkStyle=GlobVarStat.linkStyle; // dark Blue
         string staticDataStyle=GlobVarStat.staticDataStyle;
 

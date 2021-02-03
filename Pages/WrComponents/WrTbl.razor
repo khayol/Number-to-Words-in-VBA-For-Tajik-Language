@@ -1,16 +1,16 @@
 ﻿@typeparam TItem
 @using System.Reflection
 
-@if (memberInfo != null && memberInfo.Length > 0)
+@if (_memberInfo != null && _memberInfo.Length > 0)
 {
     <div class="table-style">
         <table class="@($"table-bordered  {this.TblCssClass}")">
             <thead class="thead-light" style="background-color:lightgray">
                 <tr>
-                    @foreach (var member in memberInfo)
+                    @foreach (var member in _memberInfo)
                     { //Contains
                         @if (member.MemberType == MemberTypes.Property &&
-                             StatCls.IsContains(ColumnsToExcludeCSV,member.Name)==false
+                             StatCls.IsContains(ColumnsToExcludeCsv,member.Name)==false
                             ) //непоказывать колонки(Причеслите их как CSV например "Id,Name")
                         {                   
                             <th>
@@ -26,10 +26,10 @@
                     string IdOfRecord = @item.GetType().GetProperty(this.UniqIdOfRecord).GetValue(item).ToString(); //member.Name
 
                     <tr @onclick="() => ClickOnTheRecord(IdOfRecord)">
-                        @foreach (var member in memberInfo)
+                        @foreach (var member in _memberInfo)
                         {
                             @if (member.MemberType == MemberTypes.Property &&
-                                 StatCls.IsContains(ColumnsToExcludeCSV,member.Name)==false
+                                 StatCls.IsContains(ColumnsToExcludeCsv,member.Name)==false
                                 )
                             {
                                  <td>
@@ -45,7 +45,7 @@
         }
 
         @code {
-            MemberInfo[] memberInfo;
+            MemberInfo[] _memberInfo;
 
         protected override void OnParametersSet()
         {
@@ -54,7 +54,7 @@
             if (Items != null && Items.Count > 0)
             {
                 Type typeofItem = this.Items[0].GetType();
-                memberInfo = typeofItem.GetMembers();
+                _memberInfo = typeofItem.GetMembers();
             }
         }
 
@@ -62,7 +62,7 @@
         public List<TItem> Items { get; set; }
 
         [Parameter]
-        public string ColumnsToExcludeCSV { get; set; }
+        public string ColumnsToExcludeCsv { get; set; }
             
         [Parameter]
         public string UniqIdOfRecord { get; set; }
@@ -74,7 +74,7 @@
         public EventCallback<string> SelectedRow { get; set; }
 
 
-        public async Task ClickOnTheRecord(string pIdOfRecord)
+            private async Task ClickOnTheRecord(string pIdOfRecord)
         {
             // Console.WriteLine($"tr clicked at index {pIdOfRecord}!");
             await SelectedRow.InvokeAsync(pIdOfRecord);

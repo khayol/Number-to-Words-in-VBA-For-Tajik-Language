@@ -9,46 +9,14 @@ namespace Woorj.Services
 {
     public static  class GlobVarStat
     {
-       
-    private static ICoreService coreService { get;set; }   
 
-          
-		private static string ConnStr="";
-		private static	SqlConnection conn;
-       
-        static GlobVarStat()
-        {
-        ConnStr=GlobVarStat.connectionString;		
-	 	      conn = new SqlConnection(ConnStr);
-          defCrutcher= AppData.BrowserIterfaceLang;
-
-         // rowNotChoosed_msg=coreService.GetGlobVar("rowNotChoosed_msg")?.ToUpper() ?? "nullval" ; // "sdsd";
-         // dataArrExist=Get("dataArrExist","dataArrExist")?.ToString() ?? dataArrExist; // Working well if the result is not null
-        }
- 
-   public static string Get(string pKeyWord, string pDefaultResult)
-    {
-      Object returnValue;	
-      conn.Open();
-      SqlCommand cmd = new SqlCommand();
-        cmd.CommandText = " select DefaultVal from [dbo].[GlobalVariable] where Upper(KeyWord)=Upper(@pKeyWord)";  
-        cmd.Connection = conn;	          
-            
-          cmd.Parameters.Add("@pKeyWord", SqlDbType.NVarChar);
-          cmd.Parameters["@pKeyWord"].Value =  pKeyWord.ToUpper();
-
-        returnValue = cmd.ExecuteScalar();
-        if (string.IsNullOrEmpty(returnValue.ToString())){
-        returnValue=pDefaultResult;
-        }
-      conn.Close();
-      return Convert.ToString(returnValue);
-	    }
-              
+    
+        
         //-----------------------------------------------------------------------
         #region   DATA_AND_PRIMERY_INFO
-        public static string connectionString { get; set; }=@"Server=HO-HAYOL-LPT\SQLEXPRESS;Database=Woorj555304B42405CA2E5BD2454CC54DF6;User Id=sa; password=Fmfb#2017";
-        public static string dataArrExist { get; set; }="{***}"; //Get2("dataArrExist","{***123}"); //Get("dataArrExist","{***}")?.ToString() ?? "sd";//"{***}";
+        public static string connectionString { get; set; }=@"Server=HO-KHAYOL-LP\SQLEXPRESS;Database=Woorj555304B42405CA2E5BD2454CC54DF6;User Id=sa; password=Fmfb#2017";
+        public static string connectionString1 { get; set; }=@"Server=CFT-SUPPORT\SQLEXPRESS;Database=Woorj555304B42405CA2E5BD2454CC54DF6;User Id=sa; password=Fmfb#2017";
+        public static string dataArrExist { get; set; }="{***}"; 
         public static string dataArrEmpty { get; set; }="{...}";
         public static string nullval { get; set; }="nullval";
         public static string defCrutcher { get; set; }="EN";
@@ -61,9 +29,9 @@ namespace Woorj.Services
         public static string date_0001 { get; set; }="01-01-0001";
         //-----------------
         public static string date_sys_srv { get; set; }="getdate()";
-        public static string date_astronomic_srv { get; set; }="I Should Get it from server";
-        public static string date_sys_cli { get; set; }="May be like that: DateTime.Now.ToString()";
-        public static string date_astrinomic_cli { get; set; }="I Should Get it from someware";
+        // public static string date_astronomic_srv { get; set; }="I Should Get it from server";
+        // public static string date_sys_cli { get; set; }="May be like that: DateTime.Now.ToString()";
+        //  public static string date_astrinomic_cli { get; set; }="I Should Get it from someware";
         #endregion   DATE_TIME
         //---------------------------------------------------------------------
         #region   DESIGN_SECTION

@@ -237,7 +237,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             , 15, (__builder2) => {
-                __Blazor.Woorj.Pages.TESTS.L22.CounterTest.TypeInference.CreateCascadingValue_1(__builder2, 16, 17, "Counter2", 18, 
+                __builder2.AddMarkupContent(16, "\r\n    ");
+                __Blazor.Woorj.Pages.TESTS.L22.CounterTest.TypeInference.CreateCascadingValue_1(__builder2, 17, 18, "Counter2", 19, 
 #nullable restore
 #line 12 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\CounterTest.razor"
                                             ColorTest
@@ -245,7 +246,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-                , 19, 
+                , 20, 
 #nullable restore
 #line 12 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\CounterTest.razor"
                                                                 true
@@ -253,11 +254,14 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-                , 20, (__builder3) => {
-                    __builder3.OpenComponent<Woorj.Pages.TESTS.L22.Component1>(21);
+                , 21, (__builder3) => {
+                    __builder3.AddMarkupContent(22, "\r\n        ");
+                    __builder3.OpenComponent<Woorj.Pages.TESTS.L22.Component1>(23);
                     __builder3.CloseComponent();
+                    __builder3.AddMarkupContent(24, "\r\n    ");
                 }
                 );
+                __builder2.AddMarkupContent(25, "\r\n");
             }
             );
         }

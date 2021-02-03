@@ -2,8 +2,8 @@
 @inject CountryController MainController
 
 <WrAuth PageName="CountryViewStd"><MainContent> 
-    <WrDataGrid @ref="grid"
-                  DataItems="list"
+    <WrDataGrid @ref="_grid"
+                  DataItems="_list"
                   SelectedRow="SelectedRowMeth"
                   Columns="@MainController.columns"
                   UniqIdOfRecord="Id"
@@ -34,10 +34,10 @@
 
  #region     Declare
     [Parameter] public string Id { get; set; }
-    private WrDataGrid<Country> grid;
-    private List<Country> list;
-    private string searchValue   { get; set; }  
-        [Parameter] public string selectedId { get; set;}="0";
+    private WrDataGrid<Country> _grid;
+    private List<Country> _list;
+    private string SearchValue   { get; set; }  
+    [Parameter] public string SelectedId { get; set;}="0";
  
  #endregion  Declare
 
@@ -46,7 +46,7 @@
     protected override void OnInitialized()
     {
         MainController.Initialized();
-        list = MainController.GetById(int.Parse(Id)).ToList();         
+        _list = MainController.GetById(int.Parse(Id)).ToList();         
     }
 
 #endregion BlazorMethods
@@ -56,25 +56,25 @@
 
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        searchValue = changeEventArgs.Value.ToString();
-        list = MainController.GetSearchByField(searchValue);
-        grid.GoToFirstPage();
+        SearchValue = changeEventArgs.Value.ToString();
+        _list = MainController.GetSearchByField(SearchValue);
+        _grid.GoToFirstPage();
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        selectedId = pSelectedRow;
+        SelectedId = pSelectedRow;
     }
-    protected void FindSelectedRec()
+    private void FindSelectedRec()
     {
-        grid.GoToFirstPage();
-        list = MainController.GetById(int.Parse(selectedId));
+        _grid.GoToFirstPage();
+        _list = MainController.GetById(int.Parse(SelectedId));
     }
-    protected void CleanSearchBox()
+    private void CleanSearchBox()
     {
-        grid.GoToFirstPage();
-        list = MainController.GetSearchByField("");
-        selectedId = "0";
-        searchValue="";
+        _grid.GoToFirstPage();
+        _list = MainController.GetSearchByField("");
+        SelectedId = "0";
+        SearchValue="";
     }
 
     protected void ExportToExcel()

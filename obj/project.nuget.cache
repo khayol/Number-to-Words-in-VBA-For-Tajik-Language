@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5XQOe5FHj/FlXvuppX+7MBPVYj7/oQdaHpKNj+wpSlvJcWvAWErTyAZ87/lB3DPvnjP2tAvadbY/tMfz+kn9sw==",
+  "dgSpecHash": "5f8HheJ70uGG7wv5hTjm/zzy6g220zMogddasNk1hCAq7/r/0VpsFViTM1gEAaXEVQzdTD4UINeHxsDH+2bxGg==",
   "success": true,
   "projectFilePath": "E:\\A_NewProjects\\01\\Woorj\\Woorj.csproj",
   "expectedPackageFiles": [
@@ -199,8 +199,7 @@
     "C:\\Users\\khayol.n\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\khayol.n\\.nuget\\packages\\toolbelt.blazor.headelement.abstractions\\1.2.0\\toolbelt.blazor.headelement.abstractions.1.2.0.nupkg.sha512",
     "C:\\Users\\khayol.n\\.nuget\\packages\\toolbelt.blazor.headelement.serverprerendering\\1.2.0.1\\toolbelt.blazor.headelement.serverprerendering.1.2.0.1.nupkg.sha512",
-    "C:\\Users\\khayol.n\\.nuget\\packages\\toolbelt.blazor.headelement.services\\1.2.0\\toolbelt.blazor.headelement.services.1.2.0.nupkg.sha512",
-    "C:\\Users\\khayol.n\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.9\\microsoft.netcore.app.host.win-x64.3.1.9.nupkg.sha512"
+    "C:\\Users\\khayol.n\\.nuget\\packages\\toolbelt.blazor.headelement.services\\1.2.0\\toolbelt.blazor.headelement.services.1.2.0.nupkg.sha512"
   ],
   "logs": []
 }

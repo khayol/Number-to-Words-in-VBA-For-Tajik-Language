@@ -222,7 +222,7 @@ using System.Reflection;
 
 
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     [Parameter]
     public string BaseUrlUri { get; set; }
     [Parameter]

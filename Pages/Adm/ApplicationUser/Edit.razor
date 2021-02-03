@@ -1,10 +1,10 @@
-@page "/Adm/ApplicationUser/Edit/{CurrentID}"
+@page "/Adm/ApplicationUser/Edit/{CurrentId}"
 @inject ApplicationUserController MainController
 
 
 <WrAuth PageName="ApplicationUserEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
@@ -18,19 +18,19 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
 
             <WrFieldStr  FieldCaption="UserName" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.UserName"/> 
 
             <WrFieldStr FieldCaption="FirstName" 
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.FirstName"/>
 
             <WrFieldStr  FieldCaption="SecondName" 
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.SecondName"/>
 
             <WrFieldStr  FieldCaption="LastName" 
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.LastName"/>
 
         </FormElements>      
     </WrFormBody>    
@@ -39,22 +39,22 @@
 
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();    
+    [Parameter] public string CurrentId { get; set; }
+    ApplicationUser _objMain = new ApplicationUser();    
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        _objMain = MainController.GetById_FirstOrDefault(CurrentId);
     }
 
-    protected void Save()
+    private void Save()
     {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
+        MainController.Update(_objMain);
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
     }
 
   

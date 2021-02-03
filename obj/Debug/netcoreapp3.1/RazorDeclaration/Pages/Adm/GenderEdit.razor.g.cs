@@ -153,7 +153,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/GenderEdit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/GenderEdit/{CurrentId}")]
     public partial class GenderEdit : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -165,7 +165,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line 41 "e:\A_NewProjects\01\Woorj\Pages\Adm\GenderEdit.razor"
       
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     Gender objGender = new Gender();
 
     private bool readonlyMain1 {get;set;}=false;
@@ -174,7 +174,7 @@ using Woorj.Pages.TESTS.WrComponents;
 
     protected override async Task OnInitializedAsync()
     {
-        objGender = await Task.Run(() => objGenderController.GetGenderById(Convert.ToInt32(CurrentID)));
+        objGender = await Task.Run(() => objGenderController.GetGenderById(Convert.ToInt32(CurrentId)));
         
         readonlyMain1=AppData.readonlyMain1;
         readonlyMain2=AppData.readonlyMain2;
@@ -184,11 +184,11 @@ using Woorj.Pages.TESTS.WrComponents;
     protected void UpdateGender()
     {
         objGenderController.UpdateGender(objGender);
-       NavigationManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+       NavigationManager.NavigateTo("/Dir/GenderViewStd/"+CurrentId);
     }
     void Cancel()
     {
-      NavigationManager.NavigateTo("/Dir/GenderViewStd/"+CurrentID);
+      NavigationManager.NavigateTo("/Dir/GenderViewStd/"+CurrentId);
     }
 
 #line default

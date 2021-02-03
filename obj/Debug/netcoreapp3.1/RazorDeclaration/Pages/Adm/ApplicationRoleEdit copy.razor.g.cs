@@ -160,7 +160,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationRoleEdit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationRoleEdit/{CurrentId}")]
     public partial class ApplicationRoleEdit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -174,7 +174,7 @@ using Woorj.Pages.TESTS.WrComponents;
 
 
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     ApplicationRole objApplicationRole = new ApplicationRole();
 
     private bool readonlyMain1 {get;set;}=false;
@@ -183,7 +183,7 @@ using Woorj.Pages.TESTS.WrComponents;
 
     protected override async Task OnInitializedAsync()
     {
-        objApplicationRole = await Task.Run(() => objApplicationRoleController.GetApplicationRoleById(CurrentID));
+        objApplicationRole = await Task.Run(() => objApplicationRoleController.GetApplicationRoleById(CurrentId));
         
         readonlyMain1=AppData.readonlyMain1;
         readonlyMain2=AppData.readonlyMain2;
@@ -193,11 +193,11 @@ using Woorj.Pages.TESTS.WrComponents;
     protected void UpdateApplicationRole()
     {
         objApplicationRoleController.UpdateApplicationRole(objApplicationRole);
-       NavigationManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentID);
+       NavigationManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentId);
     }
     void Cancel()
     {
-      NavigationManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentID);
+      NavigationManager.NavigateTo("/Adm/ApplicationRoleViewStd/"+CurrentId);
     }
 
 #line default

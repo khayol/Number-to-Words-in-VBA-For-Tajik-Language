@@ -174,7 +174,7 @@ using Microsoft.AspNetCore.Http;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUserEdit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUserEdit/{CurrentId}")]
     public partial class ApplicationUserEdit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -187,7 +187,7 @@ using Microsoft.AspNetCore.Http;
       
     
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     ApplicationUser objApplicationUser = new ApplicationUser();
     public List<Language> LanguageList;
     private bool readonlyMain1 {get;set;}=false;
@@ -196,7 +196,7 @@ using Microsoft.AspNetCore.Http;
 
     protected override async Task OnInitializedAsync()
     {
-        objApplicationUser = await Task.Run(() => objApplicationUserController.GetApplicationUserById(CurrentID));
+        objApplicationUser = await Task.Run(() => objApplicationUserController.GetApplicationUserById(CurrentId));
         LanguageList =  LanguageController.GetLanguage();
 
           
@@ -214,11 +214,11 @@ using Microsoft.AspNetCore.Http;
     protected void UpdateApplicationUser()
     {
        objApplicationUserController.UpdateApplicationUser(objApplicationUser);
-       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+       NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentId);
     }
     void Cancel()
     {
-      NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentID);
+      NavManager.NavigateTo("/Adm/ApplicationUserViewStd/"+CurrentId);
     }
 
 #line default

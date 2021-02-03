@@ -3,7 +3,7 @@
 
 <WrAuth PageName="ApplicationRoleAdd"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Create">  
+<EditForm Model="@_objMain" OnValidSubmit="@Create">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     <WrPnlElm>
@@ -16,10 +16,10 @@
         <FormElements>
 
             <WrFieldStr  FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
             <WrFieldStr FieldCaption="Description"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Description"/>
        
        </FormElements>      
     </WrFormBody> 
@@ -30,11 +30,12 @@
 
 @code{
 
-    [Parameter] public string CurrentID { get; set; }
-    ApplicationRole objMain= new ApplicationRole();  
-     protected  void Create()
+    [Parameter] public string CurrentId { get; set; }
+    readonly ApplicationRole _objMain= new ApplicationRole();
+
+    private void Create()
      { 
-        MainController.Create(objMain);
+        MainController.Create(_objMain);
         NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/0");
      }
 

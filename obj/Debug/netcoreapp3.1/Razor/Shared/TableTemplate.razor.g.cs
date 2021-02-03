@@ -198,13 +198,17 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "table-style");
-            __builder.OpenElement(2, "table");
-            __builder.AddAttribute(3, "class", "table   table-bordered ");
-            __builder.AddAttribute(4, "id", "rowClick");
-            __builder.OpenElement(5, "thead");
-            __builder.AddAttribute(6, "class", "thead-light");
-            __builder.OpenElement(7, "tr");
-            __builder.AddContent(8, 
+            __builder.AddMarkupContent(2, "\r\n    ");
+            __builder.OpenElement(3, "table");
+            __builder.AddAttribute(4, "class", "table   table-bordered ");
+            __builder.AddAttribute(5, "id", "rowClick");
+            __builder.AddMarkupContent(6, "\r\n        ");
+            __builder.OpenElement(7, "thead");
+            __builder.AddAttribute(8, "class", "thead-light");
+            __builder.AddMarkupContent(9, "\r\n            ");
+            __builder.OpenElement(10, "tr");
+            __builder.AddMarkupContent(11, "\r\n                ");
+            __builder.AddContent(12, 
 #nullable restore
 #line 7 "E:\A_NewProjects\01\Woorj\Shared\TableTemplate.razor"
                  TableHeader
@@ -213,10 +217,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(13, "\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(14, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(9, "\r\n        ");
-            __builder.OpenElement(10, "tbody");
+            __builder.AddMarkupContent(15, "\r\n        ");
+            __builder.OpenElement(16, "tbody");
+            __builder.AddMarkupContent(17, "\r\n");
 #nullable restore
 #line 11 "E:\A_NewProjects\01\Woorj\Shared\TableTemplate.razor"
              foreach (var item in Items)
@@ -225,8 +232,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(11, "tr");
-            __builder.AddAttribute(12, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(18, "                ");
+            __builder.OpenElement(19, "tr");
+            __builder.AddAttribute(20, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Shared\TableTemplate.razor"
                               () => TrClickedAtIndex()
@@ -235,7 +243,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(13, 
+            __builder.AddMarkupContent(21, "\r\n                    ");
+            __builder.AddContent(22, 
 #nullable restore
 #line 14 "E:\A_NewProjects\01\Woorj\Shared\TableTemplate.razor"
                      RowTemplate(item)
@@ -244,7 +253,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(23, "\r\n                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(24, "\r\n");
 #nullable restore
 #line 16 "E:\A_NewProjects\01\Woorj\Shared\TableTemplate.razor"
             }
@@ -252,10 +263,13 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(25, "        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(26, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(27, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(14, "\r\n}\r\n");
+            __builder.AddMarkupContent(28, "\r\n}\r\n");
         }
         #pragma warning restore 1998
 #nullable restore

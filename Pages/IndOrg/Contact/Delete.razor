@@ -1,8 +1,8 @@
-@page "/IndOrg/Contact/Delete/{CurrentID}"
+@page "/IndOrg/Contact/Delete/{CurrentId}"
 @inject ContactController objContactController
 
 <WrAuth PageName="ContactDelete"><MainContent>  
-<EditForm Model="@objContact" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext" >  
+<EditForm Model="@_objContact" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext" >  
    
     <WrPnlElm>
      <ControlQuickAccess>
@@ -16,10 +16,10 @@
             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
               
              <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-              Readonly="true" Val="@objContact.Code" />
+              Readonly="true" Val="@_objContact.Code" />
 
             <WrFieldStr Readonly="true" FieldCaption="Name"
-            TransEntity="Individual"  @bind-BindingValue ="@objContact.Name"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@_objContact.Name"/> 
 
       </FormElements>      
     </WrFormBody>    
@@ -27,17 +27,17 @@
 </MainContent></WrAuth>
 
 @code{
-   [Parameter] public string CurrentID {get;set;}
-    Contact objContact= new Contact();
+   [Parameter] public string CurrentId {get;set;}
+    Contact _objContact= new Contact();
 
     protected override void OnInitialized()
     {
-      objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));       
+      _objContact = objContactController.GetContactById(Convert.ToInt32(CurrentId));       
     }
-    
-    protected void DeleteRow(){
 
-        objContactController.DeleteContact(objContact);
+    private void DeleteRow(){
+
+        objContactController.DeleteContact(_objContact);
        AppData.GoBrwsNavigation(-1);
     }
     void Cancel(){

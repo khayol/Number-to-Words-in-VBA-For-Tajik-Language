@@ -204,7 +204,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(0, "<a>&nbsp</a>");
+            __builder.AddContent(0, "   ");
+            __builder.AddMarkupContent(1, "<a>&nbsp</a>\r\n");
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrSpace.razor"
 
@@ -223,7 +224,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(1, "<a>&nbsp</a>");
+            __builder.AddContent(2, "    ");
+            __builder.AddMarkupContent(3, "<a>&nbsp</a>     \r\n");
 #nullable restore
 #line 10 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrSpace.razor"
     }

@@ -212,8 +212,9 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(0, "table");
-            __builder.AddAttribute(1, "class", 
+            __builder.AddContent(0, "    ");
+            __builder.OpenElement(1, "table");
+            __builder.AddAttribute(2, "class", 
 #nullable restore
 #line 10 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                     $"table {this.TblCssClass}"
@@ -222,8 +223,11 @@ using System.Reflection;
 #line hidden
 #nullable disable
             );
-            __builder.OpenElement(2, "thead");
-            __builder.OpenElement(3, "tr");
+            __builder.AddMarkupContent(3, "\r\n        ");
+            __builder.OpenElement(4, "thead");
+            __builder.AddMarkupContent(5, "\r\n            ");
+            __builder.OpenElement(6, "tr");
+            __builder.AddMarkupContent(7, "\r\n");
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                  foreach (var member in memberInfo)
@@ -242,8 +246,10 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(4, "th");
-            __builder.AddContent(5, 
+            __builder.AddContent(8, "                        ");
+            __builder.OpenElement(9, "th");
+            __builder.AddMarkupContent(10, "\r\n                            ");
+            __builder.AddContent(11, 
 #nullable restore
 #line 19 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                              member.Name
@@ -252,7 +258,9 @@ using System.Reflection;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(12, "\r\n                        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(13, "\r\n");
 #nullable restore
 #line 21 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                     }
@@ -268,10 +276,13 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(14, "            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(15, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(6, "\r\n        ");
-            __builder.OpenElement(7, "tbody");
+            __builder.AddMarkupContent(16, "\r\n        ");
+            __builder.OpenElement(17, "tbody");
+            __builder.AddMarkupContent(18, "\r\n");
 #nullable restore
 #line 26 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
              foreach (var item in this.Items)
@@ -280,7 +291,9 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(8, "tr");
+            __builder.AddContent(19, "                ");
+            __builder.OpenElement(20, "tr");
+            __builder.AddMarkupContent(21, "\r\n");
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                      foreach (var member in memberInfo)
@@ -301,8 +314,8 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(9, "td");
-            __builder.AddAttribute(10, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.OpenElement(22, "td");
+            __builder.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 35 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                                   () => ClickOnTheRecord(IdOfRecord)
@@ -311,7 +324,8 @@ using System.Reflection;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(11, 
+            __builder.AddMarkupContent(24, "\r\n\r\n                        \r\n                        ");
+            __builder.AddContent(25, 
 #nullable restore
 #line 38 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                          item.GetType().GetProperty(member.Name).GetValue(item)
@@ -320,7 +334,9 @@ using System.Reflection;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(26, "\r\n                 \r\n\r\n\r\n                    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(27, "\r\n");
 #nullable restore
 #line 43 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
                         }
@@ -336,7 +352,9 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(28, "                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(29, "\r\n");
 #nullable restore
 #line 46 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
             }
@@ -344,8 +362,11 @@ using System.Reflection;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(30, "        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(31, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(32, "\r\n");
 #nullable restore
 #line 49 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\GridAutoComponentEp14.razor"
 }

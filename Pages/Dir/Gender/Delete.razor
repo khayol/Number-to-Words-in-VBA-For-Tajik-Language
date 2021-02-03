@@ -1,9 +1,9 @@
-@page "/Dir/Gender/Delete/{CurrentID}"
+@page "/Dir/Gender/Delete/{CurrentId}"
 @inject GenderController MainController
 
 <WrAuth PageName="GenderDelete"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
    
     <WrPnlElm>
      <ControlQuickAccess>
@@ -17,10 +17,10 @@
                <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
 
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
      
             <WrFieldStr Readonly="true" FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/>
 
         </FormElements>      
     </WrFormBody>    
@@ -29,22 +29,22 @@
 
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
-    Gender objMain = new Gender();  
+    [Parameter] public string CurrentId { get; set; }
+    Gender _objMain = new Gender();  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
     }
 
-    protected void DeleteRow()
+    private void DeleteRow()
     {
-        MainController.Delete(objMain);
-        NavManager.NavigateTo("/Dir/Gender/ViewStd/"+CurrentID);
+        MainController.Delete(_objMain);
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Dir/Gender/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/"+CurrentId);
     }
 
 }

@@ -146,7 +146,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/ContactDelete/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/ContactDelete/{CurrentId}")]
     public partial class ContactDelete : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -158,12 +158,12 @@ using Woorj.Pages.TESTS.WrComponents;
 #line 38 "e:\NewProjects\01\Woorj\Pages\Dir\ContactDelete.razor"
       
    [Parameter]
-   public string CurrentID {get;set;}
+   public string CurrentId {get;set;}
     Contact objEmp= new Contact();
 
     protected override async Task OnInitializedAsync()
     {
-    objEmp= await Task.Run(()=>objContactController.GetContactById(Convert.ToInt32(CurrentID)));        
+    objEmp= await Task.Run(()=>objContactController.GetContactById(Convert.ToInt32(CurrentId)));        
     }
     
     protected void DeleteContact(){

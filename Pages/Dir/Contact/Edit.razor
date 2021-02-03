@@ -1,9 +1,9 @@
-@page "/Dir/Contact/Edit/{CurrentID}"
-@inject ContactController objMainController
+@page "/Dir/Contact/Edit/{CurrentId}"
+@inject ContactController _objMainController
 
 <WrAuth PageName="ContactEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator /> 
     <ValidationSummary/>
     
@@ -18,13 +18,13 @@
         <FormElements>
 
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="false" Val="@objMain.Code" />
+            Readonly="false" Val="@_objMain.Code" />
 
            <WrFieldStr Readonly="false" FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
             <WrFieldStr Readonly="false" FieldCaption="Description"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Description"/>
 
    
         </FormElements>      
@@ -33,21 +33,21 @@
 </MainContent></WrAuth>
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
-    Contact objMain = new Contact();
+    [Parameter] public string CurrentId { get; set; }
+    Contact _objMain = new Contact();
 
     protected override void OnInitialized()
     {
-        objMain = objMainController.GetContactById(Convert.ToInt32(CurrentID));
+        _objMain = _objMainController.GetContactById(Convert.ToInt32(CurrentId));
    }
 
-    protected void Save()
+    private void Save()
     {
-        objMainController.UpdateContact(objMain);
-        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentID);
+        _objMainController.UpdateContact(_objMain);
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentId);
     }
 }

@@ -198,8 +198,9 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "form-group");
-            __builder.OpenElement(2, "label");
-            __builder.AddAttribute(3, "for", 
+            __builder.AddMarkupContent(2, "\r\n   ");
+            __builder.OpenElement(3, "label");
+            __builder.AddAttribute(4, "for", 
 #nullable restore
 #line 2 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
                 FieldCaption
@@ -208,8 +209,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(4, "class", "control-lable");
-            __builder.AddContent(5, 
+            __builder.AddAttribute(5, "class", "control-lable");
+            __builder.AddContent(6, 
 #nullable restore
 #line 2 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
                                                      trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
@@ -219,6 +220,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(7, "  \r\n");
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
            if (RenderFrg != null)
@@ -228,7 +230,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(6, 
+            __builder.AddContent(8, 
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
                RenderFrg
@@ -247,8 +249,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(7, "input");
-            __builder.AddAttribute(8, "readonly", 
+            __builder.AddContent(9, "            ");
+            __builder.OpenElement(10, "input");
+            __builder.AddAttribute(11, "readonly", 
 #nullable restore
 #line 10 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
                              Readonly
@@ -257,9 +260,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(9, "class", "form-control");
-            __builder.AddAttribute(10, "id", "Code");
-            __builder.AddAttribute(11, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddAttribute(12, "class", "form-control");
+            __builder.AddAttribute(13, "id", "Code");
+            __builder.AddAttribute(14, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 10 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
                                                                              Val
@@ -268,9 +271,10 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(12, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => Val = __value, Val));
+            __builder.AddAttribute(15, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => Val = __value, Val));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
+            __builder.AddMarkupContent(16, " \r\n");
 #nullable restore
 #line 11 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldDateTime.razor"
         
@@ -279,6 +283,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(17, "  ");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

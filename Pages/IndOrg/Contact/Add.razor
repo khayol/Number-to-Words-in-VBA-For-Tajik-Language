@@ -2,7 +2,7 @@
 @inject ContactController MainController
 
 <WrAuth PageName="ContactAdd"><MainContent>    
-    <EditForm Model="@objContact" OnValidSubmit="@CreateContact">  
+    <EditForm Model="@_objContact" OnValidSubmit="@CreateContact">  
         <FluentValidationValidator />  
         <ValidationSummary/>
         <WrPnlElm>
@@ -15,10 +15,10 @@
             <FormElements>
 
                 <WrFieldStr FieldCaption="Name"
-                TransEntity="General"  @bind-BindingValue ="@objContact.Name"/>
+                TransEntity="General"  @bind-BindingValue ="@_objContact.Name"/>
 
                 <WrFieldStr  FieldCaption="Description"
-                TransEntity="General"  @bind-BindingValue ="@objContact.Description"/>
+                TransEntity="General"  @bind-BindingValue ="@_objContact.Description"/>
         
         </FormElements>      
         </WrFormBody> 
@@ -28,14 +28,15 @@
 @code{
 
     [Parameter] public string IndividualId { get; set; }
-     Contact objContact= new Contact();
+    readonly Contact _objContact= new Contact();
      protected override void OnInitialized()
     {
-       objContact.IndividualId=int.Parse(IndividualId);
+       _objContact.IndividualId=int.Parse(IndividualId);
     }
-    protected  void CreateContact()
+
+    private void CreateContact()
     { 
-        MainController.Create(objContact);
+        MainController.Create(_objContact);
           AppData.GoBrwsNavigation(-1);
     }
     void Cancel(){

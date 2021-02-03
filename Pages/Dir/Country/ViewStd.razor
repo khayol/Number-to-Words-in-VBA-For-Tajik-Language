@@ -2,8 +2,8 @@
 @inject CountryController MainController
 
 <WrAuth PageName="CountryViewStd"><MainContent> 
-    <WrDataGrid @ref="grid"
-                  DataItems="list"
+    <WrDataGrid @ref="_grid"
+                  DataItems="_list"
                   SelectedRow="SelectedRowMeth"
                   Columns="@MainController.columns"
                   UniqIdOfRecord="Id"
@@ -19,9 +19,9 @@
 
           <ControlMenu>
             <WrOper Design="a" Type="C"  Link="/Dir/Country/Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link="/Dir/Country/View/"   LinkId=@selectedId Txt="View" />
-            <WrOper Design="a" Type="U"  Link="/Dir/Country/Edit/"   LinkId=@selectedId Txt="Edit" />
-            <WrOper Design="a" Type="D"  Link="/Dir/Country/Delete/" LinkId=@selectedId Txt="Delete" />
+            <WrOper Design="a" Type="R"  Link="/Dir/Country/View/"   LinkId=@SelectedId Txt="View" />
+            <WrOper Design="a" Type="U"  Link="/Dir/Country/Edit/"   LinkId=@SelectedId Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link="/Dir/Country/Delete/" LinkId=@SelectedId Txt="Delete" />
         </ControlMenu>
 
         <ControlQuickAccess>
@@ -31,9 +31,9 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Dir/Country/Add"     TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Country/View/"   LinkId=@selectedId TxtToolTip="View" />
-            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Dir/Country/Edit/"   LinkId=@selectedId TxtToolTip="Edit" />
-            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Dir/Country/Delete/" LinkId=@selectedId TxtToolTip="Delete" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Dir/Country/View/"   LinkId=@SelectedId TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Dir/Country/Edit/"   LinkId=@SelectedId TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Dir/Country/Delete/" LinkId=@SelectedId TxtToolTip="Delete" />
             <WrSpace Length=2/>
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
@@ -47,11 +47,11 @@
 
  #region     Declare
    [Parameter] public string Id { get; set; }
-    private WrDataGrid<Country> grid;
-    private List<Country> list;
-    private string searchValue   { get; set; }
+    private WrDataGrid<Country> _grid;
+    private List<Country> _list;
+    private string SearchValue   { get; set; }
 
-    [Parameter] public string selectedId { get; set;}="0";
+    [Parameter] public string SelectedId { get; set;}="0";
  
  #endregion  Declare
 
@@ -60,7 +60,7 @@
     protected override void OnInitialized()
     {
         MainController.Initialized();
-        list = MainController.GetById(int.Parse(Id)).ToList();         
+        _list = MainController.GetById(int.Parse(Id)).ToList();         
     }
 
 #endregion BlazorMethods
@@ -69,31 +69,34 @@
 
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        searchValue = changeEventArgs.Value.ToString();
-        list = MainController.GetSearchByField(searchValue);
-        grid.GoToFirstPage();
+        SearchValue = changeEventArgs.Value.ToString();
+        _list = MainController.GetSearchByField(SearchValue);
+        _grid.GoToFirstPage();
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        selectedId = pSelectedRow;
-    }
-    protected void FindSelectedRec()
-    {
-        grid.GoToFirstPage();
-        list = MainController.GetById(int.Parse(selectedId));
-    }
-    protected void CleanSearchBox()
-    {
-        grid.GoToFirstPage();
-        list = MainController.GetSearchByField("");
-        selectedId = "0";
+        SelectedId = pSelectedRow;
     }
 
-    protected void ExportToExcel()
+    private void FindSelectedRec()
+    {
+        _grid.GoToFirstPage();
+        _list = MainController.GetById(int.Parse(SelectedId));
+    }
+
+    private void CleanSearchBox()
+    {
+        _grid.GoToFirstPage();
+        _list = MainController.GetSearchByField("");
+        SelectedId = "0";
+    }
+
+    private void ExportToExcel()
     {
        // MainController.GenerateExcel(JSRuntime);
     }
-    protected void FilterData()
+
+    private void FilterData()
     {
         JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
     }

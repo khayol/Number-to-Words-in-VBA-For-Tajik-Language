@@ -1,4 +1,4 @@
-@page "/Adm/ApplicationUser/Settings/{CurrentID}"
+@page "/Adm/ApplicationUser/Settings/{CurrentId}"
 @inject ApplicationUserController MainController
 @inject LanguageController LanguageController
    
@@ -16,9 +16,9 @@
  
             <div class="form-group">
             <label for="Language"  class="control-lable">@trs.GetTranslation("UserLangage",@AppData.ActiveUser?.ToString() ?? "","Adm")</label>
-                          <select  class="form-control selectpicker" @bind="@objMain.LanguageId" >
+                          <select  class="form-control selectpicker" @bind="@_objMain.LanguageId" >
                             <option>--select--</option>
-                            @foreach (var item in LanguageList)
+                            @foreach (var item in _languageList)
                             {
                             <option value="@item.Id">@item.Name (@item.NativeName)</option> // Blazor needs to know what values it binds to!
                             }
@@ -29,24 +29,22 @@
     </WrFormBody>    
    
 </MainContent></WrAuth>
- 
-
 
 @code{
 
-    [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();
-    public List<Language> LanguageList;
+    [Parameter] public string CurrentId { get; set; }
+    ApplicationUser _objMain = new ApplicationUser();
+    private List<Language> _languageList;
         
      protected override void OnInitialized()
     {
-        objMain =  MainController.GetApplicationUserById(CurrentID);
-        LanguageList =  LanguageController.GetLangActive();
+        _objMain =  MainController.GetApplicationUserById(CurrentId);
+        _languageList =  LanguageController.GetLangActive();
      }
 
-    protected void Save()
+    private void Save()
     {
-       MainController.UpdateApplicationUser(objMain);    
+       MainController.UpdateApplicationUser(_objMain);    
        AppData.GoBrwsNavigation(-2); 
     }
     void Cancel()

@@ -198,9 +198,10 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(0);
             __builder.AddAttribute(1, "Authorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
-                __builder2.OpenElement(2, "a");
-                __builder2.AddAttribute(3, "href", "Identity/Account/Manage");
-                __builder2.AddContent(4, 
+                __builder2.AddMarkupContent(2, "\r\n        ");
+                __builder2.OpenElement(3, "a");
+                __builder2.AddAttribute(4, "href", "Identity/Account/Manage");
+                __builder2.AddContent(5, 
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Shared\LoginDisplay.razor"
                                            context.User.Identity.Name
@@ -209,12 +210,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 );
-                __builder2.AddContent(5, "!");
+                __builder2.AddContent(6, "!");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(6, "\r\n        ");
-                __builder2.OpenElement(7, "div");
-                __builder2.AddAttribute(8, "style", "display: inline");
-                __builder2.AddAttribute(9, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+                __builder2.AddMarkupContent(7, "\r\n        ");
+                __builder2.OpenElement(8, "div");
+                __builder2.AddAttribute(9, "style", "display: inline");
+                __builder2.AddAttribute(10, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 6 "E:\A_NewProjects\01\Woorj\Shared\LoginDisplay.razor"
                                                 UserSettings
@@ -223,14 +224,16 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddMarkupContent(10, "<span class=\"fa fa-gear\" aria-hidden=\"true\"></span>");
+                __builder2.AddMarkupContent(11, "<span class=\"fa fa-gear\" aria-hidden=\"true\"></span>");
                 __builder2.CloseElement();
+                __builder2.AddMarkupContent(12, "\r\n        \r\n    ");
             }
             ));
-            __builder.AddAttribute(11, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
-                __builder2.OpenElement(12, "a");
-                __builder2.AddAttribute(13, "href", "Identity/Account/Register");
-                __builder2.AddContent(14, 
+            __builder.AddAttribute(13, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
+                __builder2.AddMarkupContent(14, "\r\n        ");
+                __builder2.OpenElement(15, "a");
+                __builder2.AddAttribute(16, "href", "Identity/Account/Register");
+                __builder2.AddContent(17, 
 #nullable restore
 #line 15 "E:\A_NewProjects\01\Woorj\Shared\LoginDisplay.razor"
                                              trs.GetTranslation("Register",@AppData.ActiveUser,"General")
@@ -240,10 +243,10 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
                 );
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(15, "\r\n        ");
-                __builder2.OpenElement(16, "a");
-                __builder2.AddAttribute(17, "href", "Identity/Account/Login");
-                __builder2.AddContent(18, 
+                __builder2.AddMarkupContent(18, "\r\n        ");
+                __builder2.OpenElement(19, "a");
+                __builder2.AddAttribute(20, "href", "Identity/Account/Login");
+                __builder2.AddContent(21, 
 #nullable restore
 #line 16 "E:\A_NewProjects\01\Woorj\Shared\LoginDisplay.razor"
                                           trs.GetTranslation("Login",@AppData.ActiveUser,"General")
@@ -253,6 +256,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
                 );
                 __builder2.CloseElement();
+                __builder2.AddMarkupContent(22, "\r\n    ");
             }
             ));
             __builder.CloseComponent();

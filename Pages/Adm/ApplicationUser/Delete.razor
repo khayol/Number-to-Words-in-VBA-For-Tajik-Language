@@ -1,9 +1,9 @@
-@page "/Adm/ApplicationUser/Delete/{CurrentID}"
+@page "/Adm/ApplicationUser/Delete/{CurrentId}"
 @inject ApplicationUserController MainController
 
 <WrAuth PageName="ApplicationUserDelete"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
    
     <WrPnlElm>
      <ControlQuickAccess>
@@ -17,19 +17,19 @@
              <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
            
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
             
              <WrFieldStr  FieldCaption="UserName" Readonly="true"
-            TransEntity="General"  @bind-BindingValue ="@objMain.UserName"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.UserName"/> 
 
             <WrFieldStr FieldCaption="FirstName" Readonly="true"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.FirstName"/>
 
             <WrFieldStr  FieldCaption="SecondName" Readonly="true"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.SecondName"/>
 
             <WrFieldStr  FieldCaption="LastName" Readonly="true"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.LastName"/> 
        
          
 
@@ -39,22 +39,22 @@
 </MainContent></WrAuth>
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();  
+    [Parameter] public string CurrentId { get; set; }
+    ApplicationUser _objMain = new ApplicationUser();  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        _objMain = MainController.GetById_FirstOrDefault(CurrentId);
     }
 
-    protected void DeleteRow()
+    private void DeleteRow()
     {
-        MainController.Delete(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
+        MainController.Delete(_objMain);
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
     }
 
 }

@@ -198,9 +198,11 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "ml-3");
-            __builder.AddMarkupContent(2, "<h3>Component1</h3>\r\n    ");
-            __builder.OpenComponent<Woorj.Pages.TESTS.L22.Component2>(3);
+            __builder.AddMarkupContent(2, "\r\n    ");
+            __builder.AddMarkupContent(3, "<h3>Component1</h3>\r\n    ");
+            __builder.OpenComponent<Woorj.Pages.TESTS.L22.Component2>(4);
             __builder.CloseComponent();
+            __builder.AddMarkupContent(5, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

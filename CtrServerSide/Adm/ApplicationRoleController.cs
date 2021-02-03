@@ -18,10 +18,11 @@ namespace Woorj.CtrServerSide.Adm
       public List<ColumnDefinition> clmDef_Role;
       public List<ColumnDefinition> clmDef_VGetUserRole;
     
-        public ApplicationRoleController(ApplicationDbContext db)
-        {
-            _db=db;
-        }
+      public ApplicationRoleController(ApplicationDbContext db)
+      {
+          _db=db;
+      }
+
        public void Init_RoleViewStd(){
          if (clmDef_RoleStd == null)
         {
@@ -65,8 +66,6 @@ namespace Woorj.CtrServerSide.Adm
             );
         }
       }
-
-   
         public List<ApplicationRole> GetApplicationRole(){
           var list_ApplicationRole=_db.ApplicationRole.ToList();
           return list_ApplicationRole;
@@ -80,7 +79,7 @@ namespace Woorj.CtrServerSide.Adm
         
         }
 
-         public ApplicationRole GetById_FirstOrDefault(string id){
+        public ApplicationRole GetById_FirstOrDefault(string id){
         ApplicationRole ApplicationRole= _db.ApplicationRole.FirstOrDefault(s=> s.Id==id);
         return ApplicationRole;
         }

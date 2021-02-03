@@ -1,9 +1,9 @@
-@page "/IndOrg/Contact/View/{CurrentID}"
+@page "/IndOrg/Contact/View/{CurrentId}"
 @inject ContactController MainController
 
 <WrAuth PageName="ContactEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Cancel" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@Cancel" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator /> 
     <ValidationSummary/>
     
@@ -17,13 +17,13 @@
         <FormElements>
             
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
 
            <WrFieldStr Readonly="true" FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
             <WrFieldStr Readonly="true" FieldCaption="Description"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Description"/>
 
    
         </FormElements>      
@@ -32,12 +32,12 @@
 </MainContent></WrAuth>
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
-    Contact objMain = new Contact();
+    [Parameter] public string CurrentId { get; set; }
+    Contact _objMain = new Contact();
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetContactById(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetContactById(Convert.ToInt32(CurrentId));
    }
 
     void Cancel()

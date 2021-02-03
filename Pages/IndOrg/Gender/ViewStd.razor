@@ -2,8 +2,8 @@
 @inject GenderController MainController
 
 <WrAuth PageName="GenderViewStd"><MainContent>  
-    <WrDataGrid @ref="grid"
-                  DataItems="list"
+    <WrDataGrid @ref="_grid"
+                  DataItems="_list"
                   SelectedRow="SelectedRowMeth"
                   Columns="@MainController.columns"
                   UniqIdOfRecord="Id"
@@ -25,12 +25,13 @@
 
 @code  {
 
+    
 
  #region     Declare
     [Parameter] public string Id { get; set; }
-    private WrDataGrid<Gender> grid;
-    private List<Gender> list;
-    [Parameter] public string selectedId { get; set;}="0";    
+    private WrDataGrid<Gender> _grid;
+    private List<Gender> _list;
+    [Parameter] public string SelectedId { get; set;}="0";    
  
  #endregion  Declare
 
@@ -39,7 +40,7 @@
     protected override void OnInitialized()
     {
         MainController.Initialized();
-        list = MainController.GetById(int.Parse(Id)).ToList();         
+        _list = MainController.GetById(int.Parse(Id)).ToList();         
     }
 
 #endregion BlazorMethods
@@ -48,7 +49,7 @@
 
     private void SelectedRowMeth(string pSelectedRow)
     {
-        selectedId = pSelectedRow;
+        SelectedId = pSelectedRow;
     }
 
 

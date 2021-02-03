@@ -198,8 +198,9 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "form-group");
-            __builder.OpenElement(2, "label");
-            __builder.AddAttribute(3, "for", 
+            __builder.AddMarkupContent(2, "\r\n   ");
+            __builder.OpenElement(3, "label");
+            __builder.AddAttribute(4, "for", 
 #nullable restore
 #line 2 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldArray.razor"
                 FieldCaption
@@ -208,8 +209,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(4, "class", "control-lable");
-            __builder.AddContent(5, 
+            __builder.AddAttribute(5, "class", "control-lable");
+            __builder.AddContent(6, 
 #nullable restore
 #line 2 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldArray.razor"
                                                      trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
@@ -219,6 +220,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(7, "  \r\n");
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldArray.razor"
            if (RenderFrg != null)
@@ -228,7 +230,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(6, 
+            __builder.AddContent(8, 
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldArray.razor"
                RenderFrg
@@ -256,6 +258,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(9, "  ");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

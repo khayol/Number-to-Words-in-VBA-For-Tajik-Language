@@ -1,9 +1,9 @@
-@page "/Dir/Gender/View/{CurrentID}"
+@page "/Dir/Gender/View/{CurrentId}"
 @inject GenderController MainController
 
 <WrAuth PageName="GenderEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Cancel" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@Cancel" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
@@ -16,10 +16,10 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
 
             <WrFieldStr  FieldCaption="Name" Readonly="true"
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
         </FormElements>      
     </WrFormBody>    
@@ -28,16 +28,16 @@
 
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
-    Gender objMain = new Gender();    
+    [Parameter] public string CurrentId { get; set; }
+    Gender _objMain = new Gender();    
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
     }
 
     void Cancel()
     {
-        NavManager.NavigateTo("/Dir/Gender/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Dir/Gender/ViewStd/"+CurrentId);
     }
 
   

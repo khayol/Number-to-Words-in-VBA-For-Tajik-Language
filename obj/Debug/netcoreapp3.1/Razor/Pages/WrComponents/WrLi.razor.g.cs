@@ -204,8 +204,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(0);
-            __builder.AddAttribute(1, "Roles", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddContent(0, "    ");
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(1);
+            __builder.AddAttribute(2, "Roles", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                            admSer.GetRolesList(@PageName)
@@ -214,12 +215,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(2, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
-                __builder2.OpenElement(3, "li");
-                __builder2.AddAttribute(4, "class", "nav-item px-3");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Routing.NavLink>(5);
-                __builder2.AddAttribute(6, "class", "nav-link");
-                __builder2.AddAttribute(7, "href", 
+            __builder.AddAttribute(3, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
+                __builder2.AddMarkupContent(4, "  \r\n        ");
+                __builder2.OpenElement(5, "li");
+                __builder2.AddAttribute(6, "class", "nav-item px-3");
+                __builder2.AddMarkupContent(7, "\r\n            ");
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Routing.NavLink>(8);
+                __builder2.AddAttribute(9, "class", "nav-link");
+                __builder2.AddAttribute(10, "href", 
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                                              Link
@@ -228,7 +231,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 );
-                __builder2.AddAttribute(8, "Match", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.Routing.NavLinkMatch>(
+                __builder2.AddAttribute(11, "Match", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.Routing.NavLinkMatch>(
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                                                            Match
@@ -237,9 +240,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(9, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
-                    __builder3.AddMarkupContent(10, "<span class=\"oi oi-home\" aria-hidden=\"true\"></span> ");
-                    __builder3.AddContent(11, 
+                __builder2.AddAttribute(12, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
+                    __builder3.AddMarkupContent(13, "\r\n                  <span class=\"oi oi-home\" aria-hidden=\"true\"></span> ");
+                    __builder3.AddContent(14, 
 #nullable restore
 #line 6 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                                                                        trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
@@ -248,13 +251,17 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                     );
+                    __builder3.AddMarkupContent(15, "\r\n            ");
                 }
                 ));
                 __builder2.CloseComponent();
+                __builder2.AddMarkupContent(16, "\r\n        ");
                 __builder2.CloseElement();
+                __builder2.AddMarkupContent(17, " \r\n    ");
             }
             ));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(18, "\r\n");
 #nullable restore
 #line 10 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
    }else
@@ -263,11 +270,13 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(12, "li");
-            __builder.AddAttribute(13, "class", "nav-item px-3");
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Routing.NavLink>(14);
-            __builder.AddAttribute(15, "class", "nav-link");
-            __builder.AddAttribute(16, "href", 
+            __builder.AddContent(19, "        ");
+            __builder.OpenElement(20, "li");
+            __builder.AddAttribute(21, "class", "nav-item px-3");
+            __builder.AddMarkupContent(22, "\r\n            ");
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Routing.NavLink>(23);
+            __builder.AddAttribute(24, "class", "nav-link");
+            __builder.AddAttribute(25, "href", 
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                                              Link
@@ -276,7 +285,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(17, "Match", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.Routing.NavLinkMatch>(
+            __builder.AddAttribute(26, "Match", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.Routing.NavLinkMatch>(
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                                                            Match
@@ -285,9 +294,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(18, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
-                __builder2.AddMarkupContent(19, "<span class=\"oi oi-home\" aria-hidden=\"true\"></span> ");
-                __builder2.AddContent(20, 
+            __builder.AddAttribute(27, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
+                __builder2.AddMarkupContent(28, "\r\n                  <span class=\"oi oi-home\" aria-hidden=\"true\"></span> ");
+                __builder2.AddContent(29, 
 #nullable restore
 #line 14 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
                                                                        trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
@@ -296,10 +305,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 );
+                __builder2.AddMarkupContent(30, "\r\n            ");
             }
             ));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(31, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(32, " \r\n");
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrLi.razor"
    }

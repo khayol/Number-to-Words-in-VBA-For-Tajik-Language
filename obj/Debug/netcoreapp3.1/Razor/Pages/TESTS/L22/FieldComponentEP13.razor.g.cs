@@ -198,11 +198,13 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "field is-horizontal");
-            __builder.OpenElement(2, "div");
-            __builder.AddAttribute(3, "class", "field-label is-normal");
-            __builder.OpenElement(4, "label");
-            __builder.AddAttribute(5, "class", "label");
-            __builder.AddContent(6, 
+            __builder.AddMarkupContent(2, "\r\n    ");
+            __builder.OpenElement(3, "div");
+            __builder.AddAttribute(4, "class", "field-label is-normal");
+            __builder.AddMarkupContent(5, "\r\n        ");
+            __builder.OpenElement(6, "label");
+            __builder.AddAttribute(7, "class", "label");
+            __builder.AddContent(8, 
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\FieldComponentEP13.razor"
                               Label
@@ -212,15 +214,19 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(9, "\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(7, "\r\n    ");
-            __builder.OpenElement(8, "div");
-            __builder.AddAttribute(9, "class", "field-body");
-            __builder.OpenElement(10, "div");
-            __builder.AddAttribute(11, "class", "field");
-            __builder.OpenElement(12, "p");
-            __builder.AddAttribute(13, "class", "control");
-            __builder.AddContent(14, 
+            __builder.AddMarkupContent(10, "\r\n    ");
+            __builder.OpenElement(11, "div");
+            __builder.AddAttribute(12, "class", "field-body");
+            __builder.AddMarkupContent(13, "\r\n        ");
+            __builder.OpenElement(14, "div");
+            __builder.AddAttribute(15, "class", "field");
+            __builder.AddMarkupContent(16, "\r\n            ");
+            __builder.OpenElement(17, "p");
+            __builder.AddAttribute(18, "class", "control");
+            __builder.AddMarkupContent(19, "\r\n                ");
+            __builder.AddContent(20, 
 #nullable restore
 #line 8 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\FieldComponentEP13.razor"
                  Control
@@ -229,9 +235,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(21, "\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(22, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(23, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(24, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

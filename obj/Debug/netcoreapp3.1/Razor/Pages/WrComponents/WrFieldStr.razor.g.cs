@@ -198,8 +198,9 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "form-group");
-            __builder.OpenElement(2, "label");
-            __builder.AddAttribute(3, "for", 
+            __builder.AddMarkupContent(2, " \r\n        ");
+            __builder.OpenElement(3, "label");
+            __builder.AddAttribute(4, "for", 
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr.razor"
                      FieldCaption
@@ -208,8 +209,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(4, "class", "control-lable");
-            __builder.AddContent(5, 
+            __builder.AddAttribute(5, "class", "control-lable");
+            __builder.AddContent(6, 
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr.razor"
                                                           trs.GetTranslation(@FieldCaption,@AppData.ActiveUser,TransEntity)
@@ -219,9 +220,9 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(6, "  \r\n        ");
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(7);
-            __builder.AddAttribute(8, "readonly", 
+            __builder.AddMarkupContent(7, "  \r\n        ");
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Forms.InputText>(8);
+            __builder.AddAttribute(9, "readonly", 
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr.razor"
                               Readonly
@@ -230,8 +231,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(9, "class", "form-control");
-            __builder.AddAttribute(10, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddAttribute(10, "class", "form-control");
+            __builder.AddAttribute(11, "Value", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFieldStr.razor"
                                                                            BindingValue
@@ -240,9 +241,10 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(11, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => BindingValue = __value, BindingValue))));
-            __builder.AddAttribute(12, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => BindingValue));
+            __builder.AddAttribute(12, "ValueChanged", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.EventCallback<System.String>>(Microsoft.AspNetCore.Components.EventCallback.Factory.Create<System.String>(this, Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.CreateInferredEventCallback(this, __value => BindingValue = __value, BindingValue))));
+            __builder.AddAttribute(13, "ValueExpression", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Linq.Expressions.Expression<System.Func<System.String>>>(() => BindingValue));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(14, " \r\n    ");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

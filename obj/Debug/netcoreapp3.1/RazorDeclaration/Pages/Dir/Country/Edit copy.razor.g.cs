@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/Country/Edit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/Country/Edit/{CurrentId}")]
     public partial class Edit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -207,22 +207,22 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter]
-    public string CurrentID { get; set; }
-    Country objMain = new Country();    
+    public string CurrentId { get; set; }
+    Country _objMain = new Country();    
     private string  CancelOrBeckTxt { get; set; } 
     private bool readonlyMain1 {get;set;}=false;
     private bool readonlyOther {get;set;}=false;  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
         readonlyMain1=AppData.readonlyMain1;
         readonlyOther=AppData.readonlyOther;
     }
 
     protected void Update()
     {
-        MainController.Update(objMain);
+        MainController.Update(_objMain);
         NavManager.NavigateTo("/Dir/Country/ViewStd/0");
     }
     void Cancel()

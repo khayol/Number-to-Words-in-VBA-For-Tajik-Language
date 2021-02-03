@@ -198,15 +198,19 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "sidebar");
-            __builder.OpenComponent<Woorj.Shared.NavMenu>(2);
+            __builder.AddMarkupContent(2, " \r\n    ");
+            __builder.OpenComponent<Woorj.Shared.NavMenu>(3);
             __builder.CloseComponent();
+            __builder.AddMarkupContent(4, " \r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(3, "\r\n\r\n");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "main");
+            __builder.AddMarkupContent(5, "\r\n\r\n");
             __builder.OpenElement(6, "div");
-            __builder.AddAttribute(7, "class", "content-gen");
-            __builder.AddContent(8, 
+            __builder.AddAttribute(7, "class", "main");
+            __builder.AddMarkupContent(8, "\r\n\r\n\r\n    ");
+            __builder.OpenElement(9, "div");
+            __builder.AddAttribute(10, "class", "content-gen");
+            __builder.AddMarkupContent(11, " \r\n        ");
+            __builder.AddContent(12, 
 #nullable restore
 #line 15 "E:\A_NewProjects\01\Woorj\Shared\MainLayout.razor"
          Body
@@ -215,7 +219,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(13, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(14, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

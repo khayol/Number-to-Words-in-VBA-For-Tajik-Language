@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Contact/Edit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Contact/Edit/{CurrentId}")]
     public partial class Edit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -205,12 +205,12 @@ using Woorj.Pages.TESTS.L22;
 #nullable restore
 #line 35 "e:\A_NewProjects\01\Woorj\Pages\IndOrg\Contact\Edit copy.razor"
       
-    [Parameter] public string CurrentID { get; set; }
+    [Parameter] public string CurrentId { get; set; }
     Contact objContact = new Contact();
 
     protected override void OnInitialized()
     {
-        objContact = objContactController.GetContactById(Convert.ToInt32(CurrentID));
+        objContact = objContactController.GetContactById(Convert.ToInt32(CurrentId));
    }
 
     protected void UpdateContact()

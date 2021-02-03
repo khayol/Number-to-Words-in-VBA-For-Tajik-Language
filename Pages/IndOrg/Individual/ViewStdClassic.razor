@@ -10,23 +10,23 @@
                     <button class="btn bnt-style-general"><span class="oi oi-media-play" aria-hidden="true"></span></button>
                     <div class="dropdown-content">
                         <a @onclick="@(args => AddNew())" value="Add">Add</a>
-                        <a @onclick="@(args => Edit(selectedRow.ToString()))">Edit</a>
-                        <a @onclick="@(args => Delete(selectedRow.ToString()))">Delete</a>
+                        <a @onclick="@(args => Edit(SelectedRow.ToString()))">Edit</a>
+                        <a @onclick="@(args => Delete(SelectedRow.ToString()))">Delete</a>
                     </div>
                 </div>
                 @* Functionality Buttons*@
            
                 <button class="btn bnt-style-general" @onclick="@(args => AddNew())" data-toggle="tooltip" title="Add"><span class="oi oi-plus" aria-hidden="true"></span></button>
-                <button class="btn bnt-style-general" @onclick="@(args => Edit(selectedRow.ToString()))" data-toggle="tooltip" title="Edit" ><span class="oi oi-pencil" aria-hidden="true"></span></button>
-                <button class="btn bnt-style-general" @onclick="@(args => Delete(selectedRow.ToString()))" data-toggle="tooltip" title="Delete"  ><span class="oi oi-circle-x" aria-hidden="true"></span></button>
-                <input type="button" class="btn bnt-style-general" @onclick="@(args => Delete(selectedRow.ToString()))" value="">
-                <label for="fname"> Row: @selectedRow</label>
+                <button class="btn bnt-style-general" @onclick="@(args => Edit(SelectedRow.ToString()))" data-toggle="tooltip" title="Edit" ><span class="oi oi-pencil" aria-hidden="true"></span></button>
+                <button class="btn bnt-style-general" @onclick="@(args => Delete(SelectedRow.ToString()))" data-toggle="tooltip" title="Delete"  ><span class="oi oi-circle-x" aria-hidden="true"></span></button>
+                <input type="button" class="btn bnt-style-general" @onclick="@(args => Delete(SelectedRow.ToString()))" value="">
+                <label for="fname"> Row: @SelectedRow</label>
             </div>
         </div>
     </div>
 </div>
 
-@if (individualList == null)
+@if (_individualList == null)
 {
     <p><em>Loading...</em></p>
 @* <div class="spinner"></div> *@
@@ -59,12 +59,11 @@ else
                 </tr>
             </thead>
             <tbody>
-                @foreach (var emp in individualList)
+                @foreach (var emp in _individualList)
                 {
-                    incRow++;
-                    if (incRow == 1)
+                    IncRow++;
+                    if (IncRow == 1)
                     {
-                        minRowindex = emp.Id;
                     }
 
 
@@ -93,15 +92,14 @@ else
     </div>
 }
 @code{
-    List<Individual> individualList;
-    protected int incRow { get; set; } = 0;
-    protected int minRowindex { get; set; } = 0;
-    protected int selectedRow { get; set; } = 0;
+    List<Individual> _individualList;
+    private int IncRow { get; set; } = 0;
+    private int SelectedRow { get; set; } = 0;
 
 
     protected override async Task OnInitializedAsync()
     {
-        individualList = await Task.Run(() => individualListidualService.Get());
+        _individualList = await Task.Run(() => individualListidualService.Get());
 
     }
 
@@ -112,37 +110,37 @@ else
        // return base.OnAfterRenderAsync(firstRender);
     }
 
-    public async Task TrClickedAtIndex(int index)
+    private async Task TrClickedAtIndex(int index)
     {
         // Console.WriteLine($"tr clicked at index {index}!");
-        selectedRow = index;
+        SelectedRow = index;
         await JSRuntime.InvokeVoidAsync("SelectedRowColorChange");
     }
 
-    protected void AddNew()
+    private void AddNew()
     {
         NavManager.NavigateTo("/IndOrg/Individual/Add");
     }
 
-    protected void Edit(string p_selectedRow)
+    private void Edit(string pSelectedRow)
     {
-        if ( int.Parse(p_selectedRow)<=0) //String.IsNullOrEmpty(p_selectedRow)
+        if ( int.Parse(pSelectedRow)<=0) //String.IsNullOrEmpty(p_selectedRow)
         {
             JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
         }
         else {
-            NavManager.NavigateTo("/IndOrg/Individual/Edit/" + p_selectedRow);
+            NavManager.NavigateTo("/IndOrg/Individual/Edit/" + pSelectedRow);
         }
     }
-    protected void Delete(string p_selectedRow)
+    private void Delete(string pSelectedRow)
     {
-        if (int.Parse(p_selectedRow) <= 0) //String.IsNullOrEmpty(p_selectedRow)
+        if (int.Parse(pSelectedRow) <= 0) //String.IsNullOrEmpty(p_selectedRow)
         {
             JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
         }
         else
         {
-            NavManager.NavigateTo("/IndOrg/Individual/Delete/" + p_selectedRow);
+            NavManager.NavigateTo("/IndOrg/Individual/Delete/" + pSelectedRow);
         }
 
     }

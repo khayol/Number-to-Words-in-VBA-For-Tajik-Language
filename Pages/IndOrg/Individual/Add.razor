@@ -4,7 +4,7 @@
 @inject GnrSrv GnrSrv 
 
 <WrAuth PageName="IndividualAdd"><MainContent>  
-<EditForm Model="@objMain" OnValidSubmit="@Create">  
+<EditForm Model="@_objMain" OnValidSubmit="@Create">  
     <FluentValidationValidator />  @* <DataAnnotationsValidator />   It's Standard method of validations *@
     <ValidationSummary/>
     <WrPnlElm>
@@ -15,46 +15,45 @@
     </WrPnlElm>
   <WrFormBody>
         <FormElements>
-
             <WrFieldStr  FieldCaption="FirstName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstName"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.FirstName"/> 
 
             <WrFieldStr FieldCaption="SecondName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.SecondName"/>
 
             <WrFieldStr  FieldCaption="LastName"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastName"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.LastName"/>
 
             <WrFieldStr  FieldCaption="FirstNameEN"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.FirstNameEN"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.FirstNameEN"/>
 
             <WrFieldStr  FieldCaption="SecondNameEN"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.SecondNameEN"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.SecondNameEN"/>
 
             <WrFieldStr FieldCaption="LastNameEN"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.LastNameEN"/>    
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.LastNameEN"/>    
 
           <WrFieldDateTime TransEntity="Individual" FieldCaption="BirthDay">
                <RenderFrg>
-                   <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@objMain.BirthDay" @bind-Value:format="dd/MM/yyyy"/>
+                   <InputDate  form="BirthDay"  class="form-control"  @bind-Value="@_objMain.BirthDay" @bind-Value:format="dd/MM/yyyy"/>
                </RenderFrg>
            </WrFieldDateTime>
             
             <WrFieldStr  FieldCaption="Address"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.Address"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.Address"/>
 
          
             <WrFieldStr  FieldCaption="PassSerial"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.PassSerial"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.PassSerial"/>
     
             <WrFieldStr  FieldCaption="PassCode"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.PassCode"/>
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.PassCode"/>
  
             <div class="form-group">
              <WrLebel TransEntity="Individual" FieldCaption="Gender"/>
-                <select class="form-control selectpicker" @bind="@objMain.GenderId">
+                <select class="form-control selectpicker" @bind="@_objMain.GenderId">
                     <option>--select--</option>
-                    @foreach (var item in GenderList)
+                    @foreach (var item in _genderList)
                     {
                     <option value="@item.Id">@item.Name</option> // Blazor needs to know what values it binds to!
                     }
@@ -70,18 +69,17 @@
 
 @code{
 
-    Individual objMain= new Individual();
-
-     private List<Gender> GenderList;
-  
+    readonly Individual _objMain= new Individual();
+    private List<Gender> _genderList;      
+           
     protected override void OnInitialized()
     {
-        GenderList =  GenderController.Get();
+        _genderList =  GenderController.Get();
     }
 
-     protected  void Create()
+    private void Create()
      { 
-        MainController.Create(objMain);
+        MainController.Create(_objMain);
         NavManager.NavigateTo("/IndOrg/Individual/ViewStd/0");
      }
 

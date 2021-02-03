@@ -196,7 +196,7 @@ using Woorj.Pages.TESTS.L22;
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
-            __builder.AddMarkupContent(0, "<p class=\"test-header\"><b>Method CallBeckEvent</b>  Count On the child componet </p>\r\n");
+            __builder.AddMarkupContent(0, "<p class=\"test-header\">  <b>Method CallBeckEvent</b>  Count On the child componet </p>\r\n");
             __builder.OpenElement(1, "p");
             __builder.AddContent(2, "Current count: ");
             __builder.AddContent(3, 

@@ -199,8 +199,9 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(0);
             __builder.AddAttribute(1, "Authorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
-                __builder2.OpenComponent<Woorj.Pages.WrComponents.WrQuestOrMsg>(2);
-                __builder2.AddAttribute(3, "SpaceLength", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
+                __builder2.AddMarkupContent(2, "\r\n      ");
+                __builder2.OpenComponent<Woorj.Pages.WrComponents.WrQuestOrMsg>(3);
+                __builder2.AddAttribute(4, "SpaceLength", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Int32>(
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\MainMenu.razor"
                                 5
@@ -209,23 +210,27 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(4, "TxtSize", "h3");
-                __builder2.AddAttribute(5, "Txt", "MainMenu");
+                __builder2.AddAttribute(5, "TxtSize", "h3");
+                __builder2.AddAttribute(6, "Txt", "MainMenu");
                 __builder2.CloseComponent();
+                __builder2.AddMarkupContent(7, "\r\n    ");
             }
             ));
-            __builder.AddAttribute(6, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
+            __builder.AddAttribute(8, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
+                __builder2.AddMarkupContent(9, "\r\n    ");
             }
             ));
             __builder.CloseComponent();
-            __builder.AddMarkupContent(7, "\r\n\r\n ");
-            __builder.OpenElement(8, "div");
-            __builder.OpenElement(9, "ul");
-            __builder.AddAttribute(10, "class", "nav flex-column");
-            __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(11);
-            __builder.AddAttribute(12, "PageName", "Index");
-            __builder.AddAttribute(13, "Link", "");
-            __builder.AddAttribute(14, "Match", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.Routing.NavLinkMatch>(
+            __builder.AddMarkupContent(10, "\r\n\r\n ");
+            __builder.OpenElement(11, "div");
+            __builder.AddMarkupContent(12, "\r\n        ");
+            __builder.OpenElement(13, "ul");
+            __builder.AddAttribute(14, "class", "nav flex-column");
+            __builder.AddMarkupContent(15, "\r\n         ");
+            __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(16);
+            __builder.AddAttribute(17, "PageName", "Index");
+            __builder.AddAttribute(18, "Link", "");
+            __builder.AddAttribute(19, "Match", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.Routing.NavLinkMatch>(
 #nullable restore
 #line 14 "E:\A_NewProjects\01\Woorj\Pages\MainMenu.razor"
                                                NavLinkMatch.All
@@ -234,45 +239,47 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(15, "FieldCaption", "Home");
-            __builder.CloseComponent();
-            __builder.AddMarkupContent(16, "\r\n         ");
-            __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(17);
-            __builder.AddAttribute(18, "PageName", "ApplicationRoleViewStd");
-            __builder.AddAttribute(19, "Link", "Adm/ApplicationRole/ViewStd/0");
-            __builder.AddAttribute(20, "TransEntity", "Adm");
+            __builder.AddAttribute(20, "FieldCaption", "Home");
             __builder.CloseComponent();
             __builder.AddMarkupContent(21, "\r\n         ");
             __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(22);
-            __builder.AddAttribute(23, "PageName", "ApplicationUserViewStd");
-            __builder.AddAttribute(24, "Link", "Adm/ApplicationUser/ViewStd/0");
+            __builder.AddAttribute(23, "PageName", "ApplicationRoleViewStd");
+            __builder.AddAttribute(24, "Link", "Adm/ApplicationRole/ViewStd/0");
             __builder.AddAttribute(25, "TransEntity", "Adm");
             __builder.CloseComponent();
             __builder.AddMarkupContent(26, "\r\n         ");
             __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(27);
-            __builder.AddAttribute(28, "PageName", "GenderViewStd");
-            __builder.AddAttribute(29, "Link", "Dir/Gender/ViewStd/0");
-            __builder.AddAttribute(30, "TransEntity", "Dir");
+            __builder.AddAttribute(28, "PageName", "ApplicationUserViewStd");
+            __builder.AddAttribute(29, "Link", "Adm/ApplicationUser/ViewStd/0");
+            __builder.AddAttribute(30, "TransEntity", "Adm");
             __builder.CloseComponent();
             __builder.AddMarkupContent(31, "\r\n         ");
             __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(32);
-            __builder.AddAttribute(33, "PageName", "CountryViewStd");
-            __builder.AddAttribute(34, "Link", "Dir/Country/ViewStd/0");
+            __builder.AddAttribute(33, "PageName", "GenderViewStd");
+            __builder.AddAttribute(34, "Link", "Dir/Gender/ViewStd/0");
             __builder.AddAttribute(35, "TransEntity", "Dir");
             __builder.CloseComponent();
             __builder.AddMarkupContent(36, "\r\n         ");
             __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(37);
-            __builder.AddAttribute(38, "PageName", "ContactViewStd");
-            __builder.AddAttribute(39, "Link", "Dir/Contact/ViewStd/0");
-            __builder.AddAttribute(40, "TransEntity", "Individual");
+            __builder.AddAttribute(38, "PageName", "CountryViewStd");
+            __builder.AddAttribute(39, "Link", "Dir/Country/ViewStd/0");
+            __builder.AddAttribute(40, "TransEntity", "Dir");
             __builder.CloseComponent();
             __builder.AddMarkupContent(41, "\r\n         ");
             __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(42);
-            __builder.AddAttribute(43, "PageName", "IndividualViewStd");
-            __builder.AddAttribute(44, "Link", "IndOrg/Individual/ViewStd/0");
+            __builder.AddAttribute(43, "PageName", "ContactViewStd");
+            __builder.AddAttribute(44, "Link", "Dir/Contact/ViewStd/0");
             __builder.AddAttribute(45, "TransEntity", "Individual");
             __builder.CloseComponent();
+            __builder.AddMarkupContent(46, "\r\n         ");
+            __builder.OpenComponent<Woorj.Pages.WrComponents.WrLi>(47);
+            __builder.AddAttribute(48, "PageName", "IndividualViewStd");
+            __builder.AddAttribute(49, "Link", "IndOrg/Individual/ViewStd/0");
+            __builder.AddAttribute(50, "TransEntity", "Individual");
+            __builder.CloseComponent();
+            __builder.AddMarkupContent(51, "\r\n\r\n         ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(52, "\r\n    ");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

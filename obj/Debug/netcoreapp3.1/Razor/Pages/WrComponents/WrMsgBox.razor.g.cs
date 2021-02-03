@@ -199,17 +199,21 @@ using Woorj.Pages.TESTS.L22;
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "modal");
             __builder.AddAttribute(2, "id", "myModal");
-            __builder.OpenElement(3, "div");
-            __builder.AddAttribute(4, "class", "modal-dialog");
-            __builder.OpenElement(5, "div");
-            __builder.AddAttribute(6, "class", "modal-content");
-            __builder.AddMarkupContent(7, "<div class=\"modal-header\"><h4 class=\"modal-title\">Confirm delete</h4>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button></div>\r\n \r\n            \r\n            ");
-            __builder.OpenElement(8, "div");
-            __builder.AddAttribute(9, "class", "modal-body");
-            __builder.OpenElement(10, "input");
-            __builder.AddAttribute(11, "type", "hidden");
-            __builder.AddAttribute(12, "id", "bookToDeleteField");
-            __builder.AddAttribute(13, "bind", 
+            __builder.AddMarkupContent(3, "\r\n    ");
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "class", "modal-dialog");
+            __builder.AddMarkupContent(6, "\r\n        ");
+            __builder.OpenElement(7, "div");
+            __builder.AddAttribute(8, "class", "modal-content");
+            __builder.AddMarkupContent(9, "\r\n \r\n            \r\n            ");
+            __builder.AddMarkupContent(10, "<div class=\"modal-header\">\r\n                <h4 class=\"modal-title\">Confirm delete</h4>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n            </div>\r\n \r\n            \r\n            ");
+            __builder.OpenElement(11, "div");
+            __builder.AddAttribute(12, "class", "modal-body");
+            __builder.AddMarkupContent(13, "\r\n                ");
+            __builder.OpenElement(14, "input");
+            __builder.AddAttribute(15, "type", "hidden");
+            __builder.AddAttribute(16, "id", "bookToDeleteField");
+            __builder.AddAttribute(17, "bind", 
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrMsgBox.razor"
                                                                   DeleteId
@@ -219,12 +223,14 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(14, "\r\n                Are you sure you want to delete book <span id=\"bookTitleField\"></span>?\r\n            ");
+            __builder.AddMarkupContent(18, "\r\n                Are you sure you want to delete book <span id=\"bookTitleField\"></span>?\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(15, "\r\n \r\n            \r\n            ");
-            __builder.AddMarkupContent(16, "<div class=\"modal-footer\"><button type=\"button\" class=\"btn\" data-dismiss=\"modal\">Cancel</button></div>");
+            __builder.AddMarkupContent(19, "\r\n \r\n            \r\n            ");
+            __builder.AddMarkupContent(20, "<div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn\" data-dismiss=\"modal\">Cancel</button>\r\n            </div>\r\n \r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(21, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(22, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

@@ -132,7 +132,7 @@ using Woorj.Data.CLI;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/CLI/Delete/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/CLI/Delete/{CurrentId}")]
     public partial class Delete : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -144,12 +144,12 @@ using Woorj.Data.CLI;
 #line 45 "E:\NewProjects\01\Woorj\Pages\CLI\Delete.razor"
       
    [Parameter]
-   public string CurrentID {get;set;}
+   public string CurrentId {get;set;}
     Individual objEmp= new Individual();
 
     protected override async Task OnInitializedAsync()
     {
-    objEmp= await Task.Run(()=>objIndividualController.GetIndividualById(Convert.ToInt32(CurrentID)));        
+    objEmp= await Task.Run(()=>objIndividualController.GetIndividualById(Convert.ToInt32(CurrentId)));        
     }
     
     protected void DeleteIndividual(){

@@ -204,18 +204,21 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(0, "div");
-            __builder.AddAttribute(1, "class", "modal is-active");
-            __builder.AddMarkupContent(2, "<div class=\"modal-background\"></div>\r\n        ");
-            __builder.OpenElement(3, "div");
-            __builder.AddAttribute(4, "class", "modal-card");
-            __builder.OpenElement(5, "header");
-            __builder.AddAttribute(6, "class", "modal-card-head");
-            __builder.AddMarkupContent(7, "<p class=\"modal-card-title\">Modal title</p>\r\n                ");
-            __builder.OpenElement(8, "button");
-            __builder.AddAttribute(9, "class", "delete");
-            __builder.AddAttribute(10, "aria-label", "close");
-            __builder.AddAttribute(11, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(0, "    ");
+            __builder.OpenElement(1, "div");
+            __builder.AddAttribute(2, "class", "modal is-active");
+            __builder.AddMarkupContent(3, "\r\n        <div class=\"modal-background\"></div>\r\n        ");
+            __builder.OpenElement(4, "div");
+            __builder.AddAttribute(5, "class", "modal-card");
+            __builder.AddMarkupContent(6, "\r\n            ");
+            __builder.OpenElement(7, "header");
+            __builder.AddAttribute(8, "class", "modal-card-head");
+            __builder.AddMarkupContent(9, "\r\n                ");
+            __builder.AddMarkupContent(10, "<p class=\"modal-card-title\">Modal title</p>\r\n                ");
+            __builder.OpenElement(11, "button");
+            __builder.AddAttribute(12, "class", "delete");
+            __builder.AddAttribute(13, "aria-label", "close");
+            __builder.AddAttribute(14, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 9 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DialogComponentEp12.razor"
                                   (()=> {
@@ -227,13 +230,16 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             ));
             __builder.CloseElement();
+            __builder.AddMarkupContent(15, "\r\n            ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(12, "\r\n            <section class=\"modal-card-body\"></section>\r\n            ");
-            __builder.OpenElement(13, "footer");
-            __builder.AddAttribute(14, "class", "modal-card-foot");
-            __builder.OpenElement(15, "button");
-            __builder.AddAttribute(16, "class", "button is-success");
-            __builder.AddAttribute(17, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(16, "\r\n            ");
+            __builder.AddMarkupContent(17, "<section class=\"modal-card-body\">\r\n                \r\n            </section>\r\n            ");
+            __builder.OpenElement(18, "footer");
+            __builder.AddAttribute(19, "class", "modal-card-foot");
+            __builder.AddMarkupContent(20, "\r\n                ");
+            __builder.OpenElement(21, "button");
+            __builder.AddAttribute(22, "class", "button is-success");
+            __builder.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DialogComponentEp12.razor"
                                                             Close
@@ -242,12 +248,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(18, "Save changes");
+            __builder.AddContent(24, "Save changes");
             __builder.CloseElement();
-            __builder.AddMarkupContent(19, "\r\n                ");
-            __builder.OpenElement(20, "button");
-            __builder.AddAttribute(21, "class", "button");
-            __builder.AddAttribute(22, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(25, "\r\n                ");
+            __builder.OpenElement(26, "button");
+            __builder.AddAttribute(27, "class", "button");
+            __builder.AddAttribute(28, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 18 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DialogComponentEp12.razor"
                                                  Close
@@ -256,11 +262,15 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(23, "Cancel");
+            __builder.AddContent(29, "Cancel");
             __builder.CloseElement();
+            __builder.AddMarkupContent(30, "\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(31, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(32, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(33, "\r\n");
 #nullable restore
 #line 22 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DialogComponentEp12.razor"
 

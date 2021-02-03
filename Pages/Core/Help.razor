@@ -1,6 +1,6 @@
 @page  "/Core/Help" 
 @inject LanguageController LanguageController     
-@if (LanguageList == null)
+@if (_languageList == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -24,8 +24,8 @@ else
 
  @code {
 
-      private string username = "";
-       public List<Language> LanguageList;
+      private string _username = "";
+  private List<Language> _languageList;
    
  // protected override void OnInitialized()
     protected override async Task OnInitializedAsync()
@@ -35,14 +35,14 @@ else
 
      private async Task GetClaimsPrincipalData()
     {
-         LanguageList =  LanguageController.GetLanguage();
+         _languageList =  LanguageController.GetLanguage();
         var authState = await AuthProvider.GetAuthenticationStateAsync();
-        username = authState?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "";
-        AppData.ActiveUser=username;
+        _username = authState?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "";
+        AppData.ActiveUser=_username;
         // For Blazor Web Assembly may be you can use this one 
         //username= hca?.HttpContext?.User?.Identity?.Name?.ToString() ?? ""  ?? "" ?? "" ?? "" ?? "";
         AppData.BrowserIterfaceLang= @trs.GetTheBrowserIterfaceLang(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
-        AppData.ActiveUserLang=trs.GetActiveUserLang(username);
+        AppData.ActiveUserLang=trs.GetActiveUserLang(_username);
     }
 
     

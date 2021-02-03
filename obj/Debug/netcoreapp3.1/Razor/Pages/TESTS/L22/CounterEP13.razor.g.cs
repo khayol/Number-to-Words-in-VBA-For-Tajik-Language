@@ -201,7 +201,7 @@ using Woorj.Pages.TESTS.L22;
             __builder.OpenComponent<Woorj.Pages.TESTS.L22.FieldComponentEP13>(1);
             __builder.AddAttribute(2, "Label", "Name");
             __builder.AddAttribute(3, "Control", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
-                __builder2.AddMarkupContent(4, "<input class=\"input\" type=\"text\" placeholder=\"Name\">");
+                __builder2.AddMarkupContent(4, "\r\n        <input class=\"input\" type=\"text\" placeholder=\"Name\">\r\n    ");
             }
             ));
             __builder.CloseComponent();
@@ -209,7 +209,7 @@ using Woorj.Pages.TESTS.L22;
             __builder.OpenComponent<Woorj.Pages.TESTS.L22.FieldComponentEP13>(6);
             __builder.AddAttribute(7, "Label", "Title");
             __builder.AddAttribute(8, "Control", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
-                __builder2.AddMarkupContent(9, "<input class=\"input\" type=\"text\" placeholder=\"Title\">");
+                __builder2.AddMarkupContent(9, "\r\n        <input class=\"input\" type=\"text\" placeholder=\"Title\">\r\n    ");
             }
             ));
             __builder.CloseComponent();
@@ -217,7 +217,7 @@ using Woorj.Pages.TESTS.L22;
             __builder.OpenComponent<Woorj.Pages.TESTS.L22.FieldComponentEP13>(11);
             __builder.AddAttribute(12, "Label", "Department");
             __builder.AddAttribute(13, "Control", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
-                __builder2.AddMarkupContent(14, "<input class=\"input\" type=\"text\" placeholder=\"Department\">");
+                __builder2.AddMarkupContent(14, "\r\n        <input class=\"input\" type=\"text\" placeholder=\"Department\">\r\n    ");
             }
             ));
             __builder.CloseComponent();

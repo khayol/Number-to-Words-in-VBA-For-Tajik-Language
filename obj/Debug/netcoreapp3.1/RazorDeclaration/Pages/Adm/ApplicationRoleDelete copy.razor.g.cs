@@ -160,7 +160,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationRoleDelete/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationRoleDelete/{CurrentId}")]
     public partial class ApplicationRoleDelete_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -172,12 +172,12 @@ using Woorj.Pages.TESTS.WrComponents;
 #line 40 "e:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationRoleDelete copy.razor"
       
    [Parameter]
-   public string CurrentID {get;set;}
+   public string CurrentId {get;set;}
     ApplicationRole objEmp= new ApplicationRole();
 
     protected override async Task OnInitializedAsync()
     {
-    objEmp= await Task.Run(()=>objApplicationRoleController.GetApplicationRoleById(CurrentID));        
+    objEmp= await Task.Run(()=>objApplicationRoleController.GetApplicationRoleById(CurrentId));        
     }
     
     protected void DeleteApplicationRole(){

@@ -198,13 +198,18 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "fix-possition");
-            __builder.OpenElement(2, "div");
-            __builder.AddAttribute(3, "class", "panel-elements");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "row ");
+            __builder.AddMarkupContent(2, "\r\n");
+            __builder.OpenElement(3, "div");
+            __builder.AddAttribute(4, "class", "panel-elements");
+            __builder.AddMarkupContent(5, "\r\n    ");
             __builder.OpenElement(6, "div");
-            __builder.OpenElement(7, "div");
-            __builder.AddAttribute(8, "class", "form-group");
+            __builder.AddAttribute(7, "class", "row ");
+            __builder.AddMarkupContent(8, "\r\n        ");
+            __builder.OpenElement(9, "div");
+            __builder.AddMarkupContent(10, "\r\n            ");
+            __builder.OpenElement(11, "div");
+            __builder.AddAttribute(12, "class", "form-group");
+            __builder.AddMarkupContent(13, "\r\n\r\n");
 #nullable restore
 #line 7 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPnlElm.razor"
                          if (ControlMenu != null)
@@ -213,12 +218,15 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(9, "div");
-            __builder.AddAttribute(10, "class", "dropdown main-menu-place");
-            __builder.AddMarkupContent(11, "<button class=\"btn btn-primary bnt-style-general  bnt-main-menu\"><span class=\"oi oi-menu\" aria-hidden=\"true\"></span></button>\r\n                                ");
-            __builder.OpenElement(12, "div");
-            __builder.AddAttribute(13, "class", "dropdown-content");
-            __builder.AddContent(14, 
+            __builder.AddContent(14, "                            ");
+            __builder.OpenElement(15, "div");
+            __builder.AddAttribute(16, "class", "dropdown main-menu-place");
+            __builder.AddMarkupContent(17, "\r\n                                ");
+            __builder.AddMarkupContent(18, "<button class=\"btn btn-primary bnt-style-general  bnt-main-menu\"><span class=\"oi oi-menu\" aria-hidden=\"true\"></span></button>\r\n                                ");
+            __builder.OpenElement(19, "div");
+            __builder.AddAttribute(20, "class", "dropdown-content");
+            __builder.AddMarkupContent(21, "\r\n                                     ");
+            __builder.AddContent(22, 
 #nullable restore
 #line 12 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPnlElm.razor"
                                       ControlMenu
@@ -227,8 +235,11 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(23, "\r\n                                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(24, "\r\n                            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(25, "\r\n");
 #nullable restore
 #line 15 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPnlElm.razor"
                         }
@@ -236,8 +247,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(15, "                   &nbsp &nbsp\r\n                ");
-            __builder.AddContent(16, 
+            __builder.AddMarkupContent(26, "                   &nbsp &nbsp\r\n                ");
+            __builder.AddContent(27, 
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrPnlElm.razor"
                  ControlQuickAccess
@@ -246,10 +257,15 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(28, "\r\n                    \r\n           ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(29, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(30, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(31, "\r\n");
             __builder.CloseElement();
+            __builder.AddMarkupContent(32, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

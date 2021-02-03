@@ -1,16 +1,16 @@
 ﻿@page  "/{thisDir}/{thisSubDir}/{thisPage}/{Id}"
 @inject IndividualController MainController
 
-<WrAuth PageName="@pageNameForTransl"><MainContent>   
+<WrAuth PageName="@PageNameForTransl"><MainContent>   
         
-    <WrDataGrid @ref="grid"
-                  DataItems="list"
+    <WrDataGrid @ref="_grid"
+                  DataItems="_list"
                   SelectedRow="SelectedRowMeth"
                   Columns="@MainController.columns"
-                  UniqIdOfRecord=@uniqIdOfRecord
-                  ColumnsToExcludeCSV=@columnsToExcludeCSV
-                  PageNameTitle=@pageNameTitle
-                  BackLink=@backLink
+                  UniqIdOfRecord=@UniqIdOfRecord
+                  ColumnsToExcludeCSV=@ColumnsToExcludeCsv
+                  PageNameTitle=@PageNameTitle
+                  BackLink=@BackLink
                   Paging="@(new PagingConfig
                             {
                                 Enabled = true,
@@ -19,10 +19,10 @@
                             })">
 
         <ControlMenu>
-            <WrOper Design="a" Type="C"  Link=@operLink SubPage="Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link=@operLink SubPage="View/"   LinkId=@selectedId Txt="View" />
-            <WrOper Design="a" Type="U"  Link=@operLink SubPage="Edit/"   LinkId=@selectedId Txt="Edit" />
-            <WrOper Design="a" Type="D"  Link=@operLink SubPage="Delete/" LinkId=@selectedId Txt="Delete" />
+            <WrOper Design="a" Type="C"  Link=@OperLink SubPage="Add"     Txt="Add" />
+            <WrOper Design="a" Type="R"  Link=@OperLink SubPage="View/"   LinkId=@SelectedId Txt="View" />
+            <WrOper Design="a" Type="U"  Link=@OperLink SubPage="Edit/"   LinkId=@SelectedId Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link=@OperLink SubPage="Delete/" LinkId=@SelectedId Txt="Delete" />
         </ControlMenu>
 
         <ControlQuickAccess>
@@ -31,10 +31,10 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-angle-double-down" OnClickCallback="@CleanSearchBox"  TxtToolTip="ShowMoreRecords" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
-            <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link=@operLink SubPage="Add"    TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link=@operLink SubPage="View/"   LinkId=@selectedId TxtToolTip="View" />
-            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link=@operLink SubPage="Edit/"   LinkId=@selectedId TxtToolTip="Edit" />
-            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link=@operLink SubPage="Delete/" LinkId=@selectedId TxtToolTip="Delete" />
+            <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link=@OperLink SubPage="Add"    TxtToolTip="Add" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link=@OperLink SubPage="View/"   LinkId=@SelectedId TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link=@OperLink SubPage="Edit/"   LinkId=@SelectedId TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link=@OperLink SubPage="Delete/" LinkId=@SelectedId TxtToolTip="Delete" />
             <WrSpace Length=2/>
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
@@ -48,21 +48,21 @@
 
  #region     Declare
 
-    private WrDataGrid<Individual> grid;
-    private List<Individual> list;
+    private WrDataGrid<Individual> _grid;
+    private List<Individual> _list;
     
     [Parameter] public string Id { get; set; } 
-    [Parameter] public string thisDir { get; set; }="IndOrg";  
-    [Parameter] public string thisSubDir { get; set; }="Individual";
-    [Parameter] public string thisPage { get; set; }="ViewStd"; 
-    [Parameter] public string uniqIdOfRecord { get; set; }="Id";  
-    [Parameter] public string columnsToExcludeCSV { get; set; }="Id, FirstName"; 
-    [Parameter] public string backLink  { get; set; }="/MainMenu";  
-    [Parameter] public string selectedId { get; set;}="0";
+    [Parameter] public string ThisDir { get; set; }="IndOrg";  
+    [Parameter] public string ThisSubDir { get; set; }="Individual";
+    [Parameter] public string ThisPage { get; set; }="ViewStd"; 
+    [Parameter] public string UniqIdOfRecord { get; set; }="Id";  
+    [Parameter] public string ColumnsToExcludeCsv { get; set; }="Id, FirstName"; 
+    [Parameter] public string BackLink  { get; set; }="/MainMenu";  
+    [Parameter] public string SelectedId { get; set;}="0";
 
-    private string operLink { get{ return "/" +thisDir+ "/" + thisSubDir+ "/ ";}}
-    private string pageNameForTransl{ get{ return  thisSubDir+  thisPage;}}
-    private string pageNameTitle { get{ return  pageNameForTransl+"::"+thisSubDir;}}
+    private string OperLink => "/" +ThisDir+ "/" + ThisSubDir+ "/ ";
+    private string PageNameForTransl{ get{ return  ThisSubDir+  ThisPage;}}
+    private string PageNameTitle { get{ return  PageNameForTransl+"::"+ThisSubDir;}}
  
  #endregion  Declare
 
@@ -72,7 +72,7 @@
     protected override void OnInitialized()
     {
         MainController.Initialized();
-        list = MainController.GetById(int.Parse(Id)).ToList();       
+        _list = MainController.GetById(int.Parse(Id)).ToList();       
     }
 
     protected void ConfirmDelete(string title)
@@ -86,26 +86,26 @@
 #region    Event
     protected void CleanSearchBox()
     {
-        grid.GoToFirstPage();
-        list = MainController.GetSearchByField("");
-        selectedId="0";
+        _grid.GoToFirstPage();
+        _list = MainController.GetSearchByField("");
+        SelectedId="0";
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        selectedId= pSelectedRow;
+        SelectedId= pSelectedRow;
     }
 
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
         string searchValue = changeEventArgs.Value.ToString();
-        list = MainController.GetSearchByField(searchValue);
-        grid.GoToFirstPage();
+        _list = MainController.GetSearchByField(searchValue);
+        _grid.GoToFirstPage();
     }
 
     protected void FindSelectedRec()
     {
-        grid.GoToFirstPage();
-        list = MainController.GetById(int.Parse(selectedId));
+        _grid.GoToFirstPage();
+        _list = MainController.GetById(int.Parse(SelectedId));
     }
 
     protected void ExportToExcel()

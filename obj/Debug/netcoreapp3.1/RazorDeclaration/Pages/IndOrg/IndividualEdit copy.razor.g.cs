@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/IndividualEdit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/IndividualEdit/{CurrentId}")]
     public partial class IndividualEdit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -210,7 +210,7 @@ using Woorj.Pages.TESTS.L22;
     private WrEditView<Individual> grid;  //###2
     
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     Individual objIndividual = new Individual();
     private List<Gender> GenderList;
     private List<Country> CountryList;
@@ -227,12 +227,12 @@ using Woorj.Pages.TESTS.L22;
      }
     protected override void OnInitialized()
     {
-       // objIndividual = await Task.Run(() => IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID)));
-        objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+       // objIndividual = await Task.Run(() => IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId)));
+        objIndividual = IndividualController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
         GenderList =  GenderController.GetGender();
         CountryList =  CountryController.GetCountry();
 
-        list = IndividualController.GetById(int.Parse(CurrentID)).ToList();   // ###3
+        list = IndividualController.GetById(int.Parse(CurrentId)).ToList();   // ###3
 
         readonlyMain1=AppData.readonlyMain1;
         readonlyMain2=AppData.readonlyMain2;

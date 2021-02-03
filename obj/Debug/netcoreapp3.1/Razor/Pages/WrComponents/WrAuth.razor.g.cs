@@ -204,8 +204,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(0);
-            __builder.AddAttribute(1, "Roles", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
+            __builder.AddContent(0, "        ");
+            __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(1);
+            __builder.AddAttribute(2, "Roles", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrAuth.razor"
                                admSer.GetRolesList(@PageName)
@@ -214,7 +215,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(2, "Authorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((authContext) => (__builder2) => {
+            __builder.AddAttribute(3, "Authorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((authContext) => (__builder2) => {
+                __builder2.AddMarkupContent(4, "\r\n");
 #nullable restore
 #line 5 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrAuth.razor"
                  if (MainContent != null)
@@ -224,7 +226,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-                __builder2.AddContent(3, 
+                __builder2.AddContent(5, 
 #nullable restore
 #line 7 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrAuth.razor"
                  MainContent
@@ -241,14 +243,18 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+                __builder2.AddMarkupContent(6, "\r\n            ");
             }
             ));
-            __builder.AddAttribute(4, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((authContext) => (__builder2) => {
-                __builder2.OpenComponent<Woorj.Pages.WrComponents.WrPageNotFound>(5);
+            __builder.AddAttribute(7, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((authContext) => (__builder2) => {
+                __builder2.AddMarkupContent(8, "\r\n                 ");
+                __builder2.OpenComponent<Woorj.Pages.WrComponents.WrPageNotFound>(9);
                 __builder2.CloseComponent();
+                __builder2.AddMarkupContent(10, "\r\n            ");
             }
             ));
             __builder.CloseComponent();
+            __builder.AddMarkupContent(11, " \r\n");
 #nullable restore
 #line 15 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrAuth.razor"
    }else
@@ -267,7 +273,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddContent(6, 
+            __builder.AddContent(12, 
 #nullable restore
 #line 19 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrAuth.razor"
                MainContent

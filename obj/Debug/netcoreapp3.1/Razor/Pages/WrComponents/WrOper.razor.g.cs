@@ -212,8 +212,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(0, "a");
-            __builder.AddAttribute(1, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(0, "    ");
+            __builder.OpenElement(1, "a");
+            __builder.AddAttribute(2, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 12 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                    args => CRUD(@Type,@Link,@LinkId)
@@ -222,7 +223,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(2, "value", 
+            __builder.AddAttribute(3, "value", 
 #nullable restore
 #line 12 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                Val
@@ -231,7 +232,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(3, "class", 
+            __builder.AddAttribute(4, "class", 
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
              Cls.ToLower()
@@ -240,7 +241,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(4, 
+            __builder.AddContent(5, 
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                              trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -250,6 +251,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(6, "\r\n");
 #nullable restore
 #line 14 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
     }else if (Design.ToUpper().Trim()=="btn".ToUpper()) 
@@ -259,8 +261,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(5, "button");
-            __builder.AddAttribute(6, "class", 
+            __builder.AddContent(7, "      ");
+            __builder.OpenElement(8, "button");
+            __builder.AddAttribute(9, "class", 
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                       Cls.ToLower()
@@ -269,7 +272,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(7, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(10, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                  args => CRUD(@Type,@Link,@LinkId)
@@ -278,8 +281,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(8, "data-toggle", "tooltip");
-            __builder.AddAttribute(9, "title", 
+            __builder.AddAttribute(11, "data-toggle", "tooltip");
+            __builder.AddAttribute(12, "title", 
 #nullable restore
 #line 18 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                         trs.GetTranslation(@TxtToolTip,@AppData.ActiveUser,@EntityTrn)
@@ -288,8 +291,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.OpenElement(10, "span");
-            __builder.AddAttribute(11, "class", 
+            __builder.AddMarkupContent(13, "\r\n      ");
+            __builder.OpenElement(14, "span");
+            __builder.AddAttribute(15, "class", 
 #nullable restore
 #line 19 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                     Ico.ToLower()
@@ -298,8 +302,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(12, "aria-hidden", "true");
-            __builder.AddContent(13, 
+            __builder.AddAttribute(16, "aria-hidden", "true");
+            __builder.AddContent(17, 
 #nullable restore
 #line 19 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                        trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -309,7 +313,9 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(18, "\r\n      ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(19, "\r\n");
 #nullable restore
 #line 21 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
     }
@@ -322,8 +328,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(14, "a");
-            __builder.AddAttribute(15, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddContent(20, "    ");
+            __builder.OpenElement(21, "a");
+            __builder.AddAttribute(22, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 27 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                  OnClickCallback
@@ -332,7 +339,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(16, "value", 
+            __builder.AddAttribute(23, "value", 
 #nullable restore
 #line 27 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                           Val
@@ -341,7 +348,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(17, "class", 
+            __builder.AddAttribute(24, "class", 
 #nullable restore
 #line 28 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
              Cls
@@ -350,7 +357,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(18, 
+            __builder.AddContent(25, 
 #nullable restore
 #line 28 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                    trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -360,6 +367,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(26, "\r\n");
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
     }else if (Design.ToUpper().Trim()=="btn".ToUpper()) 
@@ -369,8 +377,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(19, "button");
-            __builder.AddAttribute(20, "class", 
+            __builder.AddContent(27, "      ");
+            __builder.OpenElement(28, "button");
+            __builder.AddAttribute(29, "class", 
 #nullable restore
 #line 32 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                       Cls.ToLower()
@@ -379,7 +388,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(21, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(30, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 32 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                OnClickCallback
@@ -388,8 +397,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(22, "data-toggle", "tooltip");
-            __builder.AddAttribute(23, "title", 
+            __builder.AddAttribute(31, "data-toggle", "tooltip");
+            __builder.AddAttribute(32, "title", 
 #nullable restore
 #line 33 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                         trs.GetTranslation(@TxtToolTip,@AppData.ActiveUser,@EntityTrn)
@@ -398,8 +407,9 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.OpenElement(24, "span");
-            __builder.AddAttribute(25, "class", 
+            __builder.AddMarkupContent(33, "\r\n      ");
+            __builder.OpenElement(34, "span");
+            __builder.AddAttribute(35, "class", 
 #nullable restore
 #line 34 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                     Ico.ToLower()
@@ -408,8 +418,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(26, "aria-hidden", "true");
-            __builder.AddContent(27, 
+            __builder.AddAttribute(36, "aria-hidden", "true");
+            __builder.AddContent(37, 
 #nullable restore
 #line 34 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                        trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -419,7 +429,9 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(38, "\r\n      ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(39, "\r\n");
 #nullable restore
 #line 36 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
     }
@@ -452,8 +464,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(28, "input");
-            __builder.AddAttribute(29, "type", 
+            __builder.AddContent(40, "                  ");
+            __builder.OpenElement(41, "input");
+            __builder.AddAttribute(42, "type", 
 #nullable restore
 #line 48 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                 TypeInput.ToLower()
@@ -462,7 +475,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(30, "class", 
+            __builder.AddAttribute(43, "class", 
 #nullable restore
 #line 48 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                              Cls.ToLower()
@@ -471,7 +484,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(31, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(44, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 48 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                       OnClickCallback
@@ -480,7 +493,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(32, "value", 
+            __builder.AddAttribute(45, "value", 
 #nullable restore
 #line 48 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                                                 trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -490,6 +503,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(46, "\r\n");
 #nullable restore
 #line 49 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                
@@ -501,9 +515,10 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(33, "input");
-            __builder.AddAttribute(34, "type", "hidden");
-            __builder.AddAttribute(35, "class", 
+            __builder.AddContent(47, "                   ");
+            __builder.OpenElement(48, "input");
+            __builder.AddAttribute(49, "type", "hidden");
+            __builder.AddAttribute(50, "class", 
 #nullable restore
 #line 54 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                  Cls.ToLower()
@@ -512,7 +527,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(36, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(51, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 54 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                           OnClickCallback
@@ -521,7 +536,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(37, "value", 
+            __builder.AddAttribute(52, "value", 
 #nullable restore
 #line 54 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                                     trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,@EntityTrn)
@@ -531,6 +546,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(53, " \r\n");
 #nullable restore
 #line 55 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                    }else if(@TypeInput=="button"){
@@ -538,8 +554,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(38, "input");
-            __builder.AddAttribute(39, "type", 
+            __builder.AddContent(54, "                    ");
+            __builder.OpenElement(55, "input");
+            __builder.AddAttribute(56, "type", 
 #nullable restore
 #line 56 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                    TypeInput.ToLower()
@@ -548,7 +565,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(40, "class", 
+            __builder.AddAttribute(57, "class", 
 #nullable restore
 #line 56 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                 Cls.ToLower()
@@ -557,7 +574,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(41, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(58, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 56 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                          OnClickCallback
@@ -566,7 +583,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(42, "value", 
+            __builder.AddAttribute(59, "value", 
 #nullable restore
 #line 56 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                                                    trs.GetTranslation(@CancelOrBeckTxt,@AppData.ActiveUser,@EntityTrn)
@@ -576,6 +593,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(60, " \r\n");
 #nullable restore
 #line 57 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                    
@@ -596,8 +614,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(43, "input");
-            __builder.AddAttribute(44, "type", 
+            __builder.AddContent(61, "            ");
+            __builder.OpenElement(62, "input");
+            __builder.AddAttribute(63, "type", 
 #nullable restore
 #line 64 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                           TypeInput.ToLower()
@@ -606,7 +625,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(45, "class", 
+            __builder.AddAttribute(64, "class", 
 #nullable restore
 #line 64 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                        Cls.ToLower()
@@ -615,7 +634,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(46, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(65, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 64 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                 OnClickCallback
@@ -624,7 +643,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(47, "value", 
+            __builder.AddAttribute(66, "value", 
 #nullable restore
 #line 64 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
                                                                                                           trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)
@@ -634,6 +653,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(67, "\r\n");
 #nullable restore
 #line 65 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor"
 

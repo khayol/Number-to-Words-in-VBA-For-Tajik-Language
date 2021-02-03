@@ -1,8 +1,8 @@
-@page "/Dir/Contact/Delete/{CurrentID}"
+@page "/Dir/Contact/Delete/{CurrentId}"
 @inject ContactController MainController
 
 <WrAuth PageName="ContactDelete"><MainContent>  
-<EditForm Model="@objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext" >  
+<EditForm Model="@_objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext" >  
    
     <WrPnlElm>
      <ControlQuickAccess>
@@ -16,10 +16,10 @@
             <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
               
              <WrFieldInt TransEntity="Individual" FieldCaption="Code" 
-              Readonly="true" Val="@objMain.Code" />
+              Readonly="true" Val="@_objMain.Code" />
 
             <WrFieldStr Readonly="true" FieldCaption="Name"
-            TransEntity="Individual"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="Individual"  @bind-BindingValue ="@_objMain.Name"/> 
 
       </FormElements>      
     </WrFormBody>    
@@ -27,20 +27,20 @@
 </MainContent></WrAuth>
 
 @code{
-   [Parameter] public string CurrentID {get;set;}
-    Contact objMain= new Contact();
+   [Parameter] public string CurrentId {get;set;}
+    Contact _objMain= new Contact();
 
     protected override void OnInitialized()
     {
-      objMain = MainController.GetContactById(Convert.ToInt32(CurrentID));       
+      _objMain = MainController.GetContactById(Convert.ToInt32(CurrentId));       
     }
-    
-    protected void DeleteRow(){
 
-        MainController.DeleteContact(objMain);
-        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentID);
+    private void DeleteRow(){
+
+        MainController.DeleteContact(_objMain);
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentId);
     }
     void Cancel(){
-        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Dir/Contact/ViewStd/"+CurrentId);
     }
 }

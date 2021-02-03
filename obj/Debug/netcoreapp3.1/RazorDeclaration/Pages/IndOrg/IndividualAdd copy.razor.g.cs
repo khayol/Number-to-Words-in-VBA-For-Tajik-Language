@@ -207,7 +207,7 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
 
     Individual objIndividual= new Individual();
 

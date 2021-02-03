@@ -132,7 +132,7 @@ using Woorj.Data.CLI;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/CLI/Edit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/CLI/Edit/{CurrentId}")]
     public partial class Edit : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -144,12 +144,12 @@ using Woorj.Data.CLI;
 #line 94 "E:\NewProjects\01\Woorj\Pages\CLI\Edit.razor"
       
    [Parameter]
-   public string CurrentID {get;set;}
+   public string CurrentId {get;set;}
     Individual objEmp= new Individual();
 
     protected override async Task OnInitializedAsync()
      {
-       objEmp= await Task.Run(()=>objIndividualController.GetIndividualById(Convert.ToInt32(CurrentID)));        
+       objEmp= await Task.Run(()=>objIndividualController.GetIndividualById(Convert.ToInt32(CurrentId)));        
      }
     
     protected void UpdateIndividual(){

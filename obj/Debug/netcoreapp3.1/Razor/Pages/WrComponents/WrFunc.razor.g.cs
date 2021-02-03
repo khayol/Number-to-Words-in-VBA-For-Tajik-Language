@@ -198,19 +198,25 @@ using Woorj.Pages.TESTS.L22;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "panel-elements");
-            __builder.OpenElement(2, "div");
-            __builder.AddAttribute(3, "class", "row ");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "col-md-4");
+            __builder.AddMarkupContent(2, "\r\n    ");
+            __builder.OpenElement(3, "div");
+            __builder.AddAttribute(4, "class", "row ");
+            __builder.AddMarkupContent(5, "\r\n        ");
             __builder.OpenElement(6, "div");
-            __builder.AddAttribute(7, "class", "form-group ");
-            __builder.OpenElement(8, "div");
-            __builder.AddAttribute(9, "class", "dropdown");
-            __builder.AddAttribute(10, "style", "margin-right: 10px; margin-left: 10px");
-            __builder.AddMarkupContent(11, "<button class=\"btn btn-primary bnt-style-general\"><span class=\"oi oi-media-play\" aria-hidden=\"true\"></span></button>\r\n                    ");
+            __builder.AddAttribute(7, "class", "col-md-4");
+            __builder.AddMarkupContent(8, "\r\n            ");
+            __builder.OpenElement(9, "div");
+            __builder.AddAttribute(10, "class", "form-group ");
+            __builder.AddMarkupContent(11, "        \r\n                ");
             __builder.OpenElement(12, "div");
-            __builder.AddAttribute(13, "class", "dropdown-content");
-            __builder.AddContent(14, 
+            __builder.AddAttribute(13, "class", "dropdown");
+            __builder.AddAttribute(14, "style", "margin-right: 10px; margin-left: 10px");
+            __builder.AddMarkupContent(15, "\r\n                    ");
+            __builder.AddMarkupContent(16, "<button class=\"btn btn-primary bnt-style-general\"><span class=\"oi oi-media-play\" aria-hidden=\"true\"></span></button>\r\n                    ");
+            __builder.OpenElement(17, "div");
+            __builder.AddAttribute(18, "class", "dropdown-content");
+            __builder.AddMarkupContent(19, "\r\n                        ");
+            __builder.AddContent(20, 
 #nullable restore
 #line 8 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFunc.razor"
                          ControlMenu
@@ -219,10 +225,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(21, "\r\n                     ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(22, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(15, "\r\n                ");
-            __builder.AddContent(16, 
+            __builder.AddMarkupContent(23, "\r\n                ");
+            __builder.AddContent(24, 
 #nullable restore
 #line 11 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrFunc.razor"
                  ControlQuickAccess
@@ -231,9 +239,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(25, "\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(26, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(27, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(28, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

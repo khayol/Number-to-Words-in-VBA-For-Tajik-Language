@@ -146,7 +146,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/ContactEdit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/ContactEdit/{CurrentId}")]
     public partial class ContactEdit : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -158,12 +158,12 @@ using Woorj.Pages.TESTS.WrComponents;
 #line 33 "e:\NewProjects\01\Woorj\Pages\Dir\ContactEdit.razor"
       
     [Parameter]
-    public string CurrentID { get; set; }
+    public string CurrentId { get; set; }
     Contact objEmp = new Contact();
 
     protected override async Task OnInitializedAsync()
     {
-        objEmp = await Task.Run(() => objContactController.GetContactById(Convert.ToInt32(CurrentID)));
+        objEmp = await Task.Run(() => objContactController.GetContactById(Convert.ToInt32(CurrentId)));
     }
 
     protected void UpdateContact()

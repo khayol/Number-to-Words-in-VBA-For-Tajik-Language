@@ -37,40 +37,35 @@ namespace Woorj.CtrServerSide.Adm
                 }
         );
         }
-        }
-        
+        }        
         
         public List<ApplicationUser> GetApplicationUser(){
           var list_ApplicationUser=_db.ApplicationUser.ToList();
           return list_ApplicationUser;
         }
-
         
         public ApplicationUser GetApplicationUserById(string id){
           ApplicationUser ApplicationUser= _db.ApplicationUser.FirstOrDefault(s=> s.Id==id);
-           
-
           return ApplicationUser;
-        
         }
        
           public List<ApplicationUser> GetById(string pId){
-        List<ApplicationUser> list;
+          List<ApplicationUser> list;
 
-        if (pId=="0" || string.IsNullOrEmpty(pId)){
-          list=_db.ApplicationUser.ToList();
-        }else
-        {                
-          list=_db.ApplicationUser.Where(s=>s.Id==pId).ToList();
-        }
-        return list;        
-        }
+          if (pId=="0" || string.IsNullOrEmpty(pId)){
+            list=_db.ApplicationUser.ToList();
+          }else
+          {                
+            list=_db.ApplicationUser.Where(s=>s.Id==pId).ToList();
+          }
+          return list;        
+          }
 
 
-            public ApplicationUser GetById_FirstOrDefault(string id){
-        ApplicationUser ApplicationUser= _db.ApplicationUser.FirstOrDefault(s=> s.Id==id);
-        return ApplicationUser;
-        }
+          public ApplicationUser GetById_FirstOrDefault(string id){
+            ApplicationUser ApplicationUser= _db.ApplicationUser.FirstOrDefault(s=> s.Id==id);
+            return ApplicationUser;
+          }
 
          public List<ApplicationUser> GetApplicationUserById2(string pId){
              List<ApplicationUser> list_ApplicationUser;
@@ -121,11 +116,10 @@ namespace Woorj.CtrServerSide.Adm
         }
 
 
-             public string Update(ApplicationUser pObj){
-              _db.ApplicationUser.Update(pObj);
-              _db.SaveChanges();
-              return "Edited Successfully";
-
+        public string Update(ApplicationUser pObj){
+        _db.ApplicationUser.Update(pObj);
+        _db.SaveChanges();
+        return "Edited Successfully";
         }
 
    

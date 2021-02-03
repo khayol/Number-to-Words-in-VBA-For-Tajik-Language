@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,22 +10,16 @@ using Woorj.Areas.Identity;
 using Woorj.Data;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
 using Woorj.Data.IndOrg;
-using Woorj.Data.Dir;
 using Woorj.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Woorj.Data.Adm;
-using Microsoft.Extensions.Options;
 using Woorj.CtrServerSide.Adm;
 using Woorj.CtrServerSide.IndOrg;
 using Woorj.CtrServerSide.Dir;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Microsoft.AspNetCore.Authentication;
 using Newtonsoft.Json.Serialization;
-using Microsoft.Extensions.FileProviders;
-using System.IO;
 using FluentValidation;
+using System;
 
 namespace Woorj
 {
@@ -37,6 +30,8 @@ namespace Woorj
             Configuration = configuration;
         }
         public IConfiguration Configuration { get; }
+
+        GlobVar gv= new GlobVar();
 
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -91,7 +86,7 @@ namespace Woorj
                     .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
                     = new DefaultContractResolver());
                     
-    #endregion ForWebAPI
+            #endregion ForWebAPI
         
             #region EntityRegion
 
@@ -114,7 +109,7 @@ namespace Woorj
                 services.AddScoped<ICustomTranslator, CustomTranslator>();
                 services.AddScoped<ICoreService, CoreService>();
                 services.AddScoped<IAdmService, AdmService>();
-                 #endregion EntityRegion
+            #endregion EntityRegion
             
             #region LocalizationAndGlobalization
              /*
@@ -133,6 +128,40 @@ namespace Woorj
             services.AddLocalization(options => options.ResourcesPath = "Resources");
         
         #endregion LocalizationAndGlobalization
+
+            #region LoginAndPassSettings
+         
+              
+          //Password Strength Setting  
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings  
+                options.Password.RequireDigit = gv.requireDigit;
+                options.Password.RequiredLength = gv.requiredLength;
+                options.Password.RequireNonAlphanumeric = gv.requireNonAlphanumeric;
+                options.Password.RequireUppercase = gv.requireUppercase;
+                options.Password.RequireLowercase = gv.requireLowercase;
+                options.Password.RequiredUniqueChars = gv.requiredUniqueChars;
+                // Lockout settings  
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(gv.defaultLockoutTimeSpan); //180
+                options.Lockout.MaxFailedAccessAttempts = gv.maxFailedAccessAttempts;
+                options.Lockout.AllowedForNewUsers = gv.allowedForNewUsers;
+                // User settings  
+                options.User.RequireUniqueEmail = gv.requireUniqueEmail;
+            });
+
+            // Seting the Account Login page
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.HttpOnly = gv.httpOnly;
+                config.ExpireTimeSpan = TimeSpan.FromMinutes(gv.expireTimeSpan);
+                config.LoginPath = gv.loginPath; // If the LoginPath is not set here, ASP.NET Core will go default to /Account/Login  
+                config.LogoutPath = gv.logoutPath; // If the LogoutPath is not set here, ASP.NET Core will go  default to /Account/Logout 
+                //config.AccessDeniedPath = gv.accessDeniedPath; // If the AccessDeniedPath is not set here, ASP.NET Core will go  default to /Account/AccessDenied  
+                config.SlidingExpiration = gv.slidingExpiration;
+            });
+
+         #endregion LoginAndPassSettings
 
         }
 

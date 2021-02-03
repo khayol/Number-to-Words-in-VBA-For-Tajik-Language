@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Edit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Adm/ApplicationUser/Edit/{CurrentId}")]
     public partial class Edit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -207,22 +207,22 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter]
-    public string CurrentID { get; set; }
-    ApplicationUser objMain = new ApplicationUser();    
+    public string CurrentId { get; set; }
+    ApplicationUser _objMain = new ApplicationUser();    
     private string  CancelOrBeckTxt { get; set; } 
     private bool readonlyMain1 {get;set;}=false;
     private bool readonlyOther {get;set;}=false;  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        _objMain = MainController.GetById_FirstOrDefault(CurrentId);
         readonlyMain1=AppData.readonlyMain1;
         readonlyOther=AppData.readonlyOther;
     }
 
     protected void Update()
     {
-        MainController.Update(objMain);
+        MainController.Update(_objMain);
         NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/0");
     }
     void Cancel()

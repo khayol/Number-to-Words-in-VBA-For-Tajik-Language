@@ -1,4 +1,4 @@
-@page "/Adm/ApplicationRole/Roles/{CurrentID}"
+@page "/Adm/ApplicationRole/Roles/{CurrentId}"
 @inject ApplicationRoleController SrvRole
 
 <WrAuth PageName="ContactViewStd"><MainContent>  
@@ -9,7 +9,7 @@
                     <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="Cancel">
                     <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="Update">
                         <label for="Code" class="control-lable">
-                        &nbsp;&nbsp; &nbsp;&nbsp;  @objRole.Code &nbsp;&nbsp; @objRole.NormalizedName </label>
+                        &nbsp;&nbsp; &nbsp;&nbsp;  @_objRole.Code &nbsp;&nbsp; @_objRole.NormalizedName </label>
             </ControlQuickAccess>
         </WrPnlElm>
     </div> 
@@ -45,21 +45,21 @@
  @code{
 
     #region  Declare
-        [Parameter] public string CurrentID { get; set; }
-        private string selectedRow { get; set; } = "";       
+        [Parameter] public string CurrentId { get; set; }
+        private string SelectedRow { get; set; } = "";       
       //  private List<ApplicationRole> ApplicationRole_List; 
       //  private WrDataGrid<ApplicationRole> grid_DiffRoleList;   
 
-            [Parameter] public string selectedId { get; set;}="0";       
-        private ApplicationRole objRole = new ApplicationRole(); 
+            [Parameter] public string SelectedId { get; set;}="0";       
+        private ApplicationRole _objRole = new ApplicationRole(); 
     #endregion  Declare
     
     #region  BlazorMethods
        protected override void OnInitialized()
         {
             SrvRole.Init_UserRoleEdit();
-            objRole =  SrvRole.GetApplicationRoleById(CurrentID); // A 111
-             // VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
+            _objRole =  SrvRole.GetApplicationRoleById(CurrentId); // A 111
+             // VGetUserRole_List = SrvUser.GetUserRoleById(CurrentId).ToList();
            // ApplicationRole_List=SrvRole.GetApplicationRole().ToList();
            // DiffRoleList   = ApplicationRole_List.Where(x => !VGetUserRole_List.Any(y => x.Id == y.RoleId)).ToList();
         } 
@@ -72,22 +72,24 @@
 
         private void SelectedRowMeth(string pSelectedRow)
         {
-            selectedRow = pSelectedRow;
-            selectedId= selectedRow;
-           // AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
+            SelectedRow = pSelectedRow;
+            SelectedId= SelectedRow;
+           // AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(SelectedRow);
         }
-        protected void Test()
+
+     private void Test()
         {
            JSRuntime.InvokeVoidAsync("TreeView22");
         }
-        protected void UpdateRoles()
+
+     private void UpdateRoles()
         {
           //  SrvUser.UpdateRoles(objUser);
-            NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentId);
         }
         void Cancel()
         {
-            NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentId);
         }
     
     }

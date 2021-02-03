@@ -210,11 +210,12 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.CloseElement();
             __builder.AddMarkupContent(5, "\r\n");
-            __builder.OpenElement(6, "p");
-            __builder.AddMarkupContent(7, "\r\n    Amount : ");
-            __builder.AddContent(8, 
+            __builder.CloseElement();
+            __builder.AddMarkupContent(6, "\r\n");
+            __builder.OpenElement(7, "p");
+            __builder.AddMarkupContent(8, "\r\n    Amount : ");
+            __builder.AddContent(9, 
 #nullable restore
 #line 10 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
               person.Amount.ToString("c")
@@ -223,13 +224,15 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(10, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(9, "\r\n");
-            __builder.AddMarkupContent(10, "<p class=\"test-header\">  Change the value in textChange event on inputBox</p>\r\n");
-            __builder.OpenElement(11, "p");
-            __builder.OpenElement(12, "input");
-            __builder.AddAttribute(13, "type", "number");
-            __builder.AddAttribute(14, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(11, "\r\n");
+            __builder.AddMarkupContent(12, "<p class=\"test-header\">  Change the value in textChange event on inputBox</p>\r\n");
+            __builder.OpenElement(13, "p");
+            __builder.AddMarkupContent(14, "\r\n    ");
+            __builder.OpenElement(15, "input");
+            __builder.AddAttribute(16, "type", "number");
+            __builder.AddAttribute(17, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 16 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                         person.Amount
@@ -238,17 +241,20 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             , culture: global::System.Globalization.CultureInfo.InvariantCulture));
-            __builder.AddAttribute(15, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => person.Amount = __value, person.Amount, culture: global::System.Globalization.CultureInfo.InvariantCulture));
+            __builder.AddAttribute(18, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => person.Amount = __value, person.Amount, culture: global::System.Globalization.CultureInfo.InvariantCulture));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
+            __builder.AddMarkupContent(19, "    \r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\r\n\r\n<br>\r\n");
-            __builder.AddMarkupContent(17, "<p class=\"test-header\">  checkbox</p>\r\n");
-            __builder.OpenElement(18, "p");
-            __builder.OpenElement(19, "label");
-            __builder.OpenElement(20, "input");
-            __builder.AddAttribute(21, "type", "checkbox");
-            __builder.AddAttribute(22, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(20, "\r\n\r\n<br>\r\n");
+            __builder.AddMarkupContent(21, "<p class=\"test-header\">  checkbox</p>\r\n");
+            __builder.OpenElement(22, "p");
+            __builder.AddMarkupContent(23, "\r\n    ");
+            __builder.OpenElement(24, "label");
+            __builder.AddMarkupContent(25, "\r\n        ");
+            __builder.OpenElement(26, "input");
+            __builder.AddAttribute(27, "type", "checkbox");
+            __builder.AddAttribute(28, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 25 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                             person.isActive
@@ -257,13 +263,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(23, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => person.isActive = __value, person.isActive));
+            __builder.AddAttribute(29, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => person.isActive = __value, person.isActive));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
-            __builder.AddMarkupContent(24, "\r\n        &nbsp;Is Active\r\n    ");
+            __builder.AddMarkupContent(30, "\r\n        &nbsp;Is Active\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n\r\n    <br>\r\n    Is Active: ");
-            __builder.AddContent(26, 
+            __builder.AddMarkupContent(31, "\r\n\r\n    <br>\r\n    Is Active: ");
+            __builder.AddContent(32, 
 #nullable restore
 #line 30 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                 person.isActive
@@ -272,16 +278,19 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(33, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(27, "\r\n");
-            __builder.AddMarkupContent(28, "<p class=\"test-header\">  RadioButton</p>\r\n\r\n");
-            __builder.OpenElement(29, "p");
-            __builder.OpenElement(30, "label");
-            __builder.OpenElement(31, "input");
-            __builder.AddAttribute(32, "type", "radio");
-            __builder.AddAttribute(33, "value", "l");
-            __builder.AddAttribute(34, "name", "group");
-            __builder.AddAttribute(35, "checked", 
+            __builder.AddMarkupContent(34, "\r\n");
+            __builder.AddMarkupContent(35, "<p class=\"test-header\">  RadioButton</p>\r\n\r\n");
+            __builder.OpenElement(36, "p");
+            __builder.AddMarkupContent(37, "\r\n    ");
+            __builder.OpenElement(38, "label");
+            __builder.AddMarkupContent(39, "\r\n        ");
+            __builder.OpenElement(40, "input");
+            __builder.AddAttribute(41, "type", "radio");
+            __builder.AddAttribute(42, "value", "l");
+            __builder.AddAttribute(43, "name", "group");
+            __builder.AddAttribute(44, "checked", 
 #nullable restore
 #line 37 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                                               selectedGroup==1
@@ -290,7 +299,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(36, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(45, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 37 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                                                                              ()=>selectedGroup=1
@@ -300,15 +309,16 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             ));
             __builder.CloseElement();
-            __builder.AddMarkupContent(37, "1\r\n    ");
+            __builder.AddMarkupContent(46, "1\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(38, "\r\n    ");
-            __builder.OpenElement(39, "label");
-            __builder.OpenElement(40, "input");
-            __builder.AddAttribute(41, "type", "radio");
-            __builder.AddAttribute(42, "value", "2");
-            __builder.AddAttribute(43, "name", "group");
-            __builder.AddAttribute(44, "checked", 
+            __builder.AddMarkupContent(47, "\r\n    ");
+            __builder.OpenElement(48, "label");
+            __builder.AddMarkupContent(49, "\r\n        ");
+            __builder.OpenElement(50, "input");
+            __builder.AddAttribute(51, "type", "radio");
+            __builder.AddAttribute(52, "value", "2");
+            __builder.AddAttribute(53, "name", "group");
+            __builder.AddAttribute(54, "checked", 
 #nullable restore
 #line 40 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                                               selectedGroup==2
@@ -317,7 +327,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(45, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(55, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 40 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                                                                              ()=>selectedGroup=2
@@ -327,10 +337,10 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             ));
             __builder.CloseElement();
-            __builder.AddMarkupContent(46, "2\r\n    ");
+            __builder.AddMarkupContent(56, "2\r\n    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(47, "\r\n    <br>\r\n    ");
-            __builder.AddContent(48, 
+            __builder.AddMarkupContent(57, "\r\n    <br>\r\n    ");
+            __builder.AddContent(58, 
 #nullable restore
 #line 43 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
      selectedGroup
@@ -339,12 +349,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(59, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(49, "\r\n");
-            __builder.AddMarkupContent(50, "<p class=\"test-header\">  Select from DropDownList</p>\r\n");
-            __builder.OpenElement(51, "p");
-            __builder.OpenElement(52, "select");
-            __builder.AddAttribute(53, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(60, "\r\n");
+            __builder.AddMarkupContent(61, "<p class=\"test-header\">  Select from DropDownList</p>\r\n");
+            __builder.OpenElement(62, "p");
+            __builder.AddMarkupContent(63, "\r\n    ");
+            __builder.OpenElement(64, "select");
+            __builder.AddAttribute(65, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 48 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                    selectedLocationId
@@ -353,12 +365,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(54, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => selectedLocationId = __value, selectedLocationId));
+            __builder.AddAttribute(66, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => selectedLocationId = __value, selectedLocationId));
             __builder.SetUpdatesAttributeName("value");
-            __builder.OpenElement(55, "option");
-            __builder.AddAttribute(56, "value", "0");
+            __builder.AddMarkupContent(67, "\r\n        ");
+            __builder.OpenElement(68, "option");
+            __builder.AddAttribute(69, "value", "0");
             __builder.CloseElement();
-            __builder.AddMarkupContent(57, "/option>\r\n");
+            __builder.AddMarkupContent(70, "/option>\r\n");
 #nullable restore
 #line 50 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
          foreach (var loc in person.Locations)
@@ -368,8 +381,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(58, "option");
-            __builder.AddAttribute(59, "value", 
+            __builder.AddContent(71, "            ");
+            __builder.OpenElement(72, "option");
+            __builder.AddAttribute(73, "value", 
 #nullable restore
 #line 53 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                             loc.Id
@@ -378,7 +392,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(60, 
+            __builder.AddContent(74, 
 #nullable restore
 #line 53 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                      loc.City
@@ -388,6 +402,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(75, "\r\n");
 #nullable restore
 #line 54 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
         }
@@ -395,9 +410,10 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(76, "    ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(61, "\r\n    <br>\r\n    ");
-            __builder.AddContent(62, 
+            __builder.AddMarkupContent(77, "\r\n    <br>\r\n    ");
+            __builder.AddContent(78, 
 #nullable restore
 #line 57 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
      selectedLocationId
@@ -406,11 +422,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(79, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(63, "\r\n");
-            __builder.AddMarkupContent(64, "<p class=\"test-header\"> Showing the list</p>\r\n");
-            __builder.OpenElement(65, "p");
-            __builder.OpenElement(66, "ul");
+            __builder.AddMarkupContent(80, "\r\n");
+            __builder.AddMarkupContent(81, "<p class=\"test-header\"> Showing the list</p>\r\n");
+            __builder.OpenElement(82, "p");
+            __builder.AddMarkupContent(83, "\r\n\r\n    ");
+            __builder.OpenElement(84, "ul");
+            __builder.AddMarkupContent(85, "\r\n");
 #nullable restore
 #line 64 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
          foreach (var loc in person.Locations)
@@ -419,8 +438,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(67, "li");
-            __builder.AddContent(68, 
+            __builder.AddContent(86, "            ");
+            __builder.OpenElement(87, "li");
+            __builder.AddContent(88, 
 #nullable restore
 #line 66 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                  loc.City
@@ -429,8 +449,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(69, ", ");
-            __builder.AddContent(70, 
+            __builder.AddContent(89, ", ");
+            __builder.AddContent(90, 
 #nullable restore
 #line 66 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                             loc.ProvState
@@ -439,8 +459,8 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(71, ", ");
-            __builder.AddContent(72, 
+            __builder.AddContent(91, ", ");
+            __builder.AddContent(92, 
 #nullable restore
 #line 66 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                             loc.Country
@@ -450,6 +470,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(93, "\r\n");
 #nullable restore
 #line 67 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
         }
@@ -457,13 +478,17 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(94, "    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(95, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(73, "\r\n");
-            __builder.AddMarkupContent(74, "<p class=\"test-header\"> Table with Editable column</p>\r\n");
-            __builder.OpenElement(75, "p");
-            __builder.OpenElement(76, "table");
-            __builder.AddAttribute(77, "class", "table");
+            __builder.AddMarkupContent(96, "\r\n");
+            __builder.AddMarkupContent(97, "<p class=\"test-header\"> Table with Editable column</p>\r\n");
+            __builder.OpenElement(98, "p");
+            __builder.AddMarkupContent(99, "\r\n    ");
+            __builder.OpenElement(100, "table");
+            __builder.AddAttribute(101, "class", "table");
+            __builder.AddMarkupContent(102, "\r\n\r\n");
 #nullable restore
 #line 75 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
          foreach (var loc in person.Locations)
@@ -472,9 +497,11 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(78, "tr");
-            __builder.OpenElement(79, "td");
-            __builder.AddContent(80, 
+            __builder.AddContent(103, "            ");
+            __builder.OpenElement(104, "tr");
+            __builder.AddMarkupContent(105, "\r\n                ");
+            __builder.OpenElement(106, "td");
+            __builder.AddContent(107, 
 #nullable restore
 #line 78 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                      loc.Id
@@ -484,12 +511,13 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(81, "\r\n                ");
-            __builder.OpenElement(82, "td");
-            __builder.OpenElement(83, "input");
-            __builder.AddAttribute(84, "type", "text");
-            __builder.AddAttribute(85, "class", "form-control");
-            __builder.AddAttribute(86, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(108, "\r\n                ");
+            __builder.OpenElement(109, "td");
+            __builder.AddMarkupContent(110, "\r\n                    ");
+            __builder.OpenElement(111, "input");
+            __builder.AddAttribute(112, "type", "text");
+            __builder.AddAttribute(113, "class", "form-control");
+            __builder.AddAttribute(114, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 82 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                          loc.City
@@ -498,16 +526,18 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(87, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => loc.City = __value, loc.City));
+            __builder.AddAttribute(115, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => loc.City = __value, loc.City));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
+            __builder.AddMarkupContent(116, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(88, "\r\n                ");
-            __builder.OpenElement(89, "td");
-            __builder.OpenElement(90, "input");
-            __builder.AddAttribute(91, "type", "text");
-            __builder.AddAttribute(92, "class", "form-control");
-            __builder.AddAttribute(93, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddMarkupContent(117, "\r\n                ");
+            __builder.OpenElement(118, "td");
+            __builder.AddMarkupContent(119, "\r\n                    ");
+            __builder.OpenElement(120, "input");
+            __builder.AddAttribute(121, "type", "text");
+            __builder.AddAttribute(122, "class", "form-control");
+            __builder.AddAttribute(123, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 88 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                                          loc.ProvState
@@ -516,13 +546,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(94, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => loc.ProvState = __value, loc.ProvState));
+            __builder.AddAttribute(124, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => loc.ProvState = __value, loc.ProvState));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
+            __builder.AddMarkupContent(125, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(95, "\r\n                ");
-            __builder.OpenElement(96, "td");
-            __builder.AddContent(97, 
+            __builder.AddMarkupContent(126, "\r\n                ");
+            __builder.OpenElement(127, "td");
+            __builder.AddContent(128, 
 #nullable restore
 #line 91 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
                      loc.Country
@@ -532,7 +563,9 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(129, "\r\n\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(130, "\r\n");
 #nullable restore
 #line 94 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\DataBiding.razor"
         }
@@ -540,9 +573,11 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
+            __builder.AddContent(131, "    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(132, "\r\n");
             __builder.CloseElement();
-            __builder.AddMarkupContent(98, "\r\n<br>");
+            __builder.AddMarkupContent(133, "\r\n<br>");
         }
         #pragma warning restore 1998
 #nullable restore

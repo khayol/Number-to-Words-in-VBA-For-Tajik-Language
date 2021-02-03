@@ -153,7 +153,7 @@ using Woorj.Pages.TESTS.WrComponents;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/CountryDelete/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Dir/CountryDelete/{CurrentId}")]
     public partial class CountryDelete : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -165,21 +165,21 @@ using Woorj.Pages.TESTS.WrComponents;
 #line 36 "e:\A_NewProjects\01\Woorj\Pages\Dir copy\CountryDelete.razor"
       
    [Parameter]
-   public string CurrentID {get;set;}
+   public string CurrentId {get;set;}
     Country objEmp= new Country();
 
     protected override async Task OnInitializedAsync()
     {
-    objEmp= await Task.Run(()=>objCountryController.GetCountryById(Convert.ToInt32(CurrentID)));        
+    objEmp= await Task.Run(()=>objCountryController.GetCountryById(Convert.ToInt32(CurrentId)));        
     }
     
     protected void DeleteCountry(){
 
         objCountryController.DeleteCountry(objEmp);
-        NavigationManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+        NavigationManager.NavigateTo("/Dir/CountryViewStd/"+CurrentId);
     }
     void Cancel(){
-        NavigationManager.NavigateTo("/Dir/CountryViewStd/"+CurrentID);
+        NavigationManager.NavigateTo("/Dir/CountryViewStd/"+CurrentId);
     }
 
 #line default

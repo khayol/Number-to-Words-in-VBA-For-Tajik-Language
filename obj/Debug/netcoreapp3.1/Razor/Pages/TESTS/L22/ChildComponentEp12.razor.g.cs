@@ -203,7 +203,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(0, "<h3>ChildComponentEp12</h3>");
+            __builder.AddMarkupContent(0, "<h3>ChildComponentEp12</h3>\r\n");
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\ChildComponentEp12.razor"
 }

@@ -197,11 +197,13 @@ using Woorj.Pages.TESTS.L22;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenElement(0, "div");
-            __builder.OpenElement(1, "div");
-            __builder.AddAttribute(2, "class", "panel-header");
-            __builder.OpenElement(3, "button");
-            __builder.AddAttribute(4, "class", "btn bnt-style-general");
-            __builder.AddAttribute(5, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(1, "\r\n     ");
+            __builder.OpenElement(2, "div");
+            __builder.AddAttribute(3, "class", "panel-header");
+            __builder.AddMarkupContent(4, "\r\n        \r\n        ");
+            __builder.OpenElement(5, "button");
+            __builder.AddAttribute(6, "class", "btn bnt-style-general");
+            __builder.AddAttribute(7, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 4 "E:\A_NewProjects\01\Woorj\Shared\NavMenu.razor"
                                                            args => NavManager.NavigateTo("/")
@@ -210,14 +212,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(6, "data-toggle", "tooltip");
-            __builder.AddAttribute(7, "title", "");
-            __builder.AddMarkupContent(8, "<span class=\"fa fa-home\" aria-hidden=\"true\"></span>");
+            __builder.AddAttribute(8, "data-toggle", "tooltip");
+            __builder.AddAttribute(9, "title", "");
+            __builder.AddMarkupContent(10, "<span class=\"fa fa-home\" aria-hidden=\"true\"></span>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(9, "\r\n        &nbsp; \r\n        ");
-            __builder.OpenElement(10, "button");
-            __builder.AddAttribute(11, "class", "btn bnt-style-general");
-            __builder.AddAttribute(12, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(11, "\r\n        &nbsp; \r\n        ");
+            __builder.OpenElement(12, "button");
+            __builder.AddAttribute(13, "class", "btn bnt-style-general");
+            __builder.AddAttribute(14, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 6 "E:\A_NewProjects\01\Woorj\Shared\NavMenu.razor"
                                                            args => NavManager.NavigateTo("/MainMenu")
@@ -226,14 +228,14 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(13, "data-toggle", "tooltip");
-            __builder.AddAttribute(14, "title", "");
-            __builder.AddMarkupContent(15, "<span class=\"fa fa-list\" aria-hidden=\"true\"></span>");
+            __builder.AddAttribute(15, "data-toggle", "tooltip");
+            __builder.AddAttribute(16, "title", "");
+            __builder.AddMarkupContent(17, "<span class=\"fa fa-list\" aria-hidden=\"true\"></span>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(16, "\r\n        &nbsp; \r\n        ");
-            __builder.OpenElement(17, "button");
-            __builder.AddAttribute(18, "class", "btn bnt-style-general");
-            __builder.AddAttribute(19, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(18, "\r\n        &nbsp; \r\n        ");
+            __builder.OpenElement(19, "button");
+            __builder.AddAttribute(20, "class", "btn bnt-style-general");
+            __builder.AddAttribute(21, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 8 "E:\A_NewProjects\01\Woorj\Shared\NavMenu.razor"
                                                            args => NavManager.NavigateTo("/Core/Help")
@@ -242,15 +244,16 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(20, "data-toggle", "tooltip");
-            __builder.AddAttribute(21, "title", "");
-            __builder.AddMarkupContent(22, "<span class=\"fa fa-question\" aria-hidden=\"true\"></span>");
+            __builder.AddAttribute(22, "data-toggle", "tooltip");
+            __builder.AddAttribute(23, "title", "");
+            __builder.AddMarkupContent(24, "<span class=\"fa fa-question\" aria-hidden=\"true\"></span>");
             __builder.CloseElement();
-            __builder.AddMarkupContent(23, "\r\n        &nbsp;  \r\n\r\n\r\n        ");
-            __builder.OpenElement(24, "div");
-            __builder.AddAttribute(25, "style", "display: inline; ");
-            __builder.AddAttribute(26, "id", "org-name");
-            __builder.AddContent(27, 
+            __builder.AddMarkupContent(25, "\r\n        &nbsp;  \r\n\r\n\r\n        ");
+            __builder.OpenElement(26, "div");
+            __builder.AddAttribute(27, "style", "display: inline; ");
+            __builder.AddAttribute(28, "id", "org-name");
+            __builder.AddMarkupContent(29, "\r\n        ");
+            __builder.AddContent(30, 
 #nullable restore
 #line 13 "E:\A_NewProjects\01\Woorj\Shared\NavMenu.razor"
          trs.GetTranslation("OrgName",@AppData.ActiveUser,"General")
@@ -259,16 +262,21 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
+            __builder.AddMarkupContent(31, "\r\n        ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(28, "\r\n       ");
-            __builder.OpenElement(29, "a");
-            __builder.AddAttribute(30, "class", "navbar-brand");
-            __builder.AddAttribute(31, "style", "right:0; position: absolute;");
-            __builder.AddAttribute(32, "href", true);
-            __builder.OpenComponent<Woorj.Shared.LoginDisplay>(33);
+            __builder.AddMarkupContent(32, "\r\n       ");
+            __builder.OpenElement(33, "a");
+            __builder.AddAttribute(34, "class", "navbar-brand");
+            __builder.AddAttribute(35, "style", "right:0; position: absolute;");
+            __builder.AddAttribute(36, "href", true);
+            __builder.AddContent(37, " ");
+            __builder.OpenComponent<Woorj.Shared.LoginDisplay>(38);
             __builder.CloseComponent();
+            __builder.AddContent(39, " ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(40, " \r\n     ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(41, "\r\n");
             __builder.CloseElement();
         }
         #pragma warning restore 1998

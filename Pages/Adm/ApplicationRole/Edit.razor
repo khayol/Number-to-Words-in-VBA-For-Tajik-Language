@@ -1,10 +1,10 @@
-@page "/Adm/ApplicationRole/Edit/{CurrentID}"
+@page "/Adm/ApplicationRole/Edit/{CurrentId}"
 @inject ApplicationRoleController MainController
 
 
 <WrAuth PageName="ApplicationRoleEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
@@ -18,16 +18,16 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-             Readonly="true"  Val="@objMain.Code" />
+             Readonly="true"  Val="@_objMain.Code" />
 
             <WrFieldStr  FieldCaption="Name" 
-            TransEntity="General" Readonly="true" @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General" Readonly="true" @bind-BindingValue ="@_objMain.Name"/> 
 
             <WrFieldStr FieldCaption="NormalizedName" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.NormalizedName"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.NormalizedName"/>
 
             <WrFieldStr  FieldCaption="Description" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.Description"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Description"/>
 
          </FormElements>      
     </WrFormBody>    
@@ -36,24 +36,24 @@
 
 
 @code{
-    [Parameter] public string CurrentID { get; set; }
+    [Parameter] public string CurrentId { get; set; }
     
-    ApplicationRole objMain = new ApplicationRole();    
+    ApplicationRole _objMain = new ApplicationRole();    
     private string  CancelOrBeckTxt { get; set; }  
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(CurrentID);
+        _objMain = MainController.GetById_FirstOrDefault(CurrentId);
     }
 
-    protected void Save()
+    private void Save()
     {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
+        MainController.Update(_objMain);
+        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Adm/ApplicationRole/ViewStd/"+CurrentId);
     }
 
   

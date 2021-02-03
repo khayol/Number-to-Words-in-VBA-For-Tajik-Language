@@ -210,6 +210,7 @@ using Woorj.Pages.TESTS.L22;
             ));
             __builder.AddContent(3, "Show Dialog!");
             __builder.CloseElement();
+            __builder.AddMarkupContent(4, "\r\n");
 #nullable restore
 #line 3 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
  if (showModal)
@@ -218,21 +219,26 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "modal fade show");
-            __builder.AddAttribute(6, "id", "myModal");
-            __builder.AddAttribute(7, "style", "display:block");
-            __builder.AddAttribute(8, "aria-modal", "true");
-            __builder.AddAttribute(9, "role", "dialog");
-            __builder.OpenElement(10, "div");
-            __builder.AddAttribute(11, "class", "modal-dialog");
-            __builder.OpenElement(12, "div");
-            __builder.AddAttribute(13, "class", "modal-content");
-            __builder.OpenElement(14, "div");
-            __builder.AddAttribute(15, "class", "modal-header");
-            __builder.OpenElement(16, "h4");
-            __builder.AddAttribute(17, "class", "modal-title");
-            __builder.AddContent(18, 
+            __builder.AddContent(5, "    ");
+            __builder.OpenElement(6, "div");
+            __builder.AddAttribute(7, "class", "modal fade show");
+            __builder.AddAttribute(8, "id", "myModal");
+            __builder.AddAttribute(9, "style", "display:block");
+            __builder.AddAttribute(10, "aria-modal", "true");
+            __builder.AddAttribute(11, "role", "dialog");
+            __builder.AddMarkupContent(12, "\r\n        ");
+            __builder.OpenElement(13, "div");
+            __builder.AddAttribute(14, "class", "modal-dialog");
+            __builder.AddMarkupContent(15, "\r\n            ");
+            __builder.OpenElement(16, "div");
+            __builder.AddAttribute(17, "class", "modal-content");
+            __builder.AddMarkupContent(18, "\r\n\r\n                \r\n                ");
+            __builder.OpenElement(19, "div");
+            __builder.AddAttribute(20, "class", "modal-header");
+            __builder.AddMarkupContent(21, "\r\n                    ");
+            __builder.OpenElement(22, "h4");
+            __builder.AddAttribute(23, "class", "modal-title");
+            __builder.AddContent(24, 
 #nullable restore
 #line 11 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
                                              GetTitle("This is the Title of the Msg")
@@ -242,11 +248,11 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
-            __builder.AddMarkupContent(19, "\r\n                    ");
-            __builder.OpenElement(20, "button");
-            __builder.AddAttribute(21, "type", "button");
-            __builder.AddAttribute(22, "class", "close");
-            __builder.AddAttribute(23, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(25, "\r\n                    ");
+            __builder.OpenElement(26, "button");
+            __builder.AddAttribute(27, "type", "button");
+            __builder.AddAttribute(28, "class", "close");
+            __builder.AddAttribute(29, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 12 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
                                                                    ModalCancel
@@ -255,14 +261,16 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(24, "×");
+            __builder.AddContent(30, "×");
             __builder.CloseElement();
+            __builder.AddMarkupContent(31, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(25, "\r\n\r\n                \r\n                ");
-            __builder.OpenElement(26, "div");
-            __builder.AddAttribute(27, "class", "modal-body");
-            __builder.OpenElement(28, "p");
-            __builder.AddContent(29, 
+            __builder.AddMarkupContent(32, "\r\n\r\n                \r\n                ");
+            __builder.OpenElement(33, "div");
+            __builder.AddAttribute(34, "class", "modal-body");
+            __builder.AddMarkupContent(35, "\r\n                    ");
+            __builder.OpenElement(36, "p");
+            __builder.AddContent(37, 
 #nullable restore
 #line 17 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
                         GetModalContent("This is the Modal Content")
@@ -272,14 +280,16 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(38, "\r\n                ");
             __builder.CloseElement();
-            __builder.AddMarkupContent(30, "\r\n\r\n                \r\n                ");
-            __builder.OpenElement(31, "div");
-            __builder.AddAttribute(32, "class", "modal-footer");
-            __builder.OpenElement(33, "button");
-            __builder.AddAttribute(34, "type", "button");
-            __builder.AddAttribute(35, "class", "btn");
-            __builder.AddAttribute(36, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(39, "\r\n\r\n                \r\n                ");
+            __builder.OpenElement(40, "div");
+            __builder.AddAttribute(41, "class", "modal-footer");
+            __builder.AddMarkupContent(42, "\r\n                    ");
+            __builder.OpenElement(43, "button");
+            __builder.AddAttribute(44, "type", "button");
+            __builder.AddAttribute(45, "class", "btn");
+            __builder.AddAttribute(46, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 22 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
                                                                  ModalCancel
@@ -288,13 +298,13 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(37, "Cancel");
+            __builder.AddContent(47, "Cancel");
             __builder.CloseElement();
-            __builder.AddMarkupContent(38, "\r\n                    ");
-            __builder.OpenElement(39, "button");
-            __builder.AddAttribute(40, "type", "button");
-            __builder.AddAttribute(41, "class", "btn btn-danger");
-            __builder.AddAttribute(42, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddMarkupContent(48, "\r\n                    ");
+            __builder.OpenElement(49, "button");
+            __builder.AddAttribute(50, "type", "button");
+            __builder.AddAttribute(51, "class", "btn btn-danger");
+            __builder.AddAttribute(52, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 23 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
                                                                            ModalOk
@@ -303,12 +313,17 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             ));
-            __builder.AddContent(43, "Delete");
+            __builder.AddContent(53, "Delete");
             __builder.CloseElement();
+            __builder.AddMarkupContent(54, "\r\n                ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(55, "\r\n\r\n            ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(56, "\r\n        ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(57, "\r\n    ");
             __builder.CloseElement();
+            __builder.AddMarkupContent(58, "\r\n");
 #nullable restore
 #line 29 "E:\A_NewProjects\01\Woorj\Pages\TESTS\L22\Msgbox.razor"
 }
@@ -316,7 +331,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(44, "<hr>");
+            __builder.AddMarkupContent(59, "<hr>");
         }
         #pragma warning restore 1998
 #nullable restore

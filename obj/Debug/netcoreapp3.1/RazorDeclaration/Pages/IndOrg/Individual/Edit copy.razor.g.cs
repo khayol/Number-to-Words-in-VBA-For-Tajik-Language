@@ -194,7 +194,7 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Individual/Edit/{CurrentID}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/IndOrg/Individual/Edit/{CurrentId}")]
     public partial class Edit_copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -207,8 +207,8 @@ using Woorj.Pages.TESTS.L22;
       
 
     [Parameter]
-    public string CurrentID { get; set; }
-    Individual objMain = new Individual();
+    public string CurrentId { get; set; }
+    Individual _objMain = new Individual();
     
     private string  CancelOrBeckTxt { get; set; }
     private List<Country> CountryList;
@@ -222,7 +222,7 @@ using Woorj.Pages.TESTS.L22;
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
         GenderList =  GenderController.Get();
         CountryList =  CountryController.Get();
 
@@ -260,7 +260,7 @@ using Woorj.Pages.TESTS.L22;
 
     protected void Update()
     {
-        MainController.Update(objMain);
+        MainController.Update(_objMain);
         NavManager.NavigateTo(AppData.IndividualLink);
     }
     void Cancel()

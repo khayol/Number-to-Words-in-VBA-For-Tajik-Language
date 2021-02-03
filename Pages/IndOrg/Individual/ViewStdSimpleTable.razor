@@ -1,7 +1,7 @@
 @page "/IndOrg/Individual/ViewStdSimpleTable"
 @inject IndividualController IndividualController
 
-@if (individualList == null)
+@if (_individualList == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -10,65 +10,65 @@ else
     <WrFunc>
         <ControlMenu>
             <a @onclick="@(args => AddNew("/IndOrg/Individual/Add"))" value="Add" class="menu-itms">Add</a>
-            <a @onclick="@(args => Edit("/IndOrg/Individual/Edit/",selectedRow))" class="menu-itms">Edit</a>
-            <a @onclick="@(args => Delete("/IndOrg/Individual/Delete/",selectedRow))" class="menu-itms">Delete</a>
+            <a @onclick="@(args => Edit("/IndOrg/Individual/Edit/",SelectedRow))" class="menu-itms">Edit</a>
+            <a @onclick="@(args => Delete("/IndOrg/Individual/Delete/",SelectedRow))" class="menu-itms">Delete</a>
         </ControlMenu>
         <ControlQuickAccess>
             <button class="btn bnt-style-general" @onclick="@(args => AddNew("/IndOrg/Individual/Add"))" data-toggle="tooltip" title="Add"><span class="oi oi-plus" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => Edit("/IndOrg/Individual/Edit/",selectedRow))" data-toggle="tooltip" title="Edit"><span class="oi oi-pencil" aria-hidden="true"></span></button>
-            <button class="btn bnt-style-general" @onclick="@(args => Delete("/IndOrg/Individual/Delete/",selectedRow))" data-toggle="tooltip" title="Delete"><span class="oi oi-circle-x" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => Edit("/IndOrg/Individual/Edit/",SelectedRow))" data-toggle="tooltip" title="Edit"><span class="oi oi-pencil" aria-hidden="true"></span></button>
+            <button class="btn bnt-style-general" @onclick="@(args => Delete("/IndOrg/Individual/Delete/",SelectedRow))" data-toggle="tooltip" title="Delete"><span class="oi oi-circle-x" aria-hidden="true"></span></button>
         </ControlQuickAccess>
     </WrFunc>
-    <WrTbl Items="individualList"
+    <WrTbl Items="_individualList"
              TblCssClass=""
              SelectedRow="SelectedRowMeth"
-             ColumnsToExcludeCSV="Id">
+             ColumnsToExcludeCsv="Id">
     </WrTbl>
 
 }
 @code{
-    List<Individual> individualList;
+    List<Individual> _individualList;
 
-    private string selectedRow { get; set; } = "";
+    private string SelectedRow { get; set; } = "";
 
     private void SelectedRowMeth(string pSelectedRow)
     {
-        selectedRow = pSelectedRow;
+        SelectedRow = pSelectedRow;
     }
 
     protected override async Task OnInitializedAsync()
     {
-        individualList = await Task.Run(() => IndividualController.Get());
+        _individualList = await Task.Run(() => IndividualController.Get());
 
     }
 
-    protected void AddNew(string pNavLink)
+    private void AddNew(string pNavLink)
     {
         NavManager.NavigateTo(pNavLink);
         // Console.WriteLine("The C# Console runned");
         // JSRuntime.InvokeVoidAsync("console_write", "The JS Console Logging22 "+ selectedRow);
     }
 
-    protected void Edit(string pNavLink, string p_selectedRow)
+    private void Edit(string pNavLink, string pSelectedRow)
     {
-        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        if (string.IsNullOrEmpty(pSelectedRow)) //String.IsNullOrEmpty(p_selectedRow)
         {
             JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
         }
         else
         {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
+            NavManager.NavigateTo(pNavLink + pSelectedRow);
         }
     }
-    protected void Delete(string pNavLink, string p_selectedRow)
+    private void Delete(string pNavLink, string pSelectedRow)
     {
-        if (string.IsNullOrEmpty(p_selectedRow)) //String.IsNullOrEmpty(p_selectedRow)
+        if (string.IsNullOrEmpty(pSelectedRow)) //String.IsNullOrEmpty(p_selectedRow)
         {
             JSRuntime.InvokeVoidAsync("msgbox", "Please, choose the record before running the command");
         }
         else
         {
-            NavManager.NavigateTo(pNavLink + p_selectedRow);
+            NavManager.NavigateTo(pNavLink + pSelectedRow);
         }
 
     }

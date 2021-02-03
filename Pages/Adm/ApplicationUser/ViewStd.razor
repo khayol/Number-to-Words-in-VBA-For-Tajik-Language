@@ -2,8 +2,8 @@
 @inject ApplicationUserController MainController
 
 <WrAuth PageName="ApplicationUserViewStd"><MainContent>   
-    <WrDataGrid @ref="grid"
-                  DataItems="list"
+    <WrDataGrid @ref="_grid"
+                  DataItems="_list"
                   SelectedRow="SelectedRowMeth"
                   Columns="@MainController.columns"
                   UniqIdOfRecord="Id"
@@ -19,9 +19,9 @@
 
           <ControlMenu>
             <WrOper Design="a" Type="C"  Link="/Adm/ApplicationUser/Add"     Txt="Add" />
-            <WrOper Design="a" Type="R"  Link="/Adm/ApplicationUser/View/"   LinkId=@selectedId Txt="View" />
-            <WrOper Design="a" Type="U"  Link="/Adm/ApplicationUser/Edit/"   LinkId=@selectedId Txt="Edit" />
-            <WrOper Design="a" Type="D"  Link="/Adm/ApplicationUser/Delete/" LinkId=@selectedId Txt="Delete" />
+            <WrOper Design="a" Type="R"  Link="/Adm/ApplicationUser/View/"   LinkId=@SelectedId Txt="View" />
+            <WrOper Design="a" Type="U"  Link="/Adm/ApplicationUser/Edit/"   LinkId=@SelectedId Txt="Edit" />
+            <WrOper Design="a" Type="D"  Link="/Adm/ApplicationUser/Delete/" LinkId=@SelectedId Txt="Delete" />
         </ControlMenu>
 
         <ControlQuickAccess>
@@ -31,13 +31,13 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-hand-pointer-o" OnClickCallback="@FindSelectedRec" TxtToolTip="Choose"/>
             <WrSpace Length=2/>
             <WrOper Design="btn" Type="C" Ico="fa fa-plus"   Link="/Adm/ApplicationUser/Add"     TxtToolTip="Add" />
-            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationUser/View/"   LinkId=@selectedId TxtToolTip="View" />
-            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Adm/ApplicationUser/Edit/"   LinkId=@selectedId TxtToolTip="Edit" />
-            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Adm/ApplicationUser/Delete/" LinkId=@selectedId TxtToolTip="Delete" />
+            <WrOper Design="btn" Type="R" Ico="fa fa-file"   Link="/Adm/ApplicationUser/View/"   LinkId=@SelectedId TxtToolTip="View" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-pencil" Link="/Adm/ApplicationUser/Edit/"   LinkId=@SelectedId TxtToolTip="Edit" />
+            <WrOper Design="btn" Type="D" Ico="fa fa-trash"  Link="/Adm/ApplicationUser/Delete/" LinkId=@SelectedId TxtToolTip="Delete" />
             <WrSpace Length=2/>
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
-            <WrOper Design="btn" Type="U" Ico="fa fa-hand-paper-o"  Link="/Adm/ApplicationUser/UserRoleEdit/" LinkId=@selectedId TxtToolTip="EditUserRoles" />
+            <WrOper Design="btn" Type="U" Ico="fa fa-hand-paper-o"  Link="/Adm/ApplicationUser/UserRoleEdit/" LinkId=@SelectedId TxtToolTip="EditUserRoles" />
           
         </ControlQuickAccess>
     </WrDataGrid>
@@ -49,10 +49,10 @@
 
  #region     Declare
    [Parameter]  public string Id { get; set; }
-    private WrDataGrid<ApplicationUser> grid;
-    private List<ApplicationUser> list;
-    private string searchValue   { get; set; }
-    [Parameter] public string selectedId { get; set;}="0";    
+    private WrDataGrid<ApplicationUser> _grid;
+    private List<ApplicationUser> _list;
+    private string SearchValue   { get; set; }
+    [Parameter] public string SelectedId { get; set;}="0";    
  
  #endregion  Declare
 
@@ -61,7 +61,7 @@
     protected override void OnInitialized()
     {
         MainController.Initialized();
-        list = MainController.GetById(Id).ToList();         
+        _list = MainController.GetById(Id).ToList();         
     }
 
 #endregion BlazorMethods
@@ -69,30 +69,34 @@
 #region    Event
     private void SearchTxt(ChangeEventArgs changeEventArgs)
     {
-        searchValue = changeEventArgs.Value.ToString();
-        list = MainController.GetSearchByField(searchValue);
-        grid.GoToFirstPage();
+        SearchValue = changeEventArgs.Value.ToString();
+        _list = MainController.GetSearchByField(SearchValue);
+        _grid.GoToFirstPage();
     }
     private void SelectedRowMeth(string pSelectedRow)
     {
-        selectedId = pSelectedRow;
+        SelectedId = pSelectedRow;
     }
-    protected void FindSelectedRec()
+
+    private void FindSelectedRec()
     {
-        grid.GoToFirstPage();
-        list = MainController.GetById(selectedId);
+        _grid.GoToFirstPage();
+        _list = MainController.GetById(SelectedId);
     }
-    protected void CleanSearchBox()
+
+    private void CleanSearchBox()
     {
-        grid.GoToFirstPage();
-        list = MainController.GetSearchByField("");
-        selectedId = "0";
+        _grid.GoToFirstPage();
+        _list = MainController.GetSearchByField("");
+        SelectedId = "0";
     }
-    protected void ExportToExcel()
+
+    private void ExportToExcel()
     {
        // MainController.GenerateExcel(JSRuntime);
     }
-    protected void FilterData()
+
+    private void FilterData()
     {
         JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
     }

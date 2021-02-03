@@ -204,7 +204,8 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.AddMarkupContent(0, "<p><em>Loading...</em></p>");
+            __builder.AddContent(0, "    ");
+            __builder.AddMarkupContent(1, "<p><em>Loading...</em></p>\r\n");
 #nullable restore
 #line 6 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrCombo.razor"
                                      
@@ -234,8 +235,9 @@ using Woorj.Pages.TESTS.L22;
 #line default
 #line hidden
 #nullable disable
-            __builder.OpenElement(1, "option");
-            __builder.AddAttribute(2, "value", 
+            __builder.AddContent(2, "           ");
+            __builder.OpenElement(3, "option");
+            __builder.AddAttribute(4, "value", 
 #nullable restore
 #line 15 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrCombo.razor"
                            IdSelected
@@ -244,7 +246,7 @@ using Woorj.Pages.TESTS.L22;
 #line hidden
 #nullable disable
             );
-            __builder.AddContent(3, 
+            __builder.AddContent(5, 
 #nullable restore
 #line 15 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrCombo.razor"
                                         Name
@@ -254,6 +256,7 @@ using Woorj.Pages.TESTS.L22;
 #nullable disable
             );
             __builder.CloseElement();
+            __builder.AddMarkupContent(6, " \r\n");
 #nullable restore
 #line 16 "E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrCombo.razor"
         }

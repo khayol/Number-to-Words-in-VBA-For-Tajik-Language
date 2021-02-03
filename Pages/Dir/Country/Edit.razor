@@ -1,10 +1,10 @@
-@page "/Dir/Country/Edit/{CurrentID}"
+@page "/Dir/Country/Edit/{CurrentId}"
 @inject CountryController MainController
 
 
 <WrAuth PageName="CountryEdit"><MainContent>  
 
-<EditForm Model="@objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
+<EditForm Model="@_objMain" OnValidSubmit="@Save" OnInvalidSubmit="@Cancel" Context="formContext">  
     <FluentValidationValidator />  
     <ValidationSummary/>
     
@@ -18,29 +18,29 @@
     <WrFormBody>
         <FormElements>
             <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@objMain.Code" />
+            Readonly="true" Val="@_objMain.Code" />
 
             <WrFieldStr  FieldCaption="Name" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.Name"/> 
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
             <WrFieldStr FieldCaption="FullName" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.FullName"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.FullName"/>
 
             <WrFieldStr  FieldCaption="English" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.English"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.English"/>
 
             <WrFieldStr  FieldCaption="Alpha2" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha2"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Alpha2"/>
 
             <WrFieldStr  FieldCaption="Alpha3" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.Alpha3"/>
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Alpha3"/>
 
             <WrFieldStr FieldCaption="Iso" 
-            TransEntity="General"  @bind-BindingValue ="@objMain.Iso"/>   
+            TransEntity="General"  @bind-BindingValue ="@_objMain.Iso"/>   
      
             <div class="form-group">
                 <WrLebel TransEntity="General" FieldCaption="CreatedDate"/>
-                <input  readonly="true" class="form-control" @bind="@objMain.CreatedDate" />
+                <input  readonly="true" class="form-control" @bind="@_objMain.CreatedDate" />
             </div>
 
         </FormElements>      
@@ -50,22 +50,22 @@
 
 @code{
 
-    [Parameter] public string CurrentID { get; set; }
-    Country objMain = new Country();    
+    [Parameter] public string CurrentId { get; set; }
+    Country _objMain = new Country();    
 
     protected override void OnInitialized()
     {
-        objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentID));
+        _objMain = MainController.GetById_FirstOrDefault(Convert.ToInt32(CurrentId));
     }
 
-    protected void Save()
+    private void Save()
     {
-        MainController.Update(objMain);
-        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentID);
+        MainController.Update(_objMain);
+        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentId);
     }
     void Cancel()
     {
-        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentID);
+        NavManager.NavigateTo("/Dir/Country/ViewStd/"+CurrentId);
     }
 
   

@@ -1,4 +1,4 @@
-@page "/Adm/ApplicationUser/UserRoleEdit/{CurrentID}"
+@page "/Adm/ApplicationUser/UserRoleEdit/{CurrentId}"
 @inject ApplicationUserController SrvUser
 @inject ApplicationRoleController SrvRole
 
@@ -10,7 +10,7 @@
                     <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
                     <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
                         <label for="Code" class="control-lable">
-                        &nbsp;&nbsp; &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ",@AppData.ActiveUser,"Adm") &#58; &nbsp;@objUser.Code &nbsp;&nbsp; @objUser.UserName &nbsp;&nbsp; @objUser.FirstName &nbsp; @objUser.SecondName
+                        &nbsp;&nbsp; &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ",@AppData.ActiveUser,"Adm") &#58; &nbsp;@_objUser.Code &nbsp;&nbsp; @_objUser.UserName &nbsp;&nbsp; @_objUser.FirstName &nbsp; @_objUser.SecondName
                         </label>
             </ControlQuickAccess>
         </WrPnlElm>
@@ -27,11 +27,9 @@
                         <div class="nav-pnl-layout">
                         @* &nbsp;&nbsp;  <input type="button" class="btn btn bnt-style-general"  value="TestBtn"> *@
                             &nbsp;&nbsp; @trs.GetTranslation("GrantedAccess",@AppData.ActiveUser,"Adm") 
-                        </div>
-            
-               
-                    <WrDataGrid @ref="grid_VGetUserRole"
-                                DataItems="VGetUserRole_List"
+                        </div>            
+                    <WrDataGrid @ref="_gridVGetUserRole"
+                                DataItems="_vGetUserRoleList"
                                 Columns="@SrvRole.clmDef_VGetUserRole"  
                                 SelectedRow="SelectedRowMeth"
                                 UniqIdOfRecord="RoleId"
@@ -65,8 +63,8 @@
                 <div class="nav-pnl-layout">
                     &nbsp;&nbsp; @trs.GetTranslation("NotGrantedAccess",@AppData.ActiveUser,"Adm")   
                 </div>
-                    <WrDataGrid @ref="grid_DiffRoleList"
-                                DataItems="DiffRoleList"
+                    <WrDataGrid @ref="_gridDiffRoleList"
+                                DataItems="_diffRoleList"
                                 Columns="@SrvRole.clmDef_Role"
                                 SelectedRow="SelectedRowMeth"
                                 UniqIdOfRecord="Id"
@@ -92,16 +90,16 @@
 @code{
 
     #region  Declare
-        [Parameter] public string CurrentID { get; set; }
-        private string selectedRow { get; set; } = "";
-        private List<VGetUserRole> VGetUserRole_List;       
-        private List<ApplicationRole> ApplicationRole_List; 
-        private List<ApplicationRole> DiffRoleList;  
-        private WrDataGrid<ApplicationRole> grid_DiffRoleList;      
-        private WrDataGrid<VGetUserRole> grid_VGetUserRole; 
-        private ApplicationUser objUser = new ApplicationUser(); 
+        [Parameter] public string CurrentId { get; set; }
+        private string SelectedRow { get; set; } = "";
+        private List<VGetUserRole> _vGetUserRoleList;       
+        private List<ApplicationRole> _applicationRoleList; 
+        private List<ApplicationRole> _diffRoleList;  
+        private WrDataGrid<ApplicationRole> _gridDiffRoleList;      
+        private WrDataGrid<VGetUserRole> _gridVGetUserRole; 
+        private ApplicationUser _objUser = new ApplicationUser(); 
 
-        [Parameter] public string selectedId { get; set;}="0";   
+        [Parameter] public string SelectedId { get; set;}="0";   
     #endregion  Declare
     
     #region  BlazorMethods
@@ -110,10 +108,10 @@
         //protected override async Task OnInitializedAsync()
         {
             SrvRole.Init_UserRoleEdit();
-            objUser = SrvUser.GetApplicationUserById(CurrentID);
-            VGetUserRole_List = SrvUser.GetUserRoleById(CurrentID).ToList();
-            ApplicationRole_List=SrvRole.GetApplicationRole().ToList();
-            DiffRoleList   = ApplicationRole_List.Where(x => !VGetUserRole_List.Any(y => x.Id == y.RoleId)).ToList();
+            _objUser = SrvUser.GetApplicationUserById(CurrentId);
+            _vGetUserRoleList = SrvUser.GetUserRoleById(CurrentId).ToList();
+            _applicationRoleList=SrvRole.GetApplicationRole().ToList();
+            _diffRoleList   = _applicationRoleList.Where(x => _vGetUserRoleList.All(y => x.Id != y.RoleId)).ToList();
         } 
 
     #endregion  BlazorMethods
@@ -123,29 +121,29 @@
         private void DiffRoleList_SrchTxt(ChangeEventArgs changeEventArgs)
         {
             string searchValue = changeEventArgs.Value.ToString();
-            DiffRoleList = SrvRole.GetApplicationRoleByFiled(searchValue); 
-            grid_DiffRoleList.GoToFirstPage();       
+            _diffRoleList = SrvRole.GetApplicationRoleByFiled(searchValue); 
+            _gridDiffRoleList.GoToFirstPage();       
         }
         private void VGetUserRole_SchTxt(ChangeEventArgs changeEventArgs)
         {
             string searchValue = changeEventArgs.Value.ToString();
-            VGetUserRole_List = SrvRole.GetVGetUserRoleByFiled(searchValue, @objUser.Id);      
-            grid_VGetUserRole.GoToFirstPage();  
+            _vGetUserRoleList = SrvRole.GetVGetUserRoleByFiled(searchValue, _objUser.Id);      
+            _gridVGetUserRole.GoToFirstPage();  
         }
         private void SelectedRowMeth(string pSelectedRow)
         {
-            selectedRow = pSelectedRow;
-            selectedId = selectedRow;
+            SelectedRow = pSelectedRow;
+            SelectedId = SelectedRow;
             //AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
         }
-        protected void UpdateRoles()
+       private  void UpdateRoles()
         {
-          //  SrvUser.UpdateRoles(objUser);
-            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
+            //SrvUser.UpdateRoles(objUser);
+            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
         }
         void Cancel()
         {
-            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentID);
+            NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
         }
     #endregion  Event
 
