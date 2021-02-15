@@ -522,7 +522,6 @@ E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Core\Help.razor.g.
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\WoorjCmd.runtimeconfig.json
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Blazored.FluentValidation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\FluentValidation.dll
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
@@ -1085,3 +1084,10 @@ E:\KhayolFiles\A_NewProjects\Woorj\obj\Debug\netcoreapp3.1\Woorj.genruntimeconfi
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\WrComponents\WrBr.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\WrComponents\WrBr.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Adm\ApplicationUser\ResetPassword.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Pages\Adm\ApplicationUser\ResetPassword.razor.g.cs
+E:\A_NewProjects\01\Woorj\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\SendGrid.dll
+E:\A_NewProjects\01\Woorj\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll

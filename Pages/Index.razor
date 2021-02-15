@@ -1,11 +1,34 @@
 ﻿@page "/"
+@using SendGrid
+@using SendGrid.Helpers.Mail
   <WrSpace Length=3/>
-  <WrQuestOrMsg TxtSize="h1" Center="true" Color="Blue" Txt="Welcome"/>
+<WrQuestOrMsg TxtSize="h1" Center="true" Color="Blue" Txt="Welcome"/>
+
+@*
+<WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" Txt="TestSendMail" OnClickCallback="@Execute"  TxtToolTip="TestSendMail" />
+*@
+
 @code  {
 protected override void OnInitialized()
 {
 
 }
+  
+  
+  static async Task Execute()
+  {
+    // This   SendGrid Online Service working well for 100 mail in a day 
+    //var apiKey = Environment.GetEnvironmentVariable("KhayolApiKay");
+    var apiKey = "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";
+    var client = new SendGridClient(apiKey); //new SendGridClient(apiKey);
+    var from = new EmailAddress("khayol.job@gmail.com", "khayol.job");
+    var subject = "Sending with SendGrid is Fun";
+    var to = new EmailAddress("woorj@yandex.ru", "woorj");
+    var plainTextContent = "and easy to do anywhere, even with C#";
+    var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+    var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+    var response = await client.SendEmailAsync(msg);
+  }
 }
 
     

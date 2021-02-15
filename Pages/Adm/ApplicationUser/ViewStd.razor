@@ -38,7 +38,9 @@
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-filter" OnClickCallback="@FilterData"  TxtToolTip="Filter" />
             <WrOper Category="RunCmd" Design="btn" Ico="fa fa-file-excel-o" OnClickCallback="@ExportToExcel" TxtToolTip="ExportToExcel"/>
             <WrOper Design="btn" Type="U" Ico="fa fa-hand-paper-o"  Link="/Adm/ApplicationUser/UserRoleEdit/" LinkId=@SelectedId TxtToolTip="EditUserRoles" />
-          
+            
+            <WrOper Category="RunCmd" Design="btn" Ico="fa fa-key" OnClickCallback="@ResetPassword" TxtToolTip="ResetPassword"/>
+                      
         </ControlQuickAccess>
     </WrDataGrid>
   </MainContent></WrAuth>
@@ -96,10 +98,36 @@
        // MainController.GenerateExcel(JSRuntime);
     }
 
+
+    
+    private void ResetPassword()
+    {
+        Console.WriteLine("ResetPass: "+AppData.ActiveUser);
+    }
+    
+
     private void FilterData()
     {
         JSRuntime.InvokeVoidAsync("msgbox", "FilterData");
     }
+    
+
+    public void ResetPassword2()
+    {
+       /*
+        var user = await _userManager.FindByEmailAsync(model.Email);
+  
+        var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
+        if (result.Succeeded)
+        {
+            Console.WriteLine("ResetPass: "+AppData.ActiveUser);
+        }
+        */
+        
+     
+    }
+    
+    
  #endregion Event
 
 }

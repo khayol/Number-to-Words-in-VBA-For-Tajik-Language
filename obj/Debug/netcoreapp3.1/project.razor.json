@@ -778,59 +778,6 @@
         }
       },
       {
-        "HashCode": -1565347023,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationUser.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentId"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationUser.Add"
-        }
-      },
-      {
-        "HashCode": -1156158023,
-        "Kind": "Components.Component",
-        "Name": "Woorj.Pages.Adm.ApplicationUser.Add",
-        "AssemblyName": "Woorj",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Woorj.Pages.Adm.ApplicationUser.Add"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "CurrentId",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "CurrentId"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Woorj.Pages.Adm.ApplicationUser.Add",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -2017046575,
         "Kind": "Components.Component",
         "Name": "Woorj.Pages.Core.Help",

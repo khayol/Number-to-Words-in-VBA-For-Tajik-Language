@@ -2,89 +2,75 @@
 @inject ApplicationUserController SrvUser
 @inject ApplicationRoleController SrvRole
 
-<WrAuth PageName="ContactViewStd"><MainContent>  
+<WrAuth PageName="UserRoleEdit"><MainContent>
+    <div @onclick="MouseEvnt">
+            @* Other  @onmouseover="MouseEvnt" @onmouseout="MouseOut"*@
 
-    <div class="fix-possition">
-        <WrPnlElm>
-            <ControlQuickAccess>
-                    <input type="button" class="btn btn bnt-style-general" @onclick="@Cancel" value="@trs.GetTranslation("Cancel",@AppData.ActiveUser,"General")">
-                    <input type="button" class="btn bnt-style-general" @onclick="@UpdateRoles" value="@trs.GetTranslation("Update",@AppData.ActiveUser,"General")">
-                        <label for="Code" class="control-lable">
-                        &nbsp;&nbsp; &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ",@AppData.ActiveUser,"Adm") &#58; &nbsp;@_objUser.Code &nbsp;&nbsp; @_objUser.UserName &nbsp;&nbsp; @_objUser.FirstName &nbsp; @_objUser.SecondName
-                        </label>
-            </ControlQuickAccess>
-        </WrPnlElm>
-    </div> 
+        <div class="fix-possition">
+            <WrPnlElm>
+                <ControlQuickAccess>
+                    <WrOper Category="EditForm" EditOrView=true TypeInput="button" Txt="Cancel" OnClickCallback="Cancel"/>
+                    <WrOper Category="EditForm" EditOrView=true TypeInput="button" Txt="Update" OnClickCallback="Update"/>
+                    <label for="Code" class="control-lable">
+                        &nbsp;&nbsp; @trs.GetTranslation("TheGroupsOfThisUser ", @AppData.ActiveUser, "Adm") &#58; &nbsp;@_objUser.Code &nbsp;&nbsp; @_objUser.UserName &nbsp;&nbsp; @_objUser.FirstName &nbsp; @_objUser.SecondName
+                    </label>
+                </ControlQuickAccess>
+            </WrPnlElm>
+        </div>
 
 
-
-<div class="under-cls">
-
-  <div class="form-group">
-    <div class="row-pnl-layout">
-
-        <div class="column-pnl-layout ">
+        <div class="under-cls">
+            <div class="form-group">
+                <div class="row-pnl-layout">
+                    <div class="column-pnl-layout ">
                         <div class="nav-pnl-layout">
-                        @* &nbsp;&nbsp;  <input type="button" class="btn btn bnt-style-general"  value="TestBtn"> *@
-                            &nbsp;&nbsp; @trs.GetTranslation("GrantedAccess",@AppData.ActiveUser,"Adm") 
-                        </div>            
-                    <WrDataGrid @ref="_gridVGetUserRole"
-                                DataItems="_vGetUserRoleList"
-                                Columns="@SrvRole.clmDef_VGetUserRole"  
-                                SelectedRow="SelectedRowMeth"
-                                UniqIdOfRecord="RoleId"
-                                ColumnsToExcludeCSV="RoleId,RoleName,Description"
-                                Paging="@(new PagingConfig
-                                            {
-                                                Enabled = true,
-                                                CustomPager = false,
-                                                PageSize = @AppData.rowNumMid
-                                            })">
-                        <ControlQuickAccess>
-                            <WrSrchDGrid  OnSearchTextChanged="VGetUserRole_SchTxt"> </WrSrchDGrid>
-                        </ControlQuickAccess>
-                    </WrDataGrid>
-                    
-                
-        </div>
+                            &nbsp;&nbsp; @trs.GetTranslation("GrantedAccess", @AppData.ActiveUser, "Adm")
+                        </div>
+                        <WrDataGrid @ref="_gridVGetUserRole"
+                                     DataItems="_vGetUserRoleList"
+                                     Columns="@SrvRole.clmDef_VGetUserRole"
+                                     SelectedRow="SelectedRowMeth"
+                                     RefName="GetRefName"
+                                     UniqIdOfRecord="RoleId"
+                                     ColumnsToExcludeCSV="RoleId,RoleName,Description"
+                                     Paging="@(new PagingConfig {Enabled = true, CustomPager = false, PageSize = @AppData.rowNumMid})">
+                            <ControlQuickAccess>
+                                <WrSrchDGrid OnSearchTextChanged="VGetUserRole_SchTxt"> </WrSrchDGrid>
+                            </ControlQuickAccess>
+                        </WrDataGrid>
 
-        <div class="column-pnl-layout" style=" width: 60px; text-align: center;">
-            <br><br><br><br><br>
-            <button class="btn bnt-style-general" data-toggle="tooltip" title="GrantSelectedAccesses"><span class="fa fa-backward" aria-hidden="true"></span></button>
-            <br><br>
-            <button class="btn bnt-style-general" data-toggle="tooltip" title="DeleteSelectedAccesses"><span class="fa fa-forward" aria-hidden="true"></span></button>
-            <br><br><br>
-            <button class="btn bnt-style-general" data-toggle="tooltip" title="GrantAllAccesses"><span class="fa fa-fast-backward" aria-hidden="true"></span></button>
-            <br><br>
-            <button class="btn bnt-style-general" data-toggle="tooltip" title="DeleteAllAccesses"><span class="fa fa-fast-forward" aria-hidden="true"></span></button>
-        </div>
-        
-        <div class="column-pnl-layout">
-                <div class="nav-pnl-layout">
-                    &nbsp;&nbsp; @trs.GetTranslation("NotGrantedAccess",@AppData.ActiveUser,"Adm")   
+
+                    </div>
+
+                    <div class="column-pnl-layout" style=" width: 60px; text-align: center;">
+                        <WrBr LineQ="4"/><WrOper Category="RunCmd" Design="btn" DisabledFlg="DisabledAddBtns" Ico="fa fa-backward" OnClickCallback="@Grant" TxtToolTip="GrantSelectedAccesses" EntityTrn="Adm"/>
+                        <WrBr LineQ="2"/><WrOper Category="RunCmd" Design="btn" DisabledFlg="DisabledExcludeBtns" Ico="fa fa-forward" OnClickCallback="@Exclude" TxtToolTip="DeleteSelectedAccesses" EntityTrn="Adm"/>
+                        <WrBr LineQ="3"/><WrOper Category="RunCmd" Design="btn" DisabledFlg="DisabledAddBtns" Ico="fa fa-fast-backward" OnClickCallback="@GrantAll" TxtToolTip="GrantAllAccesses" EntityTrn="Adm"/>
+                        <WrBr LineQ="2"/><WrOper Category="RunCmd" Design="btn" DisabledFlg="DisabledExcludeBtns" Ico="fa fa-fast-forward" OnClickCallback="@ExcludeAll" TxtToolTip="DeleteAllAccesses" EntityTrn="Adm"/>
+                    </div>
+
+                    <div class="column-pnl-layout">
+                        <div class="nav-pnl-layout">
+                            &nbsp;&nbsp; @trs.GetTranslation("NotGrantedAccess", @AppData.ActiveUser, "Adm")
+                        </div>
+                        <WrDataGrid @ref="_gridDiffRoleList"
+                                     DataItems="_diffRoleList"
+                                     Columns="@SrvRole.clmDef_Role"
+                                     SelectedRow="SelectedRowMeth"
+                                     RefName="GetRefName"
+                                     UniqIdOfRecord="Id"
+                                     ColumnsToExcludeCSV="Id,Name"
+                                     Paging="@(new PagingConfig {Enabled = true, CustomPager = false, PageSize = @AppData.rowNumMid})">
+                            <ControlQuickAccess>
+                                <WrSrchDGrid OnSearchTextChanged="DiffRoleList_SrchTxt"> </WrSrchDGrid>
+                            </ControlQuickAccess>
+                        </WrDataGrid>
+                    </div>
                 </div>
-                    <WrDataGrid @ref="_gridDiffRoleList"
-                                DataItems="_diffRoleList"
-                                Columns="@SrvRole.clmDef_Role"
-                                SelectedRow="SelectedRowMeth"
-                                UniqIdOfRecord="Id"
-                                ColumnsToExcludeCSV="Id,Name"
-                                Paging="@(new PagingConfig
-                                            {
-                                                Enabled = true,
-                                                CustomPager = false,
-                                                PageSize = @AppData.rowNumMid
-                                            })">
-                        <ControlQuickAccess>
-                            <WrSrchDGrid  OnSearchTextChanged="DiffRoleList_SrchTxt"> </WrSrchDGrid>
-                        </ControlQuickAccess>
-                    </WrDataGrid>
+            </div>
+
         </div>
     </div>
-  </div>
-
-</div>             
-
 </MainContent></WrAuth>
 
 @code{
@@ -92,22 +78,28 @@
     #region  Declare
         [Parameter] public string CurrentId { get; set; }
         private string SelectedRow { get; set; } = "";
+        private string SelectedElement { get; set; } = "";
+        private bool DisabledAddBtns { get; set; } = true;
+        private bool DisabledExcludeBtns { get; set; } = true;
         private List<VGetUserRole> _vGetUserRoleList;       
         private List<ApplicationRole> _applicationRoleList; 
         private List<ApplicationRole> _diffRoleList;  
         private WrDataGrid<ApplicationRole> _gridDiffRoleList;      
         private WrDataGrid<VGetUserRole> _gridVGetUserRole; 
-        private ApplicationUser _objUser = new ApplicationUser(); 
+        private ApplicationUser _objUser = new ApplicationUser();
 
-        [Parameter] public string SelectedId { get; set;}="0";   
+    readonly List<string> _grantGroups = new List<string>();
+    readonly List<string> _excludeGroups = new List<string>();
+
+        // [Parameter] public string SelectedId { get; set;}="0";   
     #endregion  Declare
     
     #region  BlazorMethods
         
          protected override void OnInitialized()
         //protected override async Task OnInitializedAsync()
-        {
-            SrvRole.Init_UserRoleEdit();
+         {
+             SrvRole.Init_UserRoleEdit();
             _objUser = SrvUser.GetApplicationUserById(CurrentId);
             _vGetUserRoleList = SrvUser.GetUserRoleById(CurrentId).ToList();
             _applicationRoleList=SrvRole.GetApplicationRole().ToList();
@@ -133,10 +125,17 @@
         private void SelectedRowMeth(string pSelectedRow)
         {
             SelectedRow = pSelectedRow;
-            SelectedId = SelectedRow;
+          //  SelectedId = SelectedRow;
             //AppData.UserRoleEditRoleCode = SrvRole.GetApplicationRoleCodeById(selectedRow);
         }
-       private  void UpdateRoles()
+        private void GetRefName(string pSelectedElement)
+        {
+            SelectedElement = pSelectedElement;
+            Console.WriteLine("========================");  
+            Console.WriteLine("SelectedElement="+SelectedElement);
+            Console.WriteLine("SelectedRow="+SelectedRow);
+        }
+        private  void Update()
         {
             //SrvUser.UpdateRoles(objUser);
             NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
@@ -145,6 +144,77 @@
         {
             NavManager.NavigateTo("/Adm/ApplicationUser/ViewStd/"+CurrentId);
         }
+
+    void PrintGrsntsAndEXcudes()
+    {
+        Console.WriteLine("grantGroup **********************");
+        foreach (var grantGroup in _grantGroups)
+        {
+            Console.WriteLine(grantGroup);
+        }
+        
+        Console.WriteLine("excluseGroup **********************");
+        foreach (var excluseGroup in _excludeGroups)
+        {
+            Console.WriteLine(excluseGroup);
+        }
+        
+    }
+        void Grant()
+        {
+            Console.WriteLine("========================");  
+            Console.WriteLine("GRSAT-----------------------");  
+            Console.WriteLine("SelectedElement="+SelectedElement);
+            Console.WriteLine("SelectedRow="+SelectedRow);
+
+
+            if (!_grantGroups.Contains(SelectedRow)) _grantGroups.Add(SelectedRow);
+            if (_excludeGroups.Contains(SelectedRow)) _excludeGroups.Remove(SelectedRow);
+
+            PrintGrsntsAndEXcudes();
+        }
+        void Exclude()
+        {
+            Console.WriteLine("EXCLUDE-------------------------");
+            Console.WriteLine("Exclude SelectedRow="+SelectedRow);
+            if (_grantGroups.Contains(SelectedRow)) _grantGroups.Remove(SelectedRow);
+            if (!_excludeGroups.Contains(SelectedRow)) _excludeGroups.Add(SelectedRow);
+            
+            PrintGrsntsAndEXcudes();
+        }
+        void GrantAll()
+        {
+            Console.WriteLine("GrantAll SelectedRow="+SelectedRow); 
+        }
+        void ExcludeAll()
+        {
+            Console.WriteLine("ExcludeAll SelectedRow="+SelectedRow);  
+        }
+
+    void MouseEvnt()
+    {
+        if (SelectedElement.ToString() == "VGetUserRole".ToString() && !string.IsNullOrEmpty(SelectedRow))
+        {
+            DisabledAddBtns = true;
+            DisabledExcludeBtns = false;
+            
+        }else if (SelectedElement.ToString() == "ApplicationRole".ToString()  && !string.IsNullOrEmpty(SelectedRow))
+        {
+            DisabledAddBtns = false;
+            DisabledExcludeBtns = true;
+        }
+        else
+        {
+            DisabledAddBtns = true;
+            DisabledExcludeBtns = true;
+        }
+
+    }
+    void MouseOut()
+    {
+        
+    }
+
     #endregion  Event
 
 }

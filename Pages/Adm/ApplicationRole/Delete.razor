@@ -3,33 +3,33 @@
 
 <WrAuth PageName="ApplicationRoleDelete"><MainContent>  
 
-<EditForm Model="@_objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
+    <EditForm Model="@_objMain" OnValidSubmit="@DeleteRow" OnInvalidSubmit="@Cancel" Context="formContext">  
    
-    <WrPnlElm>
-        <ControlQuickAccess>
+        <WrPnlElm>
+            <ControlQuickAccess>
                 <WrOper Category="EditForm" TypeInput="button" Txt="Cancel"  OnClickCallback="Cancel"/>
                 <WrOper Category="EditForm" TypeInput="submit" Txt="Delete"/>
-        </ControlQuickAccess>
-    </WrPnlElm>
+            </ControlQuickAccess>
+        </WrPnlElm>
 
-    <WrFormBody>
-        <FormElements>
-              <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
+        <WrFormBody>
+            <FormElements>
+                <WrQuestOrMsg Txt="AreYouSureToDeteteRow"  Color="Black" BackgroundColor="yellow" />
            
-            <WrFieldInt TransEntity="General" FieldCaption="Code" 
-            Readonly="true" Val="@_objMain.Code" />
+                <WrFieldInt TransEntity="General" FieldCaption="Code" 
+                            Readonly="true" Val="@_objMain.Code" />
 
-            <WrFieldStr Readonly="true" FieldCaption="Name"
-            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
+                <WrFieldStr Readonly="true" FieldCaption="Name"
+                            TransEntity="General"  @bind-BindingValue ="@_objMain.Name"/> 
 
-            <WrFieldStr Readonly="true" FieldCaption="NormalizedName"
-            TransEntity="General"  @bind-BindingValue ="@_objMain.NormalizedName"/>
+                <WrFieldStr Readonly="true" FieldCaption="NormalizedName"
+                            TransEntity="General"  @bind-BindingValue ="@_objMain.NormalizedName"/>
 
-            <WrFieldStr Readonly="true" FieldCaption="Description"
-            TransEntity="General"  @bind-BindingValue ="@_objMain.Description"/>
+                <WrFieldStr Readonly="true" FieldCaption="Description"
+                            TransEntity="General"  @bind-BindingValue ="@_objMain.Description"/>
 
-        </FormElements>      
-    </WrFormBody>    
+            </FormElements>      
+        </WrFormBody>    
     </EditForm>    
 </MainContent></WrAuth>
 

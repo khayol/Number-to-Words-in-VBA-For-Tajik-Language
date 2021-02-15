@@ -29,7 +29,7 @@
     }else if (Design.ToUpper().Trim()=="btn".ToUpper()) 
     {
        Cls="btn bnt-style-general";
-      <button class="@Cls.ToLower()" @onclick="OnClickCallback"
+      <button class="@Cls.ToLower()" disabled="@DisabledFlg" @onclick="OnClickCallback"
          data-toggle="tooltip"  title="@trs.GetTranslation(@TxtToolTip,@AppData.ActiveUser,@EntityTrn)">
       <span class="@Ico.ToLower()" aria-hidden="true">@trs.GetTranslation(@Txt,@AppData.ActiveUser,@EntityTrn)</span>
       </button>
@@ -75,6 +75,7 @@
     [Parameter] public string Ico { get; set; }=""; 
     [Parameter] public bool EditOrView{ get; set; }=false;
     [Parameter] public bool ReadonlyOther { get; set; }=false; 
+    [Parameter] public bool DisabledFlg { get; set; }=false; 
     [Parameter] public string CancelOrBeckTxt { get; set; }=""; 
     [Parameter] public string Category { get; set; }="CRUD"; 
     [Parameter] public string Type { get; set; }=""; 

@@ -18,3 +18,16 @@ ALTER DATABASE [Woorj555304B42405CA2E5BD2454CC54DF6] SET MULTI_USER
 GO
 
 ====================================================================
+Forgot Password With SendGrid
+KhayolApiKay
+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
+
+dotnet add package Sendgrid --version 9.19.0
+
+dotnet user-secrets set SendGridUser KhayolApiKay
+
+dotnet user-secrets set SendGridKey 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
+
+On Windows, Secret Manager stores keys/value pairs in a secrets.json file in the
+ C:\Users\khayol.n\AppData\Roaming\Microsoft\UserSecrets\aspnet-Woorj-58B30417-7B72-405C-A2E5-BD2450CC5DF6
+ 

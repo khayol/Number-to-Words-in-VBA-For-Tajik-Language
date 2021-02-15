@@ -20,6 +20,7 @@ using Woorj.CtrServerSide.Dir;
 using Newtonsoft.Json.Serialization;
 using FluentValidation;
 using System;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Woorj
 {
@@ -54,10 +55,20 @@ namespace Woorj
 
                 services.AddHttpContextAccessor();
                 services.AddControllers();
-            
-            
                 
-            #endregion MainSettingRegion
+                
+            #endregion MainSettingRegion    
+            
+            #region MailServices
+                            
+            services.Configure<DataProtectionTokenProviderOptions>(o =>
+                o.TokenLifespan = TimeSpan.FromHours(3));
+            
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+            
+            
+            #endregion MailServices
 
             #region ForWebAPI
 
@@ -139,6 +150,7 @@ namespace Woorj
                 options.Password.RequireDigit = gv.requireDigit;
                 options.Password.RequiredLength = gv.requiredLength;
                 options.Password.RequireNonAlphanumeric = gv.requireNonAlphanumeric;
+               // options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyz";
                 options.Password.RequireUppercase = gv.requireUppercase;
                 options.Password.RequireLowercase = gv.requireLowercase;
                 options.Password.RequiredUniqueChars = gv.requiredUniqueChars;
@@ -148,6 +160,8 @@ namespace Woorj
                 options.Lockout.AllowedForNewUsers = gv.allowedForNewUsers;
                 // User settings  
                 options.User.RequireUniqueEmail = gv.requireUniqueEmail;
+                //perform Email Confirmation of Users
+                options.SignIn.RequireConfirmedEmail = true;
             });
 
             // Seting the Account Login page

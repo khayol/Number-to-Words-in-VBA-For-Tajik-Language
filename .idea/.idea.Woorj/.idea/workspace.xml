@@ -23,17 +23,8 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/Add.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/Delete.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/Edit.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/EditRoles.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/ViewStd.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/Add.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/Delete.razor" />
       <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/Edit.razor" />
       <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/Settings.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/UserRoleEdit.razor" />
-      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/ViewStd.razor" />
       <option value="$PROJECT_DIR$/Pages/Core/Help.razor" />
       <option value="$PROJECT_DIR$/Pages/Dir/Contact/Add.razor" />
       <option value="$PROJECT_DIR$/Pages/Dir/Contact/Delete.razor" />
@@ -62,11 +53,27 @@
       <option value="$PROJECT_DIR$/Pages/IndOrg/Individual/ViewStdSimpleTable.razor" />
       <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
       <option value="$PROJECT_DIR$/Pages/WrComponents/WrCombo.razor" />
-      <option value="$PROJECT_DIR$/Pages/WrComponents/WrDataGrid.razor" />
       <option value="$PROJECT_DIR$/Pages/WrComponents/WrEditView4.razor" />
-      <option value="$PROJECT_DIR$/Pages/WrComponents/WrOper.razor" />
       <option value="$PROJECT_DIR$/Pages/WrComponents/WrTbl.razor" />
       <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
+      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/Delete.razor" />
+      <option value="$PROJECT_DIR$/Pages/WrComponents/WrBr.razor" />
+      <option value="$PROJECT_DIR$/Pages/WrComponents/WrAuth.razor" />
+      <option value="$PROJECT_DIR$/Pages/WrComponents/WrOper.razor" />
+      <option value="$PROJECT_DIR$/Pages/WrComponents/WrDataGrid.razor" />
+      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/UserRoleEdit.razor" />
+      <option value="$PROJECT_DIR$/Services/ChangePasswordSrv.cs" />
+      <option value="$PROJECT_DIR$/_Imports.razor" />
+      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/ResetPassword.razor" />
+      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationUser/ViewStd.razor" />
+      <option value="$PROJECT_DIR$/appsettings.json" />
+      <option value="$PROJECT_DIR$/Services/AuthMessageSenderOptions.cs" />
+      <option value="$PROJECT_DIR$/ReadMe.txt" />
+      <option value="$PROJECT_DIR$/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml.cs" />
+      <option value="$PROJECT_DIR$/Pages/Adm/ApplicationRole/Add.razor" />
+      <option value="$PROJECT_DIR$/Services/EmailSender.cs" />
+      <option value="$PROJECT_DIR$/Pages/Index.razor" />
+      <option value="$PROJECT_DIR$/Startup.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nvp8h4IUfjge0QIn4Ckgy0naKH" />
@@ -77,9 +84,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Woorj">
@@ -124,7 +134,15 @@
       <updated>1612280266989</updated>
       <workItem from="1612280279922" duration="741000" />
       <workItem from="1612281115801" duration="245000" />
-      <workItem from="1612320513952" duration="2010000" />
+      <workItem from="1612320513952" duration="22472000" />
+      <workItem from="1612410736032" duration="6908000" />
+      <workItem from="1612600113321" duration="2952000" />
+      <workItem from="1612757973568" duration="612000" />
+      <workItem from="1612781485359" duration="1837000" />
+      <workItem from="1612841779904" duration="221000" />
+      <workItem from="1612849938290" duration="10133000" />
+      <workItem from="1613115747819" duration="2154000" />
+      <workItem from="1613363910007" duration="11994000" />
     </task>
     <servers />
   </component>
@@ -133,6 +151,18 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
@@ -140,22 +170,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Pages/Adm/ApplicationUser/UserRoleEdit.razor</url>
-          <line>91</line>
-          <properties documentPath="E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\UserRoleEdit.razor" initialLine="91" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Pages/Adm/ApplicationUser/ViewStd.razor</url>
-          <line>68</line>
+          <line>70</line>
           <properties documentPath="E:\A_NewProjects\01\Woorj\Pages\Adm\ApplicationUser\ViewStd.razor" initialLine="68" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
             <startOffsets>
@@ -182,9 +198,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Pages/WrComponents/WrDataGrid.razor</url>
-          <line>400</line>
-          <properties documentPath="E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrDataGrid.razor" initialLine="400" isMultiMethodBreakpoint="true">
+          <url>file://$PROJECT_DIR$/Pages/WrComponents/WrOper.razor</url>
+          <line>70</line>
+          <properties documentPath="E:\A_NewProjects\01\Woorj\Pages\WrComponents\WrOper.razor" initialLine="70" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
             <startOffsets>
               <option value="-1" />
@@ -193,7 +209,7 @@
               <option value="-1" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

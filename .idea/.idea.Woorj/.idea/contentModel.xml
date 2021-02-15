@@ -3,6 +3,8 @@
   <component name="ContentModelStore">
     <e p="C:\Users\khayol.n\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\khayol.n\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Woorj.-1157298270.00" t="ExcludeRecursive" />
+    <e p="C:\Users\khayol.n\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\khayol.n\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
     <e p="E:\A_NewProjects\01\Woorj" t="IncludeRecursive">
       <e p="_Imports.razor" t="Include" />
       <e p="App.razor" t="Include" />
@@ -10,8 +12,12 @@
       <e p="appsettings.json" t="Include" />
       <e p="Areas" t="Include">
         <e p="Identity" t="Include">
+          <e p="Data" t="Include">
+            <e p="WoorjIdentityDbContext.cs" t="Include" />
+          </e>
           <e p="IdentityHostingStartup.cs" t="Include" />
           <e p="Pages" t="Include">
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="_ViewImports.cshtml" t="Include" />
             <e p="_ViewStart.cshtml" t="Include" />
             <e p="Account" t="Include">
@@ -239,6 +245,7 @@
             <e p="Add.razor" t="Include" />
             <e p="Delete.razor" t="Include" />
             <e p="Edit.razor" t="Include" />
+            <e p="ResetPassword.razor" t="Include" />
             <e p="Settings.razor" t="Include" />
             <e p="UserRoleEdit.razor" t="Include" />
             <e p="View.razor" t="Include" />
@@ -336,6 +343,7 @@
         </e>
         <e p="WrComponents" t="Include">
           <e p="WrAuth.razor" t="Include" />
+          <e p="WrBr.razor" t="Include" />
           <e p="WrCombo.razor" t="Include" />
           <e p="WrDataGrid.razor" t="Include" />
           <e p="WrEditView4.razor" t="Include" />
@@ -379,8 +387,10 @@
       <e p="Services" t="Include">
         <e p="AdmService.cs" t="Include" />
         <e p="AppData.cs" t="Include" />
+        <e p="AuthMessageSenderOptions.cs" t="Include" />
         <e p="CoreService.cs" t="Include" />
         <e p="CustomTranslator.cs" t="Include" />
+        <e p="EmailSender.cs" t="Include" />
         <e p="GlobVar.cs" t="Include" />
         <e p="GlobVarStat.cs" t="Include" />
         <e p="GnrSrv.cs" t="Include" />
@@ -400,8 +410,6 @@
       <e p="Startup.cs" t="Include" />
       <e p="Woorj.csproj" t="IncludeRecursive" />
       <e p="Woorj.sln" t="IncludeFlat" />
-      <e p="WoorjCmd.dll" t="Include" />
-      <e p="WoorjCmd.runtimeconfig.json" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="bootstrap" t="Include">

@@ -2,7 +2,9 @@
 @using System.Reflection
 @inject GnrSrv GnrSrv 
 @* @inject IStringLocalizer<IndividualViewStd> LL  *@
-    
+
+@* string testData1 = @item.GetType().GetProperty(this.UniqIdOfRecord).GetValue(item).ToString(); *@
+
 @if (!string.IsNullOrWhiteSpace(ErrorMessage))
 {
 <div class="notification is-danger">
@@ -12,6 +14,8 @@
 }
 else
 {
+    string modelName = StatCls.GetModelNameFromObject(DataItems);
+    <div  @onclick="@(e=>@MouseEvnt(modelName))" >
 <div class="panel-elements">
     <div class="row ">
         <div>
@@ -190,7 +194,7 @@ else
     </tbody>
 </table>
 </div>
-
+</div>
 }
 
 
@@ -216,6 +220,7 @@ private string ErrorMessage;
 [Parameter] public List<TItem> DataItems { get; set; }
 [Parameter] public List<ColumnDefinition> Columns { get; set; }
 [Parameter] public EventCallback<string> SelectedRow { get; set; } 
+[Parameter] public EventCallback<string> RefName { get; set; } 
 
 #endregion  Declare_Region
 
@@ -232,7 +237,12 @@ private string ErrorMessage;
     public async Task ClickOnTheRecord(string pIdOfRecord)
     {
         await SelectedRow.InvokeAsync(pIdOfRecord);
-         await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
+        await JSRuntime.InvokeVoidAsync("SelectedCellColorChange");
+    }
+    
+    public async Task MouseEvnt(string pRefName)
+    {   
+        await RefName.InvokeAsync(pRefName);
     }
 
     public async Task DoubleClickOnTheData(TItem item, ColumnDefinition column, string pCurrLink, string pIdOfRecord,
